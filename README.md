@@ -1,6 +1,7 @@
 # React Redux Boilerplate
 
-[![MIT License](https://img.shields.io/github/license/alan2207/bulletproof-react)](https://github.com/alan2207/bulletproof-react/blob/master/LICENCE)
+[![MIT License](https://img.shields.io/github/license/marcoturi/react-redux-boilerplate)](https://github.com/alan2207/bulletproof-react/blob/master/LICENCE) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/marcoturi/react-redux-boilerplate/release.yml)
+
 
 A meticulously crafted, extensible, and robust architecture for constructing production-grade React applications.
 The project aim to provide guidelines on the development key points of a long term React project:
