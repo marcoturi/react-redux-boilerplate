@@ -80,7 +80,7 @@
     "@typescript-eslint/eslint-plugin": "6.19.0",
     "@typescript-eslint/parser": "6.19.0",
     "@vitejs/plugin-react-swc": "3.5.0",
-    "autoprefixer": "10.4.16",
+    "autoprefixer": "10.4.17",
     "cssnano": "6.0.3",
     "cucumber-console-formatter": "1.0.0",
     "cucumber-html-reporter": "7.1.1",
