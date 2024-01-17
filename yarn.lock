@@ -3419,12 +3419,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.11.3":
-  version: 20.11.3
-  resolution: "@types/node@npm:20.11.3"
+"@types/node@npm:20.11.5":
+  version: 20.11.5
+  resolution: "@types/node@npm:20.11.5"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10e58b526efc73ac6e6a54466ec9e8f39a6a24aba902abc91cc2f85dbbe2bf1b4c84d941106036275b335a867d664009679136345c491dd642b953217d859ebb
+  checksum: 6d18cec852f5cfbed3ec42b5c01c026e7a3f9da540d6e3d6738d4cee9979fb308cf27b6df7ba40a6553e7bc82e678f0ef53ba6e6ad52e5b86bd97b7783c2a42c
   languageName: node
   linkType: hard
 
@@ -10764,7 +10764,7 @@ __metadata:
     "@semantic-release/release-notes-generator": "npm:12.1.0"
     "@sentry/react": "npm:7.93.0"
     "@trivago/prettier-plugin-sort-imports": "npm:4.3.0"
-    "@types/node": "npm:20.11.3"
+    "@types/node": "npm:20.11.5"
     "@types/ramda": "npm:0.29.9"
     "@types/react": "npm:18.2.48"
     "@types/react-dom": "npm:18.2.18"
