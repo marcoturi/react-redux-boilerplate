@@ -1,5 +1,5 @@
-import Container from '@/UI/Elements/Container/Container';
-import Text from '@/UI/Elements/Text';
+import { Container } from '@/UI/Elements/Container';
+import { Text } from '@/UI/Elements/Text';
 
 function HomePage() {
   return (

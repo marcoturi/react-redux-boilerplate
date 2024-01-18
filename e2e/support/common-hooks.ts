@@ -1,4 +1,5 @@
 import AppPo from '../page-objects/app.po';
+import SubscriptionPo from '../page-objects/subscription.po';
 import config from './config';
 import { ICustomWorld } from './custom-world';
 import {
@@ -26,48 +27,54 @@ let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 const tracesDir = 'traces';
 
 declare global {
-  // eslint-disable-next-line no-var
+  // eslint-disable-next-line no-var, vars-on-top
   var browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 }
 
 export interface PageObjects {
   pageObjects?: {
     appPo: ReturnType<typeof AppPo>;
+    subscriptionPo: ReturnType<typeof SubscriptionPo>;
   };
 }
 
 setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
 
-BeforeAll(async function () {
+BeforeAll(async () => {
   switch (config.browser) {
-    case 'firefox':
+    case 'firefox': {
       browser = await firefox.launch(config.browserOptions);
       break;
-    case 'webkit':
+    }
+    case 'webkit': {
       browser = await webkit.launch(config.browserOptions);
       break;
-    default:
+    }
+    default: {
       browser = await chromium.launch(config.browserOptions);
+    }
   }
   await ensureDir(tracesDir);
 });
 
-Before({ tags: '@pending' }, async function () {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return 'skipped' as any;
-});
+Before(
+  { tags: '@pending' },
+  () =>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    'skipped' as any,
+);
 
-Before({ tags: '@debug' }, async function (this: ICustomWorld) {
+Before({ tags: '@debug' }, function (this: ICustomWorld) {
   this.debug = true;
 });
 
-Before({ tags: '@mobile' }, async function (this: ICustomWorld) {
+Before({ tags: '@mobile' }, function (this: ICustomWorld) {
   this.mobile = true;
 });
 
 Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
   this.startTime = new Date();
-  this.testName = pickle.name.replace(/\W/g, '-');
+  this.testName = pickle.name.replaceAll(/\W/g, '-');
   // customize the [browser context](https://playwright.dev/docs/next/api/class-browser#browsernewcontextoptions)
 
   const isMobile = this.mobile ? devices['iPhone 14 Pro'] : {};
@@ -80,21 +87,22 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
 
   await this.context.tracing.start({ screenshots: true, snapshots: true });
   this.page = await this.context.newPage();
-  this.page.on('console', async (msg: ConsoleMessage) => {
+  this.page.on('console', (msg: ConsoleMessage) => {
     if (msg.type() === 'log') {
-      await this.attach(msg.text());
+      this.attach(msg.text());
     }
   });
   this.feature = pickle;
 
   this.pageObjects = {
-    appPo: AppPo(this.page!),
+    appPo: AppPo(this.page),
+    subscriptionPo: SubscriptionPo(this.page),
   };
 });
 
 After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
   if (result) {
-    await this.attach(
+    this.attach(
       `Status: ${result?.status}. Duration:${result.duration?.seconds}s`,
     );
 
@@ -102,13 +110,14 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
       const image = await this.page?.screenshot();
 
       // Replace : with _ because colons aren't allowed in Windows paths
-      // @ts-ignore
       const timePart = this.startTime
         ?.toISOString()
         .split('.')[0]
-        .replace(new RegExp(':', 'g'), '_');
+        .replaceAll(':', '_');
 
-      image && (await this.attach(image, 'image/png'));
+      if (image) {
+        this.attach(image, 'image/png');
+      }
       await this.context?.tracing.stop({
         path: `${tracesDir}/${this.testName}-${timePart}trace.zip`,
       });
@@ -118,6 +127,6 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
   await this.context?.close();
 });
 
-AfterAll(async function () {
+AfterAll(async () => {
   await browser.close();
 });

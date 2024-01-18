@@ -3,11 +3,11 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from '@/UI/Elements/Navigation/NavigationMenu';
-import { navigationMenuTriggerStyle } from '@/UI/Elements/Navigation/NavigationMenuStyle';
+  navigationMenuTriggerStyle,
+} from '@/UI/Elements/Navigation';
 
 type Props = {
-  menuItems: any;
+  menuItems: { label: string; href: string; testId: string }[];
 };
 
 function Menu({ menuItems }: Props) {
@@ -17,6 +17,7 @@ function Menu({ menuItems }: Props) {
         {menuItems.map((item) => (
           <NavigationMenuItem key={item.label}>
             <NavigationMenuLink
+              data-testid={item.testId}
               href={item.href}
               className={navigationMenuTriggerStyle()}
             >

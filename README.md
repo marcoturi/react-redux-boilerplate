@@ -2,7 +2,6 @@
 
 [![MIT License](https://img.shields.io/github/license/marcoturi/react-redux-boilerplate)](https://github.com/alan2207/bulletproof-react/blob/master/LICENCE) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/marcoturi/react-redux-boilerplate/release.yml)
 
-
 A meticulously crafted, extensible, and robust architecture for constructing production-grade React applications.
 The project aim to provide guidelines on the development key points of a long term React project:
 
@@ -24,6 +23,7 @@ The project aim to provide guidelines on the development key points of a long te
 - E2E testing: Cucumber + Playwright
 
 ## 👉 Table of Contents
+
 - [Folder Structure and Code Organization](#folder)
 - [State management: Why redux?](#state)
 - [UI Components and Style system](#ui)

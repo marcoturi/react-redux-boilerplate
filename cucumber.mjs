@@ -13,11 +13,10 @@ const config = {
     'html:reports/index.html',
     'summary',
     'progress-bar',
-    '@cucumber/pretty-formatter'
+    '@cucumber/pretty-formatter',
   ],
   formatOptions: { snippetInterface: 'async-await' },
   worldParameters: getWorldParams(),
 };
-
 
 export default config;

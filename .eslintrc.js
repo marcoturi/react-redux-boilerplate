@@ -41,7 +41,11 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
+    project: [
+      './tsconfig.json',
+      './tsconfig.node.json',
+      './e2e/tsconfig.e2e.json',
+    ],
   },
   ignorePatterns: [
     '/.cache',
@@ -72,6 +76,7 @@ module.exports = {
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/no-unsafe-return': 'off',
     '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/prefer-nullish-coalescing': 'off',
     'import/extensions': 'off',
     'import/no-cycle': 'off',
     'import/no-extraneous-dependencies': 'off',
@@ -79,6 +84,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'no-restricted-exports': 'off',
     'no-undef': 'off',
+    'func-names': 'off',
     'no-unused-vars': 'off',
     'no-use-before-define': 'off',
     'promise/always-return': 'off',

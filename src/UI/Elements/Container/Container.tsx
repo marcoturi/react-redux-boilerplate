@@ -3,7 +3,7 @@ import { Container as RadixContainer } from '@radix-ui/themes';
 // @ts-expect-error fix import type
 import type { ContainerProps } from '@radix-ui/themes/dist/esm/components/container';
 
-function Container(props: ContainerProps) {
+export function Container(props: ContainerProps) {
   const { className, ...other } = props;
   return (
     <RadixContainer
@@ -12,5 +12,3 @@ function Container(props: ContainerProps) {
     />
   );
 }
-
-export default Container;

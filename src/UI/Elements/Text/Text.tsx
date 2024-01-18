@@ -3,7 +3,7 @@ import { Text as RadiText } from '@radix-ui/themes';
 // @ts-expect-error fix import type
 import type { TextProps } from '@radix-ui/themes/dist/esm/components/text';
 
-function Text(props: TextProps) {
+export function Text(props: TextProps) {
   let additionalClasses = '';
   if (props.as === 'p') {
     additionalClasses = 'leading-7 [&:not(:first-child)]:mt-6';
@@ -16,5 +16,3 @@ function Text(props: TextProps) {
     />
   );
 }
-
-export default Text;

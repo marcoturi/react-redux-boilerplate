@@ -35,11 +35,13 @@ export interface ICustomWorld extends World, PageObjects {
 }
 
 export class CustomWorld extends World implements ICustomWorld {
+  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor(options: IWorldOptions) {
     super(options);
   }
 
   debug = false;
+
   mobile = false;
 }
 

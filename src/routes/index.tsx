@@ -1,7 +1,7 @@
 import { Header } from '@/UI/Elements/Header';
 import UserWidget from '@/features/user/components/UserWidget';
 import HomePage from '@/routes/Home/HomePage';
-import SettingsPage from '@/routes/Settings/SettingsPage';
+import SubscriptionsPage from '@/routes/Subscriptions/SubscriptionsPage';
 import { useRoutes } from 'react-router-dom';
 
 export function AppRoutes() {
@@ -11,8 +11,8 @@ export function AppRoutes() {
       element: <HomePage />,
     },
     {
-      path: '/settings',
-      element: <SettingsPage />,
+      path: '/subscriptions',
+      element: <SubscriptionsPage />,
     },
   ];
 
@@ -23,8 +23,12 @@ export function AppRoutes() {
       <Header
         rightWidget={<UserWidget />}
         menuItems={[
-          { label: 'Home', href: '/' },
-          { label: 'Settings', href: '/settings' },
+          { label: 'Home', href: '/', testId: 'home-link' },
+          {
+            label: 'Subscriptions',
+            href: '/subscriptions',
+            testId: 'subscription-link',
+          },
         ]}
       />
       {element}

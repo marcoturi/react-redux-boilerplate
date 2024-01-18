@@ -1,9 +1,13 @@
+import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
+
 export enum SettingsKey {
-  test = 'test',
+  filters = 'filters',
 }
 
 export type SettingsState = {
-  [SettingsKey.test]: boolean;
+  [SettingsKey.filters]: {
+    filterSubscriptionsBy: SubscriptionFilters;
+  };
 };
 
 export interface SetValuePayload {
