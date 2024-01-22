@@ -3449,12 +3449,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ramda@npm:0.29.9":
-  version: 0.29.9
-  resolution: "@types/ramda@npm:0.29.9"
+"@types/ramda@npm:0.29.10":
+  version: 0.29.10
+  resolution: "@types/ramda@npm:0.29.10"
   dependencies:
-    types-ramda: "npm:^0.29.6"
-  checksum: 9f4204afaa8f8f6d69e0e461287fb1a26df44e9b521c093905cf2b35862d82f54f1b6ed08db467275e471bd758b75f1b1e96c21a29a5c388f1f3a40bd7cb739f
+    types-ramda: "npm:^0.29.7"
+  checksum: 3aaa75e172a75ad4f236a348cd26c15ff80e71111c9d6e434e0c9acff71f5c9485ff41c6b62fb77bcca771c0942c6443e9fc46b611363c3d867f83a8d856301a
   languageName: node
   linkType: hard
 
@@ -10803,7 +10803,7 @@ __metadata:
     "@sentry/react": "npm:7.93.0"
     "@trivago/prettier-plugin-sort-imports": "npm:4.3.0"
     "@types/node": "npm:20.11.5"
-    "@types/ramda": "npm:0.29.9"
+    "@types/ramda": "npm:0.29.10"
     "@types/react": "npm:18.2.48"
     "@types/react-dom": "npm:18.2.18"
     "@typescript-eslint/eslint-plugin": "npm:6.19.0"
@@ -12779,12 +12779,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"types-ramda@npm:^0.29.6":
-  version: 0.29.6
-  resolution: "types-ramda@npm:0.29.6"
+"types-ramda@npm:^0.29.7":
+  version: 0.29.7
+  resolution: "types-ramda@npm:0.29.7"
   dependencies:
     ts-toolbelt: "npm:^9.6.0"
-  checksum: 89857597ea3242437a97f35980fd022e9ab388ee99ec51eb5a808bea51fbe84df211b32f8f04fedbd246c16fb4820d1944e2ac7e416932e9655bcfb1b9c70d7b
+  checksum: 605c5a4be09f3e3617da99c129ccff7af0ead2e1c5f62b0756af77e574225479d2842b4577dd217f89063583310d71cefe2d7c4687a76a85b7bd23c9f1dea48b
   languageName: node
   linkType: hard
 
