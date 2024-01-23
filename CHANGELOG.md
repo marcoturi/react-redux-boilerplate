@@ -1,3 +1,5 @@
+## [1.1.1](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.1.0...v1.1.1) (2024-01-23)
+
 # [1.1.0](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.0.0...v1.1.0) (2024-01-18)
 
 
