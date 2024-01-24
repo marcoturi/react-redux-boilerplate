@@ -43,7 +43,7 @@
     "@radix-ui/react-select": "2.0.0",
     "@radix-ui/react-switch": "1.0.3",
     "@radix-ui/themes": "2.0.3",
-    "@reduxjs/toolkit": "2.0.1",
+    "@reduxjs/toolkit": "2.1.0",
     "@sentry/react": "7.95.0",
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.0",
