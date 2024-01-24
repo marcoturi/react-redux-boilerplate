@@ -40,7 +40,7 @@ export function SubscriptionFilter() {
     >
       <SelectTrigger
         className="w-[180px]"
-        data-testid="filter-container"
+        data-testid="filter-trigger"
       >
         <SelectValue placeholder="Filter subscriptions" />
       </SelectTrigger>

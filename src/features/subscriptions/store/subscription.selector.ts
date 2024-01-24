@@ -24,6 +24,9 @@ export const getSubscriptionListFiltered = createSelector(
   subscriptionApi.endpoints.getSubscriptions.select(),
   (state) => SettingsSelectors.getSettingByKey(state)(SettingsKey.filters),
   (s: { data: Subscription[] }, f): Subscription[] => {
+    if (!s.data) {
+      return [];
+    }
     if (f.filterSubscriptionsBy === SubscriptionFilters.All) {
       return s.data;
     }
