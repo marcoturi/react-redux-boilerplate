@@ -10,9 +10,12 @@ Given(/^user open the app$/, async function (this: ICustomWorld) {
   await this.page.goto(this.parameters.SERVER_URL);
 });
 
-Given(/^user open the "([^"]*)" page$/, async function (this: ICustomWorld, page) {
-  await this.page.goto(`${this.parameters.SERVER_URL}/${page}`);
-});
+Given(
+  /^user open the "([^"]*)" page$/,
+  async function (this: ICustomWorld, page) {
+    await this.page.goto(`${this.parameters.SERVER_URL}/${page}`);
+  },
+);
 
 Given(/^user reload current page$/, async function (this: ICustomWorld) {
   await this.page.reload();
