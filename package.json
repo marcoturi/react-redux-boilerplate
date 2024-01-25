@@ -57,7 +57,7 @@
     "react-router-dom": "6.21.3",
     "tailwind-merge": "2.2.1",
     "tailwindcss-animate": "1.0.7",
-    "web-vitals": "3.5.1"
+    "web-vitals": "3.5.2"
   },
   "devDependencies": {
     "@commitlint/cli": "18.5.0",
