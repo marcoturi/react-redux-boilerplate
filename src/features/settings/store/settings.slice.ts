@@ -8,7 +8,7 @@ import {
 import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialStorageState: SettingsState = {
+export const initialStorageState: SettingsState = {
   [SettingsKey.filters]: {
     filterSubscriptionsBy: SubscriptionFilters.All,
   },
