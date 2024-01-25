@@ -31,5 +31,22 @@ export default defineConfig({
       '**/dist/**',
       '**/**.mocks.spec.ts',
     ],
+    coverage: {
+      reporter: ['text', 'html'],
+      exclude: [
+        '_snapshots_',
+        '.eslint*',
+        '.prettier*',
+        'coverage',
+        'dist/**',
+        '**/test/**',
+        'e2e/**',
+        'public/**',
+        '*.mjs',
+        '*.cjs',
+        'reportWebVitals.ts',
+        'vite-env.d.ts',
+      ],
+    },
   },
 } as VitestConfigExport);

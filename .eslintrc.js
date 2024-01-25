@@ -53,6 +53,7 @@ module.exports = {
     '/.husky',
     '/.yarn',
     'dist',
+    'coverage',
     'build/**',
     'vite.config.mts',
     'vitest.setup.ts',
