@@ -24,6 +24,7 @@ export default defineConfig({
   test: {
     globals: true,
     root: __dirname,
+    environment: 'jsdom',
     setupFiles: ['./scripts/vitest.setup.ts'],
     exclude: [
       ...configDefaults.exclude,
@@ -44,8 +45,11 @@ export default defineConfig({
         'public/**',
         '*.mjs',
         '*.cjs',
-        'reportWebVitals.ts',
-        'vite-env.d.ts',
+        '*.effect.tsx',
+        '*/reportWebVitals.ts',
+        '*/main.tsx',
+        '*/AppProvider.tsx',
+        '*/vite-env.d.ts',
       ],
     },
   },

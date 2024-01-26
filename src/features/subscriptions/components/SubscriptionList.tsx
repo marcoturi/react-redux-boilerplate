@@ -1,5 +1,5 @@
 import { SubscriptionApi, SubscriptionSelectors } from '../store';
-import { SkeletonList } from '@/UI/Elements/Skeleton/Skeleton';
+import { SkeletonList } from '@/UI/Elements/Skeleton';
 import { useAppSelector } from '@/core/store/types';
 import { SubscriptionCard } from '@/features/subscriptions/components';
 

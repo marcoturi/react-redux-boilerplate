@@ -2,7 +2,7 @@ import env from '../config/env';
 import baseApi from '@/core/store/api';
 import { storageMiddleware } from '@/features/settings/store/settings.effect';
 import { settingsSlice } from '@/features/settings/store/settings.slice';
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import * as Sentry from '@sentry/react';
 
 Sentry.init({
@@ -19,11 +19,13 @@ Sentry.init({
 
 const sentryReduxEnhancer = Sentry.createReduxEnhancer();
 
-export const store = configureStore({
-  reducer: {
-    api: baseApi.reducer,
-    settings: settingsSlice.reducer,
-  },
+export const rootReducer = combineReducers({
+  api: baseApi.reducer,
+  settings: settingsSlice.reducer,
+});
+
+export const storeConfig = {
+  reducer: rootReducer,
   devTools: env.IS_DEV,
   enhancers: (getDefaultEnhancers) =>
     // eslint-disable-next-line unicorn/prefer-spread
@@ -34,4 +36,6 @@ export const store = configureStore({
       baseApi.middleware,
       storageMiddleware.middleware,
     ) as any,
-});
+};
+
+export const store = configureStore(storeConfig);

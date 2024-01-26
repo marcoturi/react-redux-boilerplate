@@ -3,9 +3,9 @@ import {
   initialStorageState,
   settingsSlice,
 } from '@/features/settings/store/settings.slice';
+import { loadState } from '@/features/settings/store/settings.thunk';
 import { SettingsKey } from '@/features/settings/store/settings.type';
 import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
-import { loadState } from '@/features/settings/store/settings.thunk';
 
 describe('Settings Slice:', () => {
   it('Should handle setItem', () => {
@@ -61,6 +61,8 @@ describe('Settings Slice:', () => {
       ...initialStorageState,
       ...thunkResult,
     };
-    expect(settingsSlice.reducer(initialStorageState, action)).toEqual(expectedState);
+    expect(settingsSlice.reducer(initialStorageState, action)).toEqual(
+      expectedState,
+    );
   });
 });
