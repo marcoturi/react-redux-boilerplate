@@ -1,6 +1,6 @@
 import { handlers } from '../src/test/handlers';
+import * as matchers from '@testing-library/jest-dom/matchers';
 import { cleanup } from '@testing-library/react';
-import * as matchers from "@testing-library/jest-dom/matchers";
 import { setupServer } from 'msw/node';
 
 expect.extend(matchers);
