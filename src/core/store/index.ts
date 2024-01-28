@@ -35,7 +35,7 @@ export const storeConfig = {
     getDefaultMiddleware().concat(
       baseApi.middleware,
       storageMiddleware.middleware,
-    ) as any,
+    ),
 };
 
 export const store = configureStore(storeConfig);

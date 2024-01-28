@@ -1,4 +1,4 @@
-import { Header } from '@/UI/Elements/Header';
+import { Header } from '@/UI/Layout/Header';
 import UserWidget from '@/features/user/components/UserWidget';
 import HomePage from '@/routes/Home/HomePage';
 import SubscriptionsPage from '@/routes/Subscriptions/SubscriptionsPage';

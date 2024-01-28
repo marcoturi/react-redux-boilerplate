@@ -1,15 +1,16 @@
-import {  RootState } from '@/core/store/types';
+import { storeConfig } from '@/core/store/index';
+import { RootState } from '@/core/store/types';
+import { configureStore } from '@reduxjs/toolkit';
 import { render } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';
 import React, { PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
-import { storeConfig } from '@/core/store/index';
 
-const setupStore = (preloadedState?: Partial<RootState>) => configureStore({
-  ...storeConfig,
-  preloadedState,
-});
+const setupStore = (preloadedState?: Partial<RootState>) =>
+  configureStore({
+    ...storeConfig,
+    preloadedState,
+  });
 
 type AppStore = ReturnType<typeof setupStore>;
 
