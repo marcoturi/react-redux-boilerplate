@@ -17,12 +17,3 @@ export function captureError(err: any, msg?: string, data?) {
     return scope;
   });
 }
-
-export interface ErrorInService {
-  serviceName: string;
-  methodName: string;
-  error: any;
-  thrownError?: string;
-  noLogging?: boolean;
-  input: any;
-}
