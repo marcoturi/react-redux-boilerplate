@@ -6,8 +6,8 @@ export const usersHandlers = [
     try {
       return HttpResponse.json({
         id: '123',
-        name: 'marco',
-        surname: 'turi',
+        name: 'Marco',
+        surname: 'Turi',
       });
     } catch (error: any) {
       return HttpResponse.json(

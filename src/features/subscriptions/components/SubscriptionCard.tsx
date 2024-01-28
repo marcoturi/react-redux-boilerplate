@@ -1,3 +1,4 @@
+import { Button } from '@/UI/Elements/Button';
 import { Card } from '@/UI/Elements/Card';
 import { CardContent, CardHeader, CardTitle } from '@/UI/Elements/Card/Card';
 import { Text } from '@/UI/Elements/Text';
@@ -18,14 +19,15 @@ export function SubscriptionCard(subscription: Subscription) {
             <Text as="p">{subscription.description}</Text>
           </CardContent>
         </div>
-        <div className="basis-1/4">
+        <div className="mx-auto basis-1/4 text-center">
           <Text
             as="p"
-            className="text-center"
+            className="py-4 text-center"
             size="6"
           >
             {subscription.price} {subscription.currency}
           </Text>
+          <Button>Buy</Button>
         </div>
       </div>
     </Card>

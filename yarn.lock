@@ -11180,6 +11180,7 @@ __metadata:
     "@radix-ui/react-label": "npm:2.0.2"
     "@radix-ui/react-navigation-menu": "npm:1.1.4"
     "@radix-ui/react-select": "npm:2.0.0"
+    "@radix-ui/react-slot": "npm:1.0.2"
     "@radix-ui/react-switch": "npm:1.0.3"
     "@radix-ui/themes": "npm:2.0.3"
     "@reduxjs/toolkit": "npm:2.1.0"

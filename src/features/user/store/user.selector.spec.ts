@@ -11,7 +11,7 @@ describe('User Selector:', () => {
         surname: 'Doe',
       },
     });
-    expect(UserSelectors.getUserFullName(expectedState)).toEqual('John Doe');
+    expect(UserSelectors.getUserFullName(expectedState)).toEqual('John D.');
   });
   it('Should return empty in case of no name', () => {
     const expectedState = getMockedState({
