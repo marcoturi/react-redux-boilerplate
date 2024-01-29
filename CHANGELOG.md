@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.1.1...v1.2.0) (2024-01-29)
+
+
+### Features
+
+* **App:** add Button component, improve UI ([f5d507b](https://github.com/marcoturi/react-redux-boilerplate/commit/f5d507b2e729959ad73119a575b96e6647bff1c6))
+
 ## [1.1.1](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.1.0...v1.1.1) (2024-01-23)
 
 # [1.1.0](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.0.0...v1.1.0) (2024-01-18)
