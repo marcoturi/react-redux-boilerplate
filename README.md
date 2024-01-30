@@ -1,5 +1,4 @@
 ![React Redux Boilerplate](https://github.com/marcoturi/react-redux-boilerplate/blob/main/doc/images/react_redux_boilerplate.jpg?raw=true)
-# React Redux Boilerplate
 
 [![MIT License](https://img.shields.io/github/license/marcoturi/react-redux-boilerplate)](https://github.com/alan2207/bulletproof-react/blob/master/LICENCE) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/marcoturi/react-redux-boilerplate/release.yml)
 
