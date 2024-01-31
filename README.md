@@ -23,6 +23,7 @@ The project aim to provide guidelines on the development key points of a long te
 - Tests: E2E tests with [Cucumber](https://cucumber.io/docs/installation/javascript/) + [Playwright](https://playwright.dev/), and unit and integration tests with [Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/).
 
 ## 👉 Table of Contents
+
 - [Getting Started](#start)
 - [Folder Structure and Code Organization](#folder)
 - [State management: Why redux?](#state)
@@ -31,7 +32,6 @@ The project aim to provide guidelines on the development key points of a long te
 - [Format and style](#style)
 - [Error Handling and Analytics](#error)
 - [Additional libraries](#additional-libraries)
-
 
 ## <a name="start"></a>✨ Getting Started
 
@@ -66,7 +66,6 @@ yarn build
 cd dist
 npx serve -s
 ```
-
 
 ## <a name="folder"></a>🗄️ Folder Structure and Code Organization
 
