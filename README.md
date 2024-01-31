@@ -1,6 +1,6 @@
 ![React Redux Boilerplate](https://github.com/marcoturi/react-redux-boilerplate/blob/main/doc/images/react_redux_boilerplate.jpg?raw=true)
 
-[![MIT License](https://img.shields.io/github/license/marcoturi/react-redux-boilerplate)](https://github.com/alan2207/bulletproof-react/blob/master/LICENCE) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/marcoturi/react-redux-boilerplate/release.yml)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![MIT License](https://img.shields.io/github/license/marcoturi/react-redux-boilerplate)](https://github.com/alan2207/bulletproof-react/blob/master/LICENCE) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/marcoturi/react-redux-boilerplate/codeql-analysis.yml) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/marcoturi/react-redux-boilerplate/release.yml)
 
 A meticulously crafted, extensible, and robust architecture for constructing production-grade React applications.
 The project aim to provide guidelines on the development key points of a long term React project:
@@ -35,8 +35,6 @@ The project aim to provide guidelines on the development key points of a long te
 
 ## <a name="start"></a>✨ Getting Started
 
-### Install
-
 ```bash
 npx degit marcoturi/react-redux-boilerplate my-app
 cd my-app
@@ -47,25 +45,16 @@ yarn #Install dependencies.
 
 ### Common Commands
 
-```bash
-yarn start # Serve with hot reload at <http://localhost:5173>.
-yarn lint # Run Eslint
-yarn format # Run Prettier
-yarn test # Run Unit Test
-yarn test:coverage # Run Unit Test with coverage
-yarn e2e:local # Run E2E test locally. Make sure to run yarn start before in a separate shell
-yarn type-check # Check for typescript errors
-yarn build # Build for production
-yarn outdated # Update dependencies interactively
-```
-
-### Run production locally
-
-```sh
-yarn build
-cd dist
-npx serve -s
-```
+- `yarn start` - start a development server with hot reload.
+- `yarn build` - build for production. The generated files will be on the `dist` folder.
+- `yarn preview` - locally preview the production build.
+- `yarn test` - run unit and integration tests.
+- `yarn test:coverage` - run unit and integration tests with coverage.
+- `yarn e2e:local` - run E2E test locally. Make sure to run yarn start before in a separate shell.
+- `yarn type-check` - check for typescript errors.
+- `yarn outdated` - update dependencies interactively.
+- `yarn format` - format all files with Prettier.
+- `yarn lint` - runs ESLint.
 
 ## <a name="folder"></a>🗄️ Folder Structure and Code Organization
 

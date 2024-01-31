@@ -8,11 +8,11 @@
   "scripts": {
     "dev": "vite",
     "start": "vite",
+    "preview": "vite preview",
     "build": "tsc && vite build",
     "e2e": "TS_NODE_PROJECT=./e2e/tsconfig.e2e.json SERVER_URL=http://localhost:5173 cucumber-js --retry 5 --parallel 5",
     "e2e:local": "TS_NODE_PROJECT=./e2e/tsconfig.e2e.json SERVER_URL=http://localhost:5173 cucumber-js",
     "e2e:debug": "TS_NODE_PROJECT=./e2e/tsconfig.e2e.json SERVER_URL=http://localhost:5173 cucumber-js --tags '@only' --fail-fast",
-    "preview": "vite preview",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "format": "prettier --write .",
