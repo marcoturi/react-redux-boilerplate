@@ -31,6 +31,12 @@ module.exports = {
         sourceType: 'script',
       },
     },
+    {
+      files: ['*.slice.ts'],
+      rules: {
+        'no-param-reassign': 'off',
+      },
+    }
   ],
   settings: {
     react: {
