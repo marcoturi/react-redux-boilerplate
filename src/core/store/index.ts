@@ -12,7 +12,9 @@ Sentry.init({
   environment: env.NODE_ENV,
   tracesSampleRate: 0.1,
   attachStacktrace: true,
-  integrations: [new Sentry.Replay()],
+  integrations: [
+    Sentry.replayIntegration()
+  ],
   replaysSessionSampleRate: 0.1,
   replaysOnErrorSampleRate: 1,
 });
