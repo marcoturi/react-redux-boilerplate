@@ -14,16 +14,16 @@ The project aim to provide guidelines on the development key points of a long te
 
 ## ⚡ Features
 
-- Blazing fast build system: Vite + React SWC + Yarn 4
-- App State: Redux Toolkit 2
-- Theme: [Radix](https://www.radix-ui.com/) + [Shadcn](https://ui.shadcn.com/) + [Tailwind](https://tailwindcss.com/)
-- Format and Style: Eslint + Prettier
-- Release flow: Husky + Commitlint + Semantic-release
-- Mocked server for fast development: MSW
-- E2E testing: Cucumber + Playwright
+- Blazing fast build system: [Vite](https://vitejs.dev/) + [React SWC](https://github.com/vitejs/vite-plugin-react-swc) + [Yarn 4](https://yarnpkg.com/getting-started/install) + [TypeScript](https://www.typescriptlang.org) with [absolute imports](https://github.com/aleclarson/vite-tsconfig-paths)
+- App State: [Redux Toolkit 2](https://redux-toolkit.js.org/)
+- Theme: [Radix](https://www.radix-ui.com/) + [Shadcn/ui](https://ui.shadcn.com/) + [Tailwind 3](https://tailwindcss.com/)
+- Format and Style: [Eslint](https://eslint.org/) + [Prettier](https://prettier.io/) with a [prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) that automatically sorts tailwind classes.
+- Release flow: [Husky](https://github.com/typicode/husky) + [Commitlint](https://commitlint.js.org/) + [Semantic-release](https://github.com/semantic-release/semantic-release)
+- Mocked server for fast development: [MSW](https://mswjs.io/)
+- Tests: E2E tests with [Cucumber](https://cucumber.io/docs/installation/javascript/) + [Playwright](https://playwright.dev/), and unit and integration tests with [Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/).
 
 ## 👉 Table of Contents
-
+- [Getting Started](#start)
 - [Folder Structure and Code Organization](#folder)
 - [State management: Why redux?](#state)
 - [UI Components and Style system](#ui)
@@ -31,7 +31,42 @@ The project aim to provide guidelines on the development key points of a long te
 - [Format and style](#style)
 - [Error Handling and Analytics](#error)
 - [Additional libraries](#additional-libraries)
-- [Run production locally](#prod)
+
+
+## <a name="start"></a>✨ Getting Started
+
+### Install
+
+```bash
+npx degit marcoturi/react-redux-boilerplate my-app
+cd my-app
+
+# To enable yarn 4 follow the instruction here: https://yarnpkg.com/getting-started/install
+yarn #Install dependencies.
+```
+
+### Common Commands
+
+```bash
+yarn start # Serve with hot reload at <http://localhost:5173>.
+yarn lint # Run Eslint
+yarn format # Run Prettier
+yarn test # Run Unit Test
+yarn test:coverage # Run Unit Test with coverage
+yarn e2e:local # Run E2E test locally. Make sure to run yarn start before in a separate shell
+yarn type-check # Check for typescript errors
+yarn build # Build for production
+yarn outdated # Update dependencies interactively
+```
+
+### Run production locally
+
+```sh
+yarn build
+cd dist
+npx serve -s
+```
+
 
 ## <a name="folder"></a>🗄️ Folder Structure and Code Organization
 
@@ -218,15 +253,6 @@ Additionally, we can easily track and potentially rehydrate the user's state at 
 - Forms: [react-hook-form](https://github.com/react-hook-form/react-hook-form) - Small size with no dependencies, good performance and DX and UX experience.
 - Data manipulation: [ramda](https://github.com/ramda/ramda) - Alternative for lodash that promotes functional programming
 - Logging and monitoring: [Sentry](https://github.com/getsentry/sentry-javascript/tree/master/packages/react)
-
-## <a name="prod"></a>🏭 Run production locally
-
-```sh
-npm install --global serve
-yarn build
-cd dist
-serve -s
-```
 
 ## Contributing
 
