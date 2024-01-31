@@ -1,22 +1,30 @@
 import { UserSelectors } from '.';
-import { getMockedState } from '@/core/store/test';
+import { setupStore } from '@/core/store/test';
+import { userApi } from '@/features/user/store/user.api';
 
 describe('User Selector:', () => {
-  it('Should return full name', () => {
-    const expectedState = getMockedState({
-      functionName: 'getUser',
-      data: {
-        id: '1',
-        name: 'John',
-        surname: 'Doe',
-      },
-    });
-    expect(UserSelectors.getUserFullName(expectedState)).toEqual('John D.');
+  let store;
+
+  beforeEach(() => {
+    store = setupStore();
+  });
+
+  it('Should return full name', async () => {
+    const newData = {
+      id: 1,
+      name: 'John',
+      surname: 'Doe',
+    };
+
+    await store.dispatch(
+      userApi.util.upsertQueryData('getUser', undefined, newData),
+    );
+    const finalState = store.getState();
+
+    expect(UserSelectors.getUserFullName(finalState)).toEqual('John D.');
   });
   it('Should return empty in case of no name', () => {
-    const expectedState = getMockedState({
-      functionName: 'getUser',
-    });
-    expect(UserSelectors.getUserFullName(expectedState)).toEqual('');
+    const finalState = store.getState();
+    expect(UserSelectors.getUserFullName(finalState)).toEqual('');
   });
 });

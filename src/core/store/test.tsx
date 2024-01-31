@@ -6,7 +6,7 @@ import type { RenderOptions } from '@testing-library/react';
 import React, { PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 
-const setupStore = (preloadedState?: Partial<RootState>) =>
+export const setupStore = (preloadedState?: Partial<RootState>) =>
   configureStore({
     ...storeConfig,
     preloadedState,
@@ -43,33 +43,4 @@ export function renderWithProviders(
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
   preloadedState?: Partial<RootState>;
   store?: AppStore;
-}
-
-/**
- * This function is used to mock the state of the store to test the selectors.
- * However, is quite fragile, and it's better to use the real store.
- * https://github.com/reduxjs/redux-toolkit/discussions/4016
- */
-export function getMockedState({
-  functionName,
-  parameters,
-  data,
-}: {
-  functionName: string;
-  parameters?: any;
-  data?: any;
-}) {
-  const state: any = {};
-  if (data) {
-    state.data = data;
-  }
-  return {
-    api: {
-      queries: {
-        [`${functionName}(${
-          parameters ? JSON.stringify(parameters) : 'undefined'
-        })`]: state,
-      },
-    },
-  } as any;
 }

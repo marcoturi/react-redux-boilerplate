@@ -1,52 +1,62 @@
 import { SubscriptionSelectors } from '.';
-import { getMockedState } from '@/core/store/test';
+import { setupStore } from '@/core/store/test';
 import { initialStorageState } from '@/features/settings/store/settings.slice';
 import { SettingsKey } from '@/features/settings/store/settings.type';
 import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
+import { subscriptionApi } from '@/features/subscriptions/store/subscription.api';
 import { subscriptionMockList } from '@/features/subscriptions/store/subscription.mocks.spec';
+import { Subscription } from '@/features/subscriptions/store/subscription.type';
 
 describe('Subscription Selector:', () => {
-  it('Should return an empty list in case of no data', () => {
-    const subscriptionExpectedState = getMockedState({
-      functionName: 'getSubscriptions',
-      data: [],
-    });
-    const expectedState = {
-      settings: initialStorageState,
-      ...subscriptionExpectedState,
-    };
-    expect(
-      SubscriptionSelectors.getSubscriptionListFiltered(expectedState),
-    ).toEqual([]);
+  let store;
+
+  beforeEach(() => {
+    store = setupStore();
   });
 
-  it('Should return the full list of subscriptions in case of no filter', () => {
-    const subscriptionExpectedState = getMockedState({
-      functionName: 'getSubscriptions',
-      data: subscriptionMockList,
-    });
-    const expectedState = {
-      settings: initialStorageState,
-      ...subscriptionExpectedState,
-    };
+  it('Should return an empty list in case of no data', async () => {
+    const data = [];
+
+    await store.dispatch(
+      subscriptionApi.util.upsertQueryData('getSubscriptions', undefined, data),
+    );
+
     expect(
-      SubscriptionSelectors.getSubscriptionListFiltered(expectedState),
+      SubscriptionSelectors.getSubscriptionListFiltered(store.getState()),
+    ).toEqual(data);
+  });
+
+  it('Should return the full list of subscriptions in case of no filter', async () => {
+    await store.dispatch(
+      subscriptionApi.util.upsertQueryData(
+        'getSubscriptions',
+        undefined,
+        subscriptionMockList as Subscription[],
+      ),
+    );
+
+    expect(
+      SubscriptionSelectors.getSubscriptionListFiltered(store.getState()),
     ).toEqual(subscriptionMockList);
   });
 
-  it('Should return a filtered list in case of filter', () => {
-    const subscriptionExpectedState = getMockedState({
-      functionName: 'getSubscriptions',
-      data: subscriptionMockList,
-    });
+  it('Should return a filtered list in case of filter', async () => {
+    await store.dispatch(
+      subscriptionApi.util.upsertQueryData(
+        'getSubscriptions',
+        undefined,
+        subscriptionMockList as Subscription[],
+      ),
+    );
+
     const expectedState = {
+      ...store.getState(),
       settings: {
         ...initialStorageState,
         [SettingsKey.filters]: {
           filterSubscriptionsBy: SubscriptionFilters.OneTimePurchase,
         },
       },
-      ...subscriptionExpectedState,
     };
     expect(
       SubscriptionSelectors.getSubscriptionListFiltered(expectedState),
