@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.2.4...v1.2.5) (2024-02-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sentry/react to v7.100.0 ([5fe00c8](https://github.com/marcoturi/react-redux-boilerplate/commit/5fe00c81db9db156b7a25c834171e1f89e93ec1c))
+
 ## [1.2.4](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.2.3...v1.2.4) (2024-02-03)
 
 
