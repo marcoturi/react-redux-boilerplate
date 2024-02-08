@@ -112,7 +112,7 @@
     "postcss": "8.4.35",
     "prettier": "3.2.5",
     "prettier-plugin-tailwindcss": "0.5.11",
-    "semantic-release": "23.0.0",
+    "semantic-release": "23.0.2",
     "tailwindcss": "3.4.1",
     "ts-node": "10.9.2",
     "typescript": "5.3.3",
