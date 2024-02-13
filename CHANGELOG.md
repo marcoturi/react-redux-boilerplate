@@ -1,3 +1,10 @@
+## [1.2.10](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.2.9...v1.2.10) (2024-02-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @reduxjs/toolkit to v2.2.0 ([11590ba](https://github.com/marcoturi/react-redux-boilerplate/commit/11590bae713ecdec8419568d91213aa31156d0ab))
+
 ## [1.2.9](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.2.8...v1.2.9) (2024-02-12)
 
 
