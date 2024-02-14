@@ -1,3 +1,11 @@
+## [1.2.11](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.2.10...v1.2.11) (2024-02-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sentry/react to v7.101.0 ([2a95768](https://github.com/marcoturi/react-redux-boilerplate/commit/2a957684849851a7b892d0f4694fe14610198651))
+* **deps:** update dependency lucide-react to v0.330.0 ([e292d41](https://github.com/marcoturi/react-redux-boilerplate/commit/e292d41d88f9bfcad9f727af8d332698a3a616b8))
+
 ## [1.2.10](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.2.9...v1.2.10) (2024-02-13)
 
 
