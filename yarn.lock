@@ -2813,9 +2813,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reduxjs/toolkit@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@reduxjs/toolkit@npm:2.2.0"
+"@reduxjs/toolkit@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@reduxjs/toolkit@npm:2.2.1"
   dependencies:
     immer: "npm:^10.0.3"
     redux: "npm:^5.0.1"
@@ -2829,7 +2829,7 @@ __metadata:
       optional: true
     react-redux:
       optional: true
-  checksum: 10c0/60930b4cf0e3971cce97c58ce613dff759f58dd316ea0f42714bf99efc241cbeeffdc97719a71407850f434a880d1ffc8378be9403279e88cd2969d829e98374
+  checksum: 10c0/675f816b311d6d703259e00c73977c9c5968e41b039d6d149e34e9084d5e6718aff3b692d2b7697974fb57a056687932117da1dd5202d392811d8d4e91d09322
   languageName: node
   linkType: hard
 
@@ -11303,7 +11303,7 @@ __metadata:
     "@radix-ui/react-slot": "npm:1.0.2"
     "@radix-ui/react-switch": "npm:1.0.3"
     "@radix-ui/themes": "npm:2.0.3"
-    "@reduxjs/toolkit": "npm:2.2.0"
+    "@reduxjs/toolkit": "npm:2.2.1"
     "@semantic-release/changelog": "npm:6.0.3"
     "@semantic-release/commit-analyzer": "npm:11.1.0"
     "@semantic-release/git": "npm:10.0.1"
