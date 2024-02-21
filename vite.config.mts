@@ -22,6 +22,8 @@ export default defineConfig({
     },
   },
   test: {
+    // Setting pool='forks' is preventing this issue https://github.com/vitest-dev/vitest/issues/3077
+    pool: 'forks',
     globals: true,
     root: __dirname,
     environment: 'jsdom',
