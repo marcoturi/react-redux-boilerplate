@@ -68,7 +68,7 @@
     "@cucumber/messages": "24.0.1",
     "@cucumber/pretty-formatter": "1.0.0",
     "@mswjs/data": "0.16.1",
-    "@playwright/test": "1.41.2",
+    "@playwright/test": "1.42.0",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "11.1.0",
     "@semantic-release/git": "10.0.1",
