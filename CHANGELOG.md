@@ -1,3 +1,10 @@
+## [1.2.22](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.2.21...v1.2.22) (2024-02-29)
+
+
+### Bug Fixes
+
+* **deps:** update react-router monorepo to v6.22.2 ([746bb47](https://github.com/marcoturi/react-redux-boilerplate/commit/746bb47c78b5e5fec00db52edcdaa13d6cd25594))
+
 ## [1.2.21](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.2.20...v1.2.21) (2024-02-27)
 
 
