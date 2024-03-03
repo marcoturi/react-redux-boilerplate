@@ -1,3 +1,10 @@
+## [1.2.25](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.2.24...v1.2.25) (2024-03-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-error-boundary to v4.0.13 ([c0ac4e9](https://github.com/marcoturi/react-redux-boilerplate/commit/c0ac4e9a09ea8cea6e6bf9b6b5213fd213659ae2))
+
 ## [1.2.24](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.2.23...v1.2.24) (2024-02-29)
 
 
