@@ -4598,12 +4598,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.4.17":
-  version: 10.4.17
-  resolution: "autoprefixer@npm:10.4.17"
+"autoprefixer@npm:10.4.18":
+  version: 10.4.18
+  resolution: "autoprefixer@npm:10.4.18"
   dependencies:
-    browserslist: "npm:^4.22.2"
-    caniuse-lite: "npm:^1.0.30001578"
+    browserslist: "npm:^4.23.0"
+    caniuse-lite: "npm:^1.0.30001591"
     fraction.js: "npm:^4.3.7"
     normalize-range: "npm:^0.1.2"
     picocolors: "npm:^1.0.0"
@@ -4612,7 +4612,7 @@ __metadata:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: 10c0/1d21cc8edb7bf993682094ceed03a32c18f5293f071182a64c2c6defb44bbe91d576ad775d2347469a81997b80cea0bbc4ad3eeb5b12710f9feacf2e6c04bb51
+  checksum: 10c0/b6e1c1ba2fc6c09360cdcd75b00ce809c5dbe1ad4c30f0186764609a982aa5563d45965cb9e6a9d195c639a9fb1dcac2594484fc41624050195f626e9add666e
   languageName: node
   linkType: hard
 
@@ -4919,17 +4919,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001578":
-  version: 1.0.30001578
-  resolution: "caniuse-lite@npm:1.0.30001578"
-  checksum: 10c0/c3bd9c08a945cee4f0cc284a217ebe9c2613e04d5aef4b48f1871a779b1875c34286469eb8d7d94bd028b5a354613e676ad503b6bf8db20a2f154574bd5fde48
-  languageName: node
-  linkType: hard
-
 "caniuse-lite@npm:^1.0.30001587":
   version: 1.0.30001589
   resolution: "caniuse-lite@npm:1.0.30001589"
   checksum: 10c0/20debfb949413f603011bc7dacaf050010778bc4f8632c86fafd1bd0c43180c95ae7c31f6c82348f6309e5e221934e327c3607a216e3f09640284acf78cd6d4d
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001591":
+  version: 1.0.30001591
+  resolution: "caniuse-lite@npm:1.0.30001591"
+  checksum: 10c0/21937d341c3d75994504db21340f65573a1e847a8ab33ee4964ed493994d6552864c494ba144485459abd9c711c75c0708bc9fa19f2bff525bff75ffb0a42c3b
   languageName: node
   linkType: hard
 
@@ -11582,7 +11582,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:7.1.0"
     "@vitejs/plugin-react-swc": "npm:3.6.0"
     "@vitest/coverage-v8": "npm:1.3.1"
-    autoprefixer: "npm:10.4.17"
+    autoprefixer: "npm:10.4.18"
     class-variance-authority: "npm:0.7.0"
     clsx: "npm:2.1.0"
     cssnano: "npm:6.0.5"
