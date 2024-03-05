@@ -3,7 +3,7 @@
   "version": "1.2.27",
   "author": "Marco Turi <marco.turi@hotmail.it>",
   "description": "A production ready, batteries included starter template for Vite + React projects",
-  "packageManager": "yarn@4.1.0",
+  "packageManager": "yarn@4.1.1",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
