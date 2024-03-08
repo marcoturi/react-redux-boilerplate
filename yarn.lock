@@ -9873,9 +9873,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:2.2.2":
-  version: 2.2.2
-  resolution: "msw@npm:2.2.2"
+"msw@npm:2.2.3":
+  version: 2.2.3
+  resolution: "msw@npm:2.2.3"
   dependencies:
     "@bundled-es-modules/cookie": "npm:^2.0.0"
     "@bundled-es-modules/statuses": "npm:^1.0.1"
@@ -9895,13 +9895,13 @@ __metadata:
     type-fest: "npm:^4.9.0"
     yargs: "npm:^17.7.2"
   peerDependencies:
-    typescript: ">= 4.7.x <= 5.3.x"
+    typescript: ">= 4.7.x"
   peerDependenciesMeta:
     typescript:
       optional: true
   bin:
     msw: cli/index.js
-  checksum: 10c0/b4cb5fd5f8ce9e20473bb4698d12dda4f15e075fde5d041fd6c632a5264a3cf4ee84763f3e1195b83ee361480ab2b614af784916a18cf80c16cd4eb9464d5d04
+  checksum: 10c0/ef41fefe8f95af96762206bb6f5e1e0da8022634e45f5185cccfd77bab2bd53c683c79d8274c18a1ba8085f376698dd4d8e7a8087b2142f1bb1ae88eed9f0d8c
   languageName: node
   linkType: hard
 
@@ -11917,7 +11917,7 @@ __metadata:
     jsdom: "npm:24.0.0"
     lint-staged: "npm:15.2.2"
     lucide-react: "npm:0.344.0"
-    msw: "npm:2.2.2"
+    msw: "npm:2.2.3"
     pinst: "npm:3.0.0"
     postcss: "npm:8.4.35"
     prettier: "npm:3.2.5"
