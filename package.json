@@ -87,7 +87,7 @@
     "@typescript-eslint/eslint-plugin": "7.2.0",
     "@typescript-eslint/parser": "7.2.0",
     "@vitejs/plugin-react-swc": "3.6.0",
-    "@vitest/coverage-v8": "1.3.1",
+    "@vitest/coverage-v8": "1.4.0",
     "autoprefixer": "10.4.18",
     "cssnano": "6.1.0",
     "cucumber-console-formatter": "1.0.0",
@@ -119,7 +119,7 @@
     "typescript": "5.4.2",
     "vite": "5.1.6",
     "vite-tsconfig-paths": "4.3.2",
-    "vitest": "1.3.1"
+    "vitest": "1.4.0"
   },
   "msw": {
     "workerDirectory": "public"
