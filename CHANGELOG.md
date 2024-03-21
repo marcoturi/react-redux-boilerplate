@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.2.39...v1.3.0) (2024-03-21)
+
+
+### Features
+
+* **App:** rename core folder in shared ([d11f042](https://github.com/marcoturi/react-redux-boilerplate/commit/d11f042631626aa0eb58f096d23e6ed1b9abcc7e))
+
 ## [1.2.39](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.2.38...v1.2.39) (2024-03-17)
 
 
