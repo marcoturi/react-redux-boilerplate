@@ -1,5 +1,5 @@
 import { Header } from '@/UI/Layout/Header';
-import { renderWithProviders } from '@/core/store/test';
+import { renderWithProviders } from '@/shared/store/test';
 import { screen } from '@testing-library/react';
 
 describe('Header', () => {

@@ -1,4 +1,4 @@
-import { cn } from '@/core/helpers/style.utils';
+import { cn } from '@/shared/helpers/style.utils';
 import { Container as RadixContainer } from '@radix-ui/themes';
 // @ts-expect-error fix import type
 import type { ContainerProps } from '@radix-ui/themes/dist/esm/components/container';

@@ -1,5 +1,5 @@
-import { storeConfig } from '@/core/store/index';
-import { RootState } from '@/core/store/types';
+import { storeConfig } from '@/shared/store/index';
+import { RootState } from '@/shared/store/types';
 import { configureStore } from '@reduxjs/toolkit';
 import { render } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';

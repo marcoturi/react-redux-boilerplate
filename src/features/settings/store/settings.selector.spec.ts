@@ -1,5 +1,5 @@
 import { SettingsSelectors } from '.';
-import { RootState } from '@/core/store/types';
+import { RootState } from '@/shared/store/types';
 import { initialStorageState } from '@/features/settings/store/settings.slice';
 import { SettingsKey } from '@/features/settings/store/settings.type';
 

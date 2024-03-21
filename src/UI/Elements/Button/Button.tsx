@@ -1,5 +1,5 @@
 import { buttonVariants } from './ButtonStyle';
-import { cn } from '@/core/helpers/style.utils';
+import { cn } from '@/shared/helpers/style.utils';
 import { Slot } from '@radix-ui/react-slot';
 import { type VariantProps } from 'class-variance-authority';
 import * as React from 'react';

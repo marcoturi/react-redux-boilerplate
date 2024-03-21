@@ -1,4 +1,4 @@
-import { cn } from '@/core/helpers/style.utils';
+import { cn } from '@/shared/helpers/style.utils';
 
 function Skeleton({
   className,

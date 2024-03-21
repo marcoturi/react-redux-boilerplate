@@ -1,4 +1,4 @@
-import { store } from '@/core/store';
+import { store } from '@/shared/store';
 import { Button, Theme } from '@radix-ui/themes';
 import * as React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';

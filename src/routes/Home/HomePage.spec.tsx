@@ -1,4 +1,4 @@
-import { renderWithProviders } from '@/core/store/test';
+import { renderWithProviders } from '@/shared/store/test';
 import HomePage from '@/routes/Home/HomePage';
 import { screen } from '@testing-library/react';
 

@@ -1,5 +1,5 @@
 import { UserSelectors } from '.';
-import { setupStore } from '@/core/store/test';
+import { setupStore } from '@/shared/store/test';
 import { userApi } from '@/features/user/store/user.api';
 
 describe('User Selector:', () => {

@@ -1,4 +1,4 @@
-import { renderWithProviders } from '@/core/store/test';
+import { renderWithProviders } from '@/shared/store/test';
 import UserWidget from '@/features/user/components/UserWidget';
 import { screen, waitFor } from '@testing-library/react';
 

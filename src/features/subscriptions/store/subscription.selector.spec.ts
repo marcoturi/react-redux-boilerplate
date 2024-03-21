@@ -1,5 +1,5 @@
 import { SubscriptionSelectors } from '.';
-import { setupStore } from '@/core/store/test';
+import { setupStore } from '@/shared/store/test';
 import { initialStorageState } from '@/features/settings/store/settings.slice';
 import { SettingsKey } from '@/features/settings/store/settings.type';
 import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';

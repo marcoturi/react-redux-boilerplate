@@ -1,4 +1,4 @@
-import { cn } from '@/core/helpers/style.utils';
+import { cn } from '@/shared/helpers/style.utils';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { Check, ChevronDown, ChevronUp } from 'lucide-react';
 import * as React from 'react';

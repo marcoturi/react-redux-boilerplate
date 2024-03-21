@@ -1,4 +1,4 @@
-import baseApi from '@/core/store/api';
+import baseApi from '@/shared/store/api';
 import { User } from '@/features/user/store/user.type';
 
 export const userApi = baseApi

@@ -1,4 +1,4 @@
-import baseApi from '@/core/store/api';
+import baseApi from '@/shared/store/api';
 import { Subscription } from '@/features/subscriptions/store/subscription.type';
 
 export const subscriptionApi = baseApi

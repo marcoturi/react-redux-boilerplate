@@ -1,4 +1,4 @@
-import { renderWithProviders } from '@/core/store/test';
+import { renderWithProviders } from '@/shared/store/test';
 import SubscriptionsPage from '@/routes/Subscriptions/SubscriptionsPage';
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
