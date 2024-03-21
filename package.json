@@ -110,7 +110,7 @@
     "lint-staged": "15.2.2",
     "msw": "2.2.9",
     "pinst": "3.0.0",
-    "postcss": "8.4.37",
+    "postcss": "8.4.38",
     "prettier": "3.2.5",
     "prettier-plugin-tailwindcss": "0.5.12",
     "semantic-release": "23.0.5",
