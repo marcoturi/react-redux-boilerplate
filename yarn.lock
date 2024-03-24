@@ -12350,7 +12350,7 @@ __metadata:
     tailwindcss-animate: "npm:1.0.7"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.4.3"
-    vite: "npm:5.2.4"
+    vite: "npm:5.2.5"
     vite-tsconfig-paths: "npm:4.3.2"
     vitest: "npm:1.4.0"
     web-vitals: "npm:3.5.2"
@@ -14853,9 +14853,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.2.4":
-  version: 5.2.4
-  resolution: "vite@npm:5.2.4"
+"vite@npm:5.2.5":
+  version: 5.2.5
+  resolution: "vite@npm:5.2.5"
   dependencies:
     esbuild: "npm:^0.20.1"
     fsevents: "npm:~2.3.3"
@@ -14889,7 +14889,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/a8a57da83b5a46d9fc135fc4c51d08e1e60cdc4263ce6e7b23d60501c70605dd541726c331ab4d837ad774cdbf0b78bac088da770287620f81ad8b4d7b39dd74
+  checksum: 10c0/07d93b7d51e495e5ba2dfb20fb7ff2a1902f971568a44b5ae73a7c71c23992f79336c623b1b18735d39406edaecd8731debaa615a3b7713b7c2b0b50b4f8b393
   languageName: node
   linkType: hard
 
