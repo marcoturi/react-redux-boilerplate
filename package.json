@@ -89,7 +89,7 @@
     "@vitejs/plugin-react-swc": "3.6.0",
     "@vitest/coverage-v8": "1.4.0",
     "autoprefixer": "10.4.19",
-    "cssnano": "6.1.1",
+    "cssnano": "6.1.2",
     "cucumber-console-formatter": "1.0.0",
     "cucumber-html-reporter": "7.1.1",
     "eslint": "8.57.0",
