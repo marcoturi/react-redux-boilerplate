@@ -548,9 +548,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cucumber/cucumber@npm:10.3.1":
-  version: 10.3.1
-  resolution: "@cucumber/cucumber@npm:10.3.1"
+"@cucumber/cucumber@npm:10.3.2":
+  version: 10.3.2
+  resolution: "@cucumber/cucumber@npm:10.3.2"
   dependencies:
     "@cucumber/ci-environment": "npm:10.0.0"
     "@cucumber/cucumber-expressions": "npm:17.0.1"
@@ -587,7 +587,7 @@ __metadata:
     string-argv: "npm:0.3.1"
     strip-ansi: "npm:6.0.1"
     supports-color: "npm:^8.1.1"
-    tmp: "npm:^0.2.1"
+    tmp: "npm:0.2.3"
     type-fest: "npm:^4.8.3"
     util-arity: "npm:^1.1.0"
     xmlbuilder: "npm:^15.1.1"
@@ -595,7 +595,7 @@ __metadata:
     yup: "npm:1.2.0"
   bin:
     cucumber-js: bin/cucumber.js
-  checksum: 10c0/df32c7fd4814844ec32bf84830e82d56f70065a2104f96b6e87d3d5fa23741e08415f09814b758a62fe2d0754cd3e0418526f2d728bc23d0323a0a544b4cf4b7
+  checksum: 10c0/19cbb67ef0d6144240f27ad52eaea3f011ff91f3258dabde4c84b974057a9a3eb0159ebc4d06f54e8e1ee5d3df27572fea0eba6972241480e6ef6f01f0a5f220
   languageName: node
   linkType: hard
 
@@ -12232,7 +12232,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:18.6.1"
     "@commitlint/config-conventional": "npm:18.6.3"
-    "@cucumber/cucumber": "npm:10.3.1"
+    "@cucumber/cucumber": "npm:10.3.2"
     "@cucumber/html-formatter": "npm:21.3.1"
     "@cucumber/messages": "npm:24.1.0"
     "@cucumber/pretty-formatter": "npm:1.0.1"
@@ -14050,6 +14050,13 @@ __metadata:
   version: 2.2.0
   resolution: "tinyspy@npm:2.2.0"
   checksum: 10c0/8c7b70748dd8590e85d52741db79243746c15bc03c92d75c23160a762142db577e7f53e360ba7300e321b12bca5c42dd2522a8dbeec6ba3830302573dd8516bc
+  languageName: node
+  linkType: hard
+
+"tmp@npm:0.2.3":
+  version: 0.2.3
+  resolution: "tmp@npm:0.2.3"
+  checksum: 10c0/3e809d9c2f46817475b452725c2aaa5d11985cf18d32a7a970ff25b568438e2c076c2e8609224feef3b7923fa9749b74428e3e634f6b8e520c534eef2fd24125
   languageName: node
   linkType: hard
 
