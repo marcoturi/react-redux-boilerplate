@@ -827,9 +827,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cucumber/pretty-formatter@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@cucumber/pretty-formatter@npm:1.0.0"
+"@cucumber/pretty-formatter@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@cucumber/pretty-formatter@npm:1.0.1"
   dependencies:
     ansi-styles: "npm:^5.0.0"
     cli-table3: "npm:^0.6.0"
@@ -838,7 +838,7 @@ __metadata:
   peerDependencies:
     "@cucumber/cucumber": ">=7.0.0"
     "@cucumber/messages": "*"
-  checksum: 10c0/9a4d2bd6586a4b0bd8eb04b5521515dafe351c6d976f7292d836f12bf949b2701c28c484e90bcfa773a99c8e0f73596c29015265adb264d4a766d953247237f3
+  checksum: 10c0/16ac0174bdad47718296c241d20e3ac6b305809675da7c64df8f15542a66be7603dad73a37bbb850241d51da8bbba61e461b861c7e41c0dbbd64684e93a8c265
   languageName: node
   linkType: hard
 
@@ -12299,7 +12299,7 @@ __metadata:
     "@cucumber/cucumber": "npm:10.3.1"
     "@cucumber/html-formatter": "npm:21.3.1"
     "@cucumber/messages": "npm:24.1.0"
-    "@cucumber/pretty-formatter": "npm:1.0.0"
+    "@cucumber/pretty-formatter": "npm:1.0.1"
     "@mswjs/data": "npm:0.16.1"
     "@playwright/test": "npm:1.42.1"
     "@radix-ui/react-label": "npm:2.0.2"

@@ -66,7 +66,7 @@
     "@cucumber/cucumber": "10.3.1",
     "@cucumber/html-formatter": "21.3.1",
     "@cucumber/messages": "24.1.0",
-    "@cucumber/pretty-formatter": "1.0.0",
+    "@cucumber/pretty-formatter": "1.0.1",
     "@mswjs/data": "0.16.1",
     "@playwright/test": "1.42.1",
     "@semantic-release/changelog": "6.0.3",
