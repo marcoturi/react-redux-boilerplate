@@ -112,7 +112,7 @@
     "pinst": "3.0.0",
     "postcss": "8.4.38",
     "prettier": "3.2.5",
-    "prettier-plugin-tailwindcss": "0.5.12",
+    "prettier-plugin-tailwindcss": "0.5.13",
     "semantic-release": "23.0.6",
     "tailwindcss": "3.4.1",
     "ts-node": "10.9.2",
