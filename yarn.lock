@@ -4415,7 +4415,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:7.4.0, @typescript-eslint/utils@npm:^7.2.0":
+"@typescript-eslint/utils@npm:7.4.0, @typescript-eslint/utils@npm:^7.4.0":
   version: 7.4.0
   resolution: "@typescript-eslint/utils@npm:7.4.0"
   dependencies:
@@ -7289,11 +7289,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vitest@npm:0.4.0":
-  version: 0.4.0
-  resolution: "eslint-plugin-vitest@npm:0.4.0"
+"eslint-plugin-vitest@npm:0.4.1":
+  version: 0.4.1
+  resolution: "eslint-plugin-vitest@npm:0.4.1"
   dependencies:
-    "@typescript-eslint/utils": "npm:^7.2.0"
+    "@typescript-eslint/utils": "npm:^7.4.0"
   peerDependencies:
     eslint: ">=8.0.0"
     vitest: "*"
@@ -7302,7 +7302,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: 10c0/ffbf1b4108409bfb338bed2d38d1ee573ea9859bce5a1dc1f7662d4767c4be36dd7a0b09e098357a3d8bd0a866e476477121cef5af2ffa2ceb171a8f9992192d
+  checksum: 10c0/d06a7efec259778186526fa3bcf94af1433c145a0388bd6f6f9d9e86e918f9ade906c7c49000252a61ff0d45f44525428e9729c074cb94ce0a7d768f0c990a76
   languageName: node
   linkType: hard
 
@@ -12283,7 +12283,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:4.6.0"
     eslint-plugin-react-refresh: "npm:0.4.6"
     eslint-plugin-unicorn: "npm:51.0.1"
-    eslint-plugin-vitest: "npm:0.4.0"
+    eslint-plugin-vitest: "npm:0.4.1"
     fs-extra: "npm:11.2.0"
     husky: "npm:9.0.11"
     jsdom: "npm:24.0.0"
