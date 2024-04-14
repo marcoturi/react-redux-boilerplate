@@ -1,3 +1,10 @@
+## [1.3.12](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.11...v1.3.12) (2024-04-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-redux to v9.1.1 ([699adfa](https://github.com/marcoturi/react-redux-boilerplate/commit/699adfa5e68a48c26f6abf7bf39dbc2a4a56c6e6))
+
 ## [1.3.11](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.10...v1.3.11) (2024-04-13)
 
 
