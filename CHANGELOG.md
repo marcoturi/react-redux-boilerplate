@@ -1,3 +1,10 @@
+## [1.3.19](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.18...v1.3.19) (2024-04-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency clsx to v2.1.1 ([284a5bc](https://github.com/marcoturi/react-redux-boilerplate/commit/284a5bc916624fbc1f6e081db42b7d47584ad088))
+
 ## [1.3.18](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.17...v1.3.18) (2024-04-20)
 
 
