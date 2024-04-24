@@ -45,7 +45,7 @@
     "@radix-ui/react-switch": "1.0.3",
     "@radix-ui/themes": "2.0.3",
     "@reduxjs/toolkit": "2.2.3",
-    "@sentry/react": "7.111.0",
+    "@sentry/react": "7.112.1",
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.1",
     "lucide-react": "0.372.0",
