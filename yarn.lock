@@ -548,9 +548,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cucumber/cucumber@npm:10.5.1":
-  version: 10.5.1
-  resolution: "@cucumber/cucumber@npm:10.5.1"
+"@cucumber/cucumber@npm:10.6.0":
+  version: 10.6.0
+  resolution: "@cucumber/cucumber@npm:10.6.0"
   dependencies:
     "@cucumber/ci-environment": "npm:10.0.1"
     "@cucumber/cucumber-expressions": "npm:17.1.0"
@@ -595,7 +595,7 @@ __metadata:
     yup: "npm:1.2.0"
   bin:
     cucumber-js: bin/cucumber.js
-  checksum: 10c0/22e193d5830b6ece47681c5aa14ec89341a0b0cf1037e4c360e7aadaf2614f849b4da415593ce3a2f4c9898fd078b52cdae5c3d4d0e705913f543af8f8cb0820
+  checksum: 10c0/29700cfd45cd2e0f9a9e83ce981898dff1c65d2299896fc0aae948b52a476bb98c933971b0ce6313dff8a581023287cb46683b52dbb4e3150317e1a2f2dc5d25
   languageName: node
   linkType: hard
 
@@ -12228,7 +12228,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:18.6.1"
     "@commitlint/config-conventional": "npm:18.6.3"
-    "@cucumber/cucumber": "npm:10.5.1"
+    "@cucumber/cucumber": "npm:10.6.0"
     "@cucumber/html-formatter": "npm:21.3.1"
     "@cucumber/messages": "npm:24.1.0"
     "@cucumber/pretty-formatter": "npm:1.0.1"
