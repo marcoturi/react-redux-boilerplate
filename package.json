@@ -92,7 +92,7 @@
     "cssnano": "6.1.2",
     "cucumber-console-formatter": "1.0.0",
     "cucumber-html-reporter": "7.1.1",
-    "eslint": "8.57.0",
+    "eslint": "9.2.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-typescript": "17.1.0",
     "eslint-config-prettier": "9.1.0",
