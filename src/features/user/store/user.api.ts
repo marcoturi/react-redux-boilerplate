@@ -1,5 +1,5 @@
-import baseApi from '@/shared/store/api';
 import { User } from '@/features/user/store/user.type';
+import baseApi from '@/shared/store/api';
 
 export const userApi = baseApi
   .enhanceEndpoints({ addTagTypes: ['User'] })

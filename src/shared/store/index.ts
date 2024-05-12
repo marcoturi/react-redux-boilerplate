@@ -1,7 +1,7 @@
 import env from '../config/env';
-import baseApi from '@/shared/store/api';
 import { storageMiddleware } from '@/features/settings/store/settings.effect';
 import { settingsSlice } from '@/features/settings/store/settings.slice';
+import baseApi from '@/shared/store/api';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import * as Sentry from '@sentry/react';
 

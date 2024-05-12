@@ -6,10 +6,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/UI/Elements/Select';
-import { useAppDispatch, useAppSelector } from '@/shared/store/types';
 import { SettingsActions, SettingsSelectors } from '@/features/settings/store';
 import { SettingsKey } from '@/features/settings/store/settings.type';
 import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
+import { useAppDispatch, useAppSelector } from '@/shared/store/types';
 import { useEffect } from 'react';
 
 export function SubscriptionFilter() {

@@ -1,5 +1,5 @@
-import { renderWithProviders } from '@/shared/store/test';
 import HomePage from '@/routes/Home/HomePage';
+import { renderWithProviders } from '@/shared/store/test';
 import { screen } from '@testing-library/react';
 
 describe('HomePage', () => {

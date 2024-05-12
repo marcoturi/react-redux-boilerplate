@@ -1,11 +1,11 @@
 import { SubscriptionSelectors } from '.';
-import { setupStore } from '@/shared/store/test';
 import { initialStorageState } from '@/features/settings/store/settings.slice';
 import { SettingsKey } from '@/features/settings/store/settings.type';
 import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
 import { subscriptionApi } from '@/features/subscriptions/store/subscription.api';
 import { subscriptionMockList } from '@/features/subscriptions/store/subscription.mocks.spec';
 import { Subscription } from '@/features/subscriptions/store/subscription.type';
+import { setupStore } from '@/shared/store/test';
 
 describe('Subscription Selector:', () => {
   let store;

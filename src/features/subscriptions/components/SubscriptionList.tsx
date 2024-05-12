@@ -1,7 +1,7 @@
 import { SubscriptionApi, SubscriptionSelectors } from '../store';
 import { SkeletonList } from '@/UI/Elements/Skeleton';
-import { useAppSelector } from '@/shared/store/types';
 import { SubscriptionCard } from '@/features/subscriptions/components';
+import { useAppSelector } from '@/shared/store/types';
 
 export function SubscriptionList() {
   const { isLoading } = SubscriptionApi.useGetSubscriptionsQuery();
