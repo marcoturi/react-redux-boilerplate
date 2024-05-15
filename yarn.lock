@@ -3051,9 +3051,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/themes@npm:3.0.3":
-  version: 3.0.3
-  resolution: "@radix-ui/themes@npm:3.0.3"
+"@radix-ui/themes@npm:3.0.4":
+  version: 3.0.4
+  resolution: "@radix-ui/themes@npm:3.0.4"
   dependencies:
     "@radix-ui/colors": "npm:^3.0.0"
     "@radix-ui/primitive": "npm:^1.0.1"
@@ -3100,7 +3100,7 @@ __metadata:
       optional: true
     "@types/react-dom":
       optional: true
-  checksum: 10c0/aa87d21db26f74afde6318b4645d83b153d45f04881ccdcc508026398306d6d5310f082d054d820d85a716885ec6bf7b92085e2768b0e78eebd276a40828cfa3
+  checksum: 10c0/c472d5797d180779d05d49d749d83a8f89ea72a52c2a8e180e5a49dc1130f1e04585bf13379249f5b54def27feb6168aea233df4966fb13f4f61d82c5e352857
   languageName: node
   linkType: hard
 
@@ -12178,7 +12178,7 @@ __metadata:
     "@radix-ui/react-select": "npm:2.0.0"
     "@radix-ui/react-slot": "npm:1.0.2"
     "@radix-ui/react-switch": "npm:1.0.3"
-    "@radix-ui/themes": "npm:3.0.3"
+    "@radix-ui/themes": "npm:3.0.4"
     "@reduxjs/toolkit": "npm:2.2.4"
     "@semantic-release/changelog": "npm:6.0.3"
     "@semantic-release/commit-analyzer": "npm:12.0.0"
