@@ -92,7 +92,7 @@ src
 |
 +---------------- components  # react components
 |
-+---------------- services    # services consumes by redux
++---------------- services    # services consumed by redux
 |
 +---------- Feature B         # (slices, hooks, etc. inside)
 |
