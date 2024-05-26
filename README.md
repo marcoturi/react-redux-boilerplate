@@ -74,43 +74,26 @@ Over the years, different structures were born based on different layers of feat
 If you need to re-use features across projects, within the following structure is very easy to move the folders in a monorepo package without much re-factoring (thanks also to the usage of alias in imports).
 
 ```sh
-src
-|
-+-- assets                    # assets folder can contain all the static files such as images, fonts, etc.
-|
-+-- pages                     # routes and pages configuration
-|
-+-- features                  # features used across the entire application
-|
-+----- Feature X              # Just a folder container of a group of features
-|
-+---------- Feature A
-|
-+---------------- store       # redux slice
-|
-+---------------- hooks       # react hooks
-|
-+---------------- components  # react components
-|
-+---------------- services    # services consumed by redux
-|
-+---------- Feature B         # (slices, hooks, etc. inside)
-|
-+---------- Feature C         # (slices, hooks, etc. inside)
-|
-+-- shared
-|
-+----- config        #  all the global configuration, env variables etc. get exported from here and used in the app
-|
-+----- helpers       #  any helper function that don't belong to a feature i.e. logging, generic storage (localstorage), etc.
-|
-+----- store         #  redux configuration
-|
-+-- UI               # UI components and configuration
-|
-+----- Elements      # Basic and complex UI elements
-|
-+----- Layout        # Page layouts used across the app
+.
+└── src/
+    ├── assets                   → Assets folder can contain all the static files such as images, fonts, etc.
+    ├── pages                    → Routes and pages
+    ├── shared/
+    │   ├── config               → All the global configuration, env variables etc. get exported from here and used in the app
+    │   ├── helpers              → Any helper function that do not belong to a feature i.e. logging, generic storage (localstorage), etc.
+    │   └── store                → Redux configuration
+    ├── UI/
+    │   ├── elements             → Basic and complex UI elements
+    │   └── layout               → Page layouts used across the app
+    └── features/                → Features used across the entire application
+        └── Feature X/           → Optional: a folder container for a group of features
+            ├── Feature A/
+            │   ├── store        → Redux slice
+            │   ├── hooks        → React hooks
+            │   ├── components   → React components
+            │   └── services     → Services consumed by redux
+            ├── Feature B
+            └── Feature C
 ```
 
 ### FAQ
