@@ -73,7 +73,7 @@ Over the years, different structures were born based on different layers of feat
 
 If you need to re-use features across projects, within the following structure is very easy to move the folders in a monorepo package without much re-factoring (thanks also to the usage of alias in imports).
 
-```sh
+```
 .
 └── src/
     ├── assets                   → Assets folder can contain all the static files such as images, fonts, etc.
