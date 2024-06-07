@@ -12429,7 +12429,7 @@ __metadata:
     vite: "npm:5.2.12"
     vite-tsconfig-paths: "npm:4.3.2"
     vitest: "npm:1.6.0"
-    web-vitals: "npm:4.0.1"
+    web-vitals: "npm:4.1.0"
   languageName: unknown
   linkType: soft
 
@@ -15160,10 +15160,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"web-vitals@npm:4.0.1":
-  version: 4.0.1
-  resolution: "web-vitals@npm:4.0.1"
-  checksum: 10c0/5ebcc2b3b2616ba133f5696e4029b2fc2147b03e850d554bdabe900f4fc00eea812be66e6e7809ecbdbfe1f46581238ca74d0c2390ba83881a3ba1e09d33a407
+"web-vitals@npm:4.1.0":
+  version: 4.1.0
+  resolution: "web-vitals@npm:4.1.0"
+  checksum: 10c0/5f30db0c098172e48ebe95a28e9782447c7b31e9b275577fa4c70b8d2381aa425998c7da2e8f1a21e47283fb2002e4d6126339d0b6fab3ad125dab1fcd60e1d3
   languageName: node
   linkType: hard
 
