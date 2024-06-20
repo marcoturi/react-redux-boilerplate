@@ -1,3 +1,10 @@
+## [1.3.51](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.50...v1.3.51) (2024-06-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @radix-ui/react-select to v2.1.0 ([ae6dfda](https://github.com/marcoturi/react-redux-boilerplate/commit/ae6dfdab4d96d81a5ef9ef25fcb9db2dfa8aa267))
+
 ## [1.3.50](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.49...v1.3.50) (2024-06-20)
 
 
