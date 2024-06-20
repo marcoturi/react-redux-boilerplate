@@ -1,3 +1,10 @@
+## [1.3.50](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.49...v1.3.50) (2024-06-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @radix-ui/react-navigation-menu to v1.2.0 ([7ac30fa](https://github.com/marcoturi/react-redux-boilerplate/commit/7ac30fa9c1b686f21574952a08a04b0d0a371602))
+
 ## [1.3.49](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.48...v1.3.49) (2024-06-20)
 
 
