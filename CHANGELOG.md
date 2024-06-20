@@ -1,3 +1,10 @@
+## [1.3.52](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.51...v1.3.52) (2024-06-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @radix-ui/react-slot to v1.1.0 ([af0c238](https://github.com/marcoturi/react-redux-boilerplate/commit/af0c23810930958abe037ae3d9265a724ce3edfa))
+
 ## [1.3.51](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.50...v1.3.51) (2024-06-20)
 
 
