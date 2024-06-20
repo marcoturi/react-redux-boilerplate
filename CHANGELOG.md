@@ -1,3 +1,10 @@
+## [1.3.49](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.48...v1.3.49) (2024-06-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @radix-ui/react-label to v2.1.0 ([d2bb7b7](https://github.com/marcoturi/react-redux-boilerplate/commit/d2bb7b79139612b3c10938a4d0777202846333c1))
+
 ## [1.3.48](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.47...v1.3.48) (2024-06-15)
 
 
