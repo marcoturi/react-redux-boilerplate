@@ -1,3 +1,10 @@
+## [1.3.53](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.52...v1.3.53) (2024-06-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @radix-ui/react-switch to v1.1.0 ([a57daa6](https://github.com/marcoturi/react-redux-boilerplate/commit/a57daa6f8e12be67bfdc6e65c987f826b4b8c452))
+
 ## [1.3.52](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.51...v1.3.52) (2024-06-20)
 
 
