@@ -1,3 +1,11 @@
+## [1.3.79](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.78...v1.3.79) (2024-07-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sentry/react to v8.18.0 ([565f8c3](https://github.com/marcoturi/react-redux-boilerplate/commit/565f8c353adced92fcd11acaab4597374604611e))
+* **deps:** update react-router monorepo to v6.25.1 ([ca6fa94](https://github.com/marcoturi/react-redux-boilerplate/commit/ca6fa94617096b7846326c34358dfffde8b3e658))
+
 ## [1.3.78](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.77...v1.3.78) (2024-07-17)
 
 
