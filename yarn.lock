@@ -10461,9 +10461,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:2.3.1":
-  version: 2.3.1
-  resolution: "msw@npm:2.3.1"
+"msw@npm:2.3.2":
+  version: 2.3.2
+  resolution: "msw@npm:2.3.2"
   dependencies:
     "@bundled-es-modules/cookie": "npm:^2.0.0"
     "@bundled-es-modules/statuses": "npm:^1.0.1"
@@ -10489,7 +10489,7 @@ __metadata:
       optional: true
   bin:
     msw: cli/index.js
-  checksum: 10c0/2f8bb3cce72a37ed7014b2ef18e45b64a617c6d1ebcb871fe43184d0759fa595bcd88cbc3865c668bda5a9482e259cb13aa07c482c7d977e4975ff3708162ea0
+  checksum: 10c0/76c4426f09fb20665162f4e31803dd5b95d479427317b1f1bb963d8f5ee734d545468475b1645f09fd09d83c14b6fa8089ccb672e3cc9e863f9c96b446f21545
   languageName: node
   linkType: hard
 
@@ -12491,7 +12491,7 @@ __metadata:
     jsdom: "npm:24.1.0"
     lint-staged: "npm:15.2.7"
     lucide-react: "npm:0.408.0"
-    msw: "npm:2.3.1"
+    msw: "npm:2.3.2"
     pinst: "npm:3.0.0"
     postcss: "npm:8.4.39"
     prettier: "npm:3.3.3"
