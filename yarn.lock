@@ -304,6 +304,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bundled-es-modules/tough-cookie@npm:^0.1.6":
+  version: 0.1.6
+  resolution: "@bundled-es-modules/tough-cookie@npm:0.1.6"
+  dependencies:
+    "@types/tough-cookie": "npm:^4.0.5"
+    tough-cookie: "npm:^4.1.4"
+  checksum: 10c0/28bcac878bff6b34719ba3aa8341e9924772ee55de5487680ebe784981ec9fccb70ed5d46f563e2404855a04de606f9e56aa4202842d4f5835bc04a4fe820571
+  languageName: node
+  linkType: hard
+
 "@colors/colors@npm:1.5.0":
   version: 1.5.0
   resolution: "@colors/colors@npm:1.5.0"
@@ -4154,6 +4164,13 @@ __metadata:
   version: 2.0.4
   resolution: "@types/statuses@npm:2.0.4"
   checksum: 10c0/9e5efd048a7088ab8ca0e0eca87f160ce0afc11fd06a85e130823e12290497c9b0a3a045a8df264b90237a4e92a79b0de9ed1fd6b497ac90c87e58fed7312755
+  languageName: node
+  linkType: hard
+
+"@types/tough-cookie@npm:^4.0.5":
+  version: 4.0.5
+  resolution: "@types/tough-cookie@npm:4.0.5"
+  checksum: 10c0/68c6921721a3dcb40451543db2174a145ef915bc8bcbe7ad4e59194a0238e776e782b896c7a59f4b93ac6acefca9161fccb31d1ce3b3445cb6faa467297fb473
   languageName: node
   linkType: hard
 
@@ -10431,14 +10448,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:2.3.2":
-  version: 2.3.2
-  resolution: "msw@npm:2.3.2"
+"msw@npm:2.3.4":
+  version: 2.3.4
+  resolution: "msw@npm:2.3.4"
   dependencies:
     "@bundled-es-modules/cookie": "npm:^2.0.0"
     "@bundled-es-modules/statuses": "npm:^1.0.1"
+    "@bundled-es-modules/tough-cookie": "npm:^0.1.6"
     "@inquirer/confirm": "npm:^3.0.0"
-    "@mswjs/cookies": "npm:^1.1.0"
     "@mswjs/interceptors": "npm:^0.29.0"
     "@open-draft/until": "npm:^2.1.0"
     "@types/cookie": "npm:^0.6.0"
@@ -10459,7 +10476,7 @@ __metadata:
       optional: true
   bin:
     msw: cli/index.js
-  checksum: 10c0/76c4426f09fb20665162f4e31803dd5b95d479427317b1f1bb963d8f5ee734d545468475b1645f09fd09d83c14b6fa8089ccb672e3cc9e863f9c96b446f21545
+  checksum: 10c0/e9a5a1de80f1688c1dd5c4de86c0192891568912d0f98500b552ecfe233d80559941d2bd563b3f7a792919a8a5fd380e222461f4b2a331ab1ab65fcb5fe30a97
   languageName: node
   linkType: hard
 
@@ -12461,7 +12478,7 @@ __metadata:
     jsdom: "npm:24.1.1"
     lint-staged: "npm:15.2.7"
     lucide-react: "npm:0.412.0"
-    msw: "npm:2.3.2"
+    msw: "npm:2.3.4"
     pinst: "npm:3.0.0"
     postcss: "npm:8.4.39"
     prettier: "npm:3.3.3"
