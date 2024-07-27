@@ -44,7 +44,7 @@
     "@radix-ui/react-slot": "1.1.0",
     "@radix-ui/react-switch": "1.1.0",
     "@radix-ui/themes": "3.1.1",
-    "@reduxjs/toolkit": "2.2.6",
+    "@reduxjs/toolkit": "2.2.7",
     "@sentry/react": "8.20.0",
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.1",
