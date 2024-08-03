@@ -41,6 +41,7 @@ cd my-app
 
 # To enable yarn 4 follow the instruction here: https://yarnpkg.com/getting-started/install
 yarn #Install dependencies.
+yarn create:env #Create a .env file
 ```
 
 ### Common Commands
@@ -55,6 +56,7 @@ yarn #Install dependencies.
 - `yarn outdated` - update dependencies interactively.
 - `yarn format` - format all files with Prettier.
 - `yarn lint` - runs ESLint.
+- `yarn create:env` - creates default envs.
 
 ## <a name="folder"></a>🗄️ Folder Structure and Code Organization
 
