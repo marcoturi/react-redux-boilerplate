@@ -34,6 +34,8 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Copy env
+        run: yarn create:env
       - name: Run tests
         run: yarn test
       - name: Install Playwright Browsers
