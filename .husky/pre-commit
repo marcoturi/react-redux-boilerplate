@@ -1,2 +1,2 @@
-npx lint-staged --allow-empty
-npm test
+yarn lint-staged --allow-empty
+yarn test
