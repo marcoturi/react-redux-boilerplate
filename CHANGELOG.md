@@ -1,3 +1,10 @@
+## [1.3.95](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.94...v1.3.95) (2024-08-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @radix-ui/themes to v3.1.3 ([65fc372](https://github.com/marcoturi/react-redux-boilerplate/commit/65fc37212e19df59b703c62bad6224fb8c7f5a69))
+
 ## [1.3.94](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.93...v1.3.94) (2024-08-06)
 
 
