@@ -12538,7 +12538,7 @@ __metadata:
     react-router: "npm:6.26.0"
     react-router-dom: "npm:6.26.0"
     semantic-release: "npm:24.0.0"
-    tailwind-merge: "npm:2.4.0"
+    tailwind-merge: "npm:2.5.0"
     tailwindcss: "npm:3.4.9"
     tailwindcss-animate: "npm:1.0.7"
     ts-node: "npm:10.9.2"
@@ -14232,10 +14232,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwind-merge@npm:2.4.0":
-  version: 2.4.0
-  resolution: "tailwind-merge@npm:2.4.0"
-  checksum: 10c0/77bd20647d08db78a0bdf7b57d4b904479aee7727f44570f8834d62a1aa56f42d7ae68ac959e3d610c9f188aa164eeefb6c43df4f0c8bb7cfc3418e1575bfecb
+"tailwind-merge@npm:2.5.0":
+  version: 2.5.0
+  resolution: "tailwind-merge@npm:2.5.0"
+  checksum: 10c0/59c58b489158ec25aced3072c4d023babb32e2d8fb4b55d75b2e18afc1650cbb3e88af7d323696fe7debed35b6633ee8e40203c95ded6a54f06d4eb7f30ceb18
   languageName: node
   linkType: hard
 
