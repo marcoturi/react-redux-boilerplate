@@ -10099,12 +10099,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react@npm:0.428.0":
-  version: 0.428.0
-  resolution: "lucide-react@npm:0.428.0"
+"lucide-react@npm:0.429.0":
+  version: 0.429.0
+  resolution: "lucide-react@npm:0.429.0"
   peerDependencies:
     react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
-  checksum: 10c0/17d30577e7204507822335a73bacb29cfe4cd575cc856788dd4f04dc80f1800de7dfeb46146c68ac27b2aba020fc0d52cafd57f4a5a70ee263d4dc08ca6b7f80
+  checksum: 10c0/256d18dce24114fe705755030ab57b6be698f275f3a75565678f8b1de1ce85075f16aed0950b0a762d25be02176f4eb0650cf34bd934ace44fc60fd222bd6b70
   languageName: node
   linkType: hard
 
@@ -12534,7 +12534,7 @@ __metadata:
     husky: "npm:9.1.5"
     jsdom: "npm:24.1.1"
     lint-staged: "npm:15.2.9"
-    lucide-react: "npm:0.428.0"
+    lucide-react: "npm:0.429.0"
     msw: "npm:2.3.5"
     pinst: "npm:3.0.0"
     postcss: "npm:8.4.41"
