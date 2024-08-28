@@ -62,8 +62,8 @@
     "web-vitals": "4.2.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.4.0",
-    "@commitlint/config-conventional": "19.2.2",
+    "@commitlint/cli": "19.4.1",
+    "@commitlint/config-conventional": "19.4.1",
     "@cucumber/cucumber": "10.9.0",
     "@cucumber/html-formatter": "21.7.0",
     "@cucumber/messages": "25.0.1",
