@@ -10512,9 +10512,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:2.4.2":
-  version: 2.4.2
-  resolution: "msw@npm:2.4.2"
+"msw@npm:2.4.3":
+  version: 2.4.3
+  resolution: "msw@npm:2.4.3"
   dependencies:
     "@bundled-es-modules/cookie": "npm:^2.0.0"
     "@bundled-es-modules/statuses": "npm:^1.0.1"
@@ -10525,6 +10525,7 @@ __metadata:
     "@types/cookie": "npm:^0.6.0"
     "@types/statuses": "npm:^2.0.4"
     chalk: "npm:^4.1.2"
+    graphql: "npm:^16.8.1"
     headers-polyfill: "npm:^4.0.2"
     is-node-process: "npm:^1.2.0"
     outvariant: "npm:^1.4.2"
@@ -10533,16 +10534,13 @@ __metadata:
     type-fest: "npm:^4.9.0"
     yargs: "npm:^17.7.2"
   peerDependencies:
-    graphql: ">= 16.8.x"
     typescript: ">= 4.8.x"
   peerDependenciesMeta:
-    graphql:
-      optional: true
     typescript:
       optional: true
   bin:
     msw: cli/index.js
-  checksum: 10c0/8fcee7f0e3e1cda33d135969a00f1650e53caf582b6dbc0e070f4d9380369caf019c634fc148232b00534b1d9279649c57e5e3ae0a78cedd6025e1335bd4b5aa
+  checksum: 10c0/5d9283e60c2950cc94863095bf196a0fd8f003fbd3783bcad868a7abe0560f05f8c24d84122d24a4cfb31d75fecdf6ca14772fa736b96e24e8455fbe3f709c85
   languageName: node
   linkType: hard
 
@@ -12531,7 +12529,7 @@ __metadata:
     jsdom: "npm:24.1.3"
     lint-staged: "npm:15.2.10"
     lucide-react: "npm:0.439.0"
-    msw: "npm:2.4.2"
+    msw: "npm:2.4.3"
     pinst: "npm:3.0.0"
     postcss: "npm:8.4.45"
     prettier: "npm:3.3.3"
