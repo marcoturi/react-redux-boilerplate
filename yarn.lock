@@ -1447,9 +1447,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mswjs/data@npm:0.16.1":
-  version: 0.16.1
-  resolution: "@mswjs/data@npm:0.16.1"
+"@mswjs/data@npm:0.16.2":
+  version: 0.16.2
+  resolution: "@mswjs/data@npm:0.16.2"
   dependencies:
     "@types/lodash": "npm:^4.14.172"
     "@types/md5": "npm:^2.3.0"
@@ -1468,7 +1468,7 @@ __metadata:
   dependenciesMeta:
     msw:
       optional: true
-  checksum: 10c0/9518f5e918b9bbf6fe87aa57950091282d5fb3a0b9d6ed5ab7746fe46ed326d958607932cb441e6f77378e2a957a01857e15d870f2697128a1f3c7237ffb02b0
+  checksum: 10c0/b08c0ad53663d97a4e9ab6d5b1d1e6a2c39919495528101ebe726123ea1f777ec854f75c595bbb3719500b213423ecf26730254276324991de2113033ba6ec73
   languageName: node
   linkType: hard
 
@@ -12484,7 +12484,7 @@ __metadata:
     "@cucumber/html-formatter": "npm:21.7.0"
     "@cucumber/messages": "npm:25.0.1"
     "@cucumber/pretty-formatter": "npm:1.0.1"
-    "@mswjs/data": "npm:0.16.1"
+    "@mswjs/data": "npm:0.16.2"
     "@playwright/test": "npm:1.47.0"
     "@radix-ui/react-label": "npm:2.1.0"
     "@radix-ui/react-navigation-menu": "npm:1.2.0"
