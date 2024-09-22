@@ -795,15 +795,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cucumber/messages@npm:25.0.1":
-  version: 25.0.1
-  resolution: "@cucumber/messages@npm:25.0.1"
+"@cucumber/messages@npm:26.0.1":
+  version: 26.0.1
+  resolution: "@cucumber/messages@npm:26.0.1"
   dependencies:
-    "@types/uuid": "npm:9.0.8"
+    "@types/uuid": "npm:10.0.0"
     class-transformer: "npm:0.5.1"
     reflect-metadata: "npm:0.2.2"
-    uuid: "npm:9.0.1"
-  checksum: 10c0/ac15a2f4d5f21c437b5b9900c36eda9a41158cc191fd7e0e9c9d181bd1ce5d7d096f67208afc3b59faab2dcb98be1ed7d9a4c9b4aaddd0ad58dc4052e9e33f93
+    uuid: "npm:10.0.0"
+  checksum: 10c0/9db4f4fc536ebc261a05b0b37e10bc1618374e259484d59bc2578dbd62109e3bba111f675aa6b6aa6651a238cb08c2544a46a58e3c6413b1046fe756ab625680
   languageName: node
   linkType: hard
 
@@ -4200,6 +4200,13 @@ __metadata:
   version: 0.0.3
   resolution: "@types/use-sync-external-store@npm:0.0.3"
   checksum: 10c0/82824c1051ba40a00e3d47964cdf4546a224e95f172e15a9c62aa3f118acee1c7518b627a34f3aa87298a2039f982e8509f92bfcc18bea7c255c189c293ba547
+  languageName: node
+  linkType: hard
+
+"@types/uuid@npm:10.0.0":
+  version: 10.0.0
+  resolution: "@types/uuid@npm:10.0.0"
+  checksum: 10c0/9a1404bf287164481cb9b97f6bb638f78f955be57c40c6513b7655160beb29df6f84c915aaf4089a1559c216557dc4d2f79b48d978742d3ae10b937420ddac60
   languageName: node
   linkType: hard
 
@@ -12539,7 +12546,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:19.5.0"
     "@cucumber/cucumber": "npm:10.9.0"
     "@cucumber/html-formatter": "npm:21.7.0"
-    "@cucumber/messages": "npm:25.0.1"
+    "@cucumber/messages": "npm:26.0.1"
     "@cucumber/pretty-formatter": "npm:1.0.1"
     "@mswjs/data": "npm:0.16.2"
     "@playwright/test": "npm:1.47.2"
@@ -15152,6 +15159,15 @@ __metadata:
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
   checksum: 10c0/41a5bdd214df2f6c3ecf8622745e4a366c4adced864bc3c833739791aeeeb1838119af7daed4ba36428114b5c67dcda034a79c882e97e43c03e66a4dd7389942
+  languageName: node
+  linkType: hard
+
+"uuid@npm:10.0.0":
+  version: 10.0.0
+  resolution: "uuid@npm:10.0.0"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 10c0/eab18c27fe4ab9fb9709a5d5f40119b45f2ec8314f8d4cf12ce27e4c6f4ffa4a6321dc7db6c515068fa373c075b49691ba969f0010bf37f44c37ca40cd6bf7fe
   languageName: node
   linkType: hard
 
