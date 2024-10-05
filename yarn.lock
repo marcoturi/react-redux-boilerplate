@@ -6408,9 +6408,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cucumber-html-reporter@npm:7.1.1":
-  version: 7.1.1
-  resolution: "cucumber-html-reporter@npm:7.1.1"
+"cucumber-html-reporter@npm:7.2.0":
+  version: 7.2.0
+  resolution: "cucumber-html-reporter@npm:7.2.0"
   dependencies:
     "@cucumber/cucumber": "npm:9.1.2"
     chalk: "npm:^2.4.2"
@@ -6422,7 +6422,7 @@ __metadata:
     node-emoji: "npm:^1.10.0"
     open: "npm:^6.4.0"
     uuid: "npm:^3.3.3"
-  checksum: 10c0/341440d8f18457c8a95901471997ea85d99bf3cae4c9eaeb414638d915376b1388de7d7fd55c73c5facba76caf0f81735a181be49e765d614d4c4c6cda6683d4
+  checksum: 10c0/d2a77c67da4562b55810d878e76df1d19bd8e94a961b038b047f13efb218a5d6cd7702185e4c3a4e3e791f231f7e90e48f7a8e2c353261f8ee930e4b163e1842
   languageName: node
   linkType: hard
 
@@ -12768,7 +12768,7 @@ __metadata:
     clsx: "npm:2.1.1"
     cssnano: "npm:7.0.6"
     cucumber-console-formatter: "npm:1.0.0"
-    cucumber-html-reporter: "npm:7.1.1"
+    cucumber-html-reporter: "npm:7.2.0"
     eslint: "npm:8.57.1"
     eslint-config-airbnb: "npm:19.0.4"
     eslint-config-airbnb-typescript: "npm:18.0.0"
