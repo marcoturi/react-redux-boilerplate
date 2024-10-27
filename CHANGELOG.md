@@ -1,3 +1,10 @@
+## [1.3.126](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.125...v1.3.126) (2024-10-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency web-vitals to v4.2.4 ([851a920](https://github.com/marcoturi/react-redux-boilerplate/commit/851a920a4a5452fa3d7bcff58d67ba3f3b205bf8))
+
 ## [1.3.125](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.124...v1.3.125) (2024-10-27)
 
 
