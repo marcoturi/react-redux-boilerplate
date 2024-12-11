@@ -8,14 +8,20 @@ const LocalStorageService = (dbKey: StorageKeys) => ({
       .filter((key) => key.startsWith(dbKey))
       .reduce((obj, k) => {
         const key = k.replace(dbKey, '');
-        return { ...obj, [key]: JSON.parse(window.localStorage.getItem(k)!) };
+        return {
+          ...obj,
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          [key]: JSON.parse(globalThis.localStorage.getItem(k)!),
+        };
       }, {}),
-  get: (key: string) => JSON.parse(window.localStorage.getItem(dbKey + key)!),
+  get: (key: string) =>
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    JSON.parse(globalThis.localStorage.getItem(dbKey + key)!),
   set: (key: string, value: any) => {
-    window.localStorage.setItem(dbKey + key, JSON.stringify(value));
+    globalThis.localStorage.setItem(dbKey + key, JSON.stringify(value));
   },
   clear: (key: string) => {
-    window.localStorage.removeItem(key);
+    globalThis.localStorage.removeItem(key);
   },
 });
 

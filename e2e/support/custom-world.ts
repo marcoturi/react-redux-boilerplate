@@ -11,8 +11,8 @@ import {
 enum Parameters {
   SERVER_URL = 'SERVER_URL',
 }
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type WorldParams = { [key in Parameters]: any };
+
+export type WorldParams = Record<Parameters, any>;
 
 export interface CucumberWorldConstructorParams {
   parameters: WorldParams;

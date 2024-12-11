@@ -27,7 +27,7 @@ let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 const tracesDir = 'traces';
 
 declare global {
-  // eslint-disable-next-line no-var, vars-on-top
+  // eslint-disable-next-line no-var
   var browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 }
 
@@ -57,12 +57,7 @@ BeforeAll(async () => {
   await ensureDir(tracesDir);
 });
 
-Before(
-  { tags: '@pending' },
-  () =>
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    'skipped' as any,
-);
+Before({ tags: '@pending' }, () => 'skipped' as any);
 
 Before({ tags: '@debug' }, function (this: ICustomWorld) {
   this.debug = true;

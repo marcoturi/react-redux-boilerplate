@@ -4,7 +4,7 @@ import { cleanup } from '@testing-library/react';
 import { setupServer } from 'msw/node';
 
 expect.extend(matchers);
-declare var window;
+declare let window;
 
 // Needed for testing Radix Select component
 // https://github.com/testing-library/user-event/discussions/1087

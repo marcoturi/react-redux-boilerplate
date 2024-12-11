@@ -28,11 +28,9 @@ export const storeConfig = {
   reducer: rootReducer,
   devTools: env.IS_DEV,
   enhancers: (getDefaultEnhancers) =>
-    // eslint-disable-next-line unicorn/prefer-spread
-    getDefaultEnhancers().concat(sentryReduxEnhancer),
+    getDefaultEnhancers().prepend(sentryReduxEnhancer),
   middleware: (getDefaultMiddleware) =>
-    // eslint-disable-next-line unicorn/prefer-spread
-    getDefaultMiddleware().concat(
+    getDefaultMiddleware().prepend(
       baseApi.middleware,
       storageMiddleware.middleware,
     ),

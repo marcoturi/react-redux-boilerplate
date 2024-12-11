@@ -17,18 +17,18 @@ export const db = factory(models);
 export type Model = keyof typeof db;
 
 export const loadDb = () =>
-  Object.assign(JSON.parse(window.localStorage.getItem('msw-db') ?? '{}'));
+  Object.assign(JSON.parse(globalThis.localStorage.getItem('msw-db') ?? '{}'));
 
 export const persistDb = (model: Model) => {
   if (process.env.NODE_ENV === 'test') return;
   const data = loadDb();
   data[model] = (db[model] as any).getAll();
-  window.localStorage.setItem('msw-db', JSON.stringify(data));
+  globalThis.localStorage.setItem('msw-db', JSON.stringify(data));
 };
 
 export const initializeDb = () => {
   const database = loadDb();
-  // eslint-disable-next-line no-restricted-syntax
+
   for (const [key, model] of Object.entries(db)) {
     const dataEntries = database[key];
     if (dataEntries) {
@@ -41,7 +41,7 @@ export const initializeDb = () => {
 };
 
 export const resetDb = () => {
-  window.localStorage.clear();
+  globalThis.localStorage.clear();
 };
 
 initializeDb();

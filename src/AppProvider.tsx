@@ -9,7 +9,9 @@ function ErrorFallback() {
   return (
     <div role="alert">
       <h2>Ooops, something went wrong :( </h2>
-      <Button onClick={() => window.location.assign(window.location.origin)}>
+      <Button
+        onClick={() => globalThis.location.assign(globalThis.location.origin)}
+      >
         Refresh
       </Button>
     </div>

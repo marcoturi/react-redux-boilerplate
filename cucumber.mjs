@@ -1,4 +1,4 @@
-const getWorldParams = () => {
+const getWorldParameters = () => {
   return {
     SERVER_URL: process.env.SERVER_URL,
   };
@@ -16,7 +16,7 @@ const config = {
     '@cucumber/pretty-formatter',
   ],
   formatOptions: { snippetInterface: 'async-await' },
-  worldParameters: getWorldParams(),
+  worldParameters: getWorldParameters(),
 };
 
 export default config;

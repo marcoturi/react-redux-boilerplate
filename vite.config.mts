@@ -2,8 +2,8 @@ import react from '@vitejs/plugin-react-swc';
 import type { UserConfig } from 'vite';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import type { InlineConfig } from 'vitest';
 import { configDefaults } from 'vitest/config';
+import type { InlineConfig } from 'vitest/node';
 
 interface VitestConfigExport extends UserConfig {
   test: InlineConfig;
@@ -18,7 +18,7 @@ export default defineConfig({
   resolve: {
     alias: {
       // @ts-ignore
-      '@/': new URL('./src/', import.meta.url).pathname,
+      '@/': new URL('src/', import.meta.url).pathname,
     },
   },
   test: {

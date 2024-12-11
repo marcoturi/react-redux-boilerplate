@@ -3,7 +3,7 @@ import { RootState } from '@/shared/store/types';
 import { configureStore } from '@reduxjs/toolkit';
 import { render } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';
-import React, { PropsWithChildren } from 'react';
+import React, { JSX, PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 
 export const setupStore = (preloadedState?: Partial<RootState>) =>
@@ -30,8 +30,7 @@ export function renderWithProviders(
     ...renderOptions
   }: ExtendedRenderOptions = {},
 ) {
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
+  function Wrapper({ children }: PropsWithChildren): JSX.Element {
     return <Provider store={store}>{children}</Provider>;
   }
 
