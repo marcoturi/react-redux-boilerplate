@@ -14,7 +14,7 @@ The project aim to provide guidelines on the development key points of a long te
 
 ## ⚡ Features
 
-- Blazing fast build system: [Vite](https://vitejs.dev/) + [React SWC](https://github.com/vitejs/vite-plugin-react-swc) + [Yarn 4](https://yarnpkg.com/getting-started/install) + [TypeScript](https://www.typescriptlang.org) with [absolute imports](https://github.com/aleclarson/vite-tsconfig-paths)
+- Blazing fast build system: [Vite 6](https://vitejs.dev/) + [React 19 SWC](https://github.com/vitejs/vite-plugin-react-swc) + [Yarn 4](https://yarnpkg.com/getting-started/install) + [TypeScript](https://www.typescriptlang.org) with [absolute imports](https://github.com/aleclarson/vite-tsconfig-paths)
 - App State: [Redux Toolkit 2](https://redux-toolkit.js.org/)
 - Theme: [Radix](https://www.radix-ui.com/) + [Shadcn/ui](https://ui.shadcn.com/) + [Tailwind 3](https://tailwindcss.com/)
 - Format and Style: [Eslint](https://eslint.org/) + [Prettier](https://prettier.io/) with a [prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) that automatically sorts tailwind classes.
@@ -185,17 +185,13 @@ This comprehensive toolkit streamlines the release process, ensuring efficiency,
 
 ## <a name="style"></a>👁️ Format and style
 
-TLDR; Embrace a consistent style guide, avoid Eslint's flat format, and leverage Prettier for formatting
+TLDR; Embrace a consistent style guide, leverage Prettier for formatting
 
-- Postpone utilizing the new flat format until these issues are resolved: [eslint](https://github.com/eslint/eslint/issues/13481) and [eslint-typescript](https://github.com/typescript-eslint/typescript-eslint/issues/7694)
 - [Forgo the use of eslint-plugin-prettier](https://stackoverflow.com/questions/44690308/whats-the-difference-between-prettier-eslint-eslint-plugin-prettier-and-eslint) opt for eslint-config-prettier. In general, delegate formatting responsibilities to Prettier, not Eslint as they also suggest in their official docs.
-- Consider the available style guide options: standard, airbnb, google. For a comprehensive comparison, you can check [here](https://github.com/gajus/eslint-config-canonical/blob/main/COMPARISON_TABLE.md). Our preference is the airbnb style guide due to its widespread adoption and comprehensive coverage of React-specific guidelines.
 
 List of rules:
 
 - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) - Deactivate formatting rules because we use prettier for them
-- [eslint-config-airbnb](https://github.com/airbnb/javascript) - Airbnb set of rules
-- [eslint-config-airbnb-typescript](https://github.com/iamturns/eslint-config-airbnb-typescript) - Airbnb rules for typescript
   - [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) - Rules for react
   - [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) - Rules of React hooks
   - [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y) - accessibility rules on JSX elements.

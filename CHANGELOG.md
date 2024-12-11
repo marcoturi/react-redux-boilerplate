@@ -1,3 +1,59 @@
+## [1.3.132](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.131...v1.3.132) (2024-11-02)
+
+
+### Bug Fixes
+
+* **deps:** update react-router monorepo to v6.27.0 ([6e9c5a1](https://github.com/marcoturi/react-redux-boilerplate/commit/6e9c5a1acae5b3f52ef305a549b886f4b45c5de6))
+
+## [1.3.131](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.130...v1.3.131) (2024-11-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-error-boundary to v4.1.2 ([a2b0e8b](https://github.com/marcoturi/react-redux-boilerplate/commit/a2b0e8bfbf007604014ae633166e7c5552dff289))
+
+## [1.3.130](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.129...v1.3.130) (2024-11-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency lucide-react to v0.454.0 ([8bc0c60](https://github.com/marcoturi/react-redux-boilerplate/commit/8bc0c6011f46e3e51f6311d868594b6480d3fd9b))
+
+## [1.3.129](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.128...v1.3.129) (2024-11-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sentry/react to v8.36.0 ([7deeadb](https://github.com/marcoturi/react-redux-boilerplate/commit/7deeadba43e4f0d0abe72364c584f0e878cc6cb0))
+
+## [1.3.128](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.127...v1.3.128) (2024-10-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sentry/react to v8.35.0 ([b0ecb24](https://github.com/marcoturi/react-redux-boilerplate/commit/b0ecb2454ae1152e828e7b366e765ea8d1f2f3f2))
+
+## [1.3.127](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.126...v1.3.127) (2024-10-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @reduxjs/toolkit to v2.3.0 ([5b6572b](https://github.com/marcoturi/react-redux-boilerplate/commit/5b6572bf97407da4b0a408534476c022691cbcec))
+
+## [1.3.126](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.125...v1.3.126) (2024-10-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency web-vitals to v4.2.4 ([851a920](https://github.com/marcoturi/react-redux-boilerplate/commit/851a920a4a5452fa3d7bcff58d67ba3f3b205bf8))
+
+## [1.3.125](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.124...v1.3.125) (2024-10-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency tailwind-merge to v2.5.4 ([9ca85dd](https://github.com/marcoturi/react-redux-boilerplate/commit/9ca85ddf313947b798d6c013f963c4d5a9b9be1f))
+
 ## [1.3.124](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.123...v1.3.124) (2024-10-05)
 
 
