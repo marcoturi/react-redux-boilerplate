@@ -1,6 +1,6 @@
 {
   "name": "react-redux-boilerplate",
-  "version": "1.3.132",
+  "version": "1.4.0",
   "packageManager": "yarn@4.5.1",
   "author": "Marco Turi <marco.turi@hotmail.it>",
   "description": "A production ready, batteries included starter template for Vite + React projects",

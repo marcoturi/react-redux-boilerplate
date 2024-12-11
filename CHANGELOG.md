@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.132...v1.4.0) (2024-12-11)
+
+
+### Features
+
+* update project to react 19 ([60aa13c](https://github.com/marcoturi/react-redux-boilerplate/commit/60aa13ca8b1765b3d3016be75d34ff52cb908c94))
+
 ## [1.3.132](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.3.131...v1.3.132) (2024-11-02)
 
 
