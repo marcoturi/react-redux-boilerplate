@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.4.2...v1.4.3) (2024-12-14)
+
+
+### Bug Fixes
+
+* **deps:** update radix-ui-primitives monorepo ([#654](https://github.com/marcoturi/react-redux-boilerplate/issues/654)) ([dcd2047](https://github.com/marcoturi/react-redux-boilerplate/commit/dcd204704eb84ae68a1547151d8f611a54b4285c))
+
 ## [1.4.2](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.4.1...v1.4.2) (2024-12-13)
 
 
