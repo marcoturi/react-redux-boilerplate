@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.4.4...v1.4.5) (2024-12-15)
+
+
+### Bug Fixes
+
+* **test:** selector warnings ([68e509b](https://github.com/marcoturi/react-redux-boilerplate/commit/68e509b590e39d2eba4281a21e770fbf1c75d1e7))
+
 ## [1.4.4](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.4.3...v1.4.4) (2024-12-14)
 
 

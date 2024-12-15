@@ -1,6 +1,6 @@
 {
   "name": "react-redux-boilerplate",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "packageManager": "yarn@4.5.3",
   "author": "Marco Turi <marco.turi@hotmail.it>",
   "description": "A production ready, batteries included starter template for Vite + React projects",
@@ -61,7 +61,7 @@
     "tailwindcss-animate": "1.0.7"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.6.0",
+    "@commitlint/cli": "19.6.1",
     "@commitlint/config-conventional": "19.6.0",
     "@cucumber/cucumber": "11.1.1",
     "@cucumber/html-formatter": "21.7.0",
