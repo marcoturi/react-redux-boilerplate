@@ -1,3 +1,10 @@
+## [1.4.6](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.4.5...v1.4.6) (2024-12-15)
+
+
+### Bug Fixes
+
+* **menu:** blink on click ([2c77ee3](https://github.com/marcoturi/react-redux-boilerplate/commit/2c77ee38c98f7ff2b228aafe4ebaf5750b4e2440))
+
 ## [1.4.5](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.4.4...v1.4.5) (2024-12-15)
 
 
