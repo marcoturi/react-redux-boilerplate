@@ -5,6 +5,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@/UI/Elements/Navigation';
+import { Link } from 'react-router-dom';
 
 type Props = {
   menuItems: { label: string; href: string; testId: string }[];
@@ -16,12 +17,8 @@ function Menu({ menuItems }: Props) {
       <NavigationMenuList>
         {menuItems.map((item) => (
           <NavigationMenuItem key={item.label}>
-            <NavigationMenuLink
-              data-testid={item.testId}
-              href={item.href}
-              className={navigationMenuTriggerStyle()}
-            >
-              {item.label}
+            <NavigationMenuLink asChild>
+              <Link className={navigationMenuTriggerStyle()} data-testid={item.testId} to={item.href}>{item.label}</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
