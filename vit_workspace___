@@ -1,0 +1,43 @@
+import { defineWorkspace } from 'vitest/config';
+
+export default defineWorkspace([
+  // If you want to keep running your existing tests in Node.js, uncomment the next line.
+  // 'vite.config.mts',
+  {
+    extends: 'vite.config.mts',
+    test: {
+      coverage: {
+        reporter: ['text', 'html'],
+        exclude: [
+          '_snapshots_',
+          '.eslint*',
+          '.prettier*',
+          'coverage',
+          'dist/**',
+          '**/test/**',
+          'e2e/**',
+          'public/**',
+          '*.mjs',
+          '*.cjs',
+          '*/reportWebVitals.ts',
+          '*/main.tsx',
+          '*/AppProvider.tsx',
+          '*/vite-env.d.ts',
+          '**/test.tsx',
+          '**/routes/index.tsx',
+          '**/**.effect.ts', // we don't want to unit test side effects
+          '**/**.type.ts',
+          '**/helpers/**',
+        ],
+      },
+      browser: {
+        enabled: true,
+        name: 'chromium',
+        provider: 'playwright',
+        // https://playwright.dev
+        providerOptions: {},
+      },
+    },
+
+  },
+]);

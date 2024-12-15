@@ -1,6 +1,7 @@
 import { UserSelectors } from '.';
 import { userApi } from '@/features/user/store/user.api';
 import { setupStore } from '@/shared/store/test';
+import { expect, it, describe, beforeEach } from 'vitest';
 
 describe('User Selector:', () => {
   let store;

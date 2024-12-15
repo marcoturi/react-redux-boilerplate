@@ -1,9 +1,9 @@
 import { Header } from '@/UI/Layout/Header';
 import { renderWithProviders } from '@/shared/store/test';
-import { screen } from '@testing-library/react';
+import { expect, it, describe} from 'vitest'
 
 describe('Header', () => {
-  test('Should load and display a App title and a navigation menu', () => {
+  it('Should load and display a App title and a navigation menu', () => {
     const menuItems = [
       { label: 'Home', href: '/', testId: 'home-link' },
       {
@@ -13,7 +13,7 @@ describe('Header', () => {
       },
     ];
 
-    renderWithProviders(
+    const screen = renderWithProviders(
       <Header
         menuItems={menuItems}
         rightWidget={undefined}

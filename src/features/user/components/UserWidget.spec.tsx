@@ -1,12 +1,10 @@
 import UserWidget from '@/features/user/components/UserWidget';
 import { renderWithProviders } from '@/shared/store/test';
-import { screen, waitFor } from '@testing-library/react';
+import { expect, it, describe } from 'vitest';
 
 describe('UserWidget', () => {
-  test('Should display the user name', async () => {
-    renderWithProviders(<UserWidget />);
-    await waitFor(() => {
-      expect(screen.getByText(/hello /i)).toBeInTheDocument();
-    });
+  it('Should display the user name', async () => {
+    const screen = renderWithProviders(<UserWidget />);
+    expect(screen.getByText(/hello /i)).toBeInTheDocument();
   });
 });

@@ -22,12 +22,13 @@ export default defineConfig({
     },
   },
   test: {
-    // Setting pool='forks' is preventing this issue https://github.com/vitest-dev/vitest/issues/3077
-    pool: 'forks',
-    globals: true,
-    root: __dirname,
-    environment: 'jsdom',
-    setupFiles: ['./scripts/vitest.setup.ts'],
+    browser: {
+      enabled: true,
+      headless: false,
+      name: 'chromium',
+      provider: 'playwright',
+    },
+    watch: true,
     exclude: [
       ...configDefaults.exclude,
       '**/node_modules/**',

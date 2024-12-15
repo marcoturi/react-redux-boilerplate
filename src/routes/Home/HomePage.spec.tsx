@@ -1,10 +1,10 @@
 import HomePage from '@/routes/Home/HomePage';
 import { renderWithProviders } from '@/shared/store/test';
-import { screen } from '@testing-library/react';
+import { expect, it, describe } from 'vitest';
 
 describe('HomePage', () => {
-  test('Should load', () => {
-    renderWithProviders(<HomePage />);
+  it('Should load', () => {
+    const screen = renderWithProviders(<HomePage />);
     const text = screen.getByText(
       /lorem ipsum dolor sit amet, consectetuer adipiscing elit./i,
     );

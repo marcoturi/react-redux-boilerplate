@@ -6,6 +6,7 @@ import {
 import { loadState } from '@/features/settings/store/settings.thunk';
 import { SettingsKey } from '@/features/settings/store/settings.type';
 import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
+import { expect, it, describe } from 'vitest';
 
 describe('Settings Slice:', () => {
   it('Should handle setItem', () => {

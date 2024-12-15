@@ -26,7 +26,10 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["vitest/globals", "@testing-library/jest-dom"]
+    "types": [
+      "@vitest/browser/providers/playwright",
+      "@vitest/browser/matchers"
+    ]
   },
   "include": ["src"]
 }

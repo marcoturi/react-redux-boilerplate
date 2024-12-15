@@ -6,6 +6,7 @@ import { subscriptionApi } from '@/features/subscriptions/store/subscription.api
 import { subscriptionMockList } from '@/features/subscriptions/store/subscription.mocks.spec';
 import { Subscription } from '@/features/subscriptions/store/subscription.type';
 import { setupStore } from '@/shared/store/test';
+import { expect, it, describe, beforeEach } from 'vitest';
 
 describe('Subscription Selector:', () => {
   let store;
