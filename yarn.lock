@@ -3815,9 +3815,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/release-notes-generator@npm:14.0.1":
-  version: 14.0.1
-  resolution: "@semantic-release/release-notes-generator@npm:14.0.1"
+"@semantic-release/release-notes-generator@npm:14.0.2":
+  version: 14.0.2
+  resolution: "@semantic-release/release-notes-generator@npm:14.0.2"
   dependencies:
     conventional-changelog-angular: "npm:^8.0.0"
     conventional-changelog-writer: "npm:^8.0.0"
@@ -3831,7 +3831,7 @@ __metadata:
     read-package-up: "npm:^11.0.0"
   peerDependencies:
     semantic-release: ">=20.1.0"
-  checksum: 10c0/eaa78069ff1cdfb8f2ff1472d6f4ab6b8faece0c92788ed79c47b54bd3c1a26b48d6e4e5a1104c17eb406cce754095b0d68abdc650d239fdb7e9742a0513cd6b
+  checksum: 10c0/37f07d557cea21a7dee699d989d4ed5caf74ac96a7fc1c6ca6136b06d48f7eaf00d6ec5bce57afbc385baf9091a25875a657aab62a243bef19dfa61d15907676
   languageName: node
   linkType: hard
 
@@ -12703,7 +12703,7 @@ __metadata:
     "@semantic-release/git": "npm:10.0.1"
     "@semantic-release/github": "npm:11.0.1"
     "@semantic-release/npm": "npm:12.0.1"
-    "@semantic-release/release-notes-generator": "npm:14.0.1"
+    "@semantic-release/release-notes-generator": "npm:14.0.2"
     "@sentry/react": "npm:8.45.0"
     "@testing-library/dom": "npm:10.4.0"
     "@testing-library/jest-dom": "npm:6.6.3"
