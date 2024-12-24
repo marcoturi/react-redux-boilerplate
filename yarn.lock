@@ -12756,8 +12756,8 @@ __metadata:
     react-dom: "npm:19.0.0"
     react-error-boundary: "npm:4.1.2"
     react-redux: "npm:9.2.0"
-    react-router: "npm:7.1.0"
-    react-router-dom: "npm:7.1.0"
+    react-router: "npm:7.1.1"
+    react-router-dom: "npm:7.1.1"
     semantic-release: "npm:24.2.0"
     tailwind-merge: "npm:2.5.5"
     tailwindcss: "npm:3.4.17"
@@ -12860,21 +12860,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:7.1.0":
-  version: 7.1.0
-  resolution: "react-router-dom@npm:7.1.0"
+"react-router-dom@npm:7.1.1":
+  version: 7.1.1
+  resolution: "react-router-dom@npm:7.1.1"
   dependencies:
-    react-router: "npm:7.1.0"
+    react-router: "npm:7.1.1"
   peerDependencies:
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10c0/15b45814be9a92023d0c84da59c759e7386996c1b2434246d98a8a7a4b5b6b69fd36ea6ecbd6ae0df645c0dcf59e7b8b56261631943cb787b84dc36b293fd6db
+  checksum: 10c0/2dc5b231dd21aab21378c615b1e373149007d173e90db984e6f708b5ee4b28923b3cf88ce7d6f727be927829b37ba37c01436f9f7abeb84ba3d1bfc9ecd4bc72
   languageName: node
   linkType: hard
 
-"react-router@npm:7.1.0":
-  version: 7.1.0
-  resolution: "react-router@npm:7.1.0"
+"react-router@npm:7.1.1":
+  version: 7.1.1
+  resolution: "react-router@npm:7.1.1"
   dependencies:
     "@types/cookie": "npm:^0.6.0"
     cookie: "npm:^1.0.1"
@@ -12886,7 +12886,7 @@ __metadata:
   peerDependenciesMeta:
     react-dom:
       optional: true
-  checksum: 10c0/c4f4c76dc885cb2b351575052417f0a95ad454ae7cc27f42e5dcde993697b206eab9f5eb3f9a3acb1284331d41f8667bd4d10e246d463c3debd7d4de3edaa50b
+  checksum: 10c0/39f4859670f286eb2eac29e5830c1f730405701fca0808e5db853ec05e54e55a848c764e10ffd14a7b9b3b2154a0d6449656d7f208b9b3e4b2af780e07bf57a8
   languageName: node
   linkType: hard
 
