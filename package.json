@@ -67,7 +67,7 @@
     "@cucumber/html-formatter": "21.8.0",
     "@cucumber/messages": "27.1.0",
     "@cucumber/pretty-formatter": "1.0.1",
-    "@eslint/compat": "1.2.5",
+    "@eslint/compat": "1.2.6",
     "@eslint/js": "9.19.0",
     "@mswjs/data": "0.16.2",
     "@playwright/test": "1.50.0",
