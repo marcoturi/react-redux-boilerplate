@@ -94,7 +94,7 @@
     "cssnano": "7.0.6",
     "cucumber-console-formatter": "1.0.0",
     "cucumber-html-reporter": "7.2.0",
-    "eslint": "9.20.0",
+    "eslint": "9.20.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
