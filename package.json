@@ -91,7 +91,7 @@
     "@typescript-eslint/utils": "8.24.1",
     "@vitejs/plugin-react-swc": "3.8.0",
     "@vitest/coverage-v8": "3.0.6",
-    "@vitest/eslint-plugin": "1.1.32-beta.1",
+    "@vitest/eslint-plugin": "1.1.32-beta.3",
     "autoprefixer": "10.4.20",
     "cssnano": "7.0.6",
     "cucumber-console-formatter": "1.0.0",
