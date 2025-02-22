@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.4.35...v1.5.0) (2025-02-22)
+
+
+### Features
+
+* upgrade to tailwind 4, update shadcn, bump deps ([1877be5](https://github.com/marcoturi/react-redux-boilerplate/commit/1877be50a1bab2395a0bfbfc3b31fa90240379f4))
+
 ## [1.4.35](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.4.34...v1.4.35) (2025-02-19)
 
 
