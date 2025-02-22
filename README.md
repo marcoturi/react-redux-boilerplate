@@ -16,7 +16,7 @@ The project aim to provide guidelines on the development key points of a long te
 
 - Blazing fast build system: [Vite 6](https://vitejs.dev/) + [React 19 SWC](https://github.com/vitejs/vite-plugin-react-swc) + [Yarn 4](https://yarnpkg.com/getting-started/install) + [TypeScript](https://www.typescriptlang.org) with [absolute imports](https://github.com/aleclarson/vite-tsconfig-paths)
 - App State: [Redux Toolkit 2](https://redux-toolkit.js.org/)
-- Theme: [Radix](https://www.radix-ui.com/) + [Shadcn/ui](https://ui.shadcn.com/) + [Tailwind 3](https://tailwindcss.com/)
+- Theme: [Radix](https://www.radix-ui.com/) + [Shadcn/ui](https://ui.shadcn.com/) + [Tailwind 4](https://tailwindcss.com/)
 - Format and Style: [Eslint](https://eslint.org/) + [Prettier](https://prettier.io/) with a [prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) that automatically sorts tailwind classes.
 - Release flow: [Husky](https://github.com/typicode/husky) + [Commitlint](https://commitlint.js.org/) + [Semantic-release](https://github.com/semantic-release/semantic-release)
 - Mocked server for fast development: [MSW](https://mswjs.io/)

@@ -32,7 +32,11 @@ export function renderWithProviders(
   }: ExtendedRenderOptions = {},
 ) {
   function Wrapper({ children }: PropsWithChildren): JSX.Element {
-    return <BrowserRouter><Provider store={store}>{children}</Provider></BrowserRouter>;
+    return (
+      <BrowserRouter>
+        <Provider store={store}>{children}</Provider>
+      </BrowserRouter>
+    );
   }
 
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };

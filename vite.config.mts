@@ -1,3 +1,4 @@
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react-swc';
 import type { UserConfig } from 'vite';
 import { defineConfig } from 'vite';
@@ -11,7 +12,7 @@ interface VitestConfigExport extends UserConfig {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tsconfigPaths()],
+  plugins: [react(), tsconfigPaths(), tailwindcss()],
   build: {
     outDir: 'dist',
   },

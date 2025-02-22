@@ -18,7 +18,13 @@ function Menu({ menuItems }: Props) {
         {menuItems.map((item) => (
           <NavigationMenuItem key={item.label}>
             <NavigationMenuLink asChild>
-              <Link className={navigationMenuTriggerStyle()} data-testid={item.testId} to={item.href}>{item.label}</Link>
+              <Link
+                className={navigationMenuTriggerStyle()}
+                data-testid={item.testId}
+                to={item.href}
+              >
+                {item.label}
+              </Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         ))}

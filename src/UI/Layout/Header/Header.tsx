@@ -9,7 +9,7 @@ type Props = {
 export function Header({ rightWidget, menuItems }: Props) {
   return (
     <header className="sticky top-0 z-40 w-full shadow">
-      <nav className="flex w-full items-center justify-between gap-3 pb-3 pl-4 pr-4 pt-3">
+      <nav className="flex w-full items-center justify-between gap-3 pt-3 pr-4 pb-3 pl-4">
         <Logo />
         <Menu menuItems={menuItems} />
         <div className="text-right">{rightWidget}</div>
