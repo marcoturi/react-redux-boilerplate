@@ -3729,74 +3729,74 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry-internal/browser-utils@npm:9.6.1":
-  version: 9.6.1
-  resolution: "@sentry-internal/browser-utils@npm:9.6.1"
+"@sentry-internal/browser-utils@npm:9.7.0":
+  version: 9.7.0
+  resolution: "@sentry-internal/browser-utils@npm:9.7.0"
   dependencies:
-    "@sentry/core": "npm:9.6.1"
-  checksum: 10c0/426c0df87f9b4290620addca74d41d88d8fed022158daca07c95ab03211bfc86916e87f31e832f5647a12a9cb2d2aa3b8af745ca3a4d6f2d430d98be3e768a91
+    "@sentry/core": "npm:9.7.0"
+  checksum: 10c0/7288b22577308102be5718e1af08d70dda4777ce6cec5bd040af8c994f1bf658c495a6ca705496977faac77209b4e5b21d5dd513df460334a6219e8d327aae6c
   languageName: node
   linkType: hard
 
-"@sentry-internal/feedback@npm:9.6.1":
-  version: 9.6.1
-  resolution: "@sentry-internal/feedback@npm:9.6.1"
+"@sentry-internal/feedback@npm:9.7.0":
+  version: 9.7.0
+  resolution: "@sentry-internal/feedback@npm:9.7.0"
   dependencies:
-    "@sentry/core": "npm:9.6.1"
-  checksum: 10c0/8137bf71e5f6b627d483b930509dccb241f0416cbbfe9086fc8d34305416827191af11c037e92e608558d8385a7d1efa6a29e1b7dc14d3f809ae0a7758b70681
+    "@sentry/core": "npm:9.7.0"
+  checksum: 10c0/db55ba8020bd5133e732889ef8925db7539952c33cf0373c7bb22fe49176ab422adf649f0f8120e5e62754b1827d7d86bd584536d743aa9ff34a94ef9a297618
   languageName: node
   linkType: hard
 
-"@sentry-internal/replay-canvas@npm:9.6.1":
-  version: 9.6.1
-  resolution: "@sentry-internal/replay-canvas@npm:9.6.1"
+"@sentry-internal/replay-canvas@npm:9.7.0":
+  version: 9.7.0
+  resolution: "@sentry-internal/replay-canvas@npm:9.7.0"
   dependencies:
-    "@sentry-internal/replay": "npm:9.6.1"
-    "@sentry/core": "npm:9.6.1"
-  checksum: 10c0/dd1c510b1d47d1ff10d695a1e1fd424b2d0c84af7fc371605fba00f321eca1756a2d8b4377c9a18deb4ff2cdc296836c8dc7b061ba2358859c0544441a22c5b6
+    "@sentry-internal/replay": "npm:9.7.0"
+    "@sentry/core": "npm:9.7.0"
+  checksum: 10c0/0c4a42108614710659697d3c1140a03af6588c07f8cc1566fac94f3fcc5b3b1170e4cafebaee0c0ceb7ccb4528448384b2fc454961f088614c5a5b57777976e4
   languageName: node
   linkType: hard
 
-"@sentry-internal/replay@npm:9.6.1":
-  version: 9.6.1
-  resolution: "@sentry-internal/replay@npm:9.6.1"
+"@sentry-internal/replay@npm:9.7.0":
+  version: 9.7.0
+  resolution: "@sentry-internal/replay@npm:9.7.0"
   dependencies:
-    "@sentry-internal/browser-utils": "npm:9.6.1"
-    "@sentry/core": "npm:9.6.1"
-  checksum: 10c0/0ba8fd3d819ed12058166264a7c6f4a6c0f78c4f8831788d80af50a82d6fba4e48c215f4b946e6137466260f9727d4c57be76ad642c2d513dbce192cd03b901e
+    "@sentry-internal/browser-utils": "npm:9.7.0"
+    "@sentry/core": "npm:9.7.0"
+  checksum: 10c0/11fcd60a6e70f0d71fbb8edd0090e437ab954b2064aeb0ec68927343740968e72352ced9cfb96ca18961fe283186de2ee9ca0b3748a60289228a0843348dbdb6
   languageName: node
   linkType: hard
 
-"@sentry/browser@npm:9.6.1":
-  version: 9.6.1
-  resolution: "@sentry/browser@npm:9.6.1"
+"@sentry/browser@npm:9.7.0":
+  version: 9.7.0
+  resolution: "@sentry/browser@npm:9.7.0"
   dependencies:
-    "@sentry-internal/browser-utils": "npm:9.6.1"
-    "@sentry-internal/feedback": "npm:9.6.1"
-    "@sentry-internal/replay": "npm:9.6.1"
-    "@sentry-internal/replay-canvas": "npm:9.6.1"
-    "@sentry/core": "npm:9.6.1"
-  checksum: 10c0/249b58ed0083ff184f56ddd61119027cad1a9f744e37be113b4fe6486fa410d017620d1260b79c9f1096987249d944fab23759a3b2764dc5ba43ffeaa3b7ea76
+    "@sentry-internal/browser-utils": "npm:9.7.0"
+    "@sentry-internal/feedback": "npm:9.7.0"
+    "@sentry-internal/replay": "npm:9.7.0"
+    "@sentry-internal/replay-canvas": "npm:9.7.0"
+    "@sentry/core": "npm:9.7.0"
+  checksum: 10c0/9ca635dea67006e423cf6dfeddba6f2d9338481ced1eb812b9f261071d712952571d70b4c12e4e4f2f59b6ace7227fad91f31f9a6d007494e1463f4780e7993a
   languageName: node
   linkType: hard
 
-"@sentry/core@npm:9.6.1":
-  version: 9.6.1
-  resolution: "@sentry/core@npm:9.6.1"
-  checksum: 10c0/39b0da047f1546747fa4d9e23ff5d1a9d1f65fccc24dc8cd53961f95e26a313e819df7cc728d77bb5e1259906f07a7f5c2c0c855f1ff1fc37015284d9cd3e479
+"@sentry/core@npm:9.7.0":
+  version: 9.7.0
+  resolution: "@sentry/core@npm:9.7.0"
+  checksum: 10c0/e05d5f1c67fda065293c87c6c02f8ac0214b38699cd57ac132158278bd71dee63c47a78ffe5352347779be37eccf64b3e547eb06d3aa3629102bf8db27987e1a
   languageName: node
   linkType: hard
 
-"@sentry/react@npm:9.6.1":
-  version: 9.6.1
-  resolution: "@sentry/react@npm:9.6.1"
+"@sentry/react@npm:9.7.0":
+  version: 9.7.0
+  resolution: "@sentry/react@npm:9.7.0"
   dependencies:
-    "@sentry/browser": "npm:9.6.1"
-    "@sentry/core": "npm:9.6.1"
+    "@sentry/browser": "npm:9.7.0"
+    "@sentry/core": "npm:9.7.0"
     hoist-non-react-statics: "npm:^3.3.2"
   peerDependencies:
     react: ^16.14.0 || 17.x || 18.x || 19.x
-  checksum: 10c0/55bf9e11748487aae4bafe886ef464842d77671cdbc6b5c1f50a49706e0430fa0946abda2ad7c6182986fb021870da7f08fcd9e01032cc68b2904fff23654510
+  checksum: 10c0/8f9b754b442b59498343d34ea795e9329d1aa01b6cff4a90330bfd8e3e0c95e4fcc2cd219dcdad2b5b2e9ccf6ab73d94eab92451608131527f629f7d7eef364f
   languageName: node
   linkType: hard
 
@@ -13236,7 +13236,7 @@ __metadata:
     "@semantic-release/github": "npm:11.0.1"
     "@semantic-release/npm": "npm:12.0.1"
     "@semantic-release/release-notes-generator": "npm:14.0.3"
-    "@sentry/react": "npm:9.6.1"
+    "@sentry/react": "npm:9.7.0"
     "@tailwindcss/postcss": "npm:4.0.15"
     "@tailwindcss/vite": "npm:4.0.15"
     "@testing-library/dom": "npm:10.4.0"
