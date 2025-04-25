@@ -1,3 +1,10 @@
+## [1.5.44](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.5.43...v1.5.44) (2025-04-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-router to v7.5.2 [security] ([#935](https://github.com/marcoturi/react-redux-boilerplate/issues/935)) ([9094c78](https://github.com/marcoturi/react-redux-boilerplate/commit/9094c7866ff14584597e5b7a3a3ce6b69a2be408))
+
 ## [1.5.43](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.5.42...v1.5.43) (2025-04-24)
 
 
