@@ -1,3 +1,10 @@
+## [1.5.46](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.5.45...v1.5.46) (2025-04-29)
+
+
+### Bug Fixes
+
+* **deps:** update react-router monorepo to v7.5.3 ([#941](https://github.com/marcoturi/react-redux-boilerplate/issues/941)) ([9c258d4](https://github.com/marcoturi/react-redux-boilerplate/commit/9c258d47050a2926aacfa86eebd92c4a66722bba))
+
 ## [1.5.45](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.5.44...v1.5.45) (2025-04-25)
 
 
