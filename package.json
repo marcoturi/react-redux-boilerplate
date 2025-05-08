@@ -39,11 +39,11 @@
     ]
   },
   "dependencies": {
-    "@radix-ui/react-label": "2.1.4",
-    "@radix-ui/react-navigation-menu": "1.2.10",
-    "@radix-ui/react-select": "2.2.2",
-    "@radix-ui/react-slot": "1.2.0",
-    "@radix-ui/react-switch": "1.2.2",
+    "@radix-ui/react-label": "2.1.6",
+    "@radix-ui/react-navigation-menu": "1.2.12",
+    "@radix-ui/react-select": "2.2.4",
+    "@radix-ui/react-slot": "1.2.2",
+    "@radix-ui/react-switch": "1.2.4",
     "@radix-ui/themes": "3.2.1",
     "@reduxjs/toolkit": "2.7.0",
     "@sentry/react": "9.15.0",
