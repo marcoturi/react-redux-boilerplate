@@ -1,3 +1,10 @@
+## [1.5.76](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.5.75...v1.5.76) (2025-06-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ramda to v0.31.3 ([#1065](https://github.com/marcoturi/react-redux-boilerplate/issues/1065)) ([083c190](https://github.com/marcoturi/react-redux-boilerplate/commit/083c190658e9a37ddaa98a4dbfdd75e7ec5bf6ad))
+
 ## [1.5.75](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.5.74...v1.5.75) (2025-06-21)
 
 
