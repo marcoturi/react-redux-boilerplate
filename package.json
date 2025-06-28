@@ -113,7 +113,7 @@
     "msw": "2.10.2",
     "pinst": "3.0.0",
     "postcss": "8.5.6",
-    "prettier": "3.6.1",
+    "prettier": "3.6.2",
     "prettier-plugin-tailwindcss": "0.6.13",
     "semantic-release": "24.2.5",
     "tailwindcss": "4.1.11",
