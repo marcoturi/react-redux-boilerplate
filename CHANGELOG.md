@@ -1,3 +1,10 @@
+## [1.5.83](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.5.82...v1.5.83) (2025-07-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sentry/react to v9.35.0 ([#1092](https://github.com/marcoturi/react-redux-boilerplate/issues/1092)) ([1a484ab](https://github.com/marcoturi/react-redux-boilerplate/commit/1a484abcc979fce64dd85d460e457160584db89d))
+
 ## [1.5.82](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.5.81...v1.5.82) (2025-07-04)
 
 
