@@ -2067,14 +2067,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.55.1":
-  version: 1.55.1
-  resolution: "@playwright/test@npm:1.55.1"
+"@playwright/test@npm:1.56.0":
+  version: 1.56.0
+  resolution: "@playwright/test@npm:1.56.0"
   dependencies:
-    playwright: "npm:1.55.1"
+    playwright: "npm:1.56.0"
   bin:
     playwright: cli.js
-  checksum: 10c0/23fa213844bc594b03c0a907ef69da7e26a6c3295ee602b1567d26a473d30253468b832698779b02a304b71ae14aa0875645c526678227cc0675324dbf77e118
+  checksum: 10c0/9e1461bb309275c436454f5d2e6d68ca2ccf2477bdb6f95c2d35b705b6c69a615d099f144cd66a99f132de7a19b1ca486f666b252f0c84625bcf82d2fd4cddf4
   languageName: node
   linkType: hard
 
@@ -13467,27 +13467,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.55.1":
-  version: 1.55.1
-  resolution: "playwright-core@npm:1.55.1"
+"playwright-core@npm:1.56.0":
+  version: 1.56.0
+  resolution: "playwright-core@npm:1.56.0"
   bin:
     playwright-core: cli.js
-  checksum: 10c0/39837a8c1232ec27486eac8c3fcacc0b090acc64310f7f9004b06715370fc426f944e3610fe8c29f17cd3d68280ed72c75f660c02aa5b5cf0eb34bab0031308f
+  checksum: 10c0/2ebf6138feb49722edd6d2df4afceb509309ebb3aadc24dcba2023a4d89c7a1d248c0b03b9e8fa9e31d51a8f72e909a271b98c9e48a82b94ce3ef1314d17a743
   languageName: node
   linkType: hard
 
-"playwright@npm:1.55.1":
-  version: 1.55.1
-  resolution: "playwright@npm:1.55.1"
+"playwright@npm:1.56.0":
+  version: 1.56.0
+  resolution: "playwright@npm:1.56.0"
   dependencies:
     fsevents: "npm:2.3.2"
-    playwright-core: "npm:1.55.1"
+    playwright-core: "npm:1.56.0"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 10c0/b84a97b0d764403df512f5bbb10c7343974e151a28202cc06f90883a13e8a45f4491a0597f0ae5fb03a026746cbc0d200f0f32195bfaa381aee5ca5770626771
+  checksum: 10c0/54294c71169859c74a7335ce3ae2586e86e9c72845e0f894fd1672fc66f8c2b92488b6ac654a7a2ea79d79cdc5dc23c7b59ceed4907e442a672e7e67337e1f1e
   languageName: node
   linkType: hard
 
@@ -14205,7 +14205,7 @@ __metadata:
     "@eslint/compat": "npm:1.4.0"
     "@eslint/js": "npm:9.37.0"
     "@mswjs/data": "npm:0.16.2"
-    "@playwright/test": "npm:1.55.1"
+    "@playwright/test": "npm:1.56.0"
     "@radix-ui/react-label": "npm:2.1.7"
     "@radix-ui/react-navigation-menu": "npm:1.2.14"
     "@radix-ui/react-select": "npm:2.2.6"
