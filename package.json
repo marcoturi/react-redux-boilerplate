@@ -50,7 +50,7 @@
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "lucide-react": "0.545.0",
-    "ramda": "0.31.3",
+    "ramda": "0.32.0",
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "react-error-boundary": "5.0.0",
