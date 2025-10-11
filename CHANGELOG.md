@@ -1,3 +1,10 @@
+## [1.5.110](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.5.109...v1.5.110) (2025-10-11)
+
+
+### Bug Fixes
+
+* **deps:** update react monorepo ([#1206](https://github.com/marcoturi/react-redux-boilerplate/issues/1206)) ([0bbffae](https://github.com/marcoturi/react-redux-boilerplate/commit/0bbffaea5b16a809a3842489c3dd18b99ef13296))
+
 ## [1.5.109](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.5.108...v1.5.109) (2025-10-11)
 
 
