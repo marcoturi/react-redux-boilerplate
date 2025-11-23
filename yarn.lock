@@ -5520,9 +5520,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/eslint-plugin@npm:1.3.24":
-  version: 1.3.24
-  resolution: "@vitest/eslint-plugin@npm:1.3.24"
+"@vitest/eslint-plugin@npm:1.4.3":
+  version: 1.4.3
+  resolution: "@vitest/eslint-plugin@npm:1.4.3"
   dependencies:
     "@typescript-eslint/scope-manager": "npm:^8.46.1"
     "@typescript-eslint/utils": "npm:^8.46.1"
@@ -5535,7 +5535,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: 10c0/f81ade7abc46af4e970d24e2b52088627e25122cb6e6130d36a3f918298998921987919702539bd59021feabd4513efabd46e64880d0e13dbb24a7338f271374
+  checksum: 10c0/7fd1843a13c7227d7bb4e1492f4b8c8d8d163c2001cd406e5b6b9d54819b153f8e1270d34c89b3e7bcb4207764823af0879cd7385bfdcd7df6184caf3bdafd05
   languageName: node
   linkType: hard
 
@@ -14240,7 +14240,7 @@ __metadata:
     "@typescript-eslint/utils": "npm:8.46.2"
     "@vitejs/plugin-react-swc": "npm:3.11.0"
     "@vitest/coverage-v8": "npm:3.2.4"
-    "@vitest/eslint-plugin": "npm:1.3.24"
+    "@vitest/eslint-plugin": "npm:1.4.3"
     autoprefixer: "npm:10.4.22"
     class-variance-authority: "npm:0.7.1"
     clsx: "npm:2.1.1"
