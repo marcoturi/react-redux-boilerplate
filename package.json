@@ -86,7 +86,7 @@
     "@trivago/prettier-plugin-sort-imports": "5.2.2",
     "@types/node": "22.19.1",
     "@types/ramda": "0.31.1",
-    "@types/react": "19.2.6",
+    "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "@typescript-eslint/utils": "8.47.0",
     "@vitejs/plugin-react-swc": "3.11.0",
