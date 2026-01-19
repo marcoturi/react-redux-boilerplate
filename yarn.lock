@@ -818,18 +818,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cucumber/pretty-formatter@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@cucumber/pretty-formatter@npm:1.0.1"
+"@cucumber/pretty-formatter@npm:2.4.1":
+  version: 2.4.1
+  resolution: "@cucumber/pretty-formatter@npm:2.4.1"
   dependencies:
-    ansi-styles: "npm:^5.0.0"
-    cli-table3: "npm:^0.6.0"
-    figures: "npm:^3.2.0"
-    ts-dedent: "npm:^2.0.0"
+    "@cucumber/query": "npm:^14.0.0"
   peerDependencies:
-    "@cucumber/cucumber": ">=7.0.0"
     "@cucumber/messages": "*"
-  checksum: 10c0/16ac0174bdad47718296c241d20e3ac6b305809675da7c64df8f15542a66be7603dad73a37bbb850241d51da8bbba61e461b861c7e41c0dbbd64684e93a8c265
+  checksum: 10c0/db8200ecd9ce01738e1586c2cd031423e320229574fbaad5a48fb86c11885bceab19c228e7073799f764cc7cc101b4bd1c16fdcd8f6f132faa43a6f953f7a3c9
   languageName: node
   linkType: hard
 
@@ -842,6 +838,18 @@ __metadata:
   peerDependencies:
     "@cucumber/messages": "*"
   checksum: 10c0/71f0b5cdb931d5cef718c1dfc63aa21fb8eeb7e14389e80bca52ae12eaba6f4d1b8f2a386f4730ffe9e285b91f5983ee82d41468785fc23da463aedb3fd86ee5
+  languageName: node
+  linkType: hard
+
+"@cucumber/query@npm:^14.0.0":
+  version: 14.7.0
+  resolution: "@cucumber/query@npm:14.7.0"
+  dependencies:
+    "@teppeis/multimaps": "npm:3.0.0"
+    lodash.sortby: "npm:^4.7.0"
+  peerDependencies:
+    "@cucumber/messages": "*"
+  checksum: 10c0/b3884d7f29d3a89f4cf2fa8456dd57fe64ab7412fef6b9e8e0f6115c17349ff2610427daa81e693cb82a8fa453c4fdcb4245054af8d433da4c1959599a3bd8a0
   languageName: node
   linkType: hard
 
@@ -6847,7 +6855,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-table3@npm:0.6.3, cli-table3@npm:^0.6.0":
+"cli-table3@npm:0.6.3":
   version: 0.6.3
   resolution: "cli-table3@npm:0.6.3"
   dependencies:
@@ -11660,6 +11668,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.sortby@npm:^4.7.0":
+  version: 4.7.0
+  resolution: "lodash.sortby@npm:4.7.0"
+  checksum: 10c0/fc48fb54ff7669f33bb32997cab9460757ee99fafaf72400b261c3e10fde21538e47d8cfcbe6a25a31bcb5b7b727c27d52626386fc2de24eb059a6d64a89cdf5
+  languageName: node
+  linkType: hard
+
 "lodash.startcase@npm:^4.4.0":
   version: 4.4.0
   resolution: "lodash.startcase@npm:4.4.0"
@@ -14230,7 +14245,7 @@ __metadata:
     "@cucumber/cucumber": "npm:11.3.0"
     "@cucumber/html-formatter": "npm:21.15.1"
     "@cucumber/messages": "npm:27.2.0"
-    "@cucumber/pretty-formatter": "npm:1.0.1"
+    "@cucumber/pretty-formatter": "npm:2.4.1"
     "@eslint/compat": "npm:1.4.1"
     "@eslint/js": "npm:9.39.1"
     "@mswjs/data": "npm:0.16.2"
@@ -16529,13 +16544,6 @@ __metadata:
   peerDependencies:
     typescript: ">=4.8.4"
   checksum: 10c0/9806a38adea2db0f6aa217ccc6bc9c391ddba338a9fe3080676d0d50ed806d305bb90e8cef0276e793d28c8a929f400abb184ddd7ff83a416959c0f4d2ce754f
-  languageName: node
-  linkType: hard
-
-"ts-dedent@npm:^2.0.0":
-  version: 2.2.0
-  resolution: "ts-dedent@npm:2.2.0"
-  checksum: 10c0/175adea838468cc2ff7d5e97f970dcb798bbcb623f29c6088cb21aa2880d207c5784be81ab1741f56b9ac37840cbaba0c0d79f7f8b67ffe61c02634cafa5c303
   languageName: node
   linkType: hard
 
