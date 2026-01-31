@@ -5166,12 +5166,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:22.19.1":
-  version: 22.19.1
-  resolution: "@types/node@npm:22.19.1"
+"@types/node@npm:22.19.7":
+  version: 22.19.7
+  resolution: "@types/node@npm:22.19.7"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10c0/6edd93aea86da740cb7872626839cd6f4a67a049d3a3a6639cb592c620ec591408a30989ab7410008d1a0b2d4985ce50f1e488e79c033e4476d3bec6833b0a2f
+  checksum: 10c0/0a4b13fd51306a72393f145693063e074be1bf884bdc642c879436d2c053ac9d573cc0a0d69867f60b14d3f1b9d03317e8ec0e4377f7527cb645e7b2a5d34045
   languageName: node
   linkType: hard
 
@@ -14256,7 +14256,7 @@ __metadata:
     "@testing-library/react": "npm:16.3.2"
     "@testing-library/user-event": "npm:14.6.1"
     "@trivago/prettier-plugin-sort-imports": "npm:5.2.2"
-    "@types/node": "npm:22.19.1"
+    "@types/node": "npm:22.19.7"
     "@types/ramda": "npm:0.31.1"
     "@types/react": "npm:19.2.7"
     "@types/react-dom": "npm:19.2.3"
