@@ -84,7 +84,7 @@
     "@testing-library/react": "16.3.2",
     "@testing-library/user-event": "14.6.1",
     "@trivago/prettier-plugin-sort-imports": "5.2.2",
-    "@types/node": "22.19.8",
+    "@types/node": "22.19.9",
     "@types/ramda": "0.31.1",
     "@types/react": "19.2.11",
     "@types/react-dom": "19.2.3",
