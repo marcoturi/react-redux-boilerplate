@@ -3868,9 +3868,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/themes@npm:3.2.1":
-  version: 3.2.1
-  resolution: "@radix-ui/themes@npm:3.2.1"
+"@radix-ui/themes@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@radix-ui/themes@npm:3.3.0"
   dependencies:
     "@radix-ui/colors": "npm:^3.0.0"
     classnames: "npm:^2.3.2"
@@ -3886,7 +3886,7 @@ __metadata:
       optional: true
     "@types/react-dom":
       optional: true
-  checksum: 10c0/5c8b4156147befd6acdcb58cd4a228cf5f4f3cd866071858103951238ba90e041bda7cdd92941b9f10734fa5c789793b3c619b0b164bd638ea8cd55771910ada
+  checksum: 10c0/65123c5bf6ba412b7286536c811f76b4feed6a6efeee24625e2a4fd6c98ac8d59cb4261656a5c3b2c685f4c37a57be7f4e53262d5c2091a7d702d65017924e15
   languageName: node
   linkType: hard
 
@@ -14171,7 +14171,7 @@ __metadata:
     "@radix-ui/react-select": "npm:2.2.6"
     "@radix-ui/react-slot": "npm:1.2.4"
     "@radix-ui/react-switch": "npm:1.2.6"
-    "@radix-ui/themes": "npm:3.2.1"
+    "@radix-ui/themes": "npm:3.3.0"
     "@reduxjs/toolkit": "npm:2.11.2"
     "@semantic-release/changelog": "npm:6.0.3"
     "@semantic-release/commit-analyzer": "npm:13.0.1"
