@@ -738,12 +738,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cucumber/html-formatter@npm:21.15.1":
-  version: 21.15.1
-  resolution: "@cucumber/html-formatter@npm:21.15.1"
+"@cucumber/html-formatter@npm:23.0.0":
+  version: 23.0.0
+  resolution: "@cucumber/html-formatter@npm:23.0.0"
   peerDependencies:
     "@cucumber/messages": ">=18"
-  checksum: 10c0/4dbab97fe05d777107893fd2e0850f169f0dd9fad95fef3433858d39abbd7dce02317c4fe64e2b0d219b325a727636381cc4dd44875aaf9a98f7a9aa3c900606
+  checksum: 10c0/695b9ce602f705fbc09efee81503b5da9e07521a071601f2a984b622097ae143a0ece2042192faae57419f24b71c2b5fb9a87d75b0436146ef694d7ebb24d252
   languageName: node
   linkType: hard
 
@@ -14159,7 +14159,7 @@ __metadata:
     "@commitlint/cli": "npm:19.8.1"
     "@commitlint/config-conventional": "npm:19.8.1"
     "@cucumber/cucumber": "npm:11.3.0"
-    "@cucumber/html-formatter": "npm:21.15.1"
+    "@cucumber/html-formatter": "npm:23.0.0"
     "@cucumber/messages": "npm:27.2.0"
     "@cucumber/pretty-formatter": "npm:1.0.1"
     "@eslint/compat": "npm:1.4.1"
