@@ -109,7 +109,7 @@
     "globals": "16.5.0",
     "husky": "9.1.7",
     "jsdom": "26.1.0",
-    "lint-staged": "15.5.2",
+    "lint-staged": "16.2.7",
     "msw": "2.12.9",
     "pinst": "3.0.0",
     "postcss": "8.5.6",
