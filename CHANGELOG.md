@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.5.126...v1.6.0) (2026-02-12)
+
+
+### Features
+
+* replace yarn with pnpm, update node version to 24 ([cc6ebce](https://github.com/marcoturi/react-redux-boilerplate/commit/cc6ebce754dec416d68d6379d57cbbe78c6f8906))
+
 ## [1.5.126](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.5.125...v1.5.126) (2026-02-08)
 
 
