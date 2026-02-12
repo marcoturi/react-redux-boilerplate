@@ -14,7 +14,7 @@ The project aim to provide guidelines on the development key points of a long te
 
 ## ⚡ Features
 
-- Blazing fast build system: [Vite 6](https://vitejs.dev/) + [React 19 SWC](https://github.com/vitejs/vite-plugin-react-swc) + [Yarn 4](https://yarnpkg.com/getting-started/install) + [TypeScript](https://www.typescriptlang.org) with [absolute imports](https://github.com/aleclarson/vite-tsconfig-paths)
+- Blazing fast build system: [Vite 6](https://vitejs.dev/) + [React 19 SWC](https://github.com/vitejs/vite-plugin-react-swc) + [pnpm](https://pnpm.io/) + [TypeScript](https://www.typescriptlang.org) with [absolute imports](https://github.com/aleclarson/vite-tsconfig-paths)
 - App State: [Redux Toolkit 2](https://redux-toolkit.js.org/)
 - Theme: [Radix](https://www.radix-ui.com/) + [Shadcn/ui](https://ui.shadcn.com/) + [Tailwind 4](https://tailwindcss.com/)
 - Format and Style: [Eslint](https://eslint.org/) + [Prettier](https://prettier.io/) with a [prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) that automatically sorts tailwind classes.
@@ -39,24 +39,23 @@ The project aim to provide guidelines on the development key points of a long te
 npx degit marcoturi/react-redux-boilerplate my-app
 cd my-app
 
-# To enable yarn 4 follow the instruction here: https://yarnpkg.com/getting-started/install
-yarn #Install dependencies.
-yarn create:env #Create a .env file
+pnpm install #Install dependencies.
+pnpm create:env #Create a .env file
 ```
 
 ### Common Commands
 
-- `yarn start` - start a development server with hot reload.
-- `yarn build` - build for production. The generated files will be on the `dist` folder.
-- `yarn preview` - locally preview the production build.
-- `yarn test` - run unit and integration tests.
-- `yarn test:coverage` - run unit and integration tests with coverage.
-- `yarn e2e:local` - run E2E test locally. Make sure to run yarn start before in a separate shell.
-- `yarn type-check` - check for typescript errors.
-- `yarn outdated` - update dependencies interactively.
-- `yarn format` - format all files with Prettier.
-- `yarn lint` - runs ESLint.
-- `yarn create:env` - creates default envs.
+- `pnpm start` - start a development server with hot reload.
+- `pnpm build` - build for production. The generated files will be on the `dist` folder.
+- `pnpm preview` - locally preview the production build.
+- `pnpm test` - run unit and integration tests.
+- `pnpm test:coverage` - run unit and integration tests with coverage.
+- `pnpm e2e:local` - run E2E test locally. Make sure to run pnpm start before in a separate shell.
+- `pnpm type-check` - check for typescript errors.
+- `pnpm outdated` - update dependencies interactively.
+- `pnpm format` - format all files with Prettier.
+- `pnpm lint` - runs ESLint.
+- `pnpm create:env` - creates default envs.
 
 ## <a name="folder"></a>🗄️ Folder Structure and Code Organization
 
