@@ -61,8 +61,8 @@
     "tailwindcss-animate": "1.0.7"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.8.1",
-    "@commitlint/config-conventional": "19.8.1",
+    "@commitlint/cli": "20.4.1",
+    "@commitlint/config-conventional": "20.4.1",
     "@cucumber/cucumber": "11.3.0",
     "@cucumber/html-formatter": "21.15.1",
     "@cucumber/messages": "27.2.0",
