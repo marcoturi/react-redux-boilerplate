@@ -1,6 +1,6 @@
 ![React Redux Boilerplate](https://github.com/marcoturi/react-redux-boilerplate/blob/main/doc/images/react_redux_boilerplate.jpg?raw=true)
 
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![MIT License](https://img.shields.io/github/license/marcoturi/react-redux-boilerplate)](https://github.com/alan2207/bulletproof-react/blob/master/LICENCE) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/marcoturi/react-redux-boilerplate/codeql-analysis.yml) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/marcoturi/react-redux-boilerplate/release.yml)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![MIT License](https://img.shields.io/github/license/marcoturi/react-redux-boilerplate)](https://github.com/alan2207/bulletproof-react/blob/master/LICENCE) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/marcoturi/react-redux-boilerplate/codeql-analysis.yml) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/marcoturi/react-redux-boilerplate/release.yml)
 
 A meticulously crafted, extensible, and robust architecture for constructing production-grade React applications.
 The project aim to provide guidelines on the development key points of a long term React project:
@@ -17,7 +17,7 @@ The project aim to provide guidelines on the development key points of a long te
 - Blazing fast build system: [Vite 6](https://vitejs.dev/) + [React 19 SWC](https://github.com/vitejs/vite-plugin-react-swc) + [pnpm](https://pnpm.io/) + [TypeScript](https://www.typescriptlang.org) with [absolute imports](https://github.com/aleclarson/vite-tsconfig-paths)
 - App State: [Redux Toolkit 2](https://redux-toolkit.js.org/)
 - Theme: [Radix](https://www.radix-ui.com/) + [Shadcn/ui](https://ui.shadcn.com/) + [Tailwind 4](https://tailwindcss.com/)
-- Format and Style: [Eslint](https://eslint.org/) + [Prettier](https://prettier.io/) with a [prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) that automatically sorts tailwind classes.
+- Format and Style: [Biome](https://biomejs.dev/) for fast linting and formatting in a single tool.
 - Release flow: [Husky](https://github.com/typicode/husky) + [Commitlint](https://commitlint.js.org/) + [Semantic-release](https://github.com/semantic-release/semantic-release)
 - Mocked server for fast development: [MSW](https://mswjs.io/)
 - Tests: E2E tests with [Cucumber](https://cucumber.io/docs/installation/javascript/) + [Playwright](https://playwright.dev/), and unit and integration tests with [Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/).
@@ -53,8 +53,10 @@ pnpm create:env #Create a .env file
 - `pnpm e2e:local` - run E2E test locally. Make sure to run pnpm start before in a separate shell.
 - `pnpm type-check` - check for typescript errors.
 - `pnpm outdated` - update dependencies interactively.
-- `pnpm format` - format all files with Prettier.
-- `pnpm lint` - runs ESLint.
+- `pnpm format` - format all files with Biome.
+- `pnpm lint` - lint all files with Biome.
+- `pnpm check` - run linting, formatting, and type checking.
+- `pnpm check:fix` - auto-fix linting and formatting issues, then type check.
 - `pnpm create:env` - creates default envs.
 
 ## <a name="folder"></a>🗄️ Folder Structure and Code Organization
@@ -184,22 +186,17 @@ This comprehensive toolkit streamlines the release process, ensuring efficiency,
 
 ## <a name="style"></a>👁️ Format and style
 
-TLDR; Embrace a consistent style guide, leverage Prettier for formatting
+TLDR; Embrace a consistent style guide with a single, fast tool
 
-- [Forgo the use of eslint-plugin-prettier](https://stackoverflow.com/questions/44690308/whats-the-difference-between-prettier-eslint-eslint-plugin-prettier-and-eslint) opt for eslint-config-prettier. In general, delegate formatting responsibilities to Prettier, not Eslint as they also suggest in their official docs.
+This project uses [Biome](https://biomejs.dev/) as a unified linter and formatter, replacing the traditional ESLint + Prettier setup. Biome provides:
 
-List of rules:
+- Blazing fast performance (written in Rust)
+- A single tool for both linting and formatting
+- Built-in support for TypeScript, JSX, and CSS
+- Import sorting out of the box
+- Over 300 lint rules covering correctness, style, complexity, and suspicious patterns
 
-- [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) - Deactivate formatting rules because we use prettier for them
-  - [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) - Rules for react
-  - [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) - Rules of React hooks
-  - [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y) - accessibility rules on JSX elements.
-  - [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint) - ESLint support TypeScript
-  - [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import) - Rules that help validate proper imports.
-- [eslint-plugin-promise](https://github.com/eslint-community/eslint-plugin-promise) - Enforce best practices for JavaScript promises.
-- [eslint-plugin-vitest](https://github.com/veritem/eslint-plugin-vitest) - Rules for Vitest
-- [eslint-plugin-react-refresh](https://github.com/ArnaudBarre/eslint-plugin-react-refresh) - Validate that your components can safely be updated with fast refresh
-- [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn) - More than 100 other rules
+
 
 ## <a name="error"></a>⚠️ Error Handling and Analytics
 

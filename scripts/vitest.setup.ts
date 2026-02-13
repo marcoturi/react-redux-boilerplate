@@ -1,10 +1,10 @@
-import { handlers } from '../src/test/handlers';
 import * as matchers from '@testing-library/jest-dom/matchers';
 import { cleanup } from '@testing-library/react';
 import { setupServer } from 'msw/node';
+import { handlers } from '../src/test/handlers';
 
 expect.extend(matchers);
-declare let window;
+declare let window: Window & typeof globalThis;
 
 // Needed for testing Radix Select component
 // https://github.com/testing-library/user-event/discussions/1087

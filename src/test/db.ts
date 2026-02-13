@@ -32,10 +32,9 @@ export const initializeDb = () => {
   for (const [key, model] of Object.entries(db)) {
     const dataEntries = database[key];
     if (dataEntries) {
-      // eslint-disable-next-line unicorn/no-array-for-each
-      dataEntries?.forEach((entry: Record<string, any>) => {
+      for (const entry of dataEntries) {
         model.create(entry);
-      });
+      }
     }
   }
 };

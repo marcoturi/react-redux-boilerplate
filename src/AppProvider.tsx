@@ -1,9 +1,9 @@
-import { store } from '@/shared/store';
 import { Button, Theme } from '@radix-ui/themes';
 import * as React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { store } from '@/shared/store';
 
 function ErrorFallback() {
   return (

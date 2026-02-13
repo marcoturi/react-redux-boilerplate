@@ -1,5 +1,5 @@
-import { Logo } from './Logo';
 import Menu from '@/UI/Layout/Header/Menu';
+import { Logo } from './Logo';
 
 type Props = {
   rightWidget: any;

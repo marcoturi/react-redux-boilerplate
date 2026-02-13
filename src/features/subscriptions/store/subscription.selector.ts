@@ -1,13 +1,13 @@
+import { createSelector } from '@reduxjs/toolkit';
+import { curry, filter } from 'ramda';
 import { SettingsSelectors } from '@/features/settings/store';
 import { SettingsKey } from '@/features/settings/store/settings.type';
 import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
 import { subscriptionApi } from '@/features/subscriptions/store/subscription.api';
 import {
-  Subscription,
+  type Subscription,
   SubscriptionType,
 } from '@/features/subscriptions/store/subscription.type';
-import { createSelector } from '@reduxjs/toolkit';
-import { curry, filter } from 'ramda';
 
 const matchSubscriptionFilters = (
   subscription: Subscription,

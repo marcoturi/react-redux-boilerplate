@@ -1,6 +1,6 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@plugin 'tailwindcss-animate';
+@plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -90,7 +90,7 @@
     color: var(--primary);
   }
 
-  [data-slot='card'] {
+  [data-slot="card"] {
     border-radius: 0rem;
     box-shadow: none;
   }
@@ -119,11 +119,11 @@
     color: var(--primary);
   }
 
-  [data-slot='card'] {
+  [data-slot="card"] {
     @apply shadow-xl;
   }
 
-  [data-slot='input'] {
+  [data-slot="input"] {
     @apply dark:bg-input;
   }
 }

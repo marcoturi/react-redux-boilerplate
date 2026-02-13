@@ -1,2 +1,2 @@
-export * as UserSelectors from './user.selector';
 export * as UserApi from './user.api';
+export * as UserSelectors from './user.selector';

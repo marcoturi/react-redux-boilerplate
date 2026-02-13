@@ -1,6 +1,6 @@
-import { Header } from '@/UI/Layout/Header';
-import { renderWithProviders } from '@/shared/store/test';
 import { screen } from '@testing-library/react';
+import { renderWithProviders } from '@/shared/store/test';
+import { Header } from '@/UI/Layout/Header';
 
 describe('Header', () => {
   test('Should load and display a App title and a navigation menu', () => {
@@ -14,10 +14,7 @@ describe('Header', () => {
     ];
 
     renderWithProviders(
-      <Header
-        menuItems={menuItems}
-        rightWidget={undefined}
-      />,
+      <Header menuItems={menuItems} rightWidget={undefined} />,
     );
 
     expect(screen.getByText(/react boilerplate/i)).toBeInTheDocument();

@@ -1,7 +1,7 @@
-import SubscriptionsPage from '@/routes/Subscriptions/SubscriptionsPage';
-import { renderWithProviders } from '@/shared/store/test';
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import SubscriptionsPage from '@/routes/Subscriptions/SubscriptionsPage';
+import { renderWithProviders } from '@/shared/store/test';
 
 describe('SubscriptionsPage', () => {
   test('Should load page title', () => {

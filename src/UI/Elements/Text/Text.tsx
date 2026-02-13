@@ -1,7 +1,7 @@
-import { cn } from '@/shared/helpers/style.utils';
 import { Text as RadiText } from '@radix-ui/themes';
 // @ts-expect-error fix import type
 import type { TextProps } from '@radix-ui/themes/dist/esm/components/text';
+import { cn } from '@/shared/helpers/style.utils';
 
 export function Text(props: TextProps) {
   let additionalClasses = '';
@@ -10,9 +10,6 @@ export function Text(props: TextProps) {
   }
 
   return (
-    <RadiText
-      className={cn(props.className, additionalClasses)}
-      {...props}
-    />
+    <RadiText className={cn(props.className, additionalClasses)} {...props} />
   );
 }

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -5,7 +6,6 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@/UI/Elements/Navigation';
-import { Link } from 'react-router-dom';
 
 type Props = {
   menuItems: { label: string; href: string; testId: string }[];

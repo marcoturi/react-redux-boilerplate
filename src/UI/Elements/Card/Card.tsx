@@ -1,5 +1,5 @@
+import type * as React from 'react';
 import { cn } from '@/shared/helpers/style.utils';
-import * as React from 'react';
 
 function Card({ className, ...props }: React.ComponentProps<'div'>) {
   return (

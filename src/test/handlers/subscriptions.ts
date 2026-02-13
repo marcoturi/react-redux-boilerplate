@@ -1,6 +1,6 @@
-import { config } from '../config';
+import { HttpResponse, http } from 'msw';
 import { subscriptionMockList } from '@/features/subscriptions/store/subscription.mocks.spec';
-import { http, HttpResponse } from 'msw';
+import { config } from '../config';
 
 export const subscriptionHandlers = [
   http.get<any, any>(`${config.API_URL}/subscriptions`, () => {

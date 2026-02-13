@@ -1,6 +1,6 @@
-import { ICustomWorld } from '../support/custom-world';
 import { Given, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
+import type { ICustomWorld } from '../support/custom-world';
 
 Then(/^user should see the home page$/, async function (this: ICustomWorld) {
   await expect(this.pageObjects.appPo.homePage()).toBeVisible();

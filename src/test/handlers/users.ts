@@ -1,5 +1,5 @@
+import { HttpResponse, http } from 'msw';
 import { config } from '../config';
-import { http, HttpResponse } from 'msw';
 
 export const usersHandlers = [
   http.get<any, any>(`${config.API_URL}/users`, () => {

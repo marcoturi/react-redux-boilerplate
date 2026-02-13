@@ -1,8 +1,9 @@
-import { UserSelectors } from '.';
 import { userApi } from '@/features/user/store/user.api';
 import { setupStore } from '@/shared/store/test';
+import { UserSelectors } from '.';
 
 describe('User Selector:', () => {
+  // biome-ignore lint/suspicious/noImplicitAnyLet: store type inferred at assignment
   let store;
 
   beforeEach(() => {

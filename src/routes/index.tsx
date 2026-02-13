@@ -1,8 +1,8 @@
-import { Header } from '@/UI/Layout/Header';
+import { useRoutes } from 'react-router-dom';
 import UserWidget from '@/features/user/components/UserWidget';
 import HomePage from '@/routes/Home/HomePage';
 import SubscriptionsPage from '@/routes/Subscriptions/SubscriptionsPage';
-import { useRoutes } from 'react-router-dom';
+import { Header } from '@/UI/Layout/Header';
 
 export function AppRoutes() {
   const routes = [

@@ -1,13 +1,14 @@
-import { SubscriptionSelectors } from '.';
 import { initialStorageState } from '@/features/settings/store/settings.slice';
 import { SettingsKey } from '@/features/settings/store/settings.type';
 import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
 import { subscriptionApi } from '@/features/subscriptions/store/subscription.api';
 import { subscriptionMockList } from '@/features/subscriptions/store/subscription.mocks.spec';
-import { Subscription } from '@/features/subscriptions/store/subscription.type';
+import type { Subscription } from '@/features/subscriptions/store/subscription.type';
 import { setupStore } from '@/shared/store/test';
+import { SubscriptionSelectors } from '.';
 
 describe('Subscription Selector:', () => {
+  // biome-ignore lint/suspicious/noImplicitAnyLet: store type inferred at assignment
   let store;
 
   beforeEach(() => {

@@ -1,12 +1,12 @@
-import { PageObjects } from './common-hooks';
-import { IWorldOptions, setWorldConstructor, World } from '@cucumber/cucumber';
-import * as messages from '@cucumber/messages';
-import {
+import { setWorldConstructor, World } from '@cucumber/cucumber';
+import type * as messages from '@cucumber/messages';
+import type {
   APIRequestContext,
   BrowserContext,
   Page,
   PlaywrightTestOptions,
 } from '@playwright/test';
+import type { PageObjects } from './common-hooks';
 
 enum Parameters {
   SERVER_URL = 'SERVER_URL',
@@ -35,11 +35,6 @@ export interface ICustomWorld extends World, PageObjects {
 }
 
 export class CustomWorld extends World implements ICustomWorld {
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
-  constructor(options: IWorldOptions) {
-    super(options);
-  }
-
   debug = false;
 
   mobile = false;

@@ -1,9 +1,9 @@
-import env from '../config/env';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import * as Sentry from '@sentry/react';
 import { storageMiddleware } from '@/features/settings/store/settings.effect';
 import { settingsSlice } from '@/features/settings/store/settings.slice';
 import baseApi from '@/shared/store/api';
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import * as Sentry from '@sentry/react';
+import env from '../config/env';
 
 Sentry.init({
   dsn: env.SENTRY_DSN,

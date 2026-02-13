@@ -1,3 +1,8 @@
+import { useEffect } from 'react';
+import { SettingsActions, SettingsSelectors } from '@/features/settings/store';
+import { SettingsKey } from '@/features/settings/store/settings.type';
+import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
+import { useAppDispatch, useAppSelector } from '@/shared/store/types';
 import {
   Select,
   SelectContent,
@@ -6,11 +11,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/UI/Elements/Select';
-import { SettingsActions, SettingsSelectors } from '@/features/settings/store';
-import { SettingsKey } from '@/features/settings/store/settings.type';
-import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
-import { useAppDispatch, useAppSelector } from '@/shared/store/types';
-import { useEffect } from 'react';
 
 export function SubscriptionFilter() {
   const dispatch = useAppDispatch();
@@ -34,14 +34,8 @@ export function SubscriptionFilter() {
   }, [dispatch]);
 
   return (
-    <Select
-      value={filters.filterSubscriptionsBy}
-      onValueChange={onValueChange}
-    >
-      <SelectTrigger
-        className="w-[180px]"
-        data-testid="filter-trigger"
-      >
+    <Select value={filters.filterSubscriptionsBy} onValueChange={onValueChange}>
+      <SelectTrigger className="w-[180px]" data-testid="filter-trigger">
         <SelectValue placeholder="Filter subscriptions" />
       </SelectTrigger>
       <SelectContent>

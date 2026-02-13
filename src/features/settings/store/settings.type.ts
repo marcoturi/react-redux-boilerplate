@@ -1,4 +1,4 @@
-import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
+import type { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
 
 export enum SettingsKey {
   filters = 'filters',

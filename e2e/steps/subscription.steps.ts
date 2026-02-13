@@ -1,6 +1,6 @@
-import { ICustomWorld } from '../support/custom-world';
 import { Given, Then, When } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
+import type { ICustomWorld } from '../support/custom-world';
 
 Given(/^user open the subscription link$/, async function (this: ICustomWorld) {
   await this.pageObjects.subscriptionPo.subscriptionLink().click();

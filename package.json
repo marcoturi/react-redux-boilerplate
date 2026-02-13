@@ -16,9 +16,11 @@
     "e2e:debug": "TS_NODE_PROJECT=./e2e/tsconfig.e2e.json SERVER_URL=http://localhost:5173 cucumber-js --tags '@only' --fail-fast",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "format": "prettier --write .",
-    "lint": "eslint . --fix",
+    "format": "biome format --write .",
+    "lint": "biome lint --write .",
     "type:check": "tsc --noEmit",
+    "check": "biome check && tsc --noEmit",
+    "check:fix": "biome check --write && tsc --noEmit",
     "postinstall": "husky",
     "semantic-release": "semantic-release",
     "update:interactive": "pnpm update --interactive --latest"
@@ -26,15 +28,6 @@
   "engines": {
     "node": ">=24.0.0",
     "pnpm": ">=10.0.0"
-  },
-  "lint-staged": {
-    "*.{ts, tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,md}": [
-      "prettier --write"
-    ]
   },
   "dependencies": {
     "@radix-ui/react-label": "2.1.8",
@@ -59,14 +52,13 @@
     "tailwindcss-animate": "1.0.7"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.3.15",
     "@commitlint/cli": "20.4.1",
     "@commitlint/config-conventional": "20.4.1",
     "@cucumber/cucumber": "12.6.0",
     "@cucumber/html-formatter": "23.0.0",
     "@cucumber/messages": "32.0.1",
     "@cucumber/pretty-formatter": "3.0.0",
-    "@eslint/compat": "2.0.2",
-    "@eslint/js": "10.0.1",
     "@mswjs/data": "0.16.2",
     "@playwright/test": "1.58.2",
     "@semantic-release/changelog": "6.0.3",
@@ -81,42 +73,25 @@
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.2",
     "@testing-library/user-event": "14.6.1",
-    "@trivago/prettier-plugin-sort-imports": "6.0.2",
     "@types/node": "24.10.13",
     "@types/ramda": "0.31.1",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "@typescript-eslint/utils": "8.55.0",
     "@vitejs/plugin-react-swc": "4.2.3",
     "@vitest/coverage-v8": "4.0.18",
-    "@vitest/eslint-plugin": "1.6.7",
     "autoprefixer": "10.4.24",
     "cssnano": "7.1.2",
     "cucumber-console-formatter": "1.0.0",
     "cucumber-html-reporter": "7.2.0",
-    "eslint": "10.0.0",
-    "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-import": "2.32.0",
-    "eslint-plugin-jsx-a11y": "6.10.2",
-    "eslint-plugin-promise": "7.2.1",
-    "eslint-plugin-react": "7.37.5",
-    "eslint-plugin-react-hooks": "7.0.1",
-    "eslint-plugin-react-refresh": "0.5.0",
-    "eslint-plugin-unicorn": "63.0.0",
     "fs-extra": "11.3.3",
-    "globals": "17.3.0",
     "husky": "9.1.7",
     "jsdom": "28.0.0",
-    "lint-staged": "16.2.7",
     "msw": "2.12.10",
     "postcss": "8.5.6",
-    "prettier": "3.8.1",
-    "prettier-plugin-tailwindcss": "0.7.2",
     "semantic-release": "25.0.3",
     "tailwindcss": "4.1.18",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.55.0",
     "vite": "7.3.1",
     "vite-tsconfig-paths": "6.1.1",
     "vitest": "4.0.18"

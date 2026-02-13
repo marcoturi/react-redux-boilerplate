@@ -1,10 +1,10 @@
-import { SettingsActions } from './index';
-import { RemoveValuePayload, SetValuePayload } from './settings.type';
+import { createListenerMiddleware, type PayloadAction } from '@reduxjs/toolkit';
 import { captureError } from '@/shared/helpers/error-tracking.service';
 import LocalStorageService, {
   StorageKeys,
 } from '@/shared/helpers/local-storage.service';
-import { createListenerMiddleware, PayloadAction } from '@reduxjs/toolkit';
+import { SettingsActions } from './index';
+import type { RemoveValuePayload, SetValuePayload } from './settings.type';
 
 export const storageMiddleware = createListenerMiddleware<any>();
 

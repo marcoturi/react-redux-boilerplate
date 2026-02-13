@@ -1,6 +1,6 @@
-import { store } from './index';
-import { ThunkDispatch } from '@reduxjs/toolkit';
+import type { ThunkDispatch } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
+import type { store } from './index';
 
 export type RootState = ReturnType<typeof store.getState>;
 // todo: figure out how to type this properly

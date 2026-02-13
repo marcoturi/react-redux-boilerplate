@@ -1,12 +1,12 @@
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { loadState } from '@/features/settings/store/settings.thunk';
 import {
-  RemoveValuePayload,
+  type RemoveValuePayload,
   SettingsKey,
-  SettingsState,
-  SetValuePayload,
+  type SettingsState,
+  type SetValuePayload,
 } from '@/features/settings/store/settings.type';
 import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export const initialStorageState: SettingsState = {
   [SettingsKey.filters]: {

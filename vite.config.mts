@@ -18,7 +18,6 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      // @ts-ignore
       '@/': new URL('src/', import.meta.url).pathname,
     },
   },

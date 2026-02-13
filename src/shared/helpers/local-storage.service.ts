@@ -4,19 +4,16 @@ export enum StorageKeys {
 
 const LocalStorageService = (dbKey: StorageKeys) => ({
   getAll: () =>
-    Object.keys(localStorage)
-      .filter((key) => key.startsWith(dbKey))
-      .reduce((obj, k) => {
-        const key = k.replace(dbKey, '');
-        return {
-          ...obj,
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          [key]: JSON.parse(globalThis.localStorage.getItem(k)!),
-        };
-      }, {}),
+    Object.fromEntries(
+      Object.keys(localStorage)
+        .filter((key) => key.startsWith(dbKey))
+        .map((k) => [
+          k.replace(dbKey, ''),
+          JSON.parse(globalThis.localStorage.getItem(k) ?? 'null'),
+        ]),
+    ),
   get: (key: string) =>
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    JSON.parse(globalThis.localStorage.getItem(dbKey + key)!),
+    JSON.parse(globalThis.localStorage.getItem(dbKey + key) ?? 'null'),
   set: (key: string, value: any) => {
     globalThis.localStorage.setItem(dbKey + key, JSON.stringify(value));
   },

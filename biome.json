@@ -1,0 +1,105 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.15/schema.json",
+  "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+  "files": { "includes": ["**", "!!**/dist"] },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "useEditorconfig": true,
+    "includes": ["**", "!**/package.json", "!**/CHANGELOG.md", "!**/public"]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noForEach": "error",
+        "useDateNow": "error",
+        "useFlatMap": "error",
+        "useIndexOf": "error"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "warn",
+        "useHookAtTopLevel": "error"
+      },
+      "style": {
+        "noNegationElse": "off",
+        "noNestedTernary": "off",
+        "useBlockStatements": "off",
+        "noCommonJs": "error",
+        "noSubstr": "error",
+        "useArrayLiterals": "error",
+        "useCollapsedIf": "error",
+        "useConsistentArrayType": "error",
+        "useConst": "error",
+        "useExplicitLengthCheck": "error",
+        "useForOf": "error",
+        "useNodejsImportProtocol": "error",
+        "useNumberNamespace": "error",
+        "useNumericSeparators": "error",
+        "useThrowNewError": "error",
+        "useTrimStartEnd": "error",
+        "useUnifiedTypeSignatures": "error"
+      },
+      "suspicious": {
+        "noDocumentCookie": "error",
+        "noThenProperty": "error",
+        "useErrorMessage": "error",
+        "useNumberToFixedDigitsArgument": "error"
+      }
+    },
+    "includes": [
+      "**",
+      "!commitlint.config.cjs",
+      "!cucumber.mjs",
+      "!public/mockServiceWorker.js"
+    ]
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "quoteStyle": "single"
+    }
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "html": {
+    "formatter": {
+      "selfCloseVoidElements": "always"
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.{ts,tsx,mts,cts}"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedVariables": "warn"
+          },
+          "style": {
+            "noCommonJs": "off",
+            "useConsistentTypeDefinitions": "off"
+          },
+          "suspicious": {
+            "noExplicitAny": "off",
+            "noConfusingVoidType": "off"
+          }
+        }
+      }
+    }
+  ],
+  "assist": {
+    "enabled": true,
+    "actions": { "source": { "organizeImports": "on" } }
+  }
+}

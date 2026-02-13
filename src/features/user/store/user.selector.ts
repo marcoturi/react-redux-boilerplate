@@ -1,5 +1,5 @@
-import { userApi } from './user.api';
 import { createSelector } from '@reduxjs/toolkit';
+import { userApi } from './user.api';
 
 export const getUserFullName = createSelector(
   userApi.endpoints.getUser.select(),

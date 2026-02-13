@@ -1,5 +1,5 @@
-import env from '@/shared/config/env';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import env from '@/shared/config/env';
 
 const baseApi = createApi({
   baseQuery: fetchBaseQuery({

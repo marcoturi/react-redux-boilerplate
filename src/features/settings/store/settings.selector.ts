@@ -1,6 +1,6 @@
-import { SettingsKey } from './settings.type';
-import { RootState } from '@/shared/store/types';
 import { createSelector } from '@reduxjs/toolkit';
+import type { RootState } from '@/shared/store/types';
+import type { SettingsKey } from './settings.type';
 
 export const getStorageState = (state: RootState) => state.settings;
 export const getSettingByKey = createSelector(

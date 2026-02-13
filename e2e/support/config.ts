@@ -1,4 +1,4 @@
-import { LaunchOptions } from '@playwright/test';
+import type { LaunchOptions } from '@playwright/test';
 
 const browserOptions: LaunchOptions = {
   slowMo: 0,

@@ -1,6 +1,6 @@
-import { Text } from '@/UI/Elements/Text';
-import { UserApi, UserSelectors } from '@/features/user/store';
 import { useSelector } from 'react-redux';
+import { UserApi, UserSelectors } from '@/features/user/store';
+import { Text } from '@/UI/Elements/Text';
 
 function UserWidget() {
   const { isLoading, isError } = UserApi.useGetUserQuery();
