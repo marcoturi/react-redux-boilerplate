@@ -15,7 +15,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["vitest/globals", "@testing-library/jest-dom"],
+    "types": ["node"],
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

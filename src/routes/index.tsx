@@ -1,8 +1,12 @@
+import { lazy } from 'react';
 import { useRoutes } from 'react-router-dom';
 import UserWidget from '@/features/user/components/UserWidget';
-import HomePage from '@/routes/Home/HomePage';
-import SubscriptionsPage from '@/routes/Subscriptions/SubscriptionsPage';
 import { Header } from '@/UI/Layout/Header';
+
+const HomePage = lazy(() => import('@/routes/Home/HomePage'));
+const SubscriptionsPage = lazy(
+  () => import('@/routes/Subscriptions/SubscriptionsPage'),
+);
 
 export function AppRoutes() {
   const routes = [

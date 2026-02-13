@@ -23,12 +23,8 @@ import SubscriptionPo from '../page-objects/subscription.po';
 import config from './config';
 import type { ICustomWorld } from './custom-world';
 
-let _browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
+let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 const tracesDir = 'traces';
-
-declare global {
-  var browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
-}
 
 export interface PageObjects {
   pageObjects?: {
