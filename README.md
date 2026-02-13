@@ -26,6 +26,7 @@ A production-ready, batteries-included starter template for building long-lived 
 | E2E tests | [Cucumber](https://cucumber.io/docs/installation/javascript/) + [Playwright](https://playwright.dev/) |
 | Monitoring | [Sentry](https://github.com/getsentry/sentry-javascript/tree/master/packages/react) |
 | Security | [CodeQL](https://github.com/github/codeql-action) analysis on every push/PR |
+| AI-Ready | [AGENTS.md](AGENTS.md) — architecture rules and coding conventions for AI assistants |
 
 ## Getting Started
 
