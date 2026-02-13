@@ -15,7 +15,7 @@ import {
 export function SubscriptionFilter() {
   const dispatch = useAppDispatch();
   const filters = useAppSelector((state) =>
-    SettingsSelectors.getSettingByKey(state)(SettingsKey.filters),
+    SettingsSelectors.getSettingByKey(state, SettingsKey.filters),
   );
   const onValueChange = (value: string) => {
     dispatch(
@@ -23,7 +23,7 @@ export function SubscriptionFilter() {
         key: SettingsKey.filters,
         value: {
           ...filters,
-          filterSubscriptionsBy: value,
+          filterSubscriptionsBy: value as SubscriptionFilters,
         },
       }),
     );

@@ -12,13 +12,13 @@ describe('Settings Slice:', () => {
     const action = SettingsActions.setItem({
       key: SettingsKey.filters,
       value: {
-        filterSubscriptionsBy: 'test',
+        filterSubscriptionsBy: SubscriptionFilters.Subscription,
       },
     });
     const expectedState = {
       ...initialStorageState,
       [SettingsKey.filters]: {
-        filterSubscriptionsBy: 'test',
+        filterSubscriptionsBy: SubscriptionFilters.Subscription,
       },
     };
     expect(settingsSlice.reducer(undefined, action)).toEqual(expectedState);
@@ -40,7 +40,7 @@ describe('Settings Slice:', () => {
   });
   it('Should handle deleteItem in case of not matching key', () => {
     const action = SettingsActions.deleteItem({
-      key: 'unknown' as any,
+      key: 'unknown' as SettingsKey,
     });
     const initialState = {
       ...initialStorageState,
@@ -56,7 +56,7 @@ describe('Settings Slice:', () => {
         filterSubscriptionsBy: SubscriptionFilters.All,
       },
     };
-    const action = (loadState as any).fulfilled(thunkResult);
+    const action = loadState.fulfilled(thunkResult, '');
     const expectedState = {
       ...initialStorageState,
       ...thunkResult,

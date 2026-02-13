@@ -7,12 +7,10 @@ function HomePage() {
       <Text size="7" as="p">
         Lorem ipsum
       </Text>
-      <br />
 
       <Text as="p">
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
       </Text>
-      <br />
 
       <Text as="p">
         Pellentesque habitant morbi tristique senectus et netus et malesuada
@@ -28,7 +26,6 @@ function HomePage() {
         volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis
         luctus, metus
       </Text>
-      <br />
 
       <Text as="p">
         Pellentesque habitant morbi tristique senectus et netus et malesuada

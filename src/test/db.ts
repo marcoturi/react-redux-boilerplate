@@ -14,26 +14,26 @@ const models = {
 
 export const db = factory(models);
 
-export type Model = keyof typeof db;
+export type Model = keyof typeof models;
 
 export const loadDb = () =>
   Object.assign(JSON.parse(globalThis.localStorage.getItem('msw-db') ?? '{}'));
 
 export const persistDb = (model: Model) => {
-  if (process.env.NODE_ENV === 'test') return;
+  if (import.meta.env.MODE === 'test') return;
   const data = loadDb();
-  data[model] = (db[model] as any).getAll();
+  data[model] = db[model].getAll();
   globalThis.localStorage.setItem('msw-db', JSON.stringify(data));
 };
 
 export const initializeDb = () => {
   const database = loadDb();
 
-  for (const [key, model] of Object.entries(db)) {
+  for (const key of Object.keys(db) as Model[]) {
     const dataEntries = database[key];
     if (dataEntries) {
       for (const entry of dataEntries) {
-        model.create(entry);
+        db[key].create(entry);
       }
     }
   }

@@ -3,14 +3,12 @@ import { subscriptionMockList } from '@/features/subscriptions/store/subscriptio
 import { config } from '../config';
 
 export const subscriptionHandlers = [
-  http.get<any, any>(`${config.API_URL}/subscriptions`, () => {
+  http.get(`${config.API_URL}/subscriptions`, () => {
     try {
       return HttpResponse.json(subscriptionMockList);
-    } catch (error: any) {
-      return HttpResponse.json(
-        { message: error?.message || 'Server Error' },
-        { status: 400 },
-      );
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Server Error';
+      return HttpResponse.json({ message }, { status: 400 });
     }
   }),
 ];

@@ -5,7 +5,10 @@ import { Text } from '@/UI/Elements/Text';
 function UserWidget() {
   const { isLoading, isError } = UserApi.useGetUserQuery();
   const userFullName = useSelector(UserSelectors.getUserFullName);
-  return isLoading || isError ? undefined : <Text>Hello {userFullName}</Text>;
+
+  if (isLoading || isError) return null;
+
+  return <Text>Hello {userFullName}</Text>;
 }
 
 export default UserWidget;

@@ -1,23 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import * as Sentry from '@sentry/react';
 import { storageMiddleware } from '@/features/settings/store/settings.effect';
 import { settingsSlice } from '@/features/settings/store/settings.slice';
+import { sentryReduxEnhancer } from '@/shared/config/sentry';
 import baseApi from '@/shared/store/api';
 import env from '../config/env';
-
-Sentry.init({
-  dsn: env.SENTRY_DSN,
-  release: env.VERSION,
-  enabled: !env.IS_DEV,
-  environment: env.NODE_ENV,
-  tracesSampleRate: 0.1,
-  attachStacktrace: true,
-  integrations: [Sentry.replayIntegration()],
-  replaysSessionSampleRate: 0.1,
-  replaysOnErrorSampleRate: 1,
-});
-
-const sentryReduxEnhancer = Sentry.createReduxEnhancer();
 
 export const rootReducer = combineReducers({
   api: baseApi.reducer,

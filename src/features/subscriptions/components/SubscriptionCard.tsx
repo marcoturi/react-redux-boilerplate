@@ -4,7 +4,11 @@ import { Card } from '@/UI/Elements/Card';
 import { CardContent, CardHeader, CardTitle } from '@/UI/Elements/Card/Card';
 import { Text } from '@/UI/Elements/Text';
 
-export function SubscriptionCard(subscription: Subscription) {
+interface SubscriptionCardProps {
+  subscription: Subscription;
+}
+
+export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
   return (
     <Card className="my-4 w-full" data-testid="subscription-item">
       <div className="flex flex-row items-center">

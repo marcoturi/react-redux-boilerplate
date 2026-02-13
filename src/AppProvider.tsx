@@ -1,5 +1,5 @@
 import { Button, Theme } from '@radix-ui/themes';
-import * as React from 'react';
+import { type ReactNode, Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -9,9 +9,7 @@ function ErrorFallback() {
   return (
     <div role="alert">
       <h2>Ooops, something went wrong :( </h2>
-      <Button
-        onClick={() => globalThis.location.assign(globalThis.location.origin)}
-      >
+      <Button onClick={() => window.location.assign(window.location.origin)}>
         Refresh
       </Button>
     </div>
@@ -19,12 +17,12 @@ function ErrorFallback() {
 }
 
 type AppProviderProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export function AppProvider({ children }: AppProviderProps) {
   return (
-    <React.Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
       <Provider store={store}>
         <Theme
           accentColor="mint"
@@ -38,6 +36,6 @@ export function AppProvider({ children }: AppProviderProps) {
           </ErrorBoundary>
         </Theme>
       </Provider>
-    </React.Suspense>
+    </Suspense>
   );
 }

@@ -12,7 +12,7 @@ export type SettingsState = {
 
 export interface SetValuePayload {
   key: SettingsKey;
-  value: any;
+  value: SettingsState[SettingsKey];
 }
 
 export interface RemoveValuePayload {

@@ -5,12 +5,15 @@ import { SubscriptionApi, SubscriptionSelectors } from '../store';
 
 export function SubscriptionList() {
   const { isLoading } = SubscriptionApi.useGetSubscriptionsQuery();
-  const subscription = useAppSelector(
+  const subscriptions = useAppSelector(
     SubscriptionSelectors.getSubscriptionListFiltered,
   );
 
   if (isLoading) {
     return <SkeletonList className="py-8" />;
   }
-  return subscription?.map((s) => <SubscriptionCard key={s.id} {...s} />);
+
+  return subscriptions.map((s) => (
+    <SubscriptionCard key={s.id} subscription={s} />
+  ));
 }

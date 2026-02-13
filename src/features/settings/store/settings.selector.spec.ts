@@ -9,7 +9,7 @@ describe('Settings Selector:', () => {
       settings: initialStorageState,
     } as RootState;
     expect(
-      SettingsSelectors.getSettingByKey(expectedState)(SettingsKey.filters),
+      SettingsSelectors.getSettingByKey(expectedState, SettingsKey.filters),
     ).toEqual(initialStorageState[SettingsKey.filters]);
   });
 });

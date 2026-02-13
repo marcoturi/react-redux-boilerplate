@@ -6,7 +6,7 @@ import LocalStorageService, {
 import { SettingsActions } from './index';
 import type { RemoveValuePayload, SetValuePayload } from './settings.type';
 
-export const storageMiddleware = createListenerMiddleware<any>();
+export const storageMiddleware = createListenerMiddleware();
 
 /**
  * Important: this middleware is here only to showcase the usage of ListenerMiddleware.

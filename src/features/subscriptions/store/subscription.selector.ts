@@ -1,5 +1,4 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { curry, filter } from 'ramda';
 import { SettingsSelectors } from '@/features/settings/store';
 import { SettingsKey } from '@/features/settings/store/settings.type';
 import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
@@ -9,34 +8,25 @@ import {
   SubscriptionType,
 } from '@/features/subscriptions/store/subscription.type';
 
-const matchSubscriptionFilters = (
-  subscription: Subscription,
-  f: SubscriptionFilters,
-) => {
-  const dic = {
-    [SubscriptionFilters.Subscription]: SubscriptionType.Subscription,
-    [SubscriptionFilters.OneTimePurchase]: SubscriptionType.OneTimePurchase,
-  };
-  return dic[f] === subscription.type;
+const subscriptionTypeMap: Record<
+  SubscriptionFilters,
+  SubscriptionType | undefined
+> = {
+  [SubscriptionFilters.All]: undefined,
+  [SubscriptionFilters.Subscription]: SubscriptionType.Subscription,
+  [SubscriptionFilters.OneTimePurchase]: SubscriptionType.OneTimePurchase,
 };
 
 export const getSubscriptionListFiltered = createSelector(
   subscriptionApi.endpoints.getSubscriptions.select(),
-  (state) => SettingsSelectors.getSettingByKey(state)(SettingsKey.filters),
-  (s: { data: Subscription[] }, f): Subscription[] => {
-    if (!s.data) {
-      return [];
-    }
-    if (f.filterSubscriptionsBy === SubscriptionFilters.All) {
-      return s.data;
+  (state) => SettingsSelectors.getSettingByKey(state, SettingsKey.filters),
+  (subscriptions, filters): Subscription[] => {
+    if (!subscriptions.data) return [];
+    if (filters.filterSubscriptionsBy === SubscriptionFilters.All) {
+      return subscriptions.data;
     }
 
-    const filterBySettings = curry(
-      filter((i: Subscription) =>
-        matchSubscriptionFilters(i, f.filterSubscriptionsBy),
-      ),
-    );
-
-    return filterBySettings(s.data);
+    const targetType = subscriptionTypeMap[filters.filterSubscriptionsBy];
+    return subscriptions.data.filter((s) => s.type === targetType);
   },
 );

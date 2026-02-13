@@ -1,8 +1,9 @@
+import type { ReactNode } from 'react';
 import Menu from '@/UI/Layout/Header/Menu';
 import { Logo } from './Logo';
 
 type Props = {
-  rightWidget: any;
+  rightWidget: ReactNode;
   menuItems: { label: string; href: string; testId: string }[];
 };
 

@@ -3,7 +3,7 @@ export enum StorageKeys {
 }
 
 const LocalStorageService = (dbKey: StorageKeys) => ({
-  getAll: () =>
+  getAll: (): Record<string, unknown> =>
     Object.fromEntries(
       Object.keys(localStorage)
         .filter((key) => key.startsWith(dbKey))
@@ -12,13 +12,13 @@ const LocalStorageService = (dbKey: StorageKeys) => ({
           JSON.parse(globalThis.localStorage.getItem(k) ?? 'null'),
         ]),
     ),
-  get: (key: string) =>
+  get: (key: string): unknown =>
     JSON.parse(globalThis.localStorage.getItem(dbKey + key) ?? 'null'),
-  set: (key: string, value: any) => {
+  set: (key: string, value: unknown) => {
     globalThis.localStorage.setItem(dbKey + key, JSON.stringify(value));
   },
   clear: (key: string) => {
-    globalThis.localStorage.removeItem(key);
+    globalThis.localStorage.removeItem(dbKey + key);
   },
 });
 

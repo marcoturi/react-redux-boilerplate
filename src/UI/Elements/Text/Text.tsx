@@ -1,15 +1,13 @@
-import { Text as RadiText } from '@radix-ui/themes';
-// @ts-expect-error fix import type
-import type { TextProps } from '@radix-ui/themes/dist/esm/components/text';
+import { Text as RadixText } from '@radix-ui/themes';
 import { cn } from '@/shared/helpers/style.utils';
 
+type TextProps = React.ComponentProps<typeof RadixText>;
+
 export function Text(props: TextProps) {
-  let additionalClasses = '';
-  if (props.as === 'p') {
-    additionalClasses = 'leading-7 [&:not(:first-child)]:mt-6';
-  }
+  const additionalClasses =
+    props.as === 'p' ? 'leading-7 [&:not(:first-child)]:mt-6' : '';
 
   return (
-    <RadiText className={cn(props.className, additionalClasses)} {...props} />
+    <RadixText {...props} className={cn(props.className, additionalClasses)} />
   );
 }
