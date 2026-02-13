@@ -1,3 +1,11 @@
+# [1.7.0](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.6.0...v1.7.0) (2026-02-13)
+
+
+### Features
+
+* improve vite config, add chunking, fix e2e tests ([7179031](https://github.com/marcoturi/react-redux-boilerplate/commit/717903183a96ba49ea5ed507cce327874a1eaca3))
+* replace eslint, prettier, lint-staged with biome ([caf7ddf](https://github.com/marcoturi/react-redux-boilerplate/commit/caf7ddfe6f267958f50dfb9ab180c0a878c27900))
+
 # [1.6.0](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.5.126...v1.6.0) (2026-02-12)
 
 
