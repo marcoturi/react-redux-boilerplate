@@ -1,3 +1,10 @@
+## [1.7.12](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.11...v1.7.12) (2026-03-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency lucide-react to v0.576.0 ([#1320](https://github.com/marcoturi/react-redux-boilerplate/issues/1320)) ([b64f6f9](https://github.com/marcoturi/react-redux-boilerplate/commit/b64f6f9d1f2290b2f32d98118e46857ce2fc0476))
+
 ## [1.7.11](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.10...v1.7.11) (2026-03-03)
 
 
