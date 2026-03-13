@@ -71,7 +71,7 @@
     "@types/node": "24.12.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react-swc": "4.2.3",
+    "@vitejs/plugin-react-swc": "4.3.0",
     "@vitest/coverage-v8": "4.0.18",
     "fs-extra": "11.3.4",
     "husky": "9.1.7",
