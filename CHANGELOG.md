@@ -1,3 +1,10 @@
+## [1.7.22](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.21...v1.7.22) (2026-04-09)
+
+
+### Bug Fixes
+
+* **deps:** update react monorepo to v19.2.5 ([#1366](https://github.com/marcoturi/react-redux-boilerplate/issues/1366)) ([e3a6fd5](https://github.com/marcoturi/react-redux-boilerplate/commit/e3a6fd5fb64e9f6360d4078901320c8543fae730))
+
 ## [1.7.21](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.20...v1.7.21) (2026-04-03)
 
 
