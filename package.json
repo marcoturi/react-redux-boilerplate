@@ -49,7 +49,7 @@
     "tailwindcss-animate": "1.0.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.11",
+    "@biomejs/biome": "2.4.12",
     "@commitlint/cli": "20.5.0",
     "@commitlint/config-conventional": "20.5.0",
     "@cucumber/cucumber": "12.8.0",
