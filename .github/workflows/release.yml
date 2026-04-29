@@ -38,7 +38,7 @@ jobs:
         run: pnpm playwright install
       - name: Run e2e tests
         run: pnpm start & pnpm e2e
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: reports
