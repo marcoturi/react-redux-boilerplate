@@ -1,3 +1,10 @@
+## [1.7.32](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.31...v1.7.32) (2026-05-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency tailwind-merge to v3.6.0 ([#1413](https://github.com/marcoturi/react-redux-boilerplate/issues/1413)) ([75c28e6](https://github.com/marcoturi/react-redux-boilerplate/commit/75c28e674fb700adc832ff485a4e04c3942c87c6))
+
 ## [1.7.31](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.30...v1.7.31) (2026-05-10)
 
 
