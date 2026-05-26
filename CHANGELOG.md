@@ -1,3 +1,10 @@
+## [1.7.37](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.36...v1.7.37) (2026-05-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-error-boundary to v6.1.2 ([#1427](https://github.com/marcoturi/react-redux-boilerplate/issues/1427)) ([ebec77a](https://github.com/marcoturi/react-redux-boilerplate/commit/ebec77a6b77c4eba5dde11f8386acd0f31ee9c02))
+
 ## [1.7.36](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.35...v1.7.36) (2026-05-16)
 
 
