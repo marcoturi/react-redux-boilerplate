@@ -42,7 +42,7 @@
     "lucide-react": "0.577.0",
     "react": "19.2.6",
     "react-dom": "19.2.6",
-    "react-error-boundary": "6.1.1",
+    "react-error-boundary": "6.1.2",
     "react-redux": "9.3.0",
     "react-router-dom": "7.15.1",
     "tailwind-merge": "3.6.0",
