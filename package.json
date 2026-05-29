@@ -44,7 +44,7 @@
     "react-dom": "19.2.6",
     "react-error-boundary": "6.1.2",
     "react-redux": "9.3.0",
-    "react-router-dom": "7.15.1",
+    "react-router-dom": "7.16.0",
     "tailwind-merge": "3.6.0",
     "tailwindcss-animate": "1.0.7"
   },
