@@ -1,3 +1,10 @@
+## [1.7.42](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.41...v1.7.42) (2026-07-27)
+
+
+### Bug Fixes
+
+* **deps:** update react monorepo ([#1441](https://github.com/marcoturi/react-redux-boilerplate/issues/1441)) ([bbf80f2](https://github.com/marcoturi/react-redux-boilerplate/commit/bbf80f28ca32a90bb5f40ac4a2d92bfe995a6df8))
+
 ## [1.7.41](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.40...v1.7.41) (2026-07-27)
 
 
