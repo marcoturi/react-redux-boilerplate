@@ -76,7 +76,7 @@
     "fs-extra": "11.4.0",
     "husky": "9.1.7",
     "jsdom": "28.1.0",
-    "msw": "2.14.6",
+    "msw": "2.15.0",
     "semantic-release": "25.0.8",
     "tailwindcss": "4.3.3",
     "ts-node": "10.9.2",
