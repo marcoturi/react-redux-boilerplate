@@ -1,3 +1,10 @@
+## [1.7.44](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.43...v1.7.44) (2026-07-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-router-dom to v7.18.2 ([#1449](https://github.com/marcoturi/react-redux-boilerplate/issues/1449)) ([6bb0f24](https://github.com/marcoturi/react-redux-boilerplate/commit/6bb0f24b0618d20fc2323b0aabeb3286eb0e5636))
+
 ## [1.7.43](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.42...v1.7.43) (2026-07-29)
 
 
