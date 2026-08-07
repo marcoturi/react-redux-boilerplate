@@ -39,7 +39,7 @@
     "@sentry/react": "10.69.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
-    "lucide-react": "0.577.0",
+    "lucide-react": "1.30.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-error-boundary": "6.1.2",
