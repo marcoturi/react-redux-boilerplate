@@ -1,13 +1,26 @@
-import { Text as RadixText } from '@radix-ui/themes';
 import { cn } from '@/shared/helpers/style.utils';
 
-type TextProps = React.ComponentProps<typeof RadixText>;
+// Type scale carried over from Radix Themes (font size / line height / tracking)
+const sizes = {
+  '6': 'text-2xl leading-[30px] tracking-[-0.00625em]',
+  '7': 'text-[28px] leading-9 tracking-[-0.0075em]',
+} as const;
 
-export function Text(props: TextProps) {
-  const additionalClasses =
-    props.as === 'p' ? 'leading-7 [&:not(:first-child)]:mt-6' : '';
+type TextProps = React.HTMLAttributes<HTMLElement> & {
+  as?: 'span' | 'p' | 'div';
+  size?: keyof typeof sizes;
+};
 
+export function Text({
+  as: Tag = 'span',
+  size,
+  className,
+  ...props
+}: TextProps) {
   return (
-    <RadixText {...props} className={cn(props.className, additionalClasses)} />
+    <Tag
+      className={cn('leading-normal', size && sizes[size], className)}
+      {...props}
+    />
   );
 }
