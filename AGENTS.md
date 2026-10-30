@@ -121,7 +121,7 @@ src/
 
 - GitHub Actions workflow in `.github/workflows/release.yml`.
 - Pipeline: install -> test -> e2e -> semantic-release.
-- Uses `pnpm/action-setup@v4` and `.nvmrc` for Node version.
+- Uses `pnpm/action-setup@v6` and `.nvmrc` for Node version.
 
 ## Security considerations
 
