@@ -12,7 +12,7 @@ Given(/^user open the app$/, async function (this: ICustomWorld) {
 
 Given(
   /^user open the "([^"]*)" page$/,
-  async function (this: ICustomWorld, page) {
+  async function (this: ICustomWorld, page: string) {
     await this.page.goto(`${this.parameters.SERVER_URL}/${page}`);
   },
 );

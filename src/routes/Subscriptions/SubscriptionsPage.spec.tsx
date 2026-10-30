@@ -18,8 +18,8 @@ describe('SubscriptionsPage', () => {
   });
 
   test('Should handle a change in filters', async () => {
-    renderWithProviders(<SubscriptionsPage />);
     const user = userEvent.setup();
+    renderWithProviders(<SubscriptionsPage />);
 
     // Filter should be present
     const optionSelect = screen.getByRole('combobox');

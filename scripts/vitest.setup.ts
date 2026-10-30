@@ -15,11 +15,12 @@ window.HTMLElement.prototype.releasePointerCapture = vi.fn();
 export const server = setupServer(...handlers);
 
 beforeAll(() => {
-  server.listen();
+  server.listen({ onUnhandledRequest: 'error' });
 });
 
 afterEach(() => {
   server.resetHandlers();
+  localStorage.clear();
   cleanup();
 });
 

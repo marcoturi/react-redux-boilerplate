@@ -15,15 +15,14 @@ Then(
 
 Then(
   /^user should see "([^"]*)" subscriptions$/,
-  async function (this: ICustomWorld, num) {
-    await expect(this.pageObjects.subscriptionPo.list().first()).toBeVisible();
-    expect(await this.pageObjects.subscriptionPo.list().count()).toBe(+num);
+  async function (this: ICustomWorld, num: string) {
+    await expect(this.pageObjects.subscriptionPo.list()).toHaveCount(+num);
   },
 );
 
 When(
   /^user change filter by "([^"]*)"$/,
-  async function (this: ICustomWorld, option) {
+  async function (this: ICustomWorld, option: string) {
     await this.pageObjects.subscriptionPo.pickOptionFromFilter(option);
   },
 );
