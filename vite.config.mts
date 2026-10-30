@@ -8,46 +8,37 @@ export default defineConfig({
   plugins: [react(), tsconfigPaths(), tailwindcss()],
   build: {
     target: 'esnext',
-    rollupOptions: {
+    rolldownOptions: {
       output: {
-        manualChunks(id) {
-          if (!id.includes('node_modules')) return;
-
-          // React core + DOM + router
-          if (
-            id.includes('/react/') ||
-            id.includes('/react-dom/') ||
-            id.includes('/react-router') ||
-            id.includes('/react-redux/') ||
-            id.includes('/react-error-boundary/')
-          ) {
-            return 'vendor-react';
-          }
-
-          // Redux Toolkit (includes RTK Query, immer, reselect)
-          if (id.includes('/@reduxjs/toolkit/')) {
-            return 'vendor-redux';
-          }
-
-          // Radix UI primitives + themes
-          if (id.includes('/@radix-ui/')) {
-            return 'vendor-radix';
-          }
-
-          // Sentry monitoring (loaded async, rarely changes)
-          if (id.includes('/@sentry/')) {
-            return 'vendor-sentry';
-          }
-
-          // UI utilities (CVA, clsx, tailwind-merge, lucide icons)
-          if (
-            id.includes('/class-variance-authority/') ||
-            id.includes('/clsx/') ||
-            id.includes('/tailwind-merge/') ||
-            id.includes('/lucide-react/')
-          ) {
-            return 'vendor-ui';
-          }
+        // Groups are matched in order: the first matching group wins.
+        codeSplitting: {
+          groups: [
+            // React core + DOM + router
+            {
+              name: 'vendor-react',
+              test: /[\\/]node_modules[\\/](react|react-dom|react-router[^\\/]*|react-redux|react-error-boundary)[\\/]/,
+            },
+            // Redux Toolkit (includes RTK Query, immer, reselect)
+            {
+              name: 'vendor-redux',
+              test: /[\\/]node_modules[\\/]@reduxjs[\\/]toolkit[\\/]/,
+            },
+            // Radix UI primitives + themes
+            {
+              name: 'vendor-radix',
+              test: /[\\/]node_modules[\\/]@radix-ui[\\/]/,
+            },
+            // Sentry monitoring (loaded async, rarely changes)
+            {
+              name: 'vendor-sentry',
+              test: /[\\/]node_modules[\\/]@sentry[\\/]/,
+            },
+            // UI utilities (CVA, clsx, tailwind-merge, lucide icons)
+            {
+              name: 'vendor-ui',
+              test: /[\\/]node_modules[\\/](class-variance-authority|clsx|tailwind-merge|lucide-react)[\\/]/,
+            },
+          ],
         },
       },
     },

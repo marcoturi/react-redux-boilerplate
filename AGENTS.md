@@ -2,7 +2,7 @@
 
 ## Project overview
 
-Production-ready React 19 boilerplate using vertical slice architecture. The stack is React 19 + Redux Toolkit 2 + Vite 7 + TypeScript 5.9 + Tailwind CSS 4 + Biome.
+Production-ready React 19 boilerplate using vertical slice architecture. The stack is React 19 + Redux Toolkit 2 + Vite 8 + TypeScript 5.9 + Tailwind CSS 4 + Biome.
 
 ## Setup commands
 
@@ -15,7 +15,7 @@ Production-ready React 19 boilerplate using vertical slice architecture. The sta
 
 ## Testing
 
-- **Unit/integration tests**: `pnpm test` (Vitest 4 + Testing Library + jsdom)
+- **Unit/integration tests**: `pnpm test` (Vitest 5 + Testing Library + jsdom)
 - **With coverage**: `pnpm test:coverage`
 - **E2E tests**: `pnpm e2e:local` (requires dev server running in another terminal)
 - **E2E uses**: Cucumber + Playwright. Install browsers first: `pnpm exec playwright install`
@@ -104,7 +104,7 @@ src/
 ## Build output
 
 - Production build outputs to `dist/`.
-- Vendor chunk splitting is configured in `vite.config.mts` (`manualChunks`):
+- Vendor chunk splitting is configured in `vite.config.mts` (`build.rolldownOptions.output.codeSplitting.groups`):
   - `vendor-react`: React, React DOM, React Router, React Redux
   - `vendor-redux`: Redux Toolkit (RTK Query, Immer, Reselect)
   - `vendor-radix`: All Radix UI packages
