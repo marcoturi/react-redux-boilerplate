@@ -72,9 +72,6 @@ importers:
       '@cucumber/cucumber':
         specifier: 13.3.0
         version: 13.3.0
-      '@cucumber/html-formatter':
-        specifier: 24.2.0
-        version: 24.2.0(@cucumber/messages@34.2.1)
       '@cucumber/messages':
         specifier: 34.2.1
         version: 34.2.1
