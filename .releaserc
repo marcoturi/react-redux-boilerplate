@@ -40,20 +40,5 @@
     ],
     "@semantic-release/git",
     "@semantic-release/github"
-  ],
-  "release": {
-      "prepare": [
-        "@semantic-release/changelog",
-        "@semantic-release/npm",
-        {
-          "path": "@semantic-release/git",
-          "assets": [
-            "package.json",
-            "pnpm-lock.yaml",
-            "CHANGELOG.md"
-          ],
-          "message": "chore(release): ${nextRelease.version}"
-        }
-      ]
-    }
+  ]
 }

@@ -4,18 +4,26 @@ on:
     branches:
       - main
 
+# Releases run one at a time, in push order
+concurrency:
+  group: release
+  cancel-in-progress: false
+
 permissions:
   contents: read # for checkout
 
 jobs:
+  verify:
+    uses: ./.github/workflows/verify.yml
+
   release:
     name: Release
+    needs: verify
     runs-on: ubuntu-latest
     permissions:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
       pull-requests: write # to be able to comment on released pull requests
-      id-token: write # to enable use of OIDC for npm provenance
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -30,24 +38,6 @@ jobs:
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Copy env
-        run: pnpm create:env
-      - name: Check (Biome + types)
-        run: pnpm check
-      - name: Build
-        run: pnpm build
-      - name: Run tests
-        run: pnpm test
-      - name: Install Playwright Browsers
-        run: pnpm playwright install
-      - name: Run e2e tests
-        run: pnpm start & pnpm e2e
-      - uses: actions/upload-artifact@v6
-        if: always()
-        with:
-          name: reports
-          path: reports/
-          retention-days: 30
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

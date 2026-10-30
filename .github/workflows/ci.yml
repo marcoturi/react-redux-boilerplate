@@ -1,0 +1,17 @@
+name: CI
+on:
+  pull_request:
+    branches:
+      - main
+
+# A new push to the same pull request cancels the previous run
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    uses: ./.github/workflows/verify.yml

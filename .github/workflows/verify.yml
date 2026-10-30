@@ -1,0 +1,47 @@
+name: Verify
+# Reusable checks, run by ci.yml on pull requests and by release.yml
+# before every release
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Check, test, build and e2e
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Copy env
+        run: pnpm create:env
+      - name: Check (Biome + types)
+        run: pnpm check
+      - name: Unit tests with coverage thresholds
+        run: pnpm test:coverage
+      - name: Build
+        run: pnpm build
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Run e2e tests
+        run: |
+          pnpm dev --port 5173 --strictPort &
+          # Start the scenarios only once the dev server answers
+          timeout 60 bash -c 'until curl -sf http://localhost:5173 > /dev/null; do sleep 1; done'
+          pnpm e2e
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: reports
+          path: reports/
+          retention-days: 30

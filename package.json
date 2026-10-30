@@ -11,7 +11,7 @@
     "start": "vite",
     "preview": "vite preview",
     "build": "tsc -b && vite build",
-    "e2e": "TSX_TSCONFIG_PATH=./e2e/tsconfig.e2e.json SERVER_URL=http://localhost:5173 cucumber-js --retry 5 --parallel 5",
+    "e2e": "TSX_TSCONFIG_PATH=./e2e/tsconfig.e2e.json SERVER_URL=http://localhost:5173 cucumber-js --retry 1 --parallel 5",
     "e2e:local": "TSX_TSCONFIG_PATH=./e2e/tsconfig.e2e.json SERVER_URL=http://localhost:5173 cucumber-js",
     "e2e:debug": "TSX_TSCONFIG_PATH=./e2e/tsconfig.e2e.json SERVER_URL=http://localhost:5173 cucumber-js --tags '@only' --fail-fast",
     "test": "vitest run",
