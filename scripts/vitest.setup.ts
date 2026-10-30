@@ -1,7 +1,6 @@
 import '@testing-library/jest-dom/vitest';
 import { cleanup } from '@testing-library/react';
-import { setupServer } from 'msw/node';
-import { handlers } from '../src/test/handlers';
+import { server } from '../src/test/server';
 
 declare let window: Window & typeof globalThis;
 
@@ -11,8 +10,6 @@ window.PointerEvent = class PointerEvent extends Event {};
 window.HTMLElement.prototype.scrollIntoView = vi.fn();
 window.HTMLElement.prototype.hasPointerCapture = vi.fn();
 window.HTMLElement.prototype.releasePointerCapture = vi.fn();
-
-export const server = setupServer(...handlers);
 
 beforeAll(() => {
   server.listen({ onUnhandledRequest: 'error' });

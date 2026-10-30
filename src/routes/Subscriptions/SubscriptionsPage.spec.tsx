@@ -1,7 +1,10 @@
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { HttpResponse, http } from 'msw';
 import SubscriptionsPage from '@/routes/Subscriptions/SubscriptionsPage';
 import { renderWithProviders } from '@/shared/store/test';
+import { config } from '@/test/config';
+import { server } from '@/test/server';
 
 describe('SubscriptionsPage', () => {
   test('Should load page title', () => {
@@ -15,6 +18,26 @@ describe('SubscriptionsPage', () => {
     await waitFor(() => {
       expect(screen.getAllByTestId('subscription-item').length).toBe(3);
     });
+  });
+
+  test('Should show an error and retry when the request fails', async () => {
+    server.use(
+      http.get(
+        `${config.API_URL}/subscriptions`,
+        () => HttpResponse.json({ message: 'Server Error' }, { status: 500 }),
+        { once: true },
+      ),
+    );
+    const user = userEvent.setup();
+    renderWithProviders(<SubscriptionsPage />);
+
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      'Could not load the subscriptions',
+    );
+    expect(screen.queryByText('No subscriptions')).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Try again' }));
+    expect(await screen.findAllByTestId('subscription-item')).toHaveLength(3);
   });
 
   test('Should handle a change in filters', async () => {
