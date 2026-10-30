@@ -30,7 +30,6 @@
     "pnpm": ">=10.0.0"
   },
   "dependencies": {
-    "@radix-ui/themes": "3.3.0",
     "@reduxjs/toolkit": "2.13.0",
     "@sentry/react": "11.10.0",
     "class-variance-authority": "0.7.1",

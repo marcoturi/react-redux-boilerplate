@@ -35,7 +35,7 @@ export default defineConfig({
               name: 'vendor-redux',
               test: /[\\/]node_modules[\\/]@reduxjs[\\/]toolkit[\\/]/,
             },
-            // Radix UI primitives + themes
+            // Radix UI primitives
             {
               name: 'vendor-radix',
               test: /[\\/]node_modules[\\/](@radix-ui|radix-ui)[\\/]/,

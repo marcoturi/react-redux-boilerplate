@@ -73,7 +73,7 @@ pnpm dev           # Start dev server at http://localhost:5173
 ```
 src/
 ├── main.tsx                  → App entry point
-├── AppProvider.tsx            → Providers (Suspense, Redux, Radix Theme, ErrorBoundary, Router)
+├── AppProvider.tsx            → Providers (Suspense, Redux, ErrorBoundary, Router)
 ├── assets/                   → Static files (images, fonts, etc.)
 ├── routes/                   → Route definitions + page components (lazy-loaded via React.lazy)
 │   ├── index.tsx             → Route tree
@@ -85,7 +85,7 @@ src/
 │   └── store/                → Redux store setup, base RTK Query API, typed hooks
 ├── UI/
 │   ├── Base/                 → shadcn/ui components, managed by the shadcn CLI
-│   ├── Elements/             → Project UI components built on Base and Radix Themes
+│   ├── Elements/             → Project UI components built on Base and Tailwind
 │   └── Layout/               → Page layouts, Header, global CSS
 ├── features/                 → Feature slices
 │   └── <feature>/
@@ -187,7 +187,7 @@ Production builds use vendor chunk splitting for optimal caching:
 | --------------- | ------------------------------------------- |
 | `vendor-react`  | React, React DOM, React Router, React Redux |
 | `vendor-redux`  | Redux Toolkit (RTK Query, Immer, Reselect)  |
-| `vendor-radix`  | Radix UI primitives and themes              |
+| `vendor-radix`  | Radix UI primitives                         |
 | `vendor-sentry` | Sentry SDK                                  |
 | `vendor-ui`     | CVA, cn, Lucide icons                       |
 

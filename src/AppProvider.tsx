@@ -1,9 +1,9 @@
-import { Button, Theme } from '@radix-ui/themes';
 import { type ReactNode, Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { store } from '@/shared/store';
+import { Button } from '@/UI/Base/button';
 
 function ErrorFallback() {
   return (
@@ -24,17 +24,9 @@ export function AppProvider({ children }: AppProviderProps) {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Provider store={store}>
-        <Theme
-          accentColor="mint"
-          grayColor="gray"
-          panelBackground="solid"
-          scaling="100%"
-          radius="full"
-        >
-          <ErrorBoundary FallbackComponent={ErrorFallback}>
-            <Router>{children}</Router>
-          </ErrorBoundary>
-        </Theme>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <Router>{children}</Router>
+        </ErrorBoundary>
       </Provider>
     </Suspense>
   );

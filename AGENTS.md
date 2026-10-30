@@ -54,7 +54,7 @@ This project follows vertical slice architecture. Each feature is self-contained
 ```
 src/
 ├── main.tsx                → App entry point
-├── AppProvider.tsx          → Providers: Suspense, Redux, Radix Theme, ErrorBoundary, Router
+├── AppProvider.tsx          → Providers: Suspense, Redux, ErrorBoundary, Router
 ├── routes/                  → Route definitions and page components (lazy-loaded)
 ├── features/                → Feature slices (each with store/, components/, hooks/)
 │   ├── user/
@@ -66,7 +66,7 @@ src/
 │   └── store/               → Redux store setup, base API, types
 ├── UI/
 │   ├── Base/                → shadcn/ui components, managed by the shadcn CLI
-│   ├── Elements/            → Project UI components built on Base and Radix Themes
+│   ├── Elements/            → Project UI components built on Base and Tailwind
 │   └── Layout/              → Page layouts (Header, global CSS)
 └── test/                    → MSW handlers, test config
 ```
