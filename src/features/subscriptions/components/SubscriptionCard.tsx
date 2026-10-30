@@ -1,6 +1,12 @@
 import type { Subscription } from '@/features/subscriptions/store/subscription.type';
 import { Button } from '@/UI/Base/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/UI/Base/card';
+import {
+  Card,
+  CardAction,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/UI/Base/card';
 import { Text } from '@/UI/Elements/Text';
 
 interface SubscriptionCardProps {
@@ -9,23 +15,17 @@ interface SubscriptionCardProps {
 
 export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
   return (
-    <Card className="my-4 w-full" data-testid="subscription-item">
-      <div className="flex flex-row items-center">
-        <div className="basis-3/4">
-          <CardHeader>
-            <CardTitle>{subscription.name}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Text as="p">{subscription.description}</Text>
-          </CardContent>
-        </div>
-        <div className="mx-auto basis-1/4 text-center">
-          <Text as="p" className="py-4 text-center" size="6">
+    <Card className="w-full" data-testid="subscription-item">
+      <CardHeader>
+        <CardTitle>{subscription.name}</CardTitle>
+        <CardDescription>{subscription.description}</CardDescription>
+        <CardAction className="flex w-48 flex-col items-center gap-4 self-center">
+          <Text size="6">
             {subscription.price} {subscription.currency}
           </Text>
           <Button>Buy</Button>
-        </div>
-      </div>
+        </CardAction>
+      </CardHeader>
     </Card>
   );
 }

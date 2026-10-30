@@ -6,10 +6,10 @@ import { Text } from '@/UI/Elements/Text';
 function SubscriptionsPage() {
   return (
     <Container>
-      <Text size="7" as="p">
+      <Text size="7" as="h1">
         Subscriptions
       </Text>
-      <div className="flex items-center space-x-2 pt-5">
+      <div className="flex items-center gap-2 pt-5">
         <SubscriptionFilter />
       </div>
       <SubscriptionList />

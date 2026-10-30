@@ -27,7 +27,7 @@ export function SubscriptionFilter() {
 
   return (
     <Select value={filters.filterSubscriptionsBy} onValueChange={onValueChange}>
-      <SelectTrigger className="w-[180px]" data-testid="filter-trigger">
+      <SelectTrigger className="w-45" data-testid="filter-trigger">
         <SelectValue placeholder="Filter subscriptions" />
       </SelectTrigger>
       <SelectContent>
