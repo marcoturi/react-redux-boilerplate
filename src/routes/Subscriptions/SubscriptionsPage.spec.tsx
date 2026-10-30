@@ -2,8 +2,8 @@ import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { HttpResponse, http } from 'msw';
 import SubscriptionsPage from '@/routes/Subscriptions/SubscriptionsPage';
+import env from '@/shared/config/env';
 import { renderWithProviders } from '@/shared/store/test';
-import { config } from '@/test/config';
 import { server } from '@/test/server';
 
 describe('SubscriptionsPage', () => {
@@ -23,7 +23,7 @@ describe('SubscriptionsPage', () => {
   test('Should show an error and retry when the request fails', async () => {
     server.use(
       http.get(
-        `${config.API_URL}/subscriptions`,
+        `${env.API_URL}/subscriptions`,
         () => HttpResponse.json({ message: 'Server Error' }, { status: 500 }),
         { once: true },
       ),

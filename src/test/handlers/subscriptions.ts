@@ -1,14 +1,9 @@
 import { HttpResponse, http } from 'msw';
 import { subscriptionMockList } from '@/features/subscriptions/store/subscription.mocks.spec';
-import { config } from '../config';
+import env from '@/shared/config/env';
 
 export const subscriptionHandlers = [
-  http.get(`${config.API_URL}/subscriptions`, () => {
-    try {
-      return HttpResponse.json(subscriptionMockList);
-    } catch (error: unknown) {
-      const message = error instanceof Error ? error.message : 'Server Error';
-      return HttpResponse.json({ message }, { status: 400 });
-    }
-  }),
+  http.get(`${env.API_URL}/subscriptions`, () =>
+    HttpResponse.json(subscriptionMockList),
+  ),
 ];
