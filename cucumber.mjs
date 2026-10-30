@@ -5,7 +5,8 @@ const getWorldParameters = () => {
 };
 
 const config = {
-  requireModule: ['ts-node/register'],
+  // tsx only transpiles: e2e types are checked by `tsc -b` (pnpm check)
+  requireModule: ['tsx/cjs'],
   require: ['e2e/**/*.ts'],
   paths: ['e2e/**/*.feature'],
   // Only one formatter can write to stdout: the others need a file target
