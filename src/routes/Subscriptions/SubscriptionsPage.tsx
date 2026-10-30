@@ -6,10 +6,11 @@ import { Text } from '@/UI/Elements/Text';
 function SubscriptionsPage() {
   return (
     <Container>
+      <title>Subscriptions | React Boilerplate</title>
       <Text size="7" as="h1">
         Subscriptions
       </Text>
-      <div className="flex items-center gap-2 pt-5">
+      <div className="pt-5">
         <SubscriptionFilter />
       </div>
       <SubscriptionList />

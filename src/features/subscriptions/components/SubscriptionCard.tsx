@@ -17,13 +17,16 @@ export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
   return (
     <Card className="w-full" data-testid="subscription-item">
       <CardHeader>
-        <CardTitle>{subscription.name}</CardTitle>
+        <CardTitle>
+          <Text as="h2">{subscription.name}</Text>
+        </CardTitle>
         <CardDescription>{subscription.description}</CardDescription>
         <CardAction className="flex w-48 flex-col items-center gap-4 self-center">
           <Text size="6">
             {subscription.price} {subscription.currency}
           </Text>
-          <Button>Buy</Button>
+          {/* Every card has a Buy button: the name says which one */}
+          <Button aria-label={`Buy ${subscription.name}`}>Buy</Button>
         </CardAction>
       </CardHeader>
     </Card>

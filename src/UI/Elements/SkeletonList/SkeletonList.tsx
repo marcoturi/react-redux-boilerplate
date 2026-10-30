@@ -15,7 +15,8 @@ function SkeletonCard({ className, ...props }: React.ComponentProps<'div'>) {
 
 function SkeletonList(props: React.ComponentProps<'div'>) {
   return (
-    <div {...props}>
+    <div role="status" {...props}>
+      <span className="sr-only">Loading…</span>
       <SkeletonCard className="py-5" />
       <SkeletonCard className="py-5" />
       <SkeletonCard className="py-5" />

@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -12,17 +12,21 @@ type Props = {
 };
 
 export function Menu({ menuItems }: Props) {
+  const { pathname } = useLocation();
+
   return (
-    <NavigationMenu>
+    // No dropdown content, so no viewport
+    <NavigationMenu viewport={false}>
       <NavigationMenuList>
         {menuItems.map((item) => (
           <NavigationMenuItem key={item.label}>
-            <NavigationMenuLink asChild>
-              <Link
-                className={navigationMenuTriggerStyle()}
-                data-testid={item.testId}
-                to={item.href}
-              >
+            {/* `active` sets aria-current="page" and the active style */}
+            <NavigationMenuLink
+              active={pathname === item.href}
+              asChild
+              className={navigationMenuTriggerStyle()}
+            >
+              <Link data-testid={item.testId} to={item.href}>
                 {item.label}
               </Link>
             </NavigationMenuLink>

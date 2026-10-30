@@ -10,11 +10,12 @@ type Props = {
 export function Header({ rightWidget, menuItems }: Props) {
   return (
     <header className="sticky top-0 z-40 w-full bg-background shadow-sm">
-      <nav className="flex w-full items-center justify-between gap-3 px-4 py-3">
+      {/* Not a <nav>: the menu renders its own navigation landmark */}
+      <div className="flex w-full items-center justify-between gap-3 px-4 py-3">
         <Logo />
         <Menu menuItems={menuItems} />
         <div className="text-right">{rightWidget}</div>
-      </nav>
+      </div>
     </header>
   );
 }

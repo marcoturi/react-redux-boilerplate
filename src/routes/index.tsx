@@ -40,21 +40,23 @@ export function AppRoutes() {
           },
         ]}
       />
-      {/* A crash or a failed chunk replaces only the page: the header stays */}
-      <ErrorBoundary
-        FallbackComponent={ErrorFallback}
-        resetKeys={[location.pathname]}
-      >
-        <Suspense
-          fallback={
-            <Container>
-              <SkeletonList />
-            </Container>
-          }
+      <main>
+        {/* A crash or a failed chunk replaces only the page: the header stays */}
+        <ErrorBoundary
+          FallbackComponent={ErrorFallback}
+          resetKeys={[location.pathname]}
         >
-          {element}
-        </Suspense>
-      </ErrorBoundary>
+          <Suspense
+            fallback={
+              <Container>
+                <SkeletonList />
+              </Container>
+            }
+          >
+            {element}
+          </Suspense>
+        </ErrorBoundary>
+      </main>
     </>
   );
 }

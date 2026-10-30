@@ -18,6 +18,11 @@ describe('SubscriptionsPage', () => {
     await waitFor(() => {
       expect(screen.getAllByTestId('subscription-item').length).toBe(3);
     });
+    expect(screen.getAllByRole('heading', { level: 2 })).toHaveLength(3);
+    expect(
+      screen.getByRole('button', { name: 'Buy Lifetime Purchase' }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('combobox', { name: 'Type' })).toBeInTheDocument();
   });
 
   test('Should show an error and retry when the request fails', async () => {
