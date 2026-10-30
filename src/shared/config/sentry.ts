@@ -1,4 +1,11 @@
 import * as Sentry from '@sentry/react';
+import { useEffect } from 'react';
+import {
+  createRoutesFromChildren,
+  matchRoutes,
+  useLocation,
+  useNavigationType,
+} from 'react-router';
 import env from './env';
 
 Sentry.init({
@@ -8,7 +15,18 @@ Sentry.init({
   environment: env.NODE_ENV,
   tracesSampleRate: 0.1,
   attachStacktrace: true,
-  integrations: [Sentry.replayIntegration()],
+  // Page load and navigation spans named after the route pattern; the routes
+  // use Sentry.wrapUseRoutes (src/routes/index.tsx)
+  integrations: [
+    Sentry.reactRouterBrowserTracingIntegration({
+      useEffect,
+      useLocation,
+      useNavigationType,
+      createRoutesFromChildren,
+      matchRoutes,
+    }),
+  ],
+  // Used by the replay integration, added after the first render below
   replaysSessionSampleRate: 0.1,
   replaysOnErrorSampleRate: 1,
   // Since v11 an unset dataCollection collects user info, cookies and HTTP
@@ -24,5 +42,18 @@ Sentry.init({
     urlQueryParams: { deny: ['forwarded', '-ip', 'remote-', 'via', '-user'] },
   },
 });
+
+// Session replay is large: load it from the Sentry CDN instead of the initial
+// bundle, only where Sentry is enabled. A Content Security Policy must allow
+// https://browser.sentry-cdn.com.
+if (!env.IS_DEV) {
+  Sentry.lazyLoadIntegration('replayIntegration')
+    .then((replayIntegration) => {
+      Sentry.addIntegration(replayIntegration());
+    })
+    .catch(() => {
+      // Blocked or offline: keep error reporting without replays
+    });
+}
 
 export const sentryReduxEnhancer = Sentry.createReduxEnhancer();

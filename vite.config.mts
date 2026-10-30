@@ -5,8 +5,13 @@ import { configDefaults, defineConfig } from 'vitest/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // msw serves the worker script from node_modules (no copy in public/)
-  plugins: [react(), tailwindcss(), msw({ mode: 'worker-only' })],
+  plugins: [
+    react(),
+    tailwindcss(),
+    // msw serves the worker script from node_modules (no copy in public/).
+    // Mocks run only in development, so keep the worker out of the build.
+    { ...msw({ mode: 'worker-only' }), apply: 'serve' },
+  ],
   resolve: {
     // Resolve the `paths` aliases (e.g. `@/`) declared in tsconfig
     tsconfigPaths: true,
@@ -19,7 +24,8 @@ export default defineConfig({
     },
   },
   build: {
-    target: 'esnext',
+    // Default target (baseline-widely-available). tsconfig.app.json uses
+    // target ES2022 and lib ES2023, which those browsers support.
     rolldownOptions: {
       output: {
         // Groups are matched in order: the first matching group wins.
@@ -40,7 +46,8 @@ export default defineConfig({
               name: 'vendor-radix',
               test: /[\\/]node_modules[\\/](@radix-ui|radix-ui)[\\/]/,
             },
-            // Sentry monitoring (loaded async, rarely changes)
+            // Sentry monitoring (rarely changes; the replay integration is
+            // loaded from the Sentry CDN at runtime)
             {
               name: 'vendor-sentry',
               test: /[\\/]node_modules[\\/]@sentry[\\/]/,

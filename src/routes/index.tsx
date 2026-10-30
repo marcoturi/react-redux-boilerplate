@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react';
 import { lazy, Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { useLocation, useRoutes } from 'react-router';
@@ -19,9 +20,12 @@ const routes = [
   { path: '*', element: <NotFoundPage /> },
 ];
 
+// Reports page loads and navigations to Sentry under the route pattern
+const useSentryRoutes = Sentry.wrapUseRoutes(useRoutes);
+
 export function AppRoutes() {
   const location = useLocation();
-  const element = useRoutes(routes);
+  const element = useSentryRoutes(routes);
 
   return (
     <>
