@@ -5,7 +5,7 @@ paths:
 
 # Routes and pages
 
-- Import router APIs from `react-router`, never from `react-router-dom`: React Router 8 removed it, and in v7 it only re-exports `react-router`.
+- The app uses React Router 8 in declarative mode (`BrowserRouter`, `useRoutes`). Import router APIs from `react-router`; `react-router-dom` no longer exists, and DOM-only APIs such as `RouterProvider` come from `react-router/dom`.
 - A page is `src/routes/<Name>/<Name>Page.tsx` with a default export, lazy-loaded with `lazy()` at module level in `src/routes/index.tsx` and registered in the `routes` array there. Add a `menuItems` entry in the same file when the page needs a menu link. Unknown URLs render `NotFoundPage` (`path: '*'`).
 - Pages render inside an `ErrorBoundary`, reset when `location.pathname` changes, and a `<Suspense>` boundary, both in `src/routes/index.tsx`: a crash or a failed chunk replaces only the page and the header stays mounted. Do not add boundaries around the whole app.
 - The skeleton fallback shows on the first load. On client navigation React keeps the previous page until the new chunk arrives, because the router wraps navigation in a transition.
