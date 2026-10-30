@@ -12,39 +12,25 @@ import { SettingsKey } from './settings.type';
  * you should use something like redux-persist instead.
  * https://github.com/markerikson/redux-ecosystem-links/blob/master/store-persistence.md
  */
-function persist(key: SettingsKey, value: unknown) {
-  try {
-    LocalStorageService(StorageKeys.settings).set(key, value);
-  } catch (error) {
-    captureError(error, `Error setting value for local storage key: ${key}`);
-  }
-}
-
-startAppListening({
-  actionCreator: SettingsActions.setItem,
-  effect: (action) => {
-    persist(action.payload.key, action.payload.value);
-  },
-});
-
 startAppListening({
   actionCreator: SettingsActions.subscriptionFilterChanged,
   effect: (_action, listenerApi) => {
-    persist(
-      SettingsKey.filters,
-      listenerApi.getState().settings[SettingsKey.filters],
-    );
+    try {
+      LocalStorageService(StorageKeys.settings).set(
+        SettingsKey.filters,
+        listenerApi.getState().settings[SettingsKey.filters],
+      );
+    } catch (error) {
+      captureError(error, 'Error saving the settings to local storage');
+    }
   },
 });
 
+// localStorage can throw (e.g. blocked by the browser): the app keeps the
+// default settings, but the error is reported
 startAppListening({
-  actionCreator: SettingsActions.deleteItem,
+  actionCreator: SettingsActions.loadState.rejected,
   effect: (action) => {
-    const { key } = action.payload;
-    try {
-      LocalStorageService(StorageKeys.settings).clear(key);
-    } catch (error) {
-      captureError(error, `Error removing value for local storage key: ${key}`);
-    }
+    captureError(action.error, 'Error loading the settings from local storage');
   },
 });

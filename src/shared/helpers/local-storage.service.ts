@@ -3,22 +3,23 @@ export enum StorageKeys {
 }
 
 const LocalStorageService = (dbKey: StorageKeys) => ({
-  getAll: (): Record<string, unknown> =>
-    Object.fromEntries(
-      Object.keys(localStorage)
-        .filter((key) => key.startsWith(dbKey))
-        .map((k) => [
-          k.replace(dbKey, ''),
-          JSON.parse(globalThis.localStorage.getItem(k) ?? 'null'),
-        ]),
-    ),
-  get: (key: string): unknown =>
-    JSON.parse(globalThis.localStorage.getItem(dbKey + key) ?? 'null'),
+  // Values that are not valid JSON are skipped: one corrupt entry must not
+  // lose the others
+  getAll: (): Record<string, unknown> => {
+    const entries: [string, unknown][] = [];
+    for (const key of Object.keys(globalThis.localStorage)) {
+      if (!key.startsWith(dbKey)) continue;
+      try {
+        const value = globalThis.localStorage.getItem(key) ?? 'null';
+        entries.push([key.slice(dbKey.length), JSON.parse(value)]);
+      } catch {
+        // Skip the corrupt entry
+      }
+    }
+    return Object.fromEntries(entries);
+  },
   set: (key: string, value: unknown) => {
     globalThis.localStorage.setItem(dbKey + key, JSON.stringify(value));
-  },
-  clear: (key: string) => {
-    globalThis.localStorage.removeItem(dbKey + key);
   },
 });
 

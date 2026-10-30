@@ -2,10 +2,8 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { loadState } from '@/features/settings/store/settings.thunk';
 import {
   isFiltersSetting,
-  type RemoveValuePayload,
   SettingsKey,
   type SettingsState,
-  type SetValuePayload,
 } from '@/features/settings/store/settings.type';
 import { SubscriptionFilters } from '@/features/subscriptions/store/subscription.type';
 
@@ -19,16 +17,6 @@ export const settingsSlice = createSlice({
   name: 'settings',
   initialState: initialStorageState,
   reducers: {
-    setItem: (state, action: PayloadAction<SetValuePayload>) => {
-      const { key, value } = action.payload;
-      state[key] = value;
-    },
-    deleteItem: (state, action: PayloadAction<RemoveValuePayload>) => {
-      const { key } = action.payload;
-      if (key in initialStorageState) {
-        state[key] = initialStorageState[key];
-      }
-    },
     subscriptionFilterChanged: (
       state,
       action: PayloadAction<SubscriptionFilters>,

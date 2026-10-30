@@ -13,15 +13,6 @@ export type SettingsState = {
   };
 };
 
-export interface SetValuePayload {
-  key: SettingsKey;
-  value: SettingsState[SettingsKey];
-}
-
-export interface RemoveValuePayload {
-  key: SettingsKey;
-}
-
 export type FiltersSetting = SettingsState[SettingsKey.filters];
 
 export function isFiltersSetting(value: unknown): value is FiltersSetting {
