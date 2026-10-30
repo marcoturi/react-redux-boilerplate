@@ -1,23 +1,26 @@
-import { screen, waitFor } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { HttpResponse, http } from 'msw';
+import { SettingsKey } from '@/features/settings/store/settings.type';
+import { SubscriptionFilters } from '@/features/subscriptions/store/subscription.type';
 import SubscriptionsPage from '@/routes/Subscriptions/SubscriptionsPage';
 import env from '@/shared/config/env';
+import { StorageKeys } from '@/shared/helpers/local-storage.service';
 import { renderWithProviders } from '@/shared/store/test';
 import { server } from '@/test/server';
 
 describe('SubscriptionsPage', () => {
   test('Should load page title', () => {
     renderWithProviders(<SubscriptionsPage />);
-    const text = screen.getByText(/subscriptions/i);
-    expect(text).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Subscriptions', level: 1 }),
+    ).toBeInTheDocument();
   });
+
   test('Should load subscriptions', async () => {
     renderWithProviders(<SubscriptionsPage />);
 
-    await waitFor(() => {
-      expect(screen.getAllByTestId('subscription-item').length).toBe(3);
-    });
+    expect(await screen.findAllByTestId('subscription-item')).toHaveLength(3);
     expect(screen.getAllByRole('heading', { level: 2 })).toHaveLength(3);
     expect(
       screen.getByRole('button', { name: 'Buy Lifetime Purchase' }),
@@ -45,24 +48,27 @@ describe('SubscriptionsPage', () => {
     expect(await screen.findAllByTestId('subscription-item')).toHaveLength(3);
   });
 
-  test('Should handle a change in filters', async () => {
+  test('Should filter the list and save the filter', async () => {
     const user = userEvent.setup();
     renderWithProviders(<SubscriptionsPage />);
+    expect(await screen.findAllByTestId('subscription-item')).toHaveLength(3);
 
-    // Filter should be present
-    const optionSelect = screen.getByRole('combobox');
-    expect(optionSelect).toBeInTheDocument();
-    expect(screen.queryByText('All')).toBeInTheDocument();
-    expect(screen.queryByText('One Time Purchase')).not.toBeInTheDocument();
+    const filter = screen.getByRole('combobox', { name: 'Type' });
+    expect(filter).toHaveTextContent('All');
 
-    // Options should be clickable
-    await user.click(optionSelect);
-    const oneTimePurchase = screen.getByRole('option', {
-      name: 'One Time Purchase',
-    });
-    expect(oneTimePurchase).toBeInTheDocument();
-    await user.click(oneTimePurchase);
-    expect(screen.queryByText('One Time Purchase')).toBeInTheDocument();
-    expect(screen.queryByText('All')).not.toBeInTheDocument();
+    await user.click(filter);
+    await user.click(screen.getByRole('option', { name: 'One Time Purchase' }));
+
+    expect(filter).toHaveTextContent('One Time Purchase');
+    expect(screen.getAllByTestId('subscription-item')).toHaveLength(1);
+    expect(
+      screen.getByRole('heading', { name: 'Lifetime Purchase' }),
+    ).toBeInTheDocument();
+    expect(
+      JSON.parse(
+        localStorage.getItem(`${StorageKeys.settings}${SettingsKey.filters}`) ??
+          'null',
+      ),
+    ).toEqual({ filterSubscriptionsBy: SubscriptionFilters.OneTimePurchase });
   });
 });

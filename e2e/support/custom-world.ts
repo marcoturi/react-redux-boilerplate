@@ -1,5 +1,8 @@
-import { setWorldConstructor, World } from '@cucumber/cucumber';
-import type * as messages from '@cucumber/messages';
+import {
+  type ITestCaseHookParameter,
+  setWorldConstructor,
+  World,
+} from '@cucumber/cucumber';
 import type {
   APIRequestContext,
   BrowserContext,
@@ -21,9 +24,9 @@ export interface CucumberWorldConstructorParams {
 export interface ICustomWorld extends World, PageObjects {
   debug: boolean;
   mobile: boolean;
-  feature?: messages.Pickle;
-  context?: BrowserContext;
-  page?: Page;
+  feature?: ITestCaseHookParameter['pickle'];
+  context: BrowserContext;
+  page: Page;
   parameters: WorldParams;
 
   testName?: string;
@@ -38,6 +41,13 @@ export class CustomWorld extends World implements ICustomWorld {
   debug = false;
 
   mobile = false;
+
+  // Set by the Before hook in common-hooks.ts before every scenario
+  context!: BrowserContext;
+
+  page!: Page;
+
+  pageObjects!: PageObjects['pageObjects'];
 }
 
 setWorldConstructor(CustomWorld);

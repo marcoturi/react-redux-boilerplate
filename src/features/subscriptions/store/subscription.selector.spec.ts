@@ -16,7 +16,13 @@ describe('Subscription Selector:', () => {
     store = setupStore();
   });
 
-  it('Should return an empty list in case of no data', async () => {
+  it('Should return an empty list before the request', () => {
+    expect(
+      SubscriptionSelectors.selectFilteredSubscriptions(store.getState()),
+    ).toEqual([]);
+  });
+
+  it('Should return an empty list in case of empty data', async () => {
     const data: Subscription[] = [];
 
     await store.dispatch(

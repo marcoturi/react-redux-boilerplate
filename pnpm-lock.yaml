@@ -54,9 +54,6 @@ importers:
       '@cucumber/cucumber':
         specifier: 13.3.0
         version: 13.3.0
-      '@cucumber/messages':
-        specifier: 34.2.1
-        version: 34.2.1
       '@playwright/test':
         specifier: 1.64.1
         version: 1.64.1
@@ -108,9 +105,6 @@ importers:
       '@vitest/coverage-v8':
         specifier: 5.0.5
         version: 5.0.5(vitest@5.0.5)
-      fs-extra:
-        specifier: 11.4.1
-        version: 11.4.1
       husky:
         specifier: 9.1.7
         version: 9.1.7

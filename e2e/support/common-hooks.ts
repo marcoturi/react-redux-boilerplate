@@ -1,3 +1,4 @@
+import { mkdir } from 'node:fs/promises';
 import {
   After,
   AfterAll,
@@ -17,7 +18,6 @@ import {
   type WebKitBrowser,
   webkit,
 } from '@playwright/test';
-import { ensureDir } from 'fs-extra';
 import AppPo from '../page-objects/app.po';
 import SubscriptionPo from '../page-objects/subscription.po';
 import config from './config';
@@ -27,7 +27,7 @@ let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 const tracesDir = 'traces';
 
 export interface PageObjects {
-  pageObjects?: {
+  pageObjects: {
     appPo: ReturnType<typeof AppPo>;
     subscriptionPo: ReturnType<typeof SubscriptionPo>;
   };
@@ -49,7 +49,7 @@ BeforeAll(async () => {
       browser = await chromium.launch(config.browserOptions);
     }
   }
-  await ensureDir(tracesDir);
+  await mkdir(tracesDir, { recursive: true });
 });
 
 Before({ tags: '@pending' }, () => 'skipped');
