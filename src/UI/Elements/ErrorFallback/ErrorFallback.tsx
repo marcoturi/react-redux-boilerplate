@@ -7,11 +7,11 @@ export function ErrorFallback() {
     <Container className="flex flex-col items-start gap-4">
       <Alert variant="destructive">
         <AlertTitle>Something went wrong</AlertTitle>
-        <AlertDescription>Reload the app to try again.</AlertDescription>
+        <AlertDescription>Reload the page to try again.</AlertDescription>
       </Alert>
-      <Button onClick={() => window.location.assign(window.location.origin)}>
-        Reload
-      </Button>
+      {/* A full reload, not resetErrorBoundary: a lazy page whose chunk failed
+          stays rejected until the module is fetched again */}
+      <Button onClick={() => window.location.reload()}>Reload</Button>
     </Container>
   );
 }

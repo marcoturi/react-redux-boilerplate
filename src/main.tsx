@@ -1,4 +1,5 @@
 import { SettingsActions } from '@/features/settings/store';
+import { reloadOnPreloadError } from '@/shared/helpers/preload-error';
 import { store } from '@/shared/store';
 import { AppProvider } from './AppProvider';
 import { initMocks } from './test';
@@ -14,10 +15,8 @@ const handleReactError = Sentry.reactErrorHandler((error, errorInfo) => {
   console.error(error, errorInfo.componentStack);
 });
 
-// A new deploy can remove the chunks an open tab still references: reload to
-// fetch the current ones (https://vite.dev/guide/build#load-error-handling)
-window.addEventListener('vite:preloadError', () => {
-  window.location.reload();
+window.addEventListener('vite:preloadError', (event) => {
+  reloadOnPreloadError(event);
 });
 
 initMocks().then(() => {
