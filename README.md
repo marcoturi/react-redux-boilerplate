@@ -14,28 +14,28 @@ A production-ready, batteries-included starter template for building long-lived 
 
 ## Features
 
-| Category | Stack |
-|---|---|
-| Build | [Vite 7](https://vitejs.dev/) + [React 19](https://react.dev/) + [SWC](https://github.com/vitejs/vite-plugin-react-swc) + [pnpm](https://pnpm.io/) + [TypeScript 5.9](https://www.typescriptlang.org) |
-| State | [Redux Toolkit 2](https://redux-toolkit.js.org/) (includes RTK Query, Immer, Reselect) |
-| UI | [Radix](https://www.radix-ui.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Tailwind CSS 4](https://tailwindcss.com/) |
-| Linting & formatting | [Biome](https://biomejs.dev/) |
-| Release | [Husky](https://github.com/typicode/husky) + [Commitlint](https://commitlint.js.org/) + [Semantic-release](https://github.com/semantic-release/semantic-release) |
-| API mocking | [MSW](https://mswjs.io/) (browser + test) |
-| Unit & integration tests | [Vitest 4](https://vitest.dev/) + [Testing Library](https://testing-library.com/) |
-| E2E tests | [Cucumber](https://cucumber.io/docs/installation/javascript/) + [Playwright](https://playwright.dev/) |
-| Monitoring | [Sentry](https://github.com/getsentry/sentry-javascript/tree/master/packages/react) |
-| Security | [CodeQL](https://github.com/github/codeql-action) analysis on every push/PR |
-| AI-Ready | [AGENTS.md](AGENTS.md) — architecture rules and coding conventions for AI assistants |
+| Category                 | Stack                                                                                                                                                                                                 |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Build                    | [Vite 7](https://vitejs.dev/) + [React 19](https://react.dev/) + [SWC](https://github.com/vitejs/vite-plugin-react-swc) + [pnpm](https://pnpm.io/) + [TypeScript 5.9](https://www.typescriptlang.org) |
+| State                    | [Redux Toolkit 2](https://redux-toolkit.js.org/) (includes RTK Query, Immer, Reselect)                                                                                                                |
+| UI                       | [Radix](https://www.radix-ui.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Tailwind CSS 4](https://tailwindcss.com/)                                                                                 |
+| Linting & formatting     | [Biome](https://biomejs.dev/)                                                                                                                                                                         |
+| Release                  | [Husky](https://github.com/typicode/husky) + [Commitlint](https://commitlint.js.org/) + [Semantic-release](https://github.com/semantic-release/semantic-release)                                      |
+| API mocking              | [MSW](https://mswjs.io/) (browser + test)                                                                                                                                                             |
+| Unit & integration tests | [Vitest 4](https://vitest.dev/) + [Testing Library](https://testing-library.com/)                                                                                                                     |
+| E2E tests                | [Cucumber](https://cucumber.io/docs/installation/javascript/) + [Playwright](https://playwright.dev/)                                                                                                 |
+| Monitoring               | [Sentry](https://github.com/getsentry/sentry-javascript/tree/master/packages/react)                                                                                                                   |
+| Security                 | [CodeQL](https://github.com/github/codeql-action) analysis on every push/PR                                                                                                                           |
+| AI-Ready                 | [AGENTS.md](AGENTS.md) — architecture rules and coding conventions for AI assistants                                                                                                                  |
 
 ## Getting Started
 
 ### Prerequisites
 
-| Requirement | Version | Notes |
-|---|---|---|
-| Node.js | 24.x | Defined in `.nvmrc`. Use [fnm](https://github.com/Schniz/fnm) or [nvm](https://github.com/nvm-sh/nvm): `fnm use` / `nvm use` |
-| pnpm | 10.x | `corepack enable` to activate the bundled version |
+| Requirement | Version | Notes                                                                                                                        |
+| ----------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Node.js     | 24.x    | Defined in `.nvmrc`. Use [fnm](https://github.com/Schniz/fnm) or [nvm](https://github.com/nvm-sh/nvm): `fnm use` / `nvm use` |
+| pnpm        | 10.x    | `corepack enable` to activate the bundled version                                                                            |
 
 ### Quick start
 
@@ -50,21 +50,21 @@ pnpm dev           # Start dev server at http://localhost:5173
 
 ### Commands
 
-| Command | Description |
-|---|---|
-| `pnpm dev` | Start development server with HMR |
-| `pnpm build` | Type-check + production build (output in `dist/`) |
-| `pnpm preview` | Preview the production build locally |
-| `pnpm test` | Run unit and integration tests (Vitest) |
-| `pnpm test:coverage` | Run tests with V8 coverage report |
-| `pnpm e2e:local` | Run E2E tests (start dev server first in another terminal) |
-| `pnpm e2e:debug` | Run only `@only`-tagged E2E scenarios with `--fail-fast` |
-| `pnpm check` | Biome lint/format check + TypeScript type check |
-| `pnpm check:fix` | Auto-fix lint/format issues, then type check |
-| `pnpm format` | Format all files with Biome |
-| `pnpm lint` | Lint all files with Biome |
-| `pnpm type:check` | TypeScript type check only (`tsc -b`) |
-| `pnpm update:interactive` | Update dependencies interactively |
+| Command                   | Description                                                |
+| ------------------------- | ---------------------------------------------------------- |
+| `pnpm dev`                | Start development server with HMR                          |
+| `pnpm build`              | Type-check + production build (output in `dist/`)          |
+| `pnpm preview`            | Preview the production build locally                       |
+| `pnpm test`               | Run unit and integration tests (Vitest)                    |
+| `pnpm test:coverage`      | Run tests with V8 coverage report                          |
+| `pnpm e2e:local`          | Run E2E tests (start dev server first in another terminal) |
+| `pnpm e2e:debug`          | Run only `@only`-tagged E2E scenarios with `--fail-fast`   |
+| `pnpm check`              | Biome lint/format check + TypeScript type check            |
+| `pnpm check:fix`          | Auto-fix lint/format issues, then type check               |
+| `pnpm format`             | Format all files with Biome                                |
+| `pnpm lint`               | Lint all files with Biome                                  |
+| `pnpm type:check`         | TypeScript type check only (`tsc -b`)                      |
+| `pnpm update:interactive` | Update dependencies interactively                          |
 
 ## Folder Structure and Code Organization
 
@@ -116,11 +116,11 @@ A: Still in `features/`. It may grow components later, and a consistent location
 
 Redux Toolkit 2 enforces a clear separation of responsibilities:
 
-| Layer | Responsibility |
-|---|---|
-| **Components** | Dispatch actions, display data via selectors. Zero business logic. |
-| **Selectors & Reducers** | Business and domain logic. Pure functions -- easy to test and compose. |
-| **RTK Query / Thunks / Listener Middleware** | Side effects (API calls, async flows, cross-slice reactions). |
+| Layer                                        | Responsibility                                                         |
+| -------------------------------------------- | ---------------------------------------------------------------------- |
+| **Components**                               | Dispatch actions, display data via selectors. Zero business logic.     |
+| **Selectors & Reducers**                     | Business and domain logic. Pure functions -- easy to test and compose. |
+| **RTK Query / Thunks / Listener Middleware** | Side effects (API calls, async flows, cross-slice reactions).          |
 
 ![Redux flow](https://github.com/marcoturi/react-redux-boilerplate/blob/main/doc/images/redux_architecture.gif?raw=true)
 
@@ -174,13 +174,13 @@ pnpm e2e:local
 
 Production builds use vendor chunk splitting for optimal caching:
 
-| Chunk | Contents |
-|---|---|
-| `vendor-react` | React, React DOM, React Router, React Redux |
-| `vendor-redux` | Redux Toolkit (RTK Query, Immer, Reselect) |
-| `vendor-radix` | Radix UI primitives and themes |
-| `vendor-sentry` | Sentry SDK |
-| `vendor-ui` | CVA, clsx, tailwind-merge, Lucide icons |
+| Chunk           | Contents                                    |
+| --------------- | ------------------------------------------- |
+| `vendor-react`  | React, React DOM, React Router, React Redux |
+| `vendor-redux`  | Redux Toolkit (RTK Query, Immer, Reselect)  |
+| `vendor-radix`  | Radix UI primitives and themes              |
+| `vendor-sentry` | Sentry SDK                                  |
+| `vendor-ui`     | CVA, clsx, tailwind-merge, Lucide icons     |
 
 Routes are **lazy-loaded** via `React.lazy()` for automatic code splitting.
 
@@ -198,11 +198,11 @@ No manual version bumps. No manual changelog edits.
 
 ### Toolkit
 
-| Tool | Purpose |
-|---|---|
-| [Commitlint](https://commitlint.js.org/) | Enforces [Conventional Commits](https://www.conventionalcommits.org/) format (`feat:`, `fix:`, `chore:`, etc.) |
-| [Husky](https://github.com/typicode/husky) | Runs commitlint + tests on pre-commit |
-| [Semantic-release](https://github.com/semantic-release/semantic-release) | Automates versioning, changelogs, GitHub releases, and git tags |
+| Tool                                                                     | Purpose                                                                                                        |
+| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| [Commitlint](https://commitlint.js.org/)                                 | Enforces [Conventional Commits](https://www.conventionalcommits.org/) format (`feat:`, `fix:`, `chore:`, etc.) |
+| [Husky](https://github.com/typicode/husky)                               | Runs commitlint + tests on pre-commit                                                                          |
+| [Semantic-release](https://github.com/semantic-release/semantic-release) | Automates versioning, changelogs, GitHub releases, and git tags                                                |
 
 ### Why Conventional Commits?
 
@@ -242,10 +242,10 @@ This allows you to reproduce issues by replaying the exact action sequence, or e
 
 These are not included in the boilerplate but are recommended additions depending on your needs:
 
-| Need | Recommendation | Notes |
-|---|---|---|
-| Dates | [date-fns](https://github.com/date-fns/date-fns) | Modular, tree-shakeable. [Moment.js is in maintenance mode](https://momentjs.com/docs/#/-project-status/). |
-| Forms | [react-hook-form](https://github.com/react-hook-form/react-hook-form) | Zero dependencies, excellent performance and DX. |
+| Need  | Recommendation                                                        | Notes                                                                                                      |
+| ----- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Dates | [date-fns](https://github.com/date-fns/date-fns)                      | Modular, tree-shakeable. [Moment.js is in maintenance mode](https://momentjs.com/docs/#/-project-status/). |
+| Forms | [react-hook-form](https://github.com/react-hook-form/react-hook-form) | Zero dependencies, excellent performance and DX.                                                           |
 
 ## Contributing
 

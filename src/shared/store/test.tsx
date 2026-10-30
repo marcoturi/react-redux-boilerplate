@@ -32,6 +32,7 @@ export function renderWithProviders(
     ...renderOptions
   }: ExtendedRenderOptions = {},
 ) {
+  // biome-ignore lint/correctness/noComponentHookFactories: the RTL wrapper must close over the per-render store
   function Wrapper({ children }: PropsWithChildren): JSX.Element {
     return (
       <BrowserRouter>
