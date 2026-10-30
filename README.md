@@ -21,7 +21,7 @@ A production-ready, batteries-included starter template for building long-lived 
 | UI | [Radix](https://www.radix-ui.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Tailwind CSS 4](https://tailwindcss.com/) |
 | Linting & formatting | [Biome](https://biomejs.dev/) |
 | Release | [Husky](https://github.com/typicode/husky) + [Commitlint](https://commitlint.js.org/) + [Semantic-release](https://github.com/semantic-release/semantic-release) |
-| API mocking | [MSW](https://mswjs.io/) (browser + test, powered by [@mswjs/data](https://github.com/mswjs/data)) |
+| API mocking | [MSW](https://mswjs.io/) (browser + test) |
 | Unit & integration tests | [Vitest 4](https://vitest.dev/) + [Testing Library](https://testing-library.com/) |
 | E2E tests | [Cucumber](https://cucumber.io/docs/installation/javascript/) + [Playwright](https://playwright.dev/) |
 | Monitoring | [Sentry](https://github.com/getsentry/sentry-javascript/tree/master/packages/react) |
@@ -92,7 +92,7 @@ src/
 │       ├── components/       → Feature-specific React components
 │       ├── hooks/            → Feature-specific React hooks
 │       └── services/         → Services consumed by Redux
-└── test/                     → MSW handlers, mock DB, test utilities
+└── test/                     → MSW handlers, test utilities
 ```
 
 Why vertical slices over alternatives like [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/) or [Feature-Sliced Design](https://feature-sliced.design/)?
@@ -155,7 +155,7 @@ Components live in `src/UI/Elements/` and are managed via the [shadcn CLI](https
 
 Tests use **Vitest 4** with **Testing Library** and **jsdom**. Test files live next to the code they test with a `.spec.ts` / `.spec.tsx` suffix.
 
-API mocking uses **MSW** with `@mswjs/data` for a realistic, in-memory database that powers both development and tests.
+API mocking uses **MSW**: the same request handlers in `src/test/handlers` power both development and tests.
 
 ### E2E tests
 

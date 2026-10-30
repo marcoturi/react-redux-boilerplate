@@ -67,7 +67,7 @@ src/
 ├── UI/
 │   ├── Elements/            → Reusable UI components (shadcn/ui based)
 │   └── Layout/              → Page layouts (Header, global CSS)
-└── test/                    → MSW handlers, mock DB, test config
+└── test/                    → MSW handlers, test config
 ```
 
 ### Key conventions
