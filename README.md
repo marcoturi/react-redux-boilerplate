@@ -34,7 +34,7 @@ A production-ready, batteries-included starter template for building long-lived 
 
 | Requirement | Version | Notes                                                                                                                        |
 | ----------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Node.js     | 24.x    | Defined in `.nvmrc`. Use [fnm](https://github.com/Schniz/fnm) or [nvm](https://github.com/nvm-sh/nvm): `fnm use` / `nvm use` |
+| Node.js     | 26.x    | Defined in `.nvmrc`. Use [fnm](https://github.com/Schniz/fnm) or [nvm](https://github.com/nvm-sh/nvm): `fnm use` / `nvm use` |
 | pnpm        | 10.x    | `corepack enable` to activate the bundled version                                                                            |
 
 ### Quick start

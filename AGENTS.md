@@ -6,7 +6,7 @@ Production-ready React 19 boilerplate using vertical slice architecture. The sta
 
 ## Setup commands
 
-- **Node version**: 24.x (defined in `.nvmrc`). Use `fnm use` or `nvm use` before running commands.
+- **Node version**: 26.x (defined in `.nvmrc`). Use `fnm use` or `nvm use` before running commands.
 - **Package manager**: pnpm 10.x (`corepack enable` if needed).
 - **Install deps**: `pnpm install`
 - **Create env**: `pnpm create:env`
