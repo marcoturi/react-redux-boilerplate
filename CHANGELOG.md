@@ -1,3 +1,11 @@
+## [1.7.52](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.51...v1.7.52) (2026-10-30)
+
+
+### Bug Fixes
+
+* **settings:** validate persisted settings and model the filter change as an event ([e753c95](https://github.com/marcoturi/react-redux-boilerplate/commit/e753c9589e9b012708e8941e9a41510ceae264ec))
+* **ui:** use semantic headings and the shadcn card layout ([9e2e8bb](https://github.com/marcoturi/react-redux-boilerplate/commit/9e2e8bbce78311d9d8937c37c71bbe25e1b94100))
+
 ## [1.7.51](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.50...v1.7.51) (2026-10-30)
 
 
