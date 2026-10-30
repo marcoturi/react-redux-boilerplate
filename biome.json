@@ -2,7 +2,7 @@
   "$schema": "https://biomejs.dev/schemas/2.6.4/schema.json",
   "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
   "files": {
-    "includes": ["**", "!!**/dist", "!!**/public/mockServiceWorker.js"]
+    "includes": ["**", "!!**/dist"]
   },
   "formatter": {
     "enabled": true,
@@ -53,12 +53,7 @@
         "useNumberToFixedDigitsArgument": "error"
       }
     },
-    "includes": [
-      "**",
-      "!commitlint.config.cjs",
-      "!cucumber.mjs",
-      "!public/mockServiceWorker.js"
-    ]
+    "includes": ["**", "!commitlint.config.cjs", "!cucumber.mjs"]
   },
   "javascript": {
     "formatter": {

@@ -1,11 +1,18 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react-swc';
+import { msw } from 'msw/vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { configDefaults, defineConfig } from 'vitest/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tsconfigPaths(), tailwindcss()],
+  // msw serves the worker script from node_modules (no copy in public/)
+  plugins: [
+    react(),
+    tsconfigPaths(),
+    tailwindcss(),
+    msw({ mode: 'worker-only' }),
+  ],
   build: {
     target: 'esnext',
     rolldownOptions: {

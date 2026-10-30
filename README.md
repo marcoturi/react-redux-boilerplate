@@ -155,7 +155,7 @@ Components live in `src/UI/Elements/` and are managed via the [shadcn CLI](https
 
 Tests use **Vitest 5** with **Testing Library** and **jsdom**. Test files live next to the code they test with a `.spec.ts` / `.spec.tsx` suffix.
 
-API mocking uses **MSW**: the same request handlers in `src/test/handlers` power both development and tests.
+API mocking uses **MSW**: the same request handlers in `src/test/handlers` power both development and tests. In development the `msw/vite` plugin serves the worker script straight from `node_modules`, so there is no `mockServiceWorker.js` to regenerate when MSW is upgraded.
 
 ### E2E tests
 

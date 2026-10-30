@@ -21,7 +21,7 @@ Production-ready React 19 boilerplate using vertical slice architecture. The sta
 - **E2E uses**: Cucumber + Playwright. Install browsers first: `pnpm exec playwright install`
 - Test files live next to the code they test with `.spec.ts` / `.spec.tsx` suffix.
 - Mock data files use `.mocks.spec.ts` suffix and are excluded from test runs.
-- MSW (Mock Service Worker) handles API mocking in both tests and development.
+- MSW (Mock Service Worker) handles API mocking in both tests and development. The worker script is served by the `msw/vite` plugin from `node_modules`: do not add `mockServiceWorker.js` to `public/`.
 - Vitest globals (`describe`, `it`, `expect`, `vi`) are available without imports.
 - Always run `pnpm test` and `pnpm build` before submitting changes.
 

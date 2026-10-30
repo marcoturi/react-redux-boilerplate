@@ -84,16 +84,10 @@
     "vite-tsconfig-paths": "6.1.1",
     "vitest": "5.0.5"
   },
-  "msw": {
-    "workerDirectory": [
-      "public"
-    ]
-  },
   "pnpm": {
     "onlyBuiltDependencies": [
       "@swc/core",
-      "esbuild",
-      "msw"
+      "esbuild"
     ]
   }
 }
