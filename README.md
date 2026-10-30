@@ -14,19 +14,19 @@ A production-ready, batteries-included starter template for building long-lived 
 
 ## Features
 
-| Category                 | Stack                                                                                                                                                                                                              |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Build                    | [Vite 8](https://vitejs.dev/) + [React 19](https://react.dev/) + [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react) + [pnpm](https://pnpm.io/) + [TypeScript 5.9](https://www.typescriptlang.org) |
-| State                    | [Redux Toolkit 2](https://redux-toolkit.js.org/) (includes RTK Query, Immer, Reselect)                                                                                                                             |
-| UI                       | [Radix](https://www.radix-ui.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Tailwind CSS 4](https://tailwindcss.com/)                                                                                              |
-| Linting & formatting     | [Biome](https://biomejs.dev/)                                                                                                                                                                                      |
-| Release                  | [Husky](https://github.com/typicode/husky) + [Commitlint](https://commitlint.js.org/) + [Semantic-release](https://github.com/semantic-release/semantic-release)                                                   |
-| API mocking              | [MSW](https://mswjs.io/) (browser + test)                                                                                                                                                                          |
-| Unit & integration tests | [Vitest 5](https://vitest.dev/) + [Testing Library](https://testing-library.com/)                                                                                                                                  |
-| E2E tests                | [Cucumber](https://cucumber.io/docs/installation/javascript/) + [Playwright](https://playwright.dev/)                                                                                                              |
-| Monitoring               | [Sentry](https://github.com/getsentry/sentry-javascript/tree/master/packages/react)                                                                                                                                |
-| Security                 | [CodeQL](https://github.com/github/codeql-action) analysis on every push/PR                                                                                                                                        |
-| AI-Ready                 | [AGENTS.md](AGENTS.md) — architecture rules and coding conventions for AI assistants                                                                                                                               |
+| Category                 | Stack                                                                                                                                                                                                            |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Build                    | [Vite 8](https://vitejs.dev/) + [React 19](https://react.dev/) + [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react) + [pnpm](https://pnpm.io/) + [TypeScript 7](https://www.typescriptlang.org) |
+| State                    | [Redux Toolkit 2](https://redux-toolkit.js.org/) (includes RTK Query, Immer, Reselect)                                                                                                                           |
+| UI                       | [Radix](https://www.radix-ui.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Tailwind CSS 4](https://tailwindcss.com/)                                                                                            |
+| Linting & formatting     | [Biome](https://biomejs.dev/)                                                                                                                                                                                    |
+| Release                  | [Husky](https://github.com/typicode/husky) + [Commitlint](https://commitlint.js.org/) + [Semantic-release](https://github.com/semantic-release/semantic-release)                                                 |
+| API mocking              | [MSW](https://mswjs.io/) (browser + test)                                                                                                                                                                        |
+| Unit & integration tests | [Vitest 5](https://vitest.dev/) + [Testing Library](https://testing-library.com/)                                                                                                                                |
+| E2E tests                | [Cucumber](https://cucumber.io/docs/installation/javascript/) + [Playwright](https://playwright.dev/)                                                                                                            |
+| Monitoring               | [Sentry](https://github.com/getsentry/sentry-javascript/tree/master/packages/react)                                                                                                                              |
+| Security                 | [CodeQL](https://github.com/github/codeql-action) analysis on every push/PR                                                                                                                                      |
+| AI-Ready                 | [AGENTS.md](AGENTS.md) — architecture rules and coding conventions for AI assistants                                                                                                                             |
 
 ## Getting Started
 

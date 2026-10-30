@@ -2,7 +2,7 @@
 
 ## Project overview
 
-Production-ready React 19 boilerplate using vertical slice architecture. The stack is React 19 + Redux Toolkit 2 + Vite 8 + TypeScript 5.9 + Tailwind CSS 4 + Biome.
+Production-ready React 19 boilerplate using vertical slice architecture. The stack is React 19 + Redux Toolkit 2 + Vite 8 + TypeScript 7 + Tailwind CSS 4 + Biome.
 
 ## Setup commands
 
