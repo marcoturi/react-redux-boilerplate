@@ -1,3 +1,10 @@
+## [1.7.50](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.49...v1.7.50) (2026-10-30)
+
+
+### Bug Fixes
+
+* **ui:** center the page container ([d8e108c](https://github.com/marcoturi/react-redux-boilerplate/commit/d8e108c3bdf0fd88db76d1532c057ce46d2e50ab))
+
 ## [1.7.49](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.48...v1.7.49) (2026-10-30)
 
 
