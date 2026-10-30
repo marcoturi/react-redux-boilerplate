@@ -1,3 +1,10 @@
+## [1.7.51](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.50...v1.7.51) (2026-10-30)
+
+
+### Performance Improvements
+
+* **ui:** remove Radix Themes ([23c6b4a](https://github.com/marcoturi/react-redux-boilerplate/commit/23c6b4a6234d7065d4be7d468fc507beceaf3d42))
+
 ## [1.7.50](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.49...v1.7.50) (2026-10-30)
 
 
