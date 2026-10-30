@@ -6,6 +6,5 @@ const SettingsActions = {
   loadState,
 };
 
-export { SettingsActions };
-
 export * as SettingsSelectors from './settings.selector';
+export { SettingsActions };
