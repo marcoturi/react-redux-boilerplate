@@ -1,20 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
 import type { RenderOptions } from '@testing-library/react';
 import { render } from '@testing-library/react';
 import type React from 'react';
 import type { JSX, PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router';
-import { storeConfig } from '@/shared/store/index';
-import type { RootState } from '@/shared/store/types';
+import { setupStore } from '@/shared/store/index';
+import type { AppStore, RootState } from '@/shared/store/types';
 
-export const setupStore = (preloadedState?: Partial<RootState>) =>
-  configureStore({
-    ...storeConfig,
-    preloadedState,
-  });
-
-type AppStore = ReturnType<typeof setupStore>;
+export { setupStore };
 
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.

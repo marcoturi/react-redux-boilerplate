@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { useLocation, useRoutes } from 'react-router';
-import UserWidget from '@/features/user/components/UserWidget';
+import { UserWidget } from '@/features/user/components/UserWidget';
 import { Container } from '@/UI/Elements/Container';
 import { ErrorFallback } from '@/UI/Elements/ErrorFallback';
 import { SkeletonList } from '@/UI/Elements/SkeletonList';

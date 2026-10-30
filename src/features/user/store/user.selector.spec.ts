@@ -1,10 +1,10 @@
 import { userApi } from '@/features/user/store/user.api';
 import { setupStore } from '@/shared/store/test';
+import type { AppStore } from '@/shared/store/types';
 import { UserSelectors } from '.';
 
 describe('User Selector:', () => {
-  // biome-ignore lint/suspicious/noImplicitAnyLet: store type inferred at assignment
-  let store;
+  let store: AppStore;
 
   beforeEach(() => {
     store = setupStore();
@@ -22,10 +22,10 @@ describe('User Selector:', () => {
     );
     const finalState = store.getState();
 
-    expect(UserSelectors.getUserFullName(finalState)).toEqual('John D.');
+    expect(UserSelectors.selectUserFullName(finalState)).toEqual('John D.');
   });
   it('Should return empty in case of no name', () => {
     const finalState = store.getState();
-    expect(UserSelectors.getUserFullName(finalState)).toEqual('');
+    expect(UserSelectors.selectUserFullName(finalState)).toEqual('');
   });
 });

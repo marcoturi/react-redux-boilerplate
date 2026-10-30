@@ -1,22 +1,19 @@
-import { createListenerMiddleware, type PayloadAction } from '@reduxjs/toolkit';
 import { captureError } from '@/shared/helpers/error-tracking.service';
 import LocalStorageService, {
   StorageKeys,
 } from '@/shared/helpers/local-storage.service';
+import { startAppListening } from '@/shared/store/listener';
 import { SettingsActions } from './index';
-import type { RemoveValuePayload, SetValuePayload } from './settings.type';
-
-export const storageMiddleware = createListenerMiddleware();
 
 /**
- * Important: this middleware is here only to showcase the usage of ListenerMiddleware.
+ * Important: these listeners are here only to showcase the listener middleware.
  * In a real app, if you want to persist your redux state to local storage
  * you should use something like redux-persist instead.
  * https://github.com/markerikson/redux-ecosystem-links/blob/master/store-persistence.md
  */
-storageMiddleware.startListening({
+startAppListening({
   actionCreator: SettingsActions.setItem,
-  effect: (action: PayloadAction<SetValuePayload>) => {
+  effect: (action) => {
     const { key, value } = action.payload;
     try {
       LocalStorageService(StorageKeys.settings).set(key, value);
@@ -26,9 +23,9 @@ storageMiddleware.startListening({
   },
 });
 
-storageMiddleware.startListening({
+startAppListening({
   actionCreator: SettingsActions.deleteItem,
-  effect: (action: PayloadAction<RemoveValuePayload>) => {
+  effect: (action) => {
     const { key } = action.payload;
     try {
       LocalStorageService(StorageKeys.settings).clear(key);

@@ -1,7 +1,7 @@
-import { createSelector } from '@reduxjs/toolkit';
+import { createAppSelector } from '@/shared/store/selectors';
 import { userApi } from './user.api';
 
-export const getUserFullName = createSelector(
+export const selectUserFullName = createAppSelector(
   userApi.endpoints.getUser.select(),
   (res): string => {
     if (!res.data) return '';

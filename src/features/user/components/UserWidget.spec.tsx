@@ -1,5 +1,5 @@
 import { screen, waitFor } from '@testing-library/react';
-import UserWidget from '@/features/user/components/UserWidget';
+import { UserWidget } from '@/features/user/components/UserWidget';
 import { renderWithProviders } from '@/shared/store/test';
 
 describe('UserWidget', () => {
