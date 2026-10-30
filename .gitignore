@@ -27,3 +27,5 @@ screenshots
 reports
 coverage
 .env
+.serena
+.history/
