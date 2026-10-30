@@ -1,3 +1,13 @@
+## [1.7.49](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.48...v1.7.49) (2026-10-30)
+
+
+### Bug Fixes
+
+* **build:** remove [secure] mock database ([b3e8804](https://github.com/marcoturi/react-redux-boilerplate/commit/b3e88045858cc2d713183baba65225675b57c926))
+* **build:** type-check the referenced TypeScript projects ([73498ec](https://github.com/marcoturi/react-redux-boilerplate/commit/73498ec796ce21475a96bda6405befffc662bf38))
+* **deps:** update runtime dependencies ([9f9ad2d](https://github.com/marcoturi/react-redux-boilerplate/commit/9f9ad2dffa7740819e214fcd82a1e3a3f99915e6))
+* **monitoring:** report React render errors to Sentry ([c12a96e](https://github.com/marcoturi/react-redux-boilerplate/commit/c12a96ea06180af85960689d8f8395ab950f53a6))
+
 ## [1.7.48](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.47...v1.7.48) (2026-09-08)
 
 
