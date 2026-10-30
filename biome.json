@@ -58,6 +58,7 @@
       },
       "suspicious": {
         "noDocumentCookie": "error",
+        "noExplicitAny": "error",
         "noThenProperty": "error",
         "useErrorMessage": "error",
         "useNumberToFixedDigitsArgument": "error"
