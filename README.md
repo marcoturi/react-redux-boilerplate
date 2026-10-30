@@ -73,7 +73,7 @@ pnpm dev           # Start dev server at http://localhost:5173
 ```
 src/
 ├── main.tsx                  → App entry point
-├── AppProvider.tsx            → Providers (Suspense, Redux, ErrorBoundary, Router)
+├── AppProvider.tsx            → Providers (Redux, ErrorBoundary, Router)
 ├── assets/                   → Static files (images, fonts, etc.)
 ├── routes/                   → Route definitions + page components (lazy-loaded via React.lazy)
 │   ├── index.tsx             → Route tree

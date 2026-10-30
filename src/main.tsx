@@ -12,6 +12,12 @@ const handleReactError = Sentry.reactErrorHandler((error, errorInfo) => {
   console.error(error, errorInfo.componentStack);
 });
 
+// A new deploy can remove the chunks an open tab still references: reload to
+// fetch the current ones (https://vite.dev/guide/build#load-error-handling)
+window.addEventListener('vite:preloadError', () => {
+  window.location.reload();
+});
+
 initMocks().then(() => {
   const root = document.getElementById('root');
   if (!root) throw new Error('Root element not found');

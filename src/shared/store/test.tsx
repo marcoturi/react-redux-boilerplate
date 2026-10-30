@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import type React from 'react';
 import type { JSX, PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router';
 import { storeConfig } from '@/shared/store/index';
 import type { RootState } from '@/shared/store/types';
 
@@ -21,6 +21,8 @@ type AppStore = ReturnType<typeof setupStore>;
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
   preloadedState?: Partial<RootState>;
   store?: AppStore;
+  // Initial URL of the in-memory router
+  route?: string;
 }
 
 export function renderWithProviders(
@@ -29,15 +31,16 @@ export function renderWithProviders(
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = setupStore(preloadedState),
+    route = '/',
     ...renderOptions
   }: ExtendedRenderOptions = {},
 ) {
   // biome-ignore lint/correctness/noComponentHookFactories: the RTL wrapper must close over the per-render store
   function Wrapper({ children }: PropsWithChildren): JSX.Element {
     return (
-      <BrowserRouter>
+      <MemoryRouter initialEntries={[route]}>
         <Provider store={store}>{children}</Provider>
-      </BrowserRouter>
+      </MemoryRouter>
     );
   }
 

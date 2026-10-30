@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import Menu from '@/UI/Layout/Header/Menu';
+import { Menu } from '@/UI/Layout/Header/Menu';
 import { Logo } from './Logo';
 
 type Props = {

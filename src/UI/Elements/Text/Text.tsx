@@ -7,7 +7,7 @@ const sizes = {
 } as const;
 
 type TextProps = React.HTMLAttributes<HTMLElement> & {
-  as?: 'span' | 'p' | 'div';
+  as?: 'span' | 'p' | 'div' | 'h1' | 'h2';
   size?: keyof typeof sizes;
 };
 

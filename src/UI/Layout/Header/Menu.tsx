@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -11,7 +11,7 @@ type Props = {
   menuItems: { label: string; href: string; testId: string }[];
 };
 
-function Menu({ menuItems }: Props) {
+export function Menu({ menuItems }: Props) {
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -32,5 +32,3 @@ function Menu({ menuItems }: Props) {
     </NavigationMenu>
   );
 }
-
-export default Menu;
