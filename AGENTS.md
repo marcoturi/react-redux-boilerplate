@@ -120,7 +120,7 @@ src/
 ## CI/CD
 
 - GitHub Actions workflow in `.github/workflows/release.yml`.
-- Pipeline: install -> test -> e2e -> semantic-release.
+- Pipeline: install -> check (Biome + types) -> build -> test -> e2e -> semantic-release.
 - Uses `pnpm/action-setup@v6` and `.nvmrc` for Node version.
 
 ## Security considerations
