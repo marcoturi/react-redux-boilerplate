@@ -1,5 +1,5 @@
 import tailwindcss from '@tailwindcss/vite';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import { msw } from 'msw/vite';
 import { configDefaults, defineConfig } from 'vitest/config';
 
