@@ -11,6 +11,13 @@ export default defineConfig({
     // Resolve the `paths` aliases (e.g. `@/`) declared in tsconfig
     tsconfigPaths: true,
   },
+  server: {
+    watch: {
+      // E2E runs write here while the dev server is up: changes must not
+      // trigger full page reloads mid-test
+      ignored: ['**/reports/**', '**/traces/**', '**/screenshots/**'],
+    },
+  },
   build: {
     target: 'esnext',
     rolldownOptions: {
