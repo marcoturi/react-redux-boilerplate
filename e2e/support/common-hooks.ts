@@ -118,5 +118,6 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
 });
 
 AfterAll(async () => {
-  await browser.close();
+  // AfterAll also runs when BeforeAll failed before launching the browser
+  await browser?.close();
 });
