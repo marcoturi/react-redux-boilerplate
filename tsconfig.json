@@ -4,5 +4,11 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" },
     { "path": "./e2e/tsconfig.e2e.json" }
-  ]
+  ],
+  // Read by the shadcn CLI to resolve the aliases in components.json
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
 }
