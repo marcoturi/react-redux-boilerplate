@@ -18,9 +18,9 @@
     "test:coverage": "vitest run --coverage",
     "format": "biome format --write .",
     "lint": "biome lint --write .",
-    "type:check": "tsc --noEmit",
-    "check": "biome check && tsc --noEmit",
-    "check:fix": "biome check --write && tsc --noEmit",
+    "type:check": "tsc -b",
+    "check": "biome check && tsc -b",
+    "check:fix": "biome check --write && tsc -b",
     "postinstall": "husky",
     "semantic-release": "semantic-release",
     "update:interactive": "pnpm update --interactive --latest"

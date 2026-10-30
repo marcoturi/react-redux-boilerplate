@@ -28,8 +28,8 @@ Production-ready React 19 boilerplate using vertical slice architecture. The sta
 ## Linting, formatting, and type checking
 
 - **Single tool**: [Biome](https://biomejs.dev/) handles both linting and formatting. No ESLint or Prettier.
-- **Check all**: `pnpm check` (runs `biome check && tsc --noEmit`)
-- **Auto-fix**: `pnpm check:fix` (runs `biome check --write && tsc --noEmit`)
+- **Check all**: `pnpm check` (runs `biome check && tsc -b`)
+- **Auto-fix**: `pnpm check:fix` (runs `biome check --write && tsc -b`)
 - **Format only**: `pnpm format`
 - **Lint only**: `pnpm lint`
 - **Type check only**: `pnpm type:check`

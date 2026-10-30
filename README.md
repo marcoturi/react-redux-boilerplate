@@ -63,7 +63,7 @@ pnpm dev           # Start dev server at http://localhost:5173
 | `pnpm check:fix` | Auto-fix lint/format issues, then type check |
 | `pnpm format` | Format all files with Biome |
 | `pnpm lint` | Lint all files with Biome |
-| `pnpm type:check` | TypeScript type check only (`tsc --noEmit`) |
+| `pnpm type:check` | TypeScript type check only (`tsc -b`) |
 | `pnpm update:interactive` | Update dependencies interactively |
 
 ## Folder Structure and Code Organization
