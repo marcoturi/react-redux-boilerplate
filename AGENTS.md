@@ -1,133 +1,87 @@
 # AGENTS.md
 
-## Project overview
+## Scope
 
-Production-ready React 19 boilerplate using vertical slice architecture. The stack is React 19 + Redux Toolkit 2 + Vite 8 + TypeScript 7 + Tailwind CSS 4 + Biome.
+Production-ready React 19 SPA boilerplate with vertical slice architecture: React 19, Redux Toolkit 2 with RTK Query, React Router 7, Vite 8, TypeScript 7, Tailwind CSS 4, shadcn/ui and Biome. This file holds the repository-wide instructions; the rules for each kind of file are in `.agents/rules/` (see [Rules](#rules)).
 
-## Setup commands
+## Commands
 
-- **Node version**: 26.x (defined in `.nvmrc`). Use `fnm use` or `nvm use` before running commands.
-- **Package manager**: pnpm 10.x (`corepack enable` if needed).
-- **Install deps**: `pnpm install`
-- **Create env**: `pnpm create:env`
-- **Dev server**: `pnpm dev` (starts at `http://localhost:5173`)
-- **Build**: `pnpm build` (runs `tsc -b && vite build`)
+- Node.js 26.x from `.nvmrc`: run `fnm use` or `nvm use` first. Package manager: pnpm 10 (`corepack enable`).
+- Install: `pnpm install`. Create `.env` from `.env.example`: `pnpm create:env`.
+- Dev server: `pnpm dev` (http://localhost:5173).
+- Lint, format and types: `pnpm check`; auto-fix: `pnpm check:fix`. Only types: `pnpm type:check` (`tsc -b` over the app, the Vite config and e2e).
+- Unit and integration tests: `pnpm test`; with coverage: `pnpm test:coverage`.
+- Build: `pnpm build` (`tsc -b && vite build`, output in `dist/`).
+- E2E: install browsers once with `pnpm exec playwright install`, start `pnpm dev`, then run `pnpm e2e:local` in another terminal. `pnpm e2e:debug` runs only the `@only` scenarios.
+- shadcn/ui components: `pnpm exec shadcn add <component>`, then `pnpm check:fix`.
 
-## Testing
-
-- **Unit/integration tests**: `pnpm test` (Vitest 5 + Testing Library + jsdom)
-- **With coverage**: `pnpm test:coverage`
-- **E2E tests**: `pnpm e2e:local` (requires dev server running in another terminal)
-- **E2E uses**: Cucumber + Playwright. Install browsers first: `pnpm exec playwright install`
-- Test files live next to the code they test with `.spec.ts` / `.spec.tsx` suffix.
-- Mock data files use `.mocks.spec.ts` suffix and are excluded from test runs.
-- MSW (Mock Service Worker) handles API mocking in both tests and development. The worker script is served by the `msw/vite` plugin from `node_modules`: do not add `mockServiceWorker.js` to `public/`.
-- Vitest globals (`describe`, `it`, `expect`, `vi`) are available without imports.
-- Always run `pnpm test` and `pnpm build` before submitting changes.
-
-## Linting, formatting, and type checking
-
-- **Single tool**: [Biome](https://biomejs.dev/) handles both linting and formatting. No ESLint or Prettier.
-- **Check all**: `pnpm check` (runs `biome check && tsc -b`)
-- **Auto-fix**: `pnpm check:fix` (runs `biome check --write && tsc -b`)
-- **Format only**: `pnpm format`
-- **Lint only**: `pnpm lint`
-- **Type check only**: `pnpm type:check`
-- Pre-commit hook (Husky) runs `pnpm biome check --staged` and `pnpm test` automatically.
-
-## Code style
-
-- TypeScript strict mode with `noImplicitAny: false`.
-- Single quotes, semicolons, trailing commas, 2-space indent, LF line endings, 80 char line width.
-- Use `import type` for type-only imports (enforced by Biome `useImportType`).
-- Prefer `for...of` over `.forEach()` (enforced by Biome `noForEach`).
-- Use `const` over `let` when possible. Never use `var`.
-- Use `unknown` instead of `any` for error catches and untyped values.
-- Use `import.meta.env` instead of `process.env` in browser/Vite code.
-- Use `null` (not `undefined`) as the return value for components that render nothing.
-- Absolute imports via `@/` alias (maps to `src/`). Never use relative imports that go above the current feature.
-
-## Architecture and folder structure
-
-This project follows vertical slice architecture. Each feature is self-contained.
+## Project structure
 
 ```
 src/
-├── main.tsx                → App entry point
-├── AppProvider.tsx          → Providers: Suspense, Redux, ErrorBoundary, Router
-├── routes/                  → Route definitions and page components (lazy-loaded)
-├── features/                → Feature slices (each with store/, components/, hooks/)
-│   ├── user/
-│   ├── subscriptions/
-│   └── settings/
+├── main.tsx           → Entry point: MSW in development, settings restore, React root with Sentry error handlers
+├── AppProvider.tsx    → Providers: Redux, ErrorBoundary, Router
+├── routes/            → Route table with the page ErrorBoundary and Suspense (index.tsx), lazy pages (<Name>/<Name>Page.tsx)
+├── features/          → Feature slices: <feature>/store/ and <feature>/components/
 ├── shared/
-│   ├── config/              → Environment variables, Sentry config
-│   ├── helpers/             → Utilities (localStorage, error tracking, style utils)
-│   └── store/               → Redux store setup, base API, types
+│   ├── config/        → Environment values (env.ts) and Sentry setup
+│   ├── helpers/       → Utilities: localStorage, error tracking, cn() re-export
+│   └── store/         → Store setup, RTK Query base API, typed hooks, test helpers
 ├── UI/
-│   ├── Base/                → shadcn/ui components, managed by the shadcn CLI
-│   ├── Elements/            → Project UI components built on Base and Tailwind
-│   └── Layout/              → Page layouts (Header, global CSS)
-└── test/                    → MSW handlers, test config
+│   ├── Base/          → shadcn/ui components, managed by the shadcn CLI
+│   ├── Elements/      → Project components (Text, Container, SkeletonList, ErrorFallback) built on Base and Tailwind
+│   └── Layout/        → Header and global.css (theme)
+└── test/              → MSW handlers, shared by development and tests
+e2e/                   → Cucumber features, steps, page objects and support code
 ```
 
-### Key conventions
+## Architecture
 
-- **Components**: Only dispatch Redux actions and display data via selectors. No business logic.
-- **Selectors/Reducers**: Contain business and domain logic. Keep them pure and testable.
-- **Side effects**: Use RTK Query, thunks, or listener middleware.
-- **Routes**: Lazy-loaded with `React.lazy()`. The `AppProvider` wraps everything in `<Suspense>`.
-- **UI components**: Based on shadcn/ui (Radix primitives). Config in `components.json`, theme in `global.css`.
+- Components only display data from selectors and dispatch actions; they hold no business logic.
+- Business and domain logic lives in reducers and selectors, which stay pure.
+- Side effects go in RTK Query endpoints, thunks or listener middleware.
+- Each feature is self-contained and exposes its state through the namespaces of `store/index.ts`.
 
-## State management (Redux Toolkit)
+## Rules
 
-- Store is configured in `src/shared/store/index.ts`.
-- API layer uses RTK Query (`src/shared/store/api.ts`).
-- Feature slices export actions, selectors, and API hooks from their `store/index.ts` barrel.
-- Typed hooks: use `useAppDispatch` and `useAppSelector` from `src/shared/store/types.ts`.
-- Sentry Redux enhancer is configured in `src/shared/config/sentry.ts`.
+Detailed rules live in `.agents/rules/`. `.claude/rules` is a symlink to that folder, so Claude Code loads each rule when it touches a matching file. Other agents must read the rules that match the files they change before editing them.
 
-## UI and styling
+| Rule                  | Applies to                                                                                |
+| --------------------- | ----------------------------------------------------------------------------------------- |
+| `typescript.md`       | `**/*.{ts,tsx,mts}`                                                                       |
+| `react-components.md` | `src/**/*.tsx`                                                                            |
+| `ui-styling.md`       | `src/**/*.tsx`                                                                            |
+| `routes.md`           | `src/routes/**`                                                                           |
+| `redux-state.md`      | `src/features/**/store/**`, `src/shared/store/**`                                         |
+| `shadcn-base.md`      | `src/UI/Base/**`, `components.json`                                                       |
+| `global-css.md`       | `src/UI/Layout/global.css`                                                                |
+| `unit-tests.md`       | `src/**/*.spec.{ts,tsx}`, `src/test/**`, `scripts/vitest.setup.ts`                        |
+| `e2e-tests.md`        | `e2e/**`, `cucumber.mjs`                                                                  |
+| `tooling.md`          | `package.json`, `vite.config.mts`, `tsconfig*.json`, `biome.json`, `.github/workflows/**` |
 
-- **Tailwind CSS 4** via `@tailwindcss/vite` plugin (no PostCSS pipeline needed).
-- **Theme**: Defined in CSS variables in `src/UI/Layout/global.css` using `@theme inline`.
-- **shadcn/ui components**: Style `radix-vega`, in `src/UI/Base/` as kebab-case files (`src/UI/Base/button.tsx`). Add or update them only with the CLI (`pnpm exec shadcn add <component>`, `--diff` to compare with upstream), then run `pnpm check:fix`. Keep them close to upstream: never move or rename them, or the CLI loses track of them.
-- **Project UI components**: Compositions and wrappers (e.g. `SkeletonList`, `Text`, `Container`) go in `src/UI/Elements/<Name>/<Name>.tsx` with an `index.ts` barrel.
-- **Style utility**: `cn()` from the `cn` package. shadcn components import it directly; `src/shared/helpers/style.utils.ts` re-exports it as the `utils` alias.
-- **CLI paths**: `components.json` aliases resolve through `compilerOptions.paths` in the root `tsconfig.json`; keep it in sync with `tsconfig.app.json`.
+Official skills complement the rules: Redux Toolkit ships them in `node_modules/@reduxjs/toolkit/skills/`, and shadcn publishes one (`pnpm dlx skills add shadcn/ui`). Where a skill disagrees with a rule, the rule wins.
+
+Edit rules in `.agents/rules/`, never through the `.claude/rules` link. Add a new rule there with a `paths` list in its frontmatter and list it in this table.
+
+## Validation checklist
+
+Before considering a task done:
+
+- [ ] `pnpm check` passes (Biome and `tsc -b`).
+- [ ] `pnpm test` passes.
+- [ ] `pnpm build` passes.
+- [ ] `pnpm e2e:local` passes when routes, user flows or `data-testid` attributes changed.
+- [ ] shadcn components were added with the CLI and formatted with `pnpm check:fix`.
+- [ ] The lockfile changed only if the task changed dependencies.
 
 ## Commits and releases
 
-- Commits must follow [Conventional Commits](https://www.conventionalcommits.org/) (enforced by commitlint).
-- Format: `type(scope): description` (e.g., `feat(subscriptions): add filter component`).
-- Types: `feat`, `fix`, `chore`, `docs`, `refactor`, `style`, `test`, `perf`, `ci`, `build`, `revert`.
-- Releases are automated via semantic-release on merge to `main`.
-- Do not manually bump version or edit CHANGELOG.md.
+- Commits follow [Conventional Commits](https://www.conventionalcommits.org/), `type(scope): description`, enforced by commitlint. Types: `feat`, `fix`, `chore`, `docs`, `refactor`, `style`, `test`, `perf`, `ci`, `build`, `revert`.
+- The Husky pre-commit hook runs `pnpm biome check --staged` and `pnpm test`.
+- Every push to `main` runs `.github/workflows/release.yml` (install, check, build, unit tests, e2e) and then semantic-release, which bumps the version, writes `CHANGELOG.md` and publishes a GitHub release. `fix`, `perf`, `refactor` and `style` commits produce a patch release, `feat` a minor one.
 
-## Build output
+## Boundaries
 
-- Production build outputs to `dist/`.
-- Vendor chunk splitting is configured in `vite.config.mts` (`build.rolldownOptions.output.codeSplitting.groups`):
-  - `vendor-react`: React, React DOM, React Router, React Redux
-  - `vendor-redux`: Redux Toolkit (RTK Query, Immer, Reselect)
-  - `vendor-radix`: All Radix UI packages
-  - `vendor-sentry`: Sentry monitoring
-  - `vendor-ui`: CVA, cn, Lucide icons
-
-## Environment variables
-
-- Defined in `.env` (created via `pnpm create:env` from `.env.example`).
-- Accessed via `import.meta.env.VITE_*` in browser code.
-- Centralized in `src/shared/config/env.ts`. Always import from there, not directly from `import.meta.env`.
-
-## CI/CD
-
-- GitHub Actions workflow in `.github/workflows/release.yml`.
-- Pipeline: install -> check (Biome + types) -> build -> test -> e2e -> semantic-release.
-- Uses `pnpm/action-setup@v6` and `.nvmrc` for Node version.
-
-## Security considerations
-
-- Never commit `.env` files or secrets.
-- Sentry DSN should be set via `VITE_SENTRY_DSN` environment variable, not hardcoded.
-- API URLs should be set via `VITE_API_URL` environment variable.
+- **Always**: run the validation checklist; read environment values through `src/shared/config/env.ts`; keep `src/UI/Base` managed by the shadcn CLI.
+- **Ask first**: changes to `.github/workflows/`, `.releaserc`, `commitlint.config.cjs`, the `style` or `aliases` in `components.json`, Sentry data collection in `src/shared/config/sentry.ts`, new dependencies, new top-level folders.
+- **Never**: commit `.env` or secrets (the Sentry DSN and API URL come from `VITE_SENTRY_DSN` and `VITE_API_URL`); bump `version` or edit `CHANGELOG.md` by hand; commit generated output (`dist/`, `coverage/`, `reports/`, `traces/`, `screenshots/`); add ESLint or Prettier; skip hooks with `--no-verify`.
