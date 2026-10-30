@@ -2,6 +2,7 @@
 paths:
   - "src/**/*.spec.{ts,tsx}"
   - "src/test/**"
+  - "src/shared/store/test.tsx"
   - "scripts/vitest.setup.ts"
 ---
 
@@ -11,8 +12,9 @@ paths:
 - Vitest globals (`describe`, `it`, `expect`, `vi`) need no import.
 - Prefer integration tests that render components with `renderWithProviders` from `@/shared/store/test`. It creates a fresh store and a `MemoryRouter` for each test; pass `route` for URL-dependent UI. Never import the app's singleton `store`.
 - Unit-test only complex reducers and selectors: call `reducer(state, action)` directly, or build the state with `setupStore(preloadedState)`, dispatched actions and `await store.dispatch(api.util.upsertQueryData(...))`. Do not cast partial objects `as RootState`.
-- `scripts/vitest.setup.ts` fails a test on any request without a handler (`onUnhandledRequest: 'error'`) and clears localStorage after each test.
-- Mock the network only with MSW: shared handlers in `src/test/handlers/`, one-off responses with `server.use(...)` inside the test. Never mock hooks, selectors or `fetch`.
+- `scripts/vitest.setup.ts` fails a test on any request without a handler (`onUnhandledFrame: 'error'`, the MSW 3 name of `onUnhandledRequest`) and clears localStorage after each test.
+- Mock the network only with MSW: shared handlers in `src/test/handlers/` (URLs built from `env.API_URL`), one-off responses with `server.use(...)` inside the test, importing `server` from `@/test/server` (`{ once: true }` to fail only the first request). Never mock hooks, selectors or `fetch`.
+- Cover failures, not only the happy path: an API error through `server.use`, corrupt or missing localStorage data.
 - Type handler responses and mock data with the domain types (`satisfies User`, enum members), so mocks cannot drift from the API types.
 - Query by role, label or text (`getByRole` first); use `getByTestId` only as a last resort. The `data-testid` attributes are mainly for e2e.
 - Wait for the UI with `findBy*` rather than `waitFor(() => getBy*)`; inside `waitFor` keep one assertion and no side effects. Never wait with timeouts.
@@ -21,4 +23,4 @@ paths:
 - Make each test create its own data; never depend on test order or on state left by another test.
 - Type store variables as `AppStore` (`@/shared/store/types`) instead of suppressing `noImplicitAnyLet`.
 - Investigate a flaky test with `pnpm vitest run <file> -t "<name>"` and `--sequence.shuffle`; do not add retries.
-- Run `pnpm test` before finishing; `pnpm test:coverage` reports coverage for `src/`.
+- Run `pnpm test` before finishing. `pnpm test:coverage` measures `src/` except entry points, test helpers and `src/UI/Base`, and fails under the thresholds in `vite.config.mts`, as CI does: add tests rather than lowering them.

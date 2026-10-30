@@ -56,13 +56,13 @@ pnpm dev           # Start dev server at http://localhost:5173
 | `pnpm build`              | Type-check + production build (output in `dist/`)          |
 | `pnpm preview`            | Preview the production build locally                       |
 | `pnpm test`               | Run unit and integration tests (Vitest)                    |
-| `pnpm test:coverage`      | Run tests with V8 coverage report                          |
+| `pnpm test:coverage`      | Run tests with V8 coverage and its thresholds              |
 | `pnpm e2e:local`          | Run E2E tests (start dev server first in another terminal) |
 | `pnpm e2e:debug`          | Run only `@only`-tagged E2E scenarios with `--fail-fast`   |
 | `pnpm check`              | Biome lint/format check + TypeScript type check            |
 | `pnpm check:fix`          | Auto-fix lint/format issues, then type check               |
 | `pnpm format`             | Format all files with Biome                                |
-| `pnpm lint`               | Lint all files with Biome                                  |
+| `pnpm lint`               | Lint all files with Biome (`pnpm lint:fix` applies fixes)  |
 | `pnpm type:check`         | TypeScript type check only (`tsc -b`)                      |
 | `pnpm update:interactive` | Update dependencies interactively                          |
 
@@ -76,24 +76,23 @@ src/
 ├── AppProvider.tsx            → Providers (Redux, ErrorBoundary, Router)
 ├── assets/                   → Static files (images, fonts, etc.)
 ├── routes/                   → Route definitions + page components (lazy-loaded via React.lazy)
-│   ├── index.tsx             → Route tree
+│   ├── index.tsx             → Route tree, page ErrorBoundary and Suspense
 │   ├── Home/
-│   └── Subscriptions/
+│   ├── Subscriptions/
+│   └── NotFound/
 ├── shared/
 │   ├── config/               → Environment variables, Sentry setup
 │   ├── helpers/              → Generic utilities (localStorage, style utils, etc.)
-│   └── store/                → Redux store setup, base RTK Query API, typed hooks
+│   └── store/                → Redux store setup, base RTK Query API, typed hooks, test utilities
 ├── UI/
 │   ├── Base/                 → shadcn/ui components, managed by the shadcn CLI
 │   ├── Elements/             → Project UI components built on Base and Tailwind
 │   └── Layout/               → Page layouts, Header, global CSS
 ├── features/                 → Feature slices
 │   └── <feature>/
-│       ├── store/            → Redux slice, selectors, effects, types, specs
-│       ├── components/       → Feature-specific React components
-│       ├── hooks/            → Feature-specific React hooks
-│       └── services/         → Services consumed by Redux
-└── test/                     → MSW handlers, test utilities
+│       ├── store/            → Redux slice, selectors, API endpoints, effects, types, specs
+│       └── components/       → Feature-specific React components
+└── test/                     → MSW handlers, browser worker and Node server
 ```
 
 Why vertical slices over alternatives like [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/) or [Feature-Sliced Design](https://feature-sliced.design/)?
@@ -136,7 +135,7 @@ With Redux, typed hooks (`useAppDispatch`, `useAppSelector`) and pure selectors 
 ### Radix + shadcn/ui
 
 - **Minimal dependencies** -- Components are copied into your project, not installed as a black-box package.
-- **Separation of design and behavior** -- shadcn/ui provides unstyled primitives you own and customize.
+- **Separation of design and behavior** -- Radix provides the accessible, headless behavior; shadcn/ui provides styled components on top of it that you own and customize.
 - **Accessible by default** -- All components adhere to [WAI-ARIA](https://www.w3.org/WAI/ARIA/apg/) patterns. See [this talk](https://www.youtube.com/watch?v=pcMYcjtWwVI) for details.
 
 shadcn/ui components (style `radix-vega`) live in `src/UI/Base/`, one kebab-case file each (`src/UI/Base/button.tsx`), and are managed with the [shadcn CLI](https://ui.shadcn.com/docs/cli), installed as a dev dependency:
@@ -164,7 +163,9 @@ Keep the files in `src/UI/Base/` close to upstream so they stay easy to update. 
 
 Tests use **Vitest 5** with **Testing Library** and **jsdom**. Test files live next to the code they test with a `.spec.ts` / `.spec.tsx` suffix.
 
-API mocking uses **MSW**: the same request handlers in `src/test/handlers` power both development and tests. In development the `msw/vite` plugin serves the worker script straight from `node_modules`, so there is no `mockServiceWorker.js` to regenerate when MSW is upgraded.
+API mocking uses **MSW**: the same request handlers in `src/test/handlers` power both development and tests, and a request without a handler fails the test. In development the `msw/vite` plugin serves the worker script straight from `node_modules`, so there is no `mockServiceWorker.js` to regenerate when MSW is upgraded, and neither the worker nor the mocks reach the production build.
+
+`pnpm test:coverage` fails when coverage drops under the thresholds in `vite.config.mts`.
 
 ### E2E tests
 
@@ -172,7 +173,7 @@ E2E tests use **Cucumber** (Gherkin syntax) with **Playwright** as the browser a
 
 ```bash
 # First time setup
-pnpm exec playwright install
+pnpm exec playwright install chromium
 
 # Run (dev server must be running)
 pnpm dev &
@@ -183,13 +184,13 @@ pnpm e2e:local
 
 Production builds use vendor chunk splitting for optimal caching:
 
-| Chunk           | Contents                                    |
-| --------------- | ------------------------------------------- |
-| `vendor-react`  | React, React DOM, React Router, React Redux |
-| `vendor-redux`  | Redux Toolkit (RTK Query, Immer, Reselect)  |
-| `vendor-radix`  | Radix UI primitives                         |
-| `vendor-sentry` | Sentry SDK                                  |
-| `vendor-ui`     | CVA, cn, Lucide icons                       |
+| Chunk           | Contents                                                          |
+| --------------- | ----------------------------------------------------------------- |
+| `vendor-react`  | React, React DOM, React Router, React Redux, react-error-boundary |
+| `vendor-redux`  | Redux Toolkit (RTK Query, Immer, Reselect)                        |
+| `vendor-radix`  | Radix UI primitives                                               |
+| `vendor-sentry` | Sentry SDK (session replay loads later from the Sentry CDN)       |
+| `vendor-ui`     | CVA, cn, Lucide icons                                             |
 
 Routes are **lazy-loaded** via `React.lazy()` for automatic code splitting.
 
@@ -199,8 +200,8 @@ Routes are **lazy-loaded** via `React.lazy()` for automatic code splitting.
 
 The release pipeline is fully automated with [semantic-release](https://semantic-release.gitbook.io/semantic-release/):
 
-1. Developer merges a PR into `main`.
-2. CI runs tests and E2E.
+1. Every pull request runs the checks: Biome, types, unit tests with coverage thresholds, build and E2E.
+2. Developer merges the PR into `main`, and the same checks run again.
 3. semantic-release analyzes commits, determines the version bump, generates the changelog, creates a GitHub release and git tag.
 
 No manual version bumps. No manual changelog edits.
@@ -210,13 +211,13 @@ No manual version bumps. No manual changelog edits.
 | Tool                                                                     | Purpose                                                                                                        |
 | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
 | [Commitlint](https://commitlint.js.org/)                                 | Enforces [Conventional Commits](https://www.conventionalcommits.org/) format (`feat:`, `fix:`, `chore:`, etc.) |
-| [Husky](https://github.com/typicode/husky)                               | Runs commitlint + tests on pre-commit                                                                          |
+| [Husky](https://github.com/typicode/husky)                               | Runs Biome and tests on pre-commit, commitlint on commit-msg                                                   |
 | [Semantic-release](https://github.com/semantic-release/semantic-release) | Automates versioning, changelogs, GitHub releases, and git tags                                                |
 
 ### Why Conventional Commits?
 
 - **Automated changelogs** -- Commit messages drive what goes into `CHANGELOG.md`.
-- **Semantic versioning** -- `feat` = minor, `fix` = patch, `BREAKING CHANGE` = major.
+- **Semantic versioning** -- `feat` = minor; `fix`, `perf`, `refactor`, `style` and `docs(README)` = patch; `BREAKING CHANGE` = major.
 - **Readable history** -- Anyone can scan `git log` and understand the nature of each change at a glance.
 
 ## Format and Style
@@ -264,7 +265,7 @@ Contributions are welcome! To get started:
 2. Create a branch: `git checkout -b feat/your-feature`
 3. Make your changes
 4. Verify: `pnpm check` (lint, format, types) and `pnpm test`
-5. Commit using [Conventional Commits](https://www.conventionalcommits.org/) (enforced by the pre-commit hook)
+5. Commit using [Conventional Commits](https://www.conventionalcommits.org/) (enforced by the commit-msg hook)
 6. Open a Pull Request
 
 > This project includes an [`AGENTS.md`](./AGENTS.md) file with detailed instructions for AI coding agents.

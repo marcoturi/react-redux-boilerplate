@@ -41,6 +41,7 @@ Redux Toolkit ships official agent skills in `node_modules/@reduxjs/toolkit/skil
 ## Side effects
 
 - Register listeners with `startAppListening` from `@/shared/store/listener`, typed with `RootState` and `AppDispatch`. Use `actionCreator` and let it type the action; do not annotate `PayloadAction` by hand.
+- Report failures that the UI does not show (a rejected thunk, a failed write to storage) with `captureError` from `@/shared/helpers/error-tracking.service`, as `settings.effect.ts` does for `loadState.rejected`.
 
 ## RTK Query
 

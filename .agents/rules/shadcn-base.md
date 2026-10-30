@@ -40,6 +40,6 @@ The official shadcn agent skill (`skills/shadcn` in github.com/shadcn-ui/ui, ins
 
 - In `components.json`, do not hand-edit `style`, `aliases`, `rsc` (stays `false`), `menuColor` or `menuAccent`. `baseColor` and `cssVariables` cannot change after initialization.
 - Change the icon library, base color or RTL only with `pnpm exec shadcn migrate icons|base-color|rtl`.
-- `apply` overwrites every installed component in `src/UI/Base`. Before changing a preset, ask the user: inspect it with `pnpm exec shadcn preset resolve <code>` or `preset decode <code>`, then choose between overwriting (`apply <code>`), theme or font only (`apply <code> --only theme,font`), or keeping the components (`init --preset <code> --force --no-reinstall`).
+- `apply` overwrites every installed component in `src/UI/Base`. Before changing a preset, ask the user: inspect the new code with `pnpm exec shadcn preset decode <code>` and compare it with the current one (`pnpm exec shadcn preset resolve`), then choose between overwriting (`apply <code>`), theme or font only (`apply <code> --only theme,font`), or keeping the components (`init --preset <code> --force --no-reinstall`).
 - Do not remove the `shadcn` devDependency by hand: `global.css` imports `shadcn/tailwind.css`. `shadcn eject` inlines that CSS and drops the dependency; it cannot be undone, so run it only with the user's approval.
 - Keep `compilerOptions.paths` in the root `tsconfig.json` in sync with `tsconfig.app.json`: the CLI resolves the aliases through the root file.

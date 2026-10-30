@@ -18,7 +18,8 @@ Applies to hand-written components. `src/UI/Base/**` is upstream shadcn code and
 - Read the latest props or state inside an effect with `useEffectEvent`, within its limits (Biome does not check them): call it only from the Effects of the same component or hook, never during render, never pass it to other components or hooks, never list it in dependencies, and never use it to silence the dependency lint.
 - Read state with `useAppSelector` and dispatch with `useAppDispatch` from `@/shared/store/types`; never use `useSelector` or `useDispatch` from `react-redux` directly.
 - Import feature state through the namespaces of the feature's `store/index.ts` (`SettingsActions`, `SettingsSelectors`, `SubscriptionApi`), never from `*.slice.ts` or `*.api.ts`.
-- Report errors to Sentry only through the `createRoot` callbacks in `src/main.tsx`; do not call Sentry from an `ErrorBoundary` `onError`. Send errors from event handlers and async code to the nearest boundary with `useErrorBoundary().showBoundary` (`react-error-boundary`).
+- Render errors reach Sentry only through the `createRoot` callbacks in `src/main.tsx`; do not call Sentry from an `ErrorBoundary` `onError`. Send errors from event handlers and async code to the nearest boundary with `useErrorBoundary().showBoundary` (`react-error-boundary`). Handled errors outside rendering (effects, thunks) go through `captureError` (see `redux-state.md`).
+- Show a failed RTK Query request (`isError`) with its own state and a retry, as `SubscriptionList` does: never let it fall through to the empty state.
 
 ## Shape and typing
 
@@ -32,7 +33,7 @@ Applies to hand-written components. `src/UI/Base/**` is upstream shadcn code and
 - Use `<Context value={...}>`, not `<Context.Provider>`.
 - For DOM setup and teardown (observers, third-party widgets) use a ref callback that returns a cleanup, and keep it stable (module level or `useCallback`): an inline callback is torn down and re-created on every render. To observe several children without a wrapper element, use `<Fragment ref>` (React 19.3).
 - Split a component that grows past about 120 lines: one component per data concern, JSX section or conditional branch, with layout separate from content.
-- Use named exports; only route pages are default exports, for `lazy()`.
+- Use named exports; only route pages are default exports, for `lazy()` (see `typescript.md` for `.ts` modules).
 
 ## Performance
 
