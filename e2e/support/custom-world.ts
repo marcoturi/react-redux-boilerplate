@@ -12,7 +12,7 @@ enum Parameters {
   SERVER_URL = 'SERVER_URL',
 }
 
-export type WorldParams = Record<Parameters, any>;
+export type WorldParams = Record<Parameters, string>;
 
 export interface CucumberWorldConstructorParams {
   parameters: WorldParams;

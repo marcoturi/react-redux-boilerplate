@@ -21,8 +21,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
-    "noImplicitAny": false
+    "noUncheckedSideEffectImports": true
   },
   "include": ["vite.config.mts"]
 }

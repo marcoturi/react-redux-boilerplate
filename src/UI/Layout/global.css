@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" source("../..");
 @import "tw-animate-css";
 /* Custom variants (data-open, data-closed...) and keyframes used by src/UI/Base */
 @import "shadcn/tailwind.css";

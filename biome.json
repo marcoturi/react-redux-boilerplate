@@ -24,7 +24,12 @@
         "useIndexOf": "error"
       },
       "correctness": {
-        "useExhaustiveDependencies": "warn",
+        "useExhaustiveDependencies": {
+          "level": "error",
+          "options": {
+            "hooks": [{ "name": "useAppDispatch", "stableResult": true }]
+          }
+        },
         "useHookAtTopLevel": "error"
       },
       "style": {
@@ -46,6 +51,11 @@
         "useTrimStartEnd": "error",
         "useUnifiedTypeSignatures": "error"
       },
+      "nursery": {
+        "useTailwindSortedClasses": { "level": "error", "fix": "safe" },
+        "noTailwindRawColors": "error",
+        "noTailwindLegacyUtilities": "error"
+      },
       "suspicious": {
         "noDocumentCookie": "error",
         "noThenProperty": "error",
@@ -65,6 +75,9 @@
       "quoteStyle": "single"
     }
   },
+  "tailwind": {
+    "stylesheet": "src/UI/Layout/global.css"
+  },
   "css": {
     "parser": {
       "tailwindDirectives": true
@@ -77,6 +90,18 @@
   },
   "overrides": [
     {
+      "includes": ["src/UI/Base/**"],
+      "linter": {
+        "rules": {
+          "nursery": {
+            "useTailwindSortedClasses": "off",
+            "noTailwindRawColors": "off",
+            "noTailwindLegacyUtilities": "off"
+          }
+        }
+      }
+    },
+    {
       "includes": ["**/*.{ts,tsx,mts,cts}"],
       "linter": {
         "rules": {
@@ -88,7 +113,6 @@
             "useConsistentTypeDefinitions": "off"
           },
           "suspicious": {
-            "noExplicitAny": "off",
             "noConfusingVoidType": "off"
           }
         }

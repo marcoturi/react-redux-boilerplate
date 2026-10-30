@@ -52,7 +52,7 @@ BeforeAll(async () => {
   await ensureDir(tracesDir);
 });
 
-Before({ tags: '@pending' }, () => 'skipped' as any);
+Before({ tags: '@pending' }, () => 'skipped');
 
 Before({ tags: '@debug' }, function (this: ICustomWorld) {
   this.debug = true;

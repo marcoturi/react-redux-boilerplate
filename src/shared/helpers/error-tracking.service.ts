@@ -1,6 +1,10 @@
 import * as Sentry from '@sentry/react';
 
-export function captureError(err: any, msg?: string, data?: any) {
+export function captureError(
+  err: unknown,
+  msg?: string,
+  data?: Record<string, unknown>,
+) {
   Sentry.captureException(err, (scope) => {
     if (msg) {
       scope.addBreadcrumb({
