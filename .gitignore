@@ -29,3 +29,6 @@ coverage
 .env
 .serena
 .history/
+
+# Yarn leftovers (the project uses pnpm)
+.yarn
