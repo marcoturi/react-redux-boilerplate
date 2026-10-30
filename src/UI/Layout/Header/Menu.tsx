@@ -5,7 +5,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from '@/UI/Elements/Navigation';
+} from '@/UI/Base/navigation-menu';
 
 type Props = {
   menuItems: { label: string; href: string; testId: string }[];

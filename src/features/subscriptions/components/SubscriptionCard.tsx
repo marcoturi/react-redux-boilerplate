@@ -1,7 +1,6 @@
 import type { Subscription } from '@/features/subscriptions/store/subscription.type';
-import { Button } from '@/UI/Elements/Button';
-import { Card } from '@/UI/Elements/Card';
-import { CardContent, CardHeader, CardTitle } from '@/UI/Elements/Card/Card';
+import { Button } from '@/UI/Base/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/UI/Base/card';
 import { Text } from '@/UI/Elements/Text';
 
 interface SubscriptionCardProps {

@@ -38,17 +38,17 @@ export default defineConfig({
             // Radix UI primitives + themes
             {
               name: 'vendor-radix',
-              test: /[\\/]node_modules[\\/]@radix-ui[\\/]/,
+              test: /[\\/]node_modules[\\/](@radix-ui|radix-ui)[\\/]/,
             },
             // Sentry monitoring (loaded async, rarely changes)
             {
               name: 'vendor-sentry',
               test: /[\\/]node_modules[\\/]@sentry[\\/]/,
             },
-            // UI utilities (CVA, clsx, tailwind-merge, lucide icons)
+            // UI utilities (CVA, cn, lucide icons)
             {
               name: 'vendor-ui',
-              test: /[\\/]node_modules[\\/](class-variance-authority|clsx|tailwind-merge|lucide-react)[\\/]/,
+              test: /[\\/]node_modules[\\/](class-variance-authority|cn|lucide-react)[\\/]/,
             },
           ],
         },

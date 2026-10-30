@@ -1,6 +1,6 @@
 import { SubscriptionCard } from '@/features/subscriptions/components';
 import { useAppSelector } from '@/shared/store/types';
-import { SkeletonList } from '@/UI/Elements/Skeleton';
+import { SkeletonList } from '@/UI/Elements/SkeletonList';
 import { SubscriptionApi, SubscriptionSelectors } from '../store';
 
 export function SubscriptionList() {

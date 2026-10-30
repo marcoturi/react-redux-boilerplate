@@ -84,7 +84,8 @@ src/
 │   ├── helpers/              → Generic utilities (localStorage, style utils, etc.)
 │   └── store/                → Redux store setup, base RTK Query API, typed hooks
 ├── UI/
-│   ├── Elements/             → Reusable UI components (shadcn/ui based)
+│   ├── Base/                 → shadcn/ui components, managed by the shadcn CLI
+│   ├── Elements/             → Project UI components built on Base and Radix Themes
 │   └── Layout/               → Page layouts, Header, global CSS
 ├── features/                 → Feature slices
 │   └── <feature>/
@@ -138,7 +139,15 @@ With Redux, typed hooks (`useAppDispatch`, `useAppSelector`) and pure selectors 
 - **Separation of design and behavior** -- shadcn/ui provides unstyled primitives you own and customize.
 - **Accessible by default** -- All components adhere to [WAI-ARIA](https://www.w3.org/WAI/ARIA/apg/) patterns. See [this talk](https://www.youtube.com/watch?v=pcMYcjtWwVI) for details.
 
-Components live in `src/UI/Elements/` and are managed via the [shadcn CLI](https://ui.shadcn.com/docs/cli) (`npx shadcn@latest add <component>`).
+shadcn/ui components (style `radix-vega`) live in `src/UI/Base/`, one kebab-case file each (`src/UI/Base/button.tsx`), and are managed with the [shadcn CLI](https://ui.shadcn.com/docs/cli), installed as a dev dependency:
+
+```bash
+pnpm exec shadcn add dialog          # adds src/UI/Base/dialog.tsx
+pnpm exec shadcn add button --diff   # compare a component with the upstream version
+pnpm check:fix                       # format the added files with Biome
+```
+
+Keep the files in `src/UI/Base/` close to upstream so they stay easy to update. Compositions and project-specific components go in `src/UI/Elements/<Name>/` (e.g. `SkeletonList`).
 
 ### Tailwind CSS 4
 
@@ -180,7 +189,7 @@ Production builds use vendor chunk splitting for optimal caching:
 | `vendor-redux`  | Redux Toolkit (RTK Query, Immer, Reselect)  |
 | `vendor-radix`  | Radix UI primitives and themes              |
 | `vendor-sentry` | Sentry SDK                                  |
-| `vendor-ui`     | CVA, clsx, tailwind-merge, Lucide icons     |
+| `vendor-ui`     | CVA, cn, Lucide icons                       |
 
 Routes are **lazy-loaded** via `React.lazy()` for automatic code splitting.
 

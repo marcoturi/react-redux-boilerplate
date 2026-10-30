@@ -65,7 +65,8 @@ src/
 │   ├── helpers/             → Utilities (localStorage, error tracking, style utils)
 │   └── store/               → Redux store setup, base API, types
 ├── UI/
-│   ├── Elements/            → Reusable UI components (shadcn/ui based)
+│   ├── Base/                → shadcn/ui components, managed by the shadcn CLI
+│   ├── Elements/            → Project UI components built on Base and Radix Themes
 │   └── Layout/              → Page layouts (Header, global CSS)
 └── test/                    → MSW handlers, test config
 ```
@@ -90,8 +91,10 @@ src/
 
 - **Tailwind CSS 4** via `@tailwindcss/vite` plugin (no PostCSS pipeline needed).
 - **Theme**: Defined in CSS variables in `src/UI/Layout/global.css` using `@theme inline`.
-- **shadcn/ui components**: In `src/UI/Elements/`. Added via `npx shadcn@latest add <component>`.
-- **Style utility**: `cn()` helper in `src/shared/helpers/style.utils.ts` (merges `clsx` + `tailwind-merge`).
+- **shadcn/ui components**: Style `radix-vega`, in `src/UI/Base/` as kebab-case files (`src/UI/Base/button.tsx`). Add or update them only with the CLI (`pnpm exec shadcn add <component>`, `--diff` to compare with upstream), then run `pnpm check:fix`. Keep them close to upstream: never move or rename them, or the CLI loses track of them.
+- **Project UI components**: Compositions and wrappers (e.g. `SkeletonList`, `Text`, `Container`) go in `src/UI/Elements/<Name>/<Name>.tsx` with an `index.ts` barrel.
+- **Style utility**: `cn()` from the `cn` package. shadcn components import it directly; `src/shared/helpers/style.utils.ts` re-exports it as the `utils` alias.
+- **CLI paths**: `components.json` aliases resolve through `compilerOptions.paths` in the root `tsconfig.json`; keep it in sync with `tsconfig.app.json`.
 
 ## Commits and releases
 
@@ -109,7 +112,7 @@ src/
   - `vendor-redux`: Redux Toolkit (RTK Query, Immer, Reselect)
   - `vendor-radix`: All Radix UI packages
   - `vendor-sentry`: Sentry monitoring
-  - `vendor-ui`: CVA, clsx, tailwind-merge, Lucide icons
+  - `vendor-ui`: CVA, cn, Lucide icons
 
 ## Environment variables
 

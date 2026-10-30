@@ -10,7 +10,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/UI/Elements/Select';
+} from '@/UI/Base/select';
 
 export function SubscriptionFilter() {
   const dispatch = useAppDispatch();

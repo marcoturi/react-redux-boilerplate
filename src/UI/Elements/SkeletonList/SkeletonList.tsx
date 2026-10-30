@@ -1,19 +1,7 @@
 import { cn } from '@/shared/helpers/style.utils';
+import { Skeleton } from '@/UI/Base/skeleton';
 
-function Skeleton({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div
-      data-slot="skeleton"
-      className={cn('bg-primary/10 animate-pulse rounded-md', className)}
-      {...props}
-    />
-  );
-}
-
-function SkeletonCard({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+function SkeletonCard({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div className={cn('flex items-center space-x-4', className)} {...props}>
       <Skeleton className="h-12 w-12 rounded-full" />
@@ -25,7 +13,7 @@ function SkeletonCard({
   );
 }
 
-function SkeletonList({ ...props }: React.HTMLAttributes<HTMLDivElement>) {
+function SkeletonList(props: React.ComponentProps<'div'>) {
   return (
     <div {...props}>
       <SkeletonCard className="py-5" />
@@ -35,4 +23,4 @@ function SkeletonList({ ...props }: React.HTMLAttributes<HTMLDivElement>) {
   );
 }
 
-export { Skeleton, SkeletonCard, SkeletonList };
+export { SkeletonCard, SkeletonList };
