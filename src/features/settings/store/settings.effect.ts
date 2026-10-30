@@ -4,6 +4,7 @@ import LocalStorageService, {
 } from '@/shared/helpers/local-storage.service';
 import { startAppListening } from '@/shared/store/listener';
 import { SettingsActions } from './index';
+import { SettingsKey } from './settings.type';
 
 /**
  * Important: these listeners are here only to showcase the listener middleware.
@@ -11,15 +12,28 @@ import { SettingsActions } from './index';
  * you should use something like redux-persist instead.
  * https://github.com/markerikson/redux-ecosystem-links/blob/master/store-persistence.md
  */
+function persist(key: SettingsKey, value: unknown) {
+  try {
+    LocalStorageService(StorageKeys.settings).set(key, value);
+  } catch (error) {
+    captureError(error, `Error setting value for local storage key: ${key}`);
+  }
+}
+
 startAppListening({
   actionCreator: SettingsActions.setItem,
   effect: (action) => {
-    const { key, value } = action.payload;
-    try {
-      LocalStorageService(StorageKeys.settings).set(key, value);
-    } catch (error) {
-      captureError(error, 'Error setting value for local storage key');
-    }
+    persist(action.payload.key, action.payload.value);
+  },
+});
+
+startAppListening({
+  actionCreator: SettingsActions.subscriptionFilterChanged,
+  effect: (_action, listenerApi) => {
+    persist(
+      SettingsKey.filters,
+      listenerApi.getState().settings[SettingsKey.filters],
+    );
   },
 });
 

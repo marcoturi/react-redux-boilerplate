@@ -1,4 +1,7 @@
-import type { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
+import {
+  isSubscriptionFilter,
+  type SubscriptionFilters,
+} from '@/features/subscriptions/store/subscription.type';
 
 export enum SettingsKey {
   filters = 'filters',
@@ -17,4 +20,16 @@ export interface SetValuePayload {
 
 export interface RemoveValuePayload {
   key: SettingsKey;
+}
+
+export type FiltersSetting = SettingsState[SettingsKey.filters];
+
+export function isFiltersSetting(value: unknown): value is FiltersSetting {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    'filterSubscriptionsBy' in value &&
+    typeof value.filterSubscriptionsBy === 'string' &&
+    isSubscriptionFilter(value.filterSubscriptionsBy)
+  );
 }

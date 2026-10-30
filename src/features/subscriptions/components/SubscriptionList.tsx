@@ -6,7 +6,7 @@ import { SubscriptionApi, SubscriptionSelectors } from '../store';
 export function SubscriptionList() {
   const { isLoading } = SubscriptionApi.useGetSubscriptionsQuery();
   const subscriptions = useAppSelector(
-    SubscriptionSelectors.getSubscriptionListFiltered,
+    SubscriptionSelectors.selectFilteredSubscriptions,
   );
 
   if (isLoading) {

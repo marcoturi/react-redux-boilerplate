@@ -1,7 +1,9 @@
+import { type Subscription, SubscriptionType } from './subscription.type';
+
 export const subscriptionMockList = [
   {
     id: 'monthly',
-    type: 'subscription',
+    type: SubscriptionType.Subscription,
     name: 'Monthly Subscription',
     price: 9.99,
     currency: 'EUR',
@@ -10,7 +12,7 @@ export const subscriptionMockList = [
   },
   {
     id: 'yearly',
-    type: 'subscription',
+    type: SubscriptionType.Subscription,
     name: 'Yearly Subscription',
     price: 99.99,
     currency: 'EUR',
@@ -19,11 +21,11 @@ export const subscriptionMockList = [
   },
   {
     id: 'lifetime',
-    type: 'oneTimePurchase',
+    type: SubscriptionType.OneTimePurchase,
     name: 'Lifetime Purchase',
     price: 299.99,
     currency: 'EUR',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   },
-];
+] satisfies Subscription[];

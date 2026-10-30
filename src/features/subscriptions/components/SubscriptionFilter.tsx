@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
 import { SettingsActions, SettingsSelectors } from '@/features/settings/store';
 import { SettingsKey } from '@/features/settings/store/settings.type';
-import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
+import {
+  isSubscriptionFilter,
+  SubscriptionFilters,
+} from '@/features/subscriptions/store/subscription.type';
 import { useAppDispatch, useAppSelector } from '@/shared/store/types';
 import {
   Select,
@@ -15,23 +17,13 @@ import {
 export function SubscriptionFilter() {
   const dispatch = useAppDispatch();
   const filters = useAppSelector((state) =>
-    SettingsSelectors.getSettingByKey(state, SettingsKey.filters),
+    SettingsSelectors.selectSettingByKey(state, SettingsKey.filters),
   );
   const onValueChange = (value: string) => {
-    dispatch(
-      SettingsActions.setItem({
-        key: SettingsKey.filters,
-        value: {
-          ...filters,
-          filterSubscriptionsBy: value as SubscriptionFilters,
-        },
-      }),
-    );
+    if (isSubscriptionFilter(value)) {
+      dispatch(SettingsActions.subscriptionFilterChanged(value));
+    }
   };
-
-  useEffect(() => {
-    dispatch(SettingsActions.loadState());
-  }, [dispatch]);
 
   return (
     <Select value={filters.filterSubscriptionsBy} onValueChange={onValueChange}>

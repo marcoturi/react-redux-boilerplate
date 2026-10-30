@@ -1,3 +1,5 @@
+import { SettingsActions } from '@/features/settings/store';
+import { store } from '@/shared/store';
 import { AppProvider } from './AppProvider';
 import { initMocks } from './test';
 import '@/UI/Layout/global.css';
@@ -19,6 +21,8 @@ window.addEventListener('vite:preloadError', () => {
 });
 
 initMocks().then(() => {
+  // Restore the persisted settings once, before the first render
+  store.dispatch(SettingsActions.loadState());
   const root = document.getElementById('root');
   if (!root) throw new Error('Root element not found');
   createRoot(root, {

@@ -1,29 +1,30 @@
-import { initialStorageState } from '@/features/settings/store/settings.slice';
-import { SettingsKey } from '@/features/settings/store/settings.type';
-import { SubscriptionFilters } from '@/features/subscriptions/components/subscription.types';
+import { SettingsActions } from '@/features/settings/store';
 import { subscriptionApi } from '@/features/subscriptions/store/subscription.api';
 import { subscriptionMockList } from '@/features/subscriptions/store/subscription.mocks.spec';
-import type { Subscription } from '@/features/subscriptions/store/subscription.type';
+import {
+  type Subscription,
+  SubscriptionFilters,
+} from '@/features/subscriptions/store/subscription.type';
 import { setupStore } from '@/shared/store/test';
+import type { AppStore } from '@/shared/store/types';
 import { SubscriptionSelectors } from '.';
 
 describe('Subscription Selector:', () => {
-  // biome-ignore lint/suspicious/noImplicitAnyLet: store type inferred at assignment
-  let store;
+  let store: AppStore;
 
   beforeEach(() => {
     store = setupStore();
   });
 
   it('Should return an empty list in case of no data', async () => {
-    const data = [];
+    const data: Subscription[] = [];
 
     await store.dispatch(
       subscriptionApi.util.upsertQueryData('getSubscriptions', undefined, data),
     );
 
     expect(
-      SubscriptionSelectors.getSubscriptionListFiltered(store.getState()),
+      SubscriptionSelectors.selectFilteredSubscriptions(store.getState()),
     ).toEqual(data);
   });
 
@@ -32,12 +33,12 @@ describe('Subscription Selector:', () => {
       subscriptionApi.util.upsertQueryData(
         'getSubscriptions',
         undefined,
-        subscriptionMockList as Subscription[],
+        subscriptionMockList,
       ),
     );
 
     expect(
-      SubscriptionSelectors.getSubscriptionListFiltered(store.getState()),
+      SubscriptionSelectors.selectFilteredSubscriptions(store.getState()),
     ).toEqual(subscriptionMockList);
   });
 
@@ -46,21 +47,17 @@ describe('Subscription Selector:', () => {
       subscriptionApi.util.upsertQueryData(
         'getSubscriptions',
         undefined,
-        subscriptionMockList as Subscription[],
+        subscriptionMockList,
+      ),
+    );
+    store.dispatch(
+      SettingsActions.subscriptionFilterChanged(
+        SubscriptionFilters.OneTimePurchase,
       ),
     );
 
-    const expectedState = {
-      ...store.getState(),
-      settings: {
-        ...initialStorageState,
-        [SettingsKey.filters]: {
-          filterSubscriptionsBy: SubscriptionFilters.OneTimePurchase,
-        },
-      },
-    };
     expect(
-      SubscriptionSelectors.getSubscriptionListFiltered(expectedState),
+      SubscriptionSelectors.selectFilteredSubscriptions(store.getState()),
     ).toEqual([subscriptionMockList[2]]);
   });
 });
