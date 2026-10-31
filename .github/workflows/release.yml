@@ -20,6 +20,7 @@ jobs:
     name: Release
     needs: verify
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
@@ -29,6 +30,10 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
+          # Without the GITHUB_TOKEN left in the git config, semantic-release
+          # pushes the release commit with GH_TOKEN, whose owner must be able
+          # to bypass the ruleset that protects main
+          persist-credentials: false
       - name: Install pnpm
         uses: pnpm/action-setup@v6
       - name: Setup Node.js

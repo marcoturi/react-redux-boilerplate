@@ -11,6 +11,7 @@ jobs:
   verify:
     name: Check, test, build and e2e
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -26,7 +27,8 @@ jobs:
       - name: Copy env
         run: pnpm create:env
       - name: Check (Biome + types)
-        run: pnpm check
+        # Biome reports problems as annotations on the pull request
+        run: pnpm check:ci
       - name: Unit tests with coverage thresholds
         run: pnpm test:coverage
       - name: Build
@@ -39,9 +41,12 @@ jobs:
           # Start the scenarios only once the dev server answers
           timeout 60 bash -c 'until curl -sf http://localhost:5173 > /dev/null; do sleep 1; done'
           pnpm e2e
+      # Cucumber reports, and the Playwright traces of failed scenarios
       - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: reports
-          path: reports/
+          path: |
+            reports/
+            traces/
           retention-days: 30
