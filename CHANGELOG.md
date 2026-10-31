@@ -1,3 +1,21 @@
+## [1.7.53](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.52...v1.7.53) (2026-10-31)
+
+
+### Bug Fixes
+
+* **a11y:** add landmarks, the current page, labels and page titles ([d2de2b6](https://github.com/marcoturi/react-redux-boilerplate/commit/d2de2b608ef4cb16e2fbcba9c08d45e1f545b137))
+* **app:** render the app when the mock worker fails to start ([f01487b](https://github.com/marcoturi/react-redux-boilerplate/commit/f01487bb263492af5d3c48661648d26f877c6f2f))
+* **app:** stop reload loops and reload the current page on errors ([182b967](https://github.com/marcoturi/react-redux-boilerplate/commit/182b967bdd59927659ce60d9fa3ce207fa3635f2))
+* **config:** type the environment and keep the API path ([be8f90a](https://github.com/marcoturi/react-redux-boilerplate/commit/be8f90aa139756ac9438a07dbadee130641852fe))
+* **settings:** survive corrupt storage and restore before the first render ([8392804](https://github.com/marcoturi/react-redux-boilerplate/commit/83928047a4c76ef9ded5737299b5dd4c7a106a13))
+* **subscriptions:** keep the cached list when a refetch fails ([61f03ec](https://github.com/marcoturi/react-redux-boilerplate/commit/61f03ec0081c7ee034c65885cff0e3cfcd75bc1d))
+* **subscriptions:** show an error when the list fails to load ([176ed95](https://github.com/marcoturi/react-redux-boilerplate/commit/176ed952799b688f6f349d5e8b0831c4b81d2284))
+
+
+### Performance Improvements
+
+* **build:** trace routes, lazy-load Sentry replay, drop the MSW worker ([8f2d365](https://github.com/marcoturi/react-redux-boilerplate/commit/8f2d36585fe6d81ff997af25fb29a508e6f0e7fd))
+
 ## [1.7.52](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.51...v1.7.52) (2026-10-30)
 
 

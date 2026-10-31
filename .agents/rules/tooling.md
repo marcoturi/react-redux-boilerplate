@@ -1,6 +1,7 @@
 ---
 paths:
   - "package.json"
+  - "pnpm-workspace.yaml"
   - "vite.config.mts"
   - "tsconfig*.json"
   - "biome.json"
@@ -15,6 +16,8 @@ paths:
 # Tooling and configuration
 
 - Use pnpm only (`packageManager` in `package.json`). Add dependencies with exact versions: `pnpm add -E <pkg>`, with `-D` for dev dependencies. The shadcn CLI adds dependencies with `^` ranges: pin them after every `shadcn add`. Change the lockfile only in dependency tasks.
+- pnpm 12 settings live in `pnpm-workspace.yaml`: pnpm ignores the `pnpm` field of `package.json`, and `.npmrc` holds only registry and auth. A dependency that needs its install script goes in `allowBuilds`. Keep the default `minimumReleaseAge` (versions younger than one day are not installed) and the same delay in `renovate.json`; when a fix cannot wait, add the package to `minimumReleaseAgeExclude` instead of lowering the delay.
+- pnpm writes its own version to the lockfile: after changing `packageManager`, run `pnpm install` and commit the lockfile, or `pnpm install --frozen-lockfile` fails in CI.
 - Take the Node.js version from `.nvmrc` (26.x) and run `fnm use` or `nvm use` before commands.
 - Load Tailwind CSS only through `@tailwindcss/vite`: no PostCSS config and no `tailwind.config.*`.
 - When adding a vendor dependency, check the chunk groups in `build.rolldownOptions.output.codeSplitting.groups` (`vite.config.mts`); groups match in order and the first match wins.
