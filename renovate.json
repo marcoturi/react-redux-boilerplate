@@ -1,16 +1,32 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
+  "extends": [
+    "config:recommended",
+    "customManagers:biomeVersions",
+    "customManagers:dockerfileVersions"
+  ],
   "minimumReleaseAge": "1 day",
+  "osvVulnerabilityAlerts": true,
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
   "packageRules": [
     {
+      "description": "Automerge minor and patch updates, except 0.x versions, where a minor can break",
       "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^0/",
       "automerge": true
     },
     {
       "description": "Keep GitHub Actions on major tags (@v7), never digests",
       "matchManagers": ["github-actions"],
       "pinDigests": false
+    },
+    {
+      "description": "Node.js types follow the Node.js major in .nvmrc",
+      "matchPackageNames": ["@types/node"],
+      "allowedVersions": "26.x"
     }
   ],
   "timezone": "Europe/Rome",
