@@ -6,6 +6,11 @@
     {
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
+    },
+    {
+      "description": "Keep GitHub Actions on major tags (@v7), never digests",
+      "matchManagers": ["github-actions"],
+      "pinDigests": false
     }
   ],
   "timezone": "Europe/Rome",

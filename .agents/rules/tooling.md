@@ -31,3 +31,4 @@ paths:
   - the Tailwind rules `useTailwindSortedClasses`, `noTailwindRawColors` and `noTailwindLegacyUtilities`, reading the theme from `tailwind.stylesheet`, and switched off for `src/UI/Base/**`.
 - Fix the code rather than adding `biome-ignore`; when an ignore is unavoidable, state the reason in it.
 - Ask before changing `.github/workflows/`, `.releaserc` or `commitlint.config.cjs`. `verify.yml` (check, unit tests with coverage thresholds, build, e2e) runs on every pull request through `ci.yml` and before every release through `release.yml`, which then runs semantic-release on `main`.
+- Reference GitHub Actions by major tag only (`actions/checkout@v7`): no minor or patch tags (`@v7.1.1`) and no commit SHAs. `renovate.json` turns off digest pinning for them.
