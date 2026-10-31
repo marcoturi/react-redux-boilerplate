@@ -8,15 +8,46 @@ HTMLElement.prototype.scrollIntoView = vi.fn();
 HTMLElement.prototype.hasPointerCapture = vi.fn();
 HTMLElement.prototype.releasePointerCapture = vi.fn();
 
+// MSW's 'error' strategy only logs and fails the request, which a component
+// may hide: collect unhandled requests and fail the test in afterEach
+const unhandledRequests: string[] = [];
+
+function describeFrame({
+  protocol,
+  data,
+}: {
+  protocol: string;
+  data: unknown;
+}) {
+  if (
+    typeof data === 'object' &&
+    data !== null &&
+    'request' in data &&
+    data.request instanceof Request
+  ) {
+    return `${data.request.method} ${data.request.url}`;
+  }
+  return protocol;
+}
+
 beforeAll(() => {
   // MSW 3 name of the v2 onUnhandledRequest option
-  server.listen({ onUnhandledFrame: 'error' });
+  server.listen({
+    onUnhandledFrame: ({ frame, defaults }) => {
+      defaults.error();
+      unhandledRequests.push(describeFrame(frame));
+    },
+  });
 });
 
 afterEach(() => {
   server.resetHandlers();
   localStorage.clear();
   cleanup();
+  expect(
+    unhandledRequests.splice(0),
+    'Requests without an MSW handler',
+  ).toEqual([]);
 });
 
 afterAll(() => {
