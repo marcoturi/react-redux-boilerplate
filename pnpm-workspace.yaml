@@ -1,0 +1,7 @@
+# pnpm settings (pnpm no longer reads the "pnpm" field of package.json).
+# minimumReleaseAge keeps its default: versions younger than one day are not
+# installed. renovate.json waits the same time before proposing them.
+
+# Dependencies allowed to run install scripts
+allowBuilds:
+  esbuild: true

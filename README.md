@@ -35,7 +35,7 @@ A production-ready, batteries-included starter template for building long-lived 
 | Requirement | Version | Notes                                                                                                                        |
 | ----------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | Node.js     | 26.x    | Defined in `.nvmrc`. Use [fnm](https://github.com/Schniz/fnm) or [nvm](https://github.com/nvm-sh/nvm): `fnm use` / `nvm use` |
-| pnpm        | 10.x    | `corepack enable` to activate the bundled version                                                                            |
+| pnpm        | 12.x    | Pinned in `packageManager`: Node 26 no longer bundles Corepack, run `npm i -g corepack && corepack enable`                   |
 
 ### Quick start
 

@@ -6,7 +6,7 @@ Production-ready React 19 SPA boilerplate with vertical slice architecture: Reac
 
 ## Commands
 
-- Node.js 26.x from `.nvmrc`: run `fnm use` or `nvm use` first. Package manager: pnpm 10 (`corepack enable`).
+- Node.js 26.x from `.nvmrc`: run `fnm use` or `nvm use` first. Package manager: pnpm 12, pinned in `packageManager` (Node 26 no longer bundles Corepack: `npm i -g corepack && corepack enable`).
 - Install: `pnpm install`. Create `.env` from `.env.example`: `pnpm create:env`.
 - Dev server: `pnpm dev` (http://localhost:5173).
 - Lint, format and types: `pnpm check`; auto-fix: `pnpm check:fix`. Only types: `pnpm type:check` (`tsc -b` over the app, the Vite config and e2e).
@@ -46,18 +46,18 @@ e2e/                   → Cucumber features, steps, page objects and support co
 
 Detailed rules live in `.agents/rules/`. `.claude/rules` is a symlink to that folder, so Claude Code loads each rule when it touches a matching file. Other agents must read the rules that match the files they change before editing them.
 
-| Rule                  | Applies to                                                                                                                                                               |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `typescript.md`       | `**/*.{ts,tsx,mts}`                                                                                                                                                      |
-| `react-components.md` | `src/**/*.tsx`                                                                                                                                                           |
-| `ui-styling.md`       | `src/**/*.tsx`                                                                                                                                                           |
-| `routes.md`           | `src/routes/**`                                                                                                                                                          |
-| `redux-state.md`      | `src/features/**/store/**`, `src/shared/store/**`                                                                                                                        |
-| `shadcn-base.md`      | `src/UI/Base/**`, `components.json`                                                                                                                                      |
-| `global-css.md`       | `src/UI/Layout/global.css`                                                                                                                                               |
-| `unit-tests.md`       | `src/**/*.spec.{ts,tsx}`, `src/test/**`, `src/shared/store/test.tsx`, `scripts/vitest.setup.ts`                                                                          |
-| `e2e-tests.md`        | `e2e/**`, `cucumber.mjs`                                                                                                                                                 |
-| `tooling.md`          | `package.json`, `vite.config.mts`, `tsconfig*.json`, `biome.json`, `.github/workflows/**`, `.releaserc`, `commitlint.config.cjs`, `.husky/**`, `renovate.json`, `.nvmrc` |
+| Rule                  | Applies to                                                                                                                                                                                      |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `typescript.md`       | `**/*.{ts,tsx,mts}`                                                                                                                                                                             |
+| `react-components.md` | `src/**/*.tsx`                                                                                                                                                                                  |
+| `ui-styling.md`       | `src/**/*.tsx`                                                                                                                                                                                  |
+| `routes.md`           | `src/routes/**`                                                                                                                                                                                 |
+| `redux-state.md`      | `src/features/**/store/**`, `src/shared/store/**`                                                                                                                                               |
+| `shadcn-base.md`      | `src/UI/Base/**`, `components.json`                                                                                                                                                             |
+| `global-css.md`       | `src/UI/Layout/global.css`                                                                                                                                                                      |
+| `unit-tests.md`       | `src/**/*.spec.{ts,tsx}`, `src/test/**`, `src/shared/store/test.tsx`, `scripts/vitest.setup.ts`                                                                                                 |
+| `e2e-tests.md`        | `e2e/**`, `cucumber.mjs`                                                                                                                                                                        |
+| `tooling.md`          | `package.json`, `pnpm-workspace.yaml`, `vite.config.mts`, `tsconfig*.json`, `biome.json`, `.github/workflows/**`, `.releaserc`, `commitlint.config.cjs`, `.husky/**`, `renovate.json`, `.nvmrc` |
 
 Official skills complement the rules: Redux Toolkit ships them in `node_modules/@reduxjs/toolkit/skills/`, and shadcn publishes one (`pnpm dlx skills add shadcn/ui`). Where a skill disagrees with a rule, the rule wins.
 
