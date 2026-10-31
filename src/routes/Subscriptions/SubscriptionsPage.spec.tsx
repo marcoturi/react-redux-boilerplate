@@ -6,9 +6,11 @@ import { subscriptionApi } from '@/features/subscriptions/store/subscription.api
 import { SubscriptionFilters } from '@/features/subscriptions/store/subscription.type';
 import SubscriptionsPage from '@/routes/Subscriptions/SubscriptionsPage';
 import env from '@/shared/config/env';
-import { StorageKeys } from '@/shared/helpers/local-storage.service';
 import { renderWithProviders } from '@/shared/store/test';
+import { subscriptionsFailOnce } from '@/test/handlers/subscriptions';
+import { subscriptionMockList } from '@/test/mocks/subscriptions';
 import { server } from '@/test/server';
+import { readStoredSetting } from '@/test/storage';
 
 describe('SubscriptionsPage', () => {
   test('Should load page title', () => {
@@ -30,10 +32,19 @@ describe('SubscriptionsPage', () => {
   });
 
   test('Should show an error and retry when the request fails', async () => {
+    // The retry waits until the test lets it answer
+    let respond: (value: void) => void = () => {};
+    const responded = new Promise<void>((resolve) => {
+      respond = resolve;
+    });
     server.use(
+      subscriptionsFailOnce(),
       http.get(
         `${env.API_URL}/subscriptions`,
-        () => HttpResponse.json({ message: 'Server Error' }, { status: 500 }),
+        async () => {
+          await responded;
+          return HttpResponse.json(subscriptionMockList);
+        },
         { once: true },
       ),
     );
@@ -46,6 +57,10 @@ describe('SubscriptionsPage', () => {
     expect(screen.queryByText('No subscriptions')).not.toBeInTheDocument();
 
     await user.click(screen.getByRole('button', { name: 'Try again' }));
+    expect(await screen.findByRole('status')).toHaveTextContent('Loading');
+    expect(screen.queryByText('No subscriptions')).not.toBeInTheDocument();
+
+    respond();
     expect(await screen.findAllByTestId('subscription-item')).toHaveLength(3);
   });
 
@@ -53,13 +68,7 @@ describe('SubscriptionsPage', () => {
     const { store } = renderWithProviders(<SubscriptionsPage />);
     expect(await screen.findAllByTestId('subscription-item')).toHaveLength(3);
 
-    server.use(
-      http.get(
-        `${env.API_URL}/subscriptions`,
-        () => HttpResponse.json({ message: 'Server Error' }, { status: 500 }),
-        { once: true },
-      ),
-    );
+    server.use(subscriptionsFailOnce());
     await act(async () => {
       await store.dispatch(
         subscriptionApi.endpoints.getSubscriptions.initiate(undefined, {
@@ -95,11 +104,8 @@ describe('SubscriptionsPage', () => {
     expect(
       screen.getByRole('heading', { name: 'Lifetime Purchase' }),
     ).toBeInTheDocument();
-    expect(
-      JSON.parse(
-        localStorage.getItem(`${StorageKeys.settings}${SettingsKey.filters}`) ??
-          'null',
-      ),
-    ).toEqual({ filterSubscriptionsBy: SubscriptionFilters.OneTimePurchase });
+    expect(readStoredSetting(SettingsKey.filters)).toEqual({
+      filterSubscriptionsBy: SubscriptionFilters.OneTimePurchase,
+    });
   });
 });

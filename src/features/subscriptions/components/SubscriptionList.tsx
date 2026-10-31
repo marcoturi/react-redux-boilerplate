@@ -12,13 +12,14 @@ import { SubscriptionApi, SubscriptionSelectors } from '../store';
 import { SubscriptionCard } from './SubscriptionCard';
 
 export function SubscriptionList() {
-  const { data, isLoading, isError, isFetching, refetch } =
+  const { data, isError, isFetching, refetch } =
     SubscriptionApi.useGetSubscriptionsQuery();
   const subscriptions = useAppSelector(
     SubscriptionSelectors.selectFilteredSubscriptions,
   );
 
-  if (isLoading) {
+  // Not `isLoading`: it stays false when a retry follows a failed request
+  if (!data && isFetching) {
     return <SkeletonList className="py-8" />;
   }
 
@@ -34,9 +35,7 @@ export function SubscriptionList() {
             Check your connection and try again.
           </AlertDescription>
         </Alert>
-        <Button disabled={isFetching} onClick={() => refetch()}>
-          Try again
-        </Button>
+        <Button onClick={() => refetch()}>Try again</Button>
       </div>
     );
   }
