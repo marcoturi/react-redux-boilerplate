@@ -10,9 +10,9 @@
     "dev": "vite",
     "preview": "vite preview",
     "build": "tsc -b && vite build",
-    "e2e": "TSX_TSCONFIG_PATH=./e2e/tsconfig.e2e.json SERVER_URL=http://localhost:5173 cucumber-js --retry 1 --parallel 5",
+    "e2e": "pnpm e2e:local --retry 1 --parallel 5",
     "e2e:local": "TSX_TSCONFIG_PATH=./e2e/tsconfig.e2e.json SERVER_URL=http://localhost:5173 cucumber-js",
-    "e2e:debug": "TSX_TSCONFIG_PATH=./e2e/tsconfig.e2e.json SERVER_URL=http://localhost:5173 cucumber-js --tags '@only' --fail-fast",
+    "e2e:debug": "pnpm e2e:local --tags '@only' --fail-fast",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "format": "biome format --write .",
@@ -21,13 +21,14 @@
     "type:check": "tsc -b",
     "check": "biome check && tsc -b",
     "check:fix": "biome check --write && tsc -b",
+    "check:ci": "biome ci --reporter=github && tsc -b",
     "postinstall": "husky",
     "semantic-release": "semantic-release",
     "update:interactive": "pnpm update --interactive --latest"
   },
   "engines": {
-    "node": ">=26.0.0",
-    "pnpm": ">=12.0.0"
+    "node": "^26.0.0",
+    "pnpm": "^12.0.0"
   },
   "dependencies": {
     "@reduxjs/toolkit": "2.13.0",

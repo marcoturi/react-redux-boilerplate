@@ -10,7 +10,7 @@ describe('reloadOnPreloadError', () => {
     vi.useRealTimers();
   });
 
-  it('Should reload once and cancel the event', () => {
+  test('Should reload once and cancel the event', () => {
     const reload = vi.fn();
     const event = new Event('vite:preloadError', { cancelable: true });
 
@@ -20,7 +20,7 @@ describe('reloadOnPreloadError', () => {
     expect(event.defaultPrevented).toBe(true);
   });
 
-  it('Should not reload again within 10 seconds', () => {
+  test('Should not reload again within 10 seconds', () => {
     const reload = vi.fn();
     reloadOnPreloadError(new Event('vite:preloadError'), reload);
     vi.advanceTimersByTime(5000);
@@ -32,7 +32,7 @@ describe('reloadOnPreloadError', () => {
     expect(event.defaultPrevented).toBe(false);
   });
 
-  it('Should reload again after 10 seconds', () => {
+  test('Should reload again after 10 seconds', () => {
     const reload = vi.fn();
     reloadOnPreloadError(new Event('vite:preloadError'), reload);
     vi.advanceTimersByTime(10_000);

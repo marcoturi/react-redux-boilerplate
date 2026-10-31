@@ -11,7 +11,7 @@
     "lineEnding": "lf",
     "lineWidth": 80,
     "useEditorconfig": true,
-    "includes": ["**", "!**/package.json", "!**/CHANGELOG.md", "!**/public"]
+    "includes": ["**", "!**/package.json", "!**/CHANGELOG.md"]
   },
   "linter": {
     "enabled": true,
@@ -41,6 +41,11 @@
         "useArrayLiterals": "error",
         "useCollapsedIf": "error",
         "useConsistentArrayType": "error",
+        "useConsistentTestIt": {
+          "level": "error",
+          "fix": "safe",
+          "options": { "function": "test", "withinDescribe": "test" }
+        },
         "useConst": "error",
         "useExplicitLengthCheck": "error",
         "useForOf": "error",
@@ -110,7 +115,6 @@
             "noUnusedVariables": "warn"
           },
           "style": {
-            "noCommonJs": "off",
             "useConsistentTypeDefinitions": "off"
           },
           "suspicious": {

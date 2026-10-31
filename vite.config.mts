@@ -1,7 +1,7 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { msw } from 'msw/vite';
-import { configDefaults, defineConfig } from 'vitest/config';
+import { defineConfig } from 'vitest/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -41,22 +41,15 @@ export default defineConfig({
               name: 'vendor-redux',
               test: /[\\/]node_modules[\\/]@reduxjs[\\/]toolkit[\\/]/,
             },
-            // Radix UI primitives
-            {
-              name: 'vendor-radix',
-              test: /[\\/]node_modules[\\/](@radix-ui|radix-ui)[\\/]/,
-            },
             // Sentry monitoring (rarely changes; the replay integration is
             // loaded from the Sentry CDN at runtime)
             {
               name: 'vendor-sentry',
               test: /[\\/]node_modules[\\/]@sentry[\\/]/,
             },
-            // UI utilities (CVA, cn, lucide icons)
-            {
-              name: 'vendor-ui',
-              test: /[\\/]node_modules[\\/](class-variance-authority|cn|lucide-react)[\\/]/,
-            },
+            // No group for Radix, lucide and the other UI libraries: a group
+            // takes every matching module and loads it on the first page, so
+            // Rolldown keeps them with the routes that use them
           ],
         },
       },
@@ -68,7 +61,6 @@ export default defineConfig({
     setupFiles: ['./scripts/vitest.setup.ts'],
     clearMocks: true,
     restoreMocks: true,
-    exclude: [...configDefaults.exclude, '**/*.mocks.spec.ts'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
