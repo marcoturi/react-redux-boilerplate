@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import type { RootState, setupStore } from './index';
+import type { RootState, setupStore } from '.';
 
 export type { RootState };
 export type AppStore = ReturnType<typeof setupStore>;

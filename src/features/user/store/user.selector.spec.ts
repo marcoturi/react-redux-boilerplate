@@ -1,7 +1,7 @@
-import { userApi } from '@/features/user/store/user.api';
 import { setupStore } from '@/shared/store/test';
 import type { AppStore } from '@/shared/store/types';
 import { UserSelectors } from '.';
+import { userApi } from './user.api';
 
 describe('User Selector:', () => {
   let store: AppStore;
@@ -10,7 +10,7 @@ describe('User Selector:', () => {
     store = setupStore();
   });
 
-  it('Should return full name', async () => {
+  test('Should return full name', async () => {
     const newData = {
       id: 1,
       name: 'John',
@@ -24,7 +24,7 @@ describe('User Selector:', () => {
 
     expect(UserSelectors.selectUserFullName(finalState)).toEqual('John D.');
   });
-  it('Should return empty in case of no name', () => {
+  test('Should return empty in case of no name', () => {
     const finalState = store.getState();
     expect(UserSelectors.selectUserFullName(finalState)).toEqual('');
   });

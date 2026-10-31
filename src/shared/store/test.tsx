@@ -4,8 +4,8 @@ import type React from 'react';
 import type { JSX, PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router';
-import { setupStore } from '@/shared/store/index';
-import type { AppStore, RootState } from '@/shared/store/types';
+import { setupStore } from '.';
+import type { AppStore, RootState } from './types';
 
 export { setupStore };
 

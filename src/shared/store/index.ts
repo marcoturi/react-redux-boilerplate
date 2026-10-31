@@ -1,16 +1,14 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { combineSlices, configureStore } from '@reduxjs/toolkit';
 import { settingsSlice } from '@/features/settings/store/settings.slice';
 import env from '@/shared/config/env';
 import { sentryReduxEnhancer } from '@/shared/config/sentry';
-import baseApi from '@/shared/store/api';
-import { listenerMiddleware } from '@/shared/store/listener';
+import baseApi from './api';
+import { listenerMiddleware } from './listener';
 // Feature effects register their listeners when imported
 import '@/features/settings/store/settings.effect';
 
-export const rootReducer = combineReducers({
-  [baseApi.reducerPath]: baseApi.reducer,
-  settings: settingsSlice.reducer,
-});
+// Each slice and the API mount under their own name (`reducerPath`)
+export const rootReducer = combineSlices(baseApi, settingsSlice);
 
 export type RootState = ReturnType<typeof rootReducer>;
 

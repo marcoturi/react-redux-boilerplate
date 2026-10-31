@@ -1,14 +1,13 @@
 import { SettingsSelectors } from '@/features/settings/store';
-import { SettingsKey } from '@/features/settings/store/settings.type';
-import { subscriptionApi } from '@/features/subscriptions/store/subscription.api';
+import { createAppSelector } from '@/shared/store/selectors';
+import { subscriptionApi } from './subscription.api';
 import {
   type Subscription,
   SubscriptionFilters,
   SubscriptionType,
-} from '@/features/subscriptions/store/subscription.type';
-import { createAppSelector } from '@/shared/store/selectors';
-import type { RootState } from '@/shared/store/types';
+} from './subscription.type';
 
+// `All` maps to no type: the list is not filtered
 const subscriptionTypeMap: Record<
   SubscriptionFilters,
   SubscriptionType | undefined
@@ -20,15 +19,9 @@ const subscriptionTypeMap: Record<
 
 export const selectFilteredSubscriptions = createAppSelector(
   subscriptionApi.endpoints.getSubscriptions.select(),
-  (state: RootState) =>
-    SettingsSelectors.selectSettingByKey(state, SettingsKey.filters),
-  (subscriptions, filters): Subscription[] => {
-    if (!subscriptions.data) return [];
-    if (filters.filterSubscriptionsBy === SubscriptionFilters.All) {
-      return subscriptions.data;
-    }
-
-    const targetType = subscriptionTypeMap[filters.filterSubscriptionsBy];
-    return subscriptions.data.filter((s) => s.type === targetType);
+  SettingsSelectors.selectSubscriptionFilter,
+  ({ data = [] }, filter): Subscription[] => {
+    const type = subscriptionTypeMap[filter];
+    return type ? data.filter((s) => s.type === type) : data;
   },
 );

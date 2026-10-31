@@ -3,7 +3,7 @@ import LocalStorageService, {
   StorageKeys,
 } from '@/shared/helpers/local-storage.service';
 import { startAppListening } from '@/shared/store/listener';
-import { SettingsActions } from './index';
+import { SettingsActions } from '.';
 import { SettingsKey } from './settings.type';
 
 /**

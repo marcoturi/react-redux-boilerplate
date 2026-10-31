@@ -1,7 +1,8 @@
+import type { SubscriptionFilters } from '@/features/subscriptions/store/subscription.type';
 import type { RootState } from '@/shared/store/types';
-import type { SettingsKey, SettingsState } from './settings.type';
+import { SettingsKey } from './settings.type';
 
-export const selectSettingByKey = <K extends SettingsKey>(
+export const selectSubscriptionFilter = (
   state: RootState,
-  key: K,
-): SettingsState[K] => state.settings[key];
+): SubscriptionFilters =>
+  state.settings[SettingsKey.filters].filterSubscriptionsBy;

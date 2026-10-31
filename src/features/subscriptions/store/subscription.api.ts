@@ -1,5 +1,5 @@
-import type { Subscription } from '@/features/subscriptions/store/subscription.type';
 import baseApi from '@/shared/store/api';
+import type { Subscription } from './subscription.type';
 
 export const subscriptionApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
