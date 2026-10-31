@@ -19,7 +19,7 @@ Applies to hand-written components. `src/UI/Base/**` is upstream shadcn code and
 - Read state with `useAppSelector` and dispatch with `useAppDispatch` from `@/shared/store/types`; never use `useSelector` or `useDispatch` from `react-redux` directly.
 - Import feature state through the namespaces of the feature's `store/index.ts` (`SettingsActions`, `SettingsSelectors`, `SubscriptionApi`), never from `*.slice.ts` or `*.api.ts`.
 - Render errors reach Sentry only through the `createRoot` callbacks in `src/main.tsx`; do not call Sentry from an `ErrorBoundary` `onError`. Send errors from event handlers and async code to the nearest boundary with `useErrorBoundary().showBoundary` (`react-error-boundary`). Handled errors outside rendering (effects, thunks) go through `captureError` (see `redux-state.md`).
-- Show a failed RTK Query request (`isError`) with its own state and a retry, as `SubscriptionList` does: never let it fall through to the empty state.
+- Show a failed RTK Query request (`isError`) with its own state and a retry, as `SubscriptionList` does: never let it fall through to the empty state. Gate that state on `isError && !data`: a failed refetch keeps the cached `data`, so keep showing it.
 
 ## Shape and typing
 

@@ -12,7 +12,7 @@ import { SubscriptionApi, SubscriptionSelectors } from '../store';
 import { SubscriptionCard } from './SubscriptionCard';
 
 export function SubscriptionList() {
-  const { isLoading, isError, isFetching, refetch } =
+  const { data, isLoading, isError, isFetching, refetch } =
     SubscriptionApi.useGetSubscriptionsQuery();
   const subscriptions = useAppSelector(
     SubscriptionSelectors.selectFilteredSubscriptions,
@@ -23,8 +23,9 @@ export function SubscriptionList() {
   }
 
   // Without data the selector returns an empty list: tell a failed request
-  // apart from a filter that matches nothing
-  if (isError) {
+  // apart from a filter that matches nothing. A failed refetch keeps the
+  // cached data, so keep showing it
+  if (isError && !data) {
     return (
       <div className="flex flex-col items-start gap-4 py-4">
         <Alert variant="destructive">

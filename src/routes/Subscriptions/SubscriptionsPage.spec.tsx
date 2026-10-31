@@ -1,7 +1,8 @@
-import { screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { HttpResponse, http } from 'msw';
 import { SettingsKey } from '@/features/settings/store/settings.type';
+import { subscriptionApi } from '@/features/subscriptions/store/subscription.api';
 import { SubscriptionFilters } from '@/features/subscriptions/store/subscription.type';
 import SubscriptionsPage from '@/routes/Subscriptions/SubscriptionsPage';
 import env from '@/shared/config/env';
@@ -46,6 +47,36 @@ describe('SubscriptionsPage', () => {
 
     await user.click(screen.getByRole('button', { name: 'Try again' }));
     expect(await screen.findAllByTestId('subscription-item')).toHaveLength(3);
+  });
+
+  test('Should keep the loaded list when a refetch fails', async () => {
+    const { store } = renderWithProviders(<SubscriptionsPage />);
+    expect(await screen.findAllByTestId('subscription-item')).toHaveLength(3);
+
+    server.use(
+      http.get(
+        `${env.API_URL}/subscriptions`,
+        () => HttpResponse.json({ message: 'Server Error' }, { status: 500 }),
+        { once: true },
+      ),
+    );
+    await act(async () => {
+      await store.dispatch(
+        subscriptionApi.endpoints.getSubscriptions.initiate(undefined, {
+          forceRefetch: true,
+          subscribe: false,
+        }),
+      );
+      // RTK Query batches the rejection and notifies the UI on the next frame
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+    });
+
+    expect(
+      subscriptionApi.endpoints.getSubscriptions.select()(store.getState())
+        .isError,
+    ).toBe(true);
+    expect(screen.getAllByTestId('subscription-item')).toHaveLength(3);
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 
   test('Should filter the list and save the filter', async () => {
