@@ -8,11 +8,14 @@ import {
 } from 'react-router';
 import env from './env';
 
+// Only builds report, and only with a DSN: not the dev server, not Vitest.
+// Without a DSN the SDK sends nothing and does not parse the value.
+const dsn = env.IS_PROD ? env.SENTRY_DSN : undefined;
+
 Sentry.init({
-  dsn: env.SENTRY_DSN,
+  dsn,
   release: env.VERSION,
-  enabled: !env.IS_DEV,
-  environment: env.NODE_ENV,
+  environment: env.MODE,
   tracesSampleRate: 0.1,
   attachStacktrace: true,
   // Page load and navigation spans named after the route pattern; the routes
@@ -26,7 +29,7 @@ Sentry.init({
       matchRoutes,
     }),
   ],
-  // Used by the replay integration, added after the first render below
+  // Used by the replay integration, added below once loaded from the CDN
   replaysSessionSampleRate: 0.1,
   replaysOnErrorSampleRate: 1,
   // Since v11 an unset dataCollection collects user info, cookies and HTTP
@@ -46,7 +49,7 @@ Sentry.init({
 // Session replay is large: load it from the Sentry CDN instead of the initial
 // bundle, only where Sentry is enabled. A Content Security Policy must allow
 // https://browser.sentry-cdn.com.
-if (!env.IS_DEV) {
+if (dsn) {
   Sentry.lazyLoadIntegration('replayIntegration')
     .then((replayIntegration) => {
       Sentry.addIntegration(replayIntegration());
