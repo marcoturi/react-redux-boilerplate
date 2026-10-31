@@ -39,7 +39,7 @@ jobs:
           # Start the scenarios only once the dev server answers
           timeout 60 bash -c 'until curl -sf http://localhost:5173 > /dev/null; do sleep 1; done'
           pnpm e2e
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: reports
