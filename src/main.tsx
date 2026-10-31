@@ -15,24 +15,23 @@ const handleReactError = Sentry.reactErrorHandler((error, errorInfo) => {
   console.error(error, errorInfo.componentStack);
 });
 
-window.addEventListener('vite:preloadError', (event) => {
-  reloadOnPreloadError(event);
-});
+window.addEventListener('vite:preloadError', reloadOnPreloadError);
 
-initMocks().then(async () => {
-  // Restore the persisted settings once, before the first render
-  await store.dispatch(SettingsActions.loadState());
-  const root = document.getElementById('root');
-  if (!root) throw new Error('Root element not found');
-  createRoot(root, {
-    onUncaughtError: handleReactError,
-    onCaughtError: handleReactError,
-    onRecoverableError: handleReactError,
-  }).render(
-    <StrictMode>
-      <AppProvider>
-        <AppRoutes />
-      </AppProvider>
-    </StrictMode>,
-  );
-});
+await initMocks();
+// Restore the persisted settings once, before the first render
+await store.dispatch(SettingsActions.loadState());
+
+const root = document.getElementById('root');
+if (!root) throw new Error('Root element not found');
+
+createRoot(root, {
+  onUncaughtError: handleReactError,
+  onCaughtError: handleReactError,
+  onRecoverableError: handleReactError,
+}).render(
+  <StrictMode>
+    <AppProvider>
+      <AppRoutes />
+    </AppProvider>
+  </StrictMode>,
+);

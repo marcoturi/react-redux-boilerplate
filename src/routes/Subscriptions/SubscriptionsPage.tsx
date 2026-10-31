@@ -1,5 +1,7 @@
-import { SubscriptionList } from '@/features/subscriptions/components';
-import { SubscriptionFilter } from '@/features/subscriptions/components/SubscriptionFilter';
+import {
+  SubscriptionFilter,
+  SubscriptionList,
+} from '@/features/subscriptions/components';
 import { Container } from '@/UI/Elements/Container';
 import { Text } from '@/UI/Elements/Text';
 

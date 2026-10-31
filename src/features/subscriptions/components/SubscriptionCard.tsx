@@ -1,4 +1,3 @@
-import type { Subscription } from '@/features/subscriptions/store/subscription.type';
 import { Button } from '@/UI/Base/button';
 import {
   Card,
@@ -8,10 +7,11 @@ import {
   CardTitle,
 } from '@/UI/Base/card';
 import { Text } from '@/UI/Elements/Text';
+import type { Subscription } from '../store/subscription.type';
 
-interface SubscriptionCardProps {
+type SubscriptionCardProps = {
   subscription: Subscription;
-}
+};
 
 export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
   return (

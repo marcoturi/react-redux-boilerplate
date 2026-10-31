@@ -1,7 +1,10 @@
 import { cn } from '@/shared/helpers/style.utils';
 import { Skeleton } from '@/UI/Base/skeleton';
 
-function SkeletonCard({ className, ...props }: React.ComponentProps<'div'>) {
+export function SkeletonCard({
+  className,
+  ...props
+}: React.ComponentProps<'div'>) {
   return (
     <div className={cn('flex items-center gap-4', className)} {...props}>
       <Skeleton className="size-12 rounded-full" />
@@ -13,7 +16,7 @@ function SkeletonCard({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
-function SkeletonList(props: React.ComponentProps<'div'>) {
+export function SkeletonList(props: React.ComponentProps<'div'>) {
   return (
     <div role="status" {...props}>
       <span className="sr-only">Loading…</span>
@@ -23,5 +26,3 @@ function SkeletonList(props: React.ComponentProps<'div'>) {
     </div>
   );
 }
-
-export { SkeletonCard, SkeletonList };

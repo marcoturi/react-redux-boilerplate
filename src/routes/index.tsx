@@ -1,12 +1,12 @@
 import * as Sentry from '@sentry/react';
 import { lazy, Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { useLocation, useRoutes } from 'react-router';
-import { UserWidget } from '@/features/user/components/UserWidget';
+import { type RouteObject, useLocation, useRoutes } from 'react-router';
+import { UserWidget } from '@/features/user/components';
 import { Container } from '@/UI/Elements/Container';
 import { ErrorFallback } from '@/UI/Elements/ErrorFallback';
 import { SkeletonList } from '@/UI/Elements/SkeletonList';
-import { Header } from '@/UI/Layout/Header';
+import { Header, type MenuItem } from '@/UI/Layout/Header';
 
 const HomePage = lazy(() => import('@/routes/Home/HomePage'));
 const SubscriptionsPage = lazy(
@@ -18,7 +18,16 @@ const routes = [
   { path: '/', element: <HomePage /> },
   { path: '/subscriptions', element: <SubscriptionsPage /> },
   { path: '*', element: <NotFoundPage /> },
-];
+] satisfies RouteObject[];
+
+const menuItems = [
+  { label: 'Home', href: '/', testId: 'home-link' },
+  {
+    label: 'Subscriptions',
+    href: '/subscriptions',
+    testId: 'subscription-link',
+  },
+] satisfies MenuItem[];
 
 // Reports page loads and navigations to Sentry under the route pattern
 const useSentryRoutes = Sentry.wrapUseRoutes(useRoutes);
@@ -29,17 +38,7 @@ export function AppRoutes() {
 
   return (
     <>
-      <Header
-        rightWidget={<UserWidget />}
-        menuItems={[
-          { label: 'Home', href: '/', testId: 'home-link' },
-          {
-            label: 'Subscriptions',
-            href: '/subscriptions',
-            testId: 'subscription-link',
-          },
-        ]}
-      />
+      <Header menuItems={menuItems} rightWidget={<UserWidget />} />
       <main>
         {/* A crash or a failed chunk replaces only the page: the header stays */}
         <ErrorBoundary

@@ -7,11 +7,13 @@ import {
   navigationMenuTriggerStyle,
 } from '@/UI/Base/navigation-menu';
 
-type Props = {
-  menuItems: { label: string; href: string; testId: string }[];
+export type MenuItem = { label: string; href: string; testId: string };
+
+type MenuProps = {
+  menuItems: MenuItem[];
 };
 
-export function Menu({ menuItems }: Props) {
+export function Menu({ menuItems }: MenuProps) {
   const { pathname } = useLocation();
 
   return (
@@ -19,7 +21,7 @@ export function Menu({ menuItems }: Props) {
     <NavigationMenu viewport={false}>
       <NavigationMenuList>
         {menuItems.map((item) => (
-          <NavigationMenuItem key={item.label}>
+          <NavigationMenuItem key={item.href}>
             {/* `active` sets aria-current="page" and the active style */}
             <NavigationMenuLink
               active={pathname === item.href}

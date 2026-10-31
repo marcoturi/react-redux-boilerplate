@@ -1,13 +1,13 @@
 import type { ReactNode } from 'react';
-import { Menu } from '@/UI/Layout/Header/Menu';
 import { Logo } from './Logo';
+import { Menu, type MenuItem } from './Menu';
 
-type Props = {
-  rightWidget: ReactNode;
-  menuItems: { label: string; href: string; testId: string }[];
+type HeaderProps = {
+  menuItems: MenuItem[];
+  rightWidget?: ReactNode;
 };
 
-export function Header({ rightWidget, menuItems }: Props) {
+export function Header({ menuItems, rightWidget }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40 w-full bg-background shadow-sm">
       {/* Not a <nav>: the menu renders its own navigation landmark */}

@@ -1,12 +1,14 @@
 import { cn } from '@/shared/helpers/style.utils';
 
-// Type scale carried over from Radix Themes (font size / line height / tracking)
+// Sizes of the project type scale: the tokens (font size, line height and
+// tracking) are in the @theme block of global.css
 const sizes = {
-  '6': 'text-2xl leading-7.5 tracking-[-0.00625em]',
-  '7': 'text-[28px] leading-9 tracking-[-0.0075em]',
+  '6': 'text-2xl',
+  '7': 'text-3xl',
 } as const;
 
-type TextProps = React.HTMLAttributes<HTMLElement> & {
+// No `ref`: its element type would change with `as`
+type TextProps = Omit<React.ComponentProps<'span'>, 'ref'> & {
   as?: 'span' | 'p' | 'div' | 'h1' | 'h2';
   size?: keyof typeof sizes;
 };
@@ -19,7 +21,7 @@ export function Text({
 }: TextProps) {
   return (
     <Tag
-      className={cn('leading-normal', size && sizes[size], className)}
+      className={cn(size ? sizes[size] : 'leading-normal', className)}
       {...props}
     />
   );

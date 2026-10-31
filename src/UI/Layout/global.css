@@ -5,6 +5,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Project type scale, carried over from Radix Themes sizes 6 and 7 (Text) */
+@theme {
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.875rem;
+  --text-2xl--letter-spacing: -0.00625em;
+  --text-3xl: 1.75rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-3xl--letter-spacing: -0.0075em;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
