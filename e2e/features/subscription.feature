@@ -8,14 +8,14 @@ Feature: Subscriptions
 
   Scenario: User on subscription page, should be able to filter the list of subscriptions
     Given user open the "subscriptions" page
-    Then user should see "3" subscriptions
+    Then user should see 3 subscriptions
     When user change filter by "One Time Purchase"
-    Then user should see "1" subscriptions
+    Then user should see 1 subscriptions
 
   Scenario: User upon refreshing subscription page, should see filter persisted
     Given user open the "subscriptions" page
     And user change filter by "One Time Purchase"
-    Then user should see "1" subscriptions
+    Then user should see 1 subscriptions
     When user reload current page
-    Then user should see "1" subscriptions
+    Then user should see 1 subscriptions
 

@@ -2,14 +2,18 @@
   // Cucumber steps and support files, run by tsx (type-checked by tsc -b)
   "compilerOptions": {
     "tsBuildInfoFile": "../node_modules/.tmp/tsconfig.e2e.tsbuildinfo",
-    "target": "esnext",
+    "target": "ES2022",
+    "lib": ["ES2023"],
     "module": "commonjs",
+    "skipLibCheck": true,
+    // tsx transpiles one file at a time, like Vite
+    "isolatedModules": true,
     "noEmit": true,
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "skipDefaultLibCheck": true,
+    "noUncheckedIndexedAccess": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "types": ["node"]

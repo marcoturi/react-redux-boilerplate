@@ -13,9 +13,7 @@ const browserOptions: LaunchOptions = {
   },
 };
 
-const config = {
+export const config = {
   browser: process.env.BROWSER || 'chromium',
   browserOptions,
 };
-
-export default config;

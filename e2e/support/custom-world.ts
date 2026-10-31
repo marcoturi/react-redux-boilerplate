@@ -1,15 +1,6 @@
-import {
-  type ITestCaseHookParameter,
-  setWorldConstructor,
-  World,
-} from '@cucumber/cucumber';
-import type {
-  APIRequestContext,
-  BrowserContext,
-  Page,
-  PlaywrightTestOptions,
-} from '@playwright/test';
-import type { PageObjects } from './common-hooks';
+import { setWorldConstructor, World } from '@cucumber/cucumber';
+import type { BrowserContext, Page } from '@playwright/test';
+import type { PageObjects } from '../page-objects';
 
 enum Parameters {
   SERVER_URL = 'SERVER_URL',
@@ -17,29 +8,18 @@ enum Parameters {
 
 export type WorldParams = Record<Parameters, string>;
 
-export interface CucumberWorldConstructorParams {
-  parameters: WorldParams;
-}
-
-export interface ICustomWorld extends World, PageObjects {
-  debug: boolean;
+export interface ICustomWorld extends World {
   mobile: boolean;
-  feature?: ITestCaseHookParameter['pickle'];
   context: BrowserContext;
   page: Page;
+  pageObjects: PageObjects;
   parameters: WorldParams;
 
   testName?: string;
   startTime?: Date;
-
-  server?: APIRequestContext;
-
-  playwrightOptions?: PlaywrightTestOptions;
 }
 
 export class CustomWorld extends World implements ICustomWorld {
-  debug = false;
-
   mobile = false;
 
   // Set by the Before hook in common-hooks.ts before every scenario
@@ -47,7 +27,7 @@ export class CustomWorld extends World implements ICustomWorld {
 
   page!: Page;
 
-  pageObjects!: PageObjects['pageObjects'];
+  pageObjects!: PageObjects;
 }
 
 setWorldConstructor(CustomWorld);

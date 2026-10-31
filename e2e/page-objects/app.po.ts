@@ -1,13 +1,8 @@
 import type { Page } from '@playwright/test';
 
-const AppPo = (page: Page) => {
-  function homePage() {
-    return page.getByTestId('home-page');
-  }
-
+// Locators are lazy: they query the page when an action or assertion runs
+export function appPo(page: Page) {
   return {
-    homePage,
+    homePage: page.getByTestId('home-page'),
   };
-};
-
-export default AppPo;
+}

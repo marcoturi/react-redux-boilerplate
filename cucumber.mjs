@@ -1,9 +1,3 @@
-const getWorldParameters = () => {
-  return {
-    SERVER_URL: process.env.SERVER_URL,
-  };
-};
-
 const config = {
   // tsx only transpiles: e2e types are checked by `tsc -b` (pnpm check)
   requireModule: ['tsx/cjs'],
@@ -16,7 +10,7 @@ const config = {
     'pretty',
   ],
   formatOptions: { snippetInterface: 'async-await' },
-  worldParameters: getWorldParameters(),
+  worldParameters: { SERVER_URL: process.env.SERVER_URL },
 };
 
 export default config;
