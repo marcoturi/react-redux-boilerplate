@@ -1,3 +1,13 @@
+## [1.7.54](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.53...v1.7.54) (2026-10-31)
+
+
+### Bug Fixes
+
+* **config:** report to Sentry only from production builds with a DSN ([9a2d210](https://github.com/marcoturi/react-redux-boilerplate/commit/9a2d21006f8ca7f979351ba530b1a3094154444a))
+* **settings:** keep only the known fields of persisted settings ([b0f71ba](https://github.com/marcoturi/react-redux-boilerplate/commit/b0f71ba2cd2a3c57e040b66b6133977a27a6f166))
+* **subscriptions:** show the loading state while retrying a failed request ([0ff67d5](https://github.com/marcoturi/react-redux-boilerplate/commit/0ff67d59a40dff7877b986286c280f73a8255bca))
+* **user:** keep the user name when a refetch fails ([df718c2](https://github.com/marcoturi/react-redux-boilerplate/commit/df718c25c898dbb210b1c3b71a9233aa6fc32775))
+
 ## [1.7.53](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.52...v1.7.53) (2026-10-31)
 
 
