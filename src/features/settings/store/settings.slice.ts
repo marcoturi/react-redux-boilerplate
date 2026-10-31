@@ -1,11 +1,11 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { loadState } from '@/features/settings/store/settings.thunk';
+import { SubscriptionFilters } from '@/features/subscriptions/store/subscription.type';
+import { loadState } from './settings.thunk';
 import {
   isFiltersSetting,
   SettingsKey,
   type SettingsState,
-} from '@/features/settings/store/settings.type';
-import { SubscriptionFilters } from '@/features/subscriptions/store/subscription.type';
+} from './settings.type';
 
 export const initialStorageState: SettingsState = {
   [SettingsKey.filters]: {
@@ -28,7 +28,10 @@ export const settingsSlice = createSlice({
     // Persisted values come from localStorage: keep only valid known fields
     builder.addCase(loadState.fulfilled, (state, action) => {
       const filters = action.payload[SettingsKey.filters];
-      if (isFiltersSetting(filters)) state[SettingsKey.filters] = filters;
+      if (isFiltersSetting(filters)) {
+        state[SettingsKey.filters].filterSubscriptionsBy =
+          filters.filterSubscriptionsBy;
+      }
     });
   },
 });

@@ -1,14 +1,11 @@
-import { SettingsActions } from '@/features/settings/store/index';
-import {
-  initialStorageState,
-  settingsSlice,
-} from '@/features/settings/store/settings.slice';
-import { loadState } from '@/features/settings/store/settings.thunk';
-import { SettingsKey } from '@/features/settings/store/settings.type';
 import { SubscriptionFilters } from '@/features/subscriptions/store/subscription.type';
+import { SettingsActions } from '.';
+import { initialStorageState, settingsSlice } from './settings.slice';
+import { loadState } from './settings.thunk';
+import { SettingsKey } from './settings.type';
 
 describe('Settings Slice:', () => {
-  it('Should handle loadState.fulfilled', () => {
+  test('Should handle loadState.fulfilled', () => {
     const thunkResult = {
       [SettingsKey.filters]: {
         filterSubscriptionsBy: SubscriptionFilters.OneTimePurchase,
@@ -19,7 +16,8 @@ describe('Settings Slice:', () => {
       thunkResult,
     );
   });
-  it('Should handle subscriptionFilterChanged', () => {
+
+  test('Should handle subscriptionFilterChanged', () => {
     const action = SettingsActions.subscriptionFilterChanged(
       SubscriptionFilters.OneTimePurchase,
     );
@@ -27,7 +25,8 @@ describe('Settings Slice:', () => {
       settingsSlice.reducer(undefined, action)[SettingsKey.filters],
     ).toEqual({ filterSubscriptionsBy: SubscriptionFilters.OneTimePurchase });
   });
-  it('Should ignore invalid persisted settings in loadState.fulfilled', () => {
+
+  test('Should ignore invalid persisted settings in loadState.fulfilled', () => {
     const action = loadState.fulfilled(
       { [SettingsKey.filters]: { filterSubscriptionsBy: 'Unknown' }, extra: 1 },
       '',
@@ -35,5 +34,22 @@ describe('Settings Slice:', () => {
     expect(settingsSlice.reducer(initialStorageState, action)).toEqual(
       initialStorageState,
     );
+  });
+
+  test('Should keep only the known fields of persisted settings', () => {
+    const action = loadState.fulfilled(
+      {
+        [SettingsKey.filters]: {
+          filterSubscriptionsBy: SubscriptionFilters.OneTimePurchase,
+          extra: 1,
+        },
+      },
+      '',
+    );
+    expect(settingsSlice.reducer(initialStorageState, action)).toEqual({
+      [SettingsKey.filters]: {
+        filterSubscriptionsBy: SubscriptionFilters.OneTimePurchase,
+      },
+    });
   });
 });
