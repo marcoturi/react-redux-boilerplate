@@ -1,13 +1,10 @@
 import { SettingsActions } from '@/features/settings/store';
-import { subscriptionApi } from '@/features/subscriptions/store/subscription.api';
-import { subscriptionMockList } from '@/features/subscriptions/store/subscription.mocks.spec';
-import {
-  type Subscription,
-  SubscriptionFilters,
-} from '@/features/subscriptions/store/subscription.type';
 import { setupStore } from '@/shared/store/test';
 import type { AppStore } from '@/shared/store/types';
+import { subscriptionMockList } from '@/test/mocks/subscriptions';
 import { SubscriptionSelectors } from '.';
+import { subscriptionApi } from './subscription.api';
+import { type Subscription, SubscriptionFilters } from './subscription.type';
 
 describe('Subscription Selector:', () => {
   let store: AppStore;
@@ -16,13 +13,13 @@ describe('Subscription Selector:', () => {
     store = setupStore();
   });
 
-  it('Should return an empty list before the request', () => {
+  test('Should return an empty list before the request', () => {
     expect(
       SubscriptionSelectors.selectFilteredSubscriptions(store.getState()),
     ).toEqual([]);
   });
 
-  it('Should return an empty list in case of empty data', async () => {
+  test('Should return an empty list in case of empty data', async () => {
     const data: Subscription[] = [];
 
     await store.dispatch(
@@ -34,7 +31,7 @@ describe('Subscription Selector:', () => {
     ).toEqual(data);
   });
 
-  it('Should return the full list of subscriptions in case of no filter', async () => {
+  test('Should return the full list of subscriptions in case of no filter', async () => {
     await store.dispatch(
       subscriptionApi.util.upsertQueryData(
         'getSubscriptions',
@@ -48,7 +45,7 @@ describe('Subscription Selector:', () => {
     ).toEqual(subscriptionMockList);
   });
 
-  it('Should return a filtered list in case of filter', async () => {
+  test('Should return a filtered list in case of filter', async () => {
     await store.dispatch(
       subscriptionApi.util.upsertQueryData(
         'getSubscriptions',

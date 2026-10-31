@@ -1,4 +1,7 @@
-import { type Subscription, SubscriptionType } from './subscription.type';
+import {
+  type Subscription,
+  SubscriptionType,
+} from '@/features/subscriptions/store/subscription.type';
 
 export const subscriptionMockList = [
   {
