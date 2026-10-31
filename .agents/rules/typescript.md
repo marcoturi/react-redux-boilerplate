@@ -16,7 +16,8 @@ paths:
 - Write assertion functions (`asserts x is T`) as `function` declarations, not arrow functions.
 - Fix wrong or missing library types with module augmentation in a `.d.ts`, not with casts.
 - Use `import type` for type-only imports (Biome `useImportType`).
-- Import across features through the `@/` alias (maps to `src/`); never use relative imports that climb above the current feature.
-- Use named exports. Default exports are only for route pages (`lazy()` needs them) and for the existing single-object modules `src/shared/config/env.ts`, `src/shared/store/api.ts` and `src/shared/helpers/local-storage.service.ts`.
-- Environment variables: declare each `VITE_*` variable in `ImportMetaEnv` (`src/vite-env.d.ts`, where `strictImportMetaEnv` makes an undeclared one a type error), add it to `.env.example`, and read it in browser code only through `src/shared/config/env.ts`. Never use `process.env` there.
+- Import files of the same feature, or of the same folder outside `features/` (e.g. `src/shared/store/`, `src/UI/Layout/Header/`), with relative paths (`./settings.type`, `../store`); import everything else through the `@/` alias (maps to `src/`). Never climb above the current feature with `../`, and never write `/index`: import the folder (`.`, `../store`).
+- Use named exports. Default exports are only for route pages (`lazy()` needs them), `vite.config.mts` (Vite requires it) and the existing single-object modules `src/shared/config/env.ts`, `src/shared/store/api.ts` and `src/shared/helpers/local-storage.service.ts`.
+- `noUncheckedIndexedAccess` is on in every project: an index access (`list[0]`, `record[key]`) may be `undefined`. Narrow it or use `?.`; do not assert it with `!`.
+- Environment variables: declare each `VITE_*` variable in `ImportMetaEnv` (`src/vite-env.d.ts`, where `strictImportMetaEnv` makes an undeclared one a type error), add it to `.env.example`, and read it in browser code only through `src/shared/config/env.ts`. Never use `process.env` there. The one exception is `import.meta.env.DEV` written inline where it gates development-only code, so the build can drop it (see `tooling.md`).
 - Type-check with `pnpm type:check` (`tsc -b`: the app with `scripts/vitest.setup.ts`, the Vite config and the e2e project). `tsc --noEmit` at the root checks nothing, because the root `tsconfig.json` only holds references.

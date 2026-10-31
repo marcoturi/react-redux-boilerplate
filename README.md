@@ -25,7 +25,7 @@ A production-ready, batteries-included starter template for building long-lived 
 | Unit & integration tests | [Vitest 5](https://vitest.dev/) + [Testing Library](https://testing-library.com/)                                                                                                                                |
 | E2E tests                | [Cucumber](https://cucumber.io/docs/installation/javascript/) + [Playwright](https://playwright.dev/)                                                                                                            |
 | Monitoring               | [Sentry](https://github.com/getsentry/sentry-javascript/tree/master/packages/react)                                                                                                                              |
-| Security                 | [CodeQL](https://github.com/github/codeql-action) analysis on every push/PR                                                                                                                                      |
+| Security                 | [CodeQL](https://github.com/github/codeql-action) analysis on pushes and pull requests to `main`                                                                                                                 |
 | AI-Ready                 | [AGENTS.md](AGENTS.md) — architecture rules and coding conventions for AI assistants                                                                                                                             |
 
 ## Getting Started
@@ -50,21 +50,22 @@ pnpm dev           # Start dev server at http://localhost:5173
 
 ### Commands
 
-| Command                   | Description                                                |
-| ------------------------- | ---------------------------------------------------------- |
-| `pnpm dev`                | Start development server with HMR                          |
-| `pnpm build`              | Type-check + production build (output in `dist/`)          |
-| `pnpm preview`            | Preview the production build locally                       |
-| `pnpm test`               | Run unit and integration tests (Vitest)                    |
-| `pnpm test:coverage`      | Run tests with V8 coverage and its thresholds              |
-| `pnpm e2e:local`          | Run E2E tests (start dev server first in another terminal) |
-| `pnpm e2e:debug`          | Run only `@only`-tagged E2E scenarios with `--fail-fast`   |
-| `pnpm check`              | Biome lint/format check + TypeScript type check            |
-| `pnpm check:fix`          | Auto-fix lint/format issues, then type check               |
-| `pnpm format`             | Format all files with Biome                                |
-| `pnpm lint`               | Lint all files with Biome (`pnpm lint:fix` applies fixes)  |
-| `pnpm type:check`         | TypeScript type check only (`tsc -b`)                      |
-| `pnpm update:interactive` | Update dependencies interactively                          |
+| Command                   | Description                                                  |
+| ------------------------- | ------------------------------------------------------------ |
+| `pnpm dev`                | Start development server with HMR                            |
+| `pnpm build`              | Type-check + production build (output in `dist/`)            |
+| `pnpm preview`            | Preview the production build locally                         |
+| `pnpm test`               | Run unit and integration tests (Vitest)                      |
+| `pnpm test:coverage`      | Run tests with V8 coverage and its thresholds                |
+| `pnpm e2e:local`          | Run E2E tests (start dev server first in another terminal)   |
+| `pnpm e2e:debug`          | Run only `@only`-tagged E2E scenarios with `--fail-fast`     |
+| `pnpm check`              | Biome lint/format check + TypeScript type check              |
+| `pnpm check:fix`          | Auto-fix lint/format issues, then type check                 |
+| `pnpm check:ci`           | `pnpm check` for CI, with Biome annotations on pull requests |
+| `pnpm format`             | Format all files with Biome                                  |
+| `pnpm lint`               | Lint all files with Biome (`pnpm lint:fix` applies fixes)    |
+| `pnpm type:check`         | TypeScript type check only (`tsc -b`)                        |
+| `pnpm update:interactive` | Update dependencies interactively                            |
 
 ## Folder Structure and Code Organization
 
@@ -87,12 +88,12 @@ src/
 ├── UI/
 │   ├── Base/                 → shadcn/ui components, managed by the shadcn CLI
 │   ├── Elements/             → Project UI components built on Base and Tailwind
-│   └── Layout/               → Page layouts, Header, global CSS
+│   └── Layout/               → Header and global CSS (theme)
 ├── features/                 → Feature slices
 │   └── <feature>/
 │       ├── store/            → Redux slice, selectors, API endpoints, effects, types, specs
 │       └── components/       → Feature-specific React components
-└── test/                     → MSW handlers, browser worker and Node server
+└── test/                     → MSW handlers and mock data, browser worker, Node server and test helpers
 ```
 
 Why vertical slices over alternatives like [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/) or [Feature-Sliced Design](https://feature-sliced.design/)?
@@ -182,17 +183,15 @@ pnpm e2e:local
 
 ### Build optimization
 
-Production builds use vendor chunk splitting for optimal caching:
+Production builds put the libraries needed at startup in vendor chunks, which change rarely and stay cached:
 
 | Chunk           | Contents                                                          |
 | --------------- | ----------------------------------------------------------------- |
 | `vendor-react`  | React, React DOM, React Router, React Redux, react-error-boundary |
 | `vendor-redux`  | Redux Toolkit (RTK Query, Immer, Reselect)                        |
-| `vendor-radix`  | Radix UI primitives                                               |
 | `vendor-sentry` | Sentry SDK (session replay loads later from the Sentry CDN)       |
-| `vendor-ui`     | CVA, cn, Lucide icons                                             |
 
-Routes are **lazy-loaded** via `React.lazy()` for automatic code splitting.
+Routes are **lazy-loaded** via `React.lazy()` for automatic code splitting. UI libraries (Radix, Lucide icons, CVA) have no vendor chunk: each route loads only the components it uses.
 
 ## Release System
 
@@ -241,6 +240,8 @@ Configuration lives in [`biome.json`](./biome.json). The pre-commit hook runs `b
 
 - **In development** -- Redux DevTools shows every state transition in real time.
 - **In production** -- Sentry captures the full sequence of dispatched Redux actions leading up to an error, plus the application state at the moment of the crash.
+
+Sentry reports only from production builds with `VITE_SENTRY_DSN` set; it stays off on the dev server, in tests and when the DSN is empty.
 
 ![Sentry redux actions](https://github.com/marcoturi/react-redux-boilerplate/blob/main/doc/images/redux%20actions.png?raw=true)
 

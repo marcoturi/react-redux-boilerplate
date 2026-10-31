@@ -9,7 +9,7 @@ Production-ready React 19 SPA boilerplate with vertical slice architecture: Reac
 - Node.js 26.x from `.nvmrc`: run `fnm use` or `nvm use` first. Package manager: pnpm 12, pinned in `packageManager` (Node 26 no longer bundles Corepack: `npm i -g corepack && corepack enable`).
 - Install: `pnpm install`. Create `.env` from `.env.example`: `pnpm create:env`.
 - Dev server: `pnpm dev` (http://localhost:5173).
-- Lint, format and types: `pnpm check`; auto-fix: `pnpm check:fix`. Only types: `pnpm type:check` (`tsc -b` over the app, the Vite config and e2e).
+- Lint, format and types: `pnpm check`; auto-fix: `pnpm check:fix`; in CI `pnpm check:ci` (Biome annotations on the pull request). Only types: `pnpm type:check` (`tsc -b` over the app, the Vite config and e2e).
 - Unit and integration tests: `pnpm test`; with coverage and its thresholds: `pnpm test:coverage`.
 - Build: `pnpm build` (`tsc -b && vite build`, output in `dist/`).
 - E2E: install Chromium once with `pnpm exec playwright install chromium`, start `pnpm dev`, then run `pnpm e2e:local` in another terminal. `pnpm e2e:debug` runs only the `@only` scenarios.
@@ -21,6 +21,7 @@ Production-ready React 19 SPA boilerplate with vertical slice architecture: Reac
 src/
 ├── main.tsx           → Entry point: MSW in development, settings restore, chunk reload guard, React root with Sentry error handlers
 ├── AppProvider.tsx    → Providers: Redux, ErrorBoundary, Router
+├── assets/            → Static files imported by the app or index.html (images/logo.svg)
 ├── routes/            → Route table with the page ErrorBoundary and Suspense (index.tsx), lazy pages (<Name>/<Name>Page.tsx)
 ├── features/          → Feature slices: <feature>/store/ and <feature>/components/
 ├── shared/
@@ -31,7 +32,7 @@ src/
 │   ├── Base/          → shadcn/ui components, managed by the shadcn CLI
 │   ├── Elements/      → Project components (Text, Container, SkeletonList, ErrorFallback) built on Base and Tailwind
 │   └── Layout/        → Header and global.css (theme)
-└── test/              → MSW handlers, browser worker (development) and Node server (tests)
+└── test/              → MSW handlers and mock data, browser worker (development), Node server and helpers (tests)
 e2e/                   → Cucumber features, steps, page objects and support code
 ```
 
@@ -40,24 +41,24 @@ e2e/                   → Cucumber features, steps, page objects and support co
 - Components only display data from selectors and dispatch actions; they hold no business logic.
 - Business and domain logic lives in reducers and selectors, which stay pure.
 - Side effects go in RTK Query endpoints, thunks or listener middleware.
-- Each feature is self-contained and exposes its state through the namespaces of `store/index.ts`.
+- Each feature is self-contained. Other code imports its components through `components/index.ts`, its state through the namespaces of `store/index.ts`, and its types and enums from `store/<feature>.type.ts`.
 
 ## Rules
 
 Detailed rules live in `.agents/rules/`. `.claude/rules` is a symlink to that folder, so Claude Code loads each rule when it touches a matching file. Other agents must read the rules that match the files they change before editing them.
 
-| Rule                  | Applies to                                                                                                                                                                                      |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `typescript.md`       | `**/*.{ts,tsx,mts}`                                                                                                                                                                             |
-| `react-components.md` | `src/**/*.tsx`                                                                                                                                                                                  |
-| `ui-styling.md`       | `src/**/*.tsx`                                                                                                                                                                                  |
-| `routes.md`           | `src/routes/**`                                                                                                                                                                                 |
-| `redux-state.md`      | `src/features/**/store/**`, `src/shared/store/**`                                                                                                                                               |
-| `shadcn-base.md`      | `src/UI/Base/**`, `components.json`                                                                                                                                                             |
-| `global-css.md`       | `src/UI/Layout/global.css`                                                                                                                                                                      |
-| `unit-tests.md`       | `src/**/*.spec.{ts,tsx}`, `src/test/**`, `src/shared/store/test.tsx`, `scripts/vitest.setup.ts`                                                                                                 |
-| `e2e-tests.md`        | `e2e/**`, `cucumber.mjs`                                                                                                                                                                        |
-| `tooling.md`          | `package.json`, `pnpm-workspace.yaml`, `vite.config.mts`, `tsconfig*.json`, `biome.json`, `.github/workflows/**`, `.releaserc`, `commitlint.config.cjs`, `.husky/**`, `renovate.json`, `.nvmrc` |
+| Rule                  | Applies to                                                                                                                                                                                                            |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `typescript.md`       | `**/*.{ts,tsx,mts}`                                                                                                                                                                                                   |
+| `react-components.md` | `src/**/*.tsx`                                                                                                                                                                                                        |
+| `ui-styling.md`       | `src/**/*.tsx`                                                                                                                                                                                                        |
+| `routes.md`           | `src/routes/**`                                                                                                                                                                                                       |
+| `redux-state.md`      | `src/features/**/store/**`, `src/shared/store/**`                                                                                                                                                                     |
+| `shadcn-base.md`      | `src/UI/Base/**`, `components.json`                                                                                                                                                                                   |
+| `global-css.md`       | `src/UI/Layout/global.css`                                                                                                                                                                                            |
+| `unit-tests.md`       | `src/**/*.spec.{ts,tsx}`, `src/test/**`, `src/shared/store/test.tsx`, `scripts/vitest.setup.ts`                                                                                                                       |
+| `e2e-tests.md`        | `e2e/**`, `cucumber.mjs`                                                                                                                                                                                              |
+| `tooling.md`          | `package.json`, `pnpm-workspace.yaml`, `vite.config.mts`, `tsconfig*.json`, `e2e/tsconfig*.json`, `biome.json`, `.github/workflows/**`, `.releaserc`, `commitlint.config.cjs`, `.husky/**`, `renovate.json`, `.nvmrc` |
 
 Official skills complement the rules: Redux Toolkit ships them in `node_modules/@reduxjs/toolkit/skills/`, and shadcn publishes one (`pnpm dlx skills add shadcn/ui`). Where a skill disagrees with a rule, the rule wins.
 
@@ -82,6 +83,6 @@ Before considering a task done:
 
 ## Boundaries
 
-- **Always**: run the validation checklist; read environment values through `src/shared/config/env.ts`; keep `src/UI/Base` managed by the shadcn CLI.
+- **Always**: run the validation checklist; read `VITE_*` variables through `src/shared/config/env.ts` (only `import.meta.env.DEV` stays inline where it gates development-only code); keep `src/UI/Base` managed by the shadcn CLI.
 - **Ask first**: changes to `.github/workflows/`, `.releaserc`, `commitlint.config.cjs`, the `style` or `aliases` in `components.json`, Sentry data collection in `src/shared/config/sentry.ts`, new dependencies, new top-level folders.
 - **Never**: commit `.env` or secrets (the Sentry DSN and API URL come from `VITE_SENTRY_DSN` and `VITE_API_URL`); bump `version` or edit `CHANGELOG.md` by hand; commit generated output (`dist/`, `coverage/`, `reports/`, `traces/`, `screenshots/`); add ESLint or Prettier; skip hooks with `--no-verify`.

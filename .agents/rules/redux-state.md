@@ -10,7 +10,7 @@ Redux Toolkit ships official agent skills in `node_modules/@reduxjs/toolkit/skil
 
 ## Store layout
 
-- `src/shared/store/index.ts` holds `rootReducer` (the API mounted as `[baseApi.reducerPath]: baseApi.reducer`), `RootState` and `setupStore(preloadedState)`. `src/shared/store/types.ts` derives `AppStore` and `AppDispatch` from `setupStore` and creates the typed hooks. Never write these types by hand.
+- `src/shared/store/index.ts` holds `rootReducer` (`combineSlices(baseApi, settingsSlice, …)`: the API and each slice mount under their own `reducerPath` or `name`, never under a key written by hand), `RootState` and `setupStore(preloadedState)`. `src/shared/store/types.ts` derives `AppStore` and `AppDispatch` from `setupStore` and creates the typed hooks. Never write these types by hand.
 - In `setupStore`, keep `middleware` before `enhancers`, prepend the listener middleware, and concat the Sentry enhancer: it is typed `any`, and prepending it erases the thunk dispatch type. Do not disable or loosen the serializable and immutable checks of `getDefaultMiddleware`.
 - Import the `store` singleton only in `src/main.tsx` and `src/AppProvider.tsx`; components use the typed hooks and tests use `setupStore`.
 - Each feature keeps its state in `src/features/<feature>/store/`:
@@ -21,7 +21,7 @@ Redux Toolkit ships official agent skills in `node_modules/@reduxjs/toolkit/skil
   - `<feature>.effect.ts`: listeners registered with `startAppListening`
   - `<feature>.type.ts`: feature types and their type guards
   - `index.ts`: barrel exporting namespaces (`export * as SettingsSelectors from './settings.selector'`)
-- Register a new slice in `rootReducer` and import its effect file in `src/shared/store/index.ts`.
+- Register a new slice by adding it to `combineSlices` in `src/shared/store/index.ts`, and import its effect file there.
 - Keep store code independent of components: types used by slices or selectors live in `store/`, never in `components/`.
 
 ## Actions and reducers

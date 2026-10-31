@@ -4,6 +4,7 @@ paths:
   - "pnpm-workspace.yaml"
   - "vite.config.mts"
   - "tsconfig*.json"
+  - "e2e/tsconfig*.json"
   - "biome.json"
   - ".github/workflows/**"
   - ".releaserc"
@@ -18,9 +19,9 @@ paths:
 - Use pnpm only (`packageManager` in `package.json`). Add dependencies with exact versions: `pnpm add -E <pkg>`, with `-D` for dev dependencies. The shadcn CLI adds dependencies with `^` ranges: pin them after every `shadcn add`. Change the lockfile only in dependency tasks.
 - pnpm 12 settings live in `pnpm-workspace.yaml`: pnpm ignores the `pnpm` field of `package.json`, and `.npmrc` holds only registry and auth. A dependency that needs its install script goes in `allowBuilds`. Keep the default `minimumReleaseAge` (versions younger than one day are not installed) and the same delay in `renovate.json`; when a fix cannot wait, add the package to `minimumReleaseAgeExclude` instead of lowering the delay.
 - pnpm writes its own version to the lockfile: after changing `packageManager`, run `pnpm install` and commit the lockfile, or `pnpm install --frozen-lockfile` fails in CI.
-- Take the Node.js version from `.nvmrc` (26.x) and run `fnm use` or `nvm use` before commands.
+- Take the Node.js version from `.nvmrc` (26.x) and run `fnm use` or `nvm use` before commands. Keep `engines` in `package.json` on the same majors (`^26.0.0`, `^12.0.0`) and `@types/node` on the Node.js major (`allowedVersions` in `renovate.json`).
 - Load Tailwind CSS only through `@tailwindcss/vite`: no PostCSS config and no `tailwind.config.*`.
-- When adding a vendor dependency, check the chunk groups in `build.rolldownOptions.output.codeSplitting.groups` (`vite.config.mts`); groups match in order and the first match wins.
+- When adding a vendor dependency, check the chunk groups in `build.rolldownOptions.output.codeSplitting.groups` (`vite.config.mts`); groups match in order and the first match wins. A group gathers every matching module and loads it with the first page: add one only for code needed at startup (React, Redux, Sentry), never for UI libraries that some routes use (Radix, lucide).
 - The build uses Vite's default target (`baseline-widely-available`); keep `target` and `lib` of `tsconfig.app.json` within it (ES2022, ES2023 lib).
 - The `msw/vite` plugin serves the MSW worker on the dev server only (`apply: 'serve'`): never add `mockServiceWorker.js` to `public/`. `initMocks` checks `import.meta.env.DEV` first, so the build drops MSW: keep that check static.
 - Vite resolves the `@/` alias from the tsconfig `paths` (`resolve.tsconfigPaths`); keep the `paths` of the root `tsconfig.json`, `tsconfig.app.json` and `tsconfig.node.json` in sync.

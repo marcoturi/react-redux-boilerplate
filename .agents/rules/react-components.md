@@ -17,13 +17,13 @@ Applies to hand-written components. `src/UI/Base/**` is upstream shadcn code and
 - Use `useEffect` only to synchronize with an external system, and return a cleanup. Event-driven work belongs in the handler.
 - Read the latest props or state inside an effect with `useEffectEvent`, within its limits (Biome does not check them): call it only from the Effects of the same component or hook, never during render, never pass it to other components or hooks, never list it in dependencies, and never use it to silence the dependency lint.
 - Read state with `useAppSelector` and dispatch with `useAppDispatch` from `@/shared/store/types`; never use `useSelector` or `useDispatch` from `react-redux` directly.
-- Import feature state through the namespaces of the feature's `store/index.ts` (`SettingsActions`, `SettingsSelectors`, `SubscriptionApi`), never from `*.slice.ts` or `*.api.ts`.
+- From another feature or a route, import a feature's components through its `components/index.ts`, its state through the namespaces of its `store/index.ts` (`SettingsActions`, `SettingsSelectors`, `SubscriptionApi`) and its types and enums from `store/<feature>.type.ts`. Components never import `*.slice.ts` or `*.api.ts`; specs may import the API object for `api.util` and `api.endpoints`.
 - Render errors reach Sentry only through the `createRoot` callbacks in `src/main.tsx`; do not call Sentry from an `ErrorBoundary` `onError`. Send errors from event handlers and async code to the nearest boundary with `useErrorBoundary().showBoundary` (`react-error-boundary`). Handled errors outside rendering (effects, thunks) go through `captureError` (see `redux-state.md`).
-- Show a failed RTK Query request (`isError`) with its own state and a retry, as `SubscriptionList` does: never let it fall through to the empty state. Gate that state on `isError && !data`: a failed refetch keeps the cached `data`, so keep showing it.
+- Show a failed RTK Query request (`isError`) with its own state and a retry, as `SubscriptionList` does: never let it fall through to the empty state. Gate that state on `isError && !data`: a failed refetch keeps the cached `data`, so keep showing it. Gate the skeleton on `!data && isFetching`, not on `isLoading`, which stays false when a retry follows a failed request.
 
 ## Shape and typing
 
-- Write components as plain functions with typed props (`function Name({ title }: NameProps)`); never `React.FC` and never `forwardRef` (`ref` is a regular prop in React 19).
+- Write components as plain functions with typed props (`function Name({ title }: NameProps)`, with `type NameProps = { … }`); never `React.FC` and never `forwardRef` (`ref` is a regular prop in React 19).
 - Never define a component, or call `lazy()`, inside another component: its state resets on every render.
 - Type children as `ReactNode`, never `JSX.Element`.
 - Extend native elements with `React.ComponentProps<'tag'>`, spread `...props` and merge `className` with `cn()`.
