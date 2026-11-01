@@ -17,7 +17,9 @@ const env = {
   IS_DEV: DEV,
   // `vite build`, whatever the mode
   IS_PROD: PROD,
-  API_URL: VITE_API_URL,
+  // Without a trailing slash, like the URLs fetchBaseQuery builds: the MSW
+  // handlers append paths to it
+  API_URL: VITE_API_URL.replace(/\/+$/, ''),
   // Serve the API from the MSW handlers in src/test (development only)
   API_MOCKING: VITE_API_MOCKING === 'true',
 };
