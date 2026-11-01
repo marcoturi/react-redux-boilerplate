@@ -9,24 +9,24 @@ A production-ready, batteries-included starter template for building long-lived 
 - **Release automation** -- [Semantic-release](#release-system) for hands-off versioning, changelogs, and tags.
 - **Code quality** -- [Biome](#format-and-style) for blazing-fast linting and formatting in a single tool.
 - **UI system** -- [Radix + shadcn/ui + Tailwind CSS 4](#ui-components-and-style-system) for accessible, headless, minimal-dependency components.
-- **Testing** -- [Vitest + Testing Library](#testing) for unit/integration, [Cucumber + Playwright](#testing) for E2E.
+- **Testing** -- [Vitest + Testing Library](#testing) for unit and component tests (browser mode), [Cucumber + Playwright](#testing) for E2E.
 - **Error tracking** -- [Sentry](#error-handling-and-analytics) with Redux state replay for production debugging.
 
 ## Features
 
-| Category                 | Stack                                                                                                                                                                                                            |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Build                    | [Vite 8](https://vitejs.dev/) + [React 19](https://react.dev/) + [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react) + [pnpm](https://pnpm.io/) + [TypeScript 7](https://www.typescriptlang.org) |
-| State                    | [Redux Toolkit 2](https://redux-toolkit.js.org/) (includes RTK Query, Immer, Reselect)                                                                                                                           |
-| UI                       | [Radix](https://www.radix-ui.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Tailwind CSS 4](https://tailwindcss.com/)                                                                                            |
-| Linting & formatting     | [Biome](https://biomejs.dev/)                                                                                                                                                                                    |
-| Release                  | [Husky](https://github.com/typicode/husky) + [Commitlint](https://commitlint.js.org/) + [Semantic-release](https://github.com/semantic-release/semantic-release)                                                 |
-| API mocking              | [MSW](https://mswjs.io/) (browser + test)                                                                                                                                                                        |
-| Unit & integration tests | [Vitest 5](https://vitest.dev/) + [Testing Library](https://testing-library.com/)                                                                                                                                |
-| E2E tests                | [Cucumber](https://cucumber.io/docs/installation/javascript/) + [Playwright](https://playwright.dev/)                                                                                                            |
-| Monitoring               | [Sentry](https://github.com/getsentry/sentry-javascript/tree/master/packages/react)                                                                                                                              |
-| Security                 | [CodeQL](https://github.com/github/codeql-action) analysis on pushes and pull requests to `main`                                                                                                                 |
-| AI-Ready                 | [AGENTS.md](AGENTS.md) — architecture rules and coding conventions for AI assistants                                                                                                                             |
+| Category                 | Stack                                                                                                                                                                                                                                                                       |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Build                    | [Vite 8](https://vitejs.dev/) + [React 19](https://react.dev/) + [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react) + [React Compiler](https://react.dev/learn/react-compiler) + [pnpm](https://pnpm.io/) + [TypeScript 7](https://www.typescriptlang.org) |
+| State                    | [Redux Toolkit 2](https://redux-toolkit.js.org/) (includes RTK Query, Immer, Reselect)                                                                                                                                                                                      |
+| UI                       | [Radix](https://www.radix-ui.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Tailwind CSS 4](https://tailwindcss.com/)                                                                                                                                                       |
+| Linting & formatting     | [Biome](https://biomejs.dev/)                                                                                                                                                                                                                                               |
+| Release                  | [Husky](https://github.com/typicode/husky) + [Commitlint](https://commitlint.js.org/) + [Semantic-release](https://github.com/semantic-release/semantic-release)                                                                                                            |
+| API mocking              | [MSW](https://mswjs.io/) (browser + test)                                                                                                                                                                                                                                   |
+| Unit & integration tests | [Vitest 5](https://vitest.dev/) + [Testing Library](https://testing-library.com/)                                                                                                                                                                                           |
+| E2E tests                | [Cucumber](https://cucumber.io/docs/installation/javascript/) + [Playwright](https://playwright.dev/)                                                                                                                                                                       |
+| Monitoring               | [Sentry](https://github.com/getsentry/sentry-javascript/tree/master/packages/react)                                                                                                                                                                                         |
+| Security                 | [CodeQL](https://github.com/github/codeql-action) analysis on pushes and pull requests to `main`                                                                                                                                                                            |
+| AI-Ready                 | [AGENTS.md](AGENTS.md) — architecture rules and coding conventions for AI assistants                                                                                                                                                                                        |
 
 ## Getting Started
 
@@ -50,22 +50,22 @@ pnpm dev           # Start dev server at http://localhost:5173
 
 ### Commands
 
-| Command                   | Description                                                  |
-| ------------------------- | ------------------------------------------------------------ |
-| `pnpm dev`                | Start development server with HMR                            |
-| `pnpm build`              | Type-check + production build (output in `dist/`)            |
-| `pnpm preview`            | Preview the production build locally                         |
-| `pnpm test`               | Run unit and integration tests (Vitest)                      |
-| `pnpm test:coverage`      | Run tests with V8 coverage and its thresholds                |
-| `pnpm e2e:local`          | Run E2E tests (start dev server first in another terminal)   |
-| `pnpm e2e:debug`          | Run only `@only`-tagged E2E scenarios with `--fail-fast`     |
-| `pnpm check`              | Biome lint/format check + TypeScript type check              |
-| `pnpm check:fix`          | Auto-fix lint/format issues, then type check                 |
-| `pnpm check:ci`           | `pnpm check` for CI, with Biome annotations on pull requests |
-| `pnpm format`             | Format all files with Biome                                  |
-| `pnpm lint`               | Lint all files with Biome (`pnpm lint:fix` applies fixes)    |
-| `pnpm type:check`         | TypeScript type check only (`tsc -b`)                        |
-| `pnpm update:interactive` | Update dependencies interactively                            |
+| Command                   | Description                                                   |
+| ------------------------- | ------------------------------------------------------------- |
+| `pnpm dev`                | Start development server with HMR                             |
+| `pnpm build`              | Type-check + production build (output in `dist/`)             |
+| `pnpm preview`            | Preview the production build locally                          |
+| `pnpm test`               | Run unit and component tests (Vitest, components in Chromium) |
+| `pnpm test:coverage`      | Run tests with V8 coverage and its thresholds                 |
+| `pnpm e2e:local`          | Run E2E tests (start dev server first in another terminal)    |
+| `pnpm e2e:debug`          | Run only `@only`-tagged E2E scenarios with `--fail-fast`      |
+| `pnpm check`              | Biome lint/format check + TypeScript type check               |
+| `pnpm check:fix`          | Auto-fix lint/format issues, then type check                  |
+| `pnpm check:ci`           | `pnpm check` for CI, with Biome annotations on pull requests  |
+| `pnpm format`             | Format all files with Biome                                   |
+| `pnpm lint`               | Lint all files with Biome (`pnpm lint:fix` applies fixes)     |
+| `pnpm type:check`         | TypeScript type check only (`tsc -b`)                         |
+| `pnpm update:interactive` | Update dependencies interactively                             |
 
 ## Folder Structure and Code Organization
 
@@ -74,17 +74,17 @@ pnpm dev           # Start dev server at http://localhost:5173
 ```
 src/
 ├── main.tsx                  → App entry point
-├── AppProvider.tsx            → Providers (Redux, ErrorBoundary, Router)
+├── AppProvider.tsx            → Providers (Redux, ErrorBoundary, RouterProvider)
 ├── assets/                   → Static files (images, fonts, etc.)
-├── routes/                   → Route definitions + page components (lazy-loaded via React.lazy)
-│   ├── index.tsx             → Route tree, page ErrorBoundary and Suspense
+├── routes/                   → Data router (client-side SPA, no SSR) + page components
+│   ├── index.tsx             → Route tree: layout, page ErrorBoundary, loaders, lazy pages
 │   ├── Home/
 │   ├── Subscriptions/
 │   └── NotFound/
 ├── shared/
 │   ├── config/               → Environment variables, Sentry setup
-│   ├── helpers/              → Generic utilities (localStorage, style utils, etc.)
-│   └── store/                → Redux store setup, base RTK Query API, typed hooks, test utilities
+│   ├── helpers/              → Generic utilities (localStorage, error tracking, etc.)
+│   └── store/                → Redux store setup, base RTK Query API, typed hooks
 ├── UI/
 │   ├── Base/                 → shadcn/ui components, managed by the shadcn CLI
 │   ├── Elements/             → Project UI components built on Base and Tailwind
@@ -93,13 +93,14 @@ src/
 │   └── <feature>/
 │       ├── store/            → Redux slice, selectors, API endpoints, effects, types, specs
 │       └── components/       → Feature-specific React components
-└── test/                     → MSW handlers and mock data, browser worker, Node server and test helpers
+├── mocks/                    → MSW handlers and mock data, browser worker, Node server
+└── test/                     → Test helpers and Vitest setup files
 ```
 
 Why vertical slices over alternatives like [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/) or [Feature-Sliced Design](https://feature-sliced.design/)?
 
 1. **Less navigation** -- Feature code lives in one folder, not scattered across layers.
-2. **Easy extraction** -- A feature folder can move to a monorepo package with minimal refactoring (helped by `@/` path aliases).
+2. **Easy extraction** -- A feature folder can move to a monorepo package with minimal refactoring: files inside a feature import each other with relative paths, and only the imports from other features use the `@/` alias.
 3. **Parallel development** -- Teams can work on different features without conflicts.
 4. **Simpler testing** -- Each feature can be tested in isolation.
 
@@ -160,11 +161,11 @@ Keep the files in `src/UI/Base/` close to upstream so they stay easy to update. 
 
 ## Testing
 
-### Unit and integration tests
+### Unit and component tests
 
-Tests use **Vitest 5** with **Testing Library** and **jsdom**. Test files live next to the code they test with a `.spec.ts` / `.spec.tsx` suffix.
+Tests use **Vitest 5** with **Testing Library**. Test files live next to the code they test: `.spec.ts` files (store, selectors, helpers) run in **jsdom**, `.spec.tsx` files (components, pages, routes) run in a real **Chromium** through [Vitest browser mode](https://vitest.dev/guide/browser/). Install Chromium once with `pnpm exec playwright install chromium`.
 
-API mocking uses **MSW**: the same request handlers in `src/test/handlers` power both development and tests, and a request without a handler fails the test. In development the `msw/vite` plugin serves the worker script straight from `node_modules`, so there is no `mockServiceWorker.js` to regenerate when MSW is upgraded, and neither the worker nor the mocks reach the production build.
+API mocking uses **MSW**: the same request handlers in `src/mocks/handlers` power both development and tests, and a request without a handler fails the test. In development the `msw/vite` plugin serves the worker script straight from `node_modules`, so there is no `mockServiceWorker.js` to regenerate when MSW is upgraded, and neither the worker nor the mocks reach the production build.
 
 `pnpm test:coverage` fails when coverage drops under the thresholds in `vite.config.mts`.
 
@@ -173,7 +174,7 @@ API mocking uses **MSW**: the same request handlers in `src/test/handlers` power
 E2E tests use **Cucumber** (Gherkin syntax) with **Playwright** as the browser automation engine.
 
 ```bash
-# First time setup
+# First time setup (also needed by the component tests)
 pnpm exec playwright install chromium
 
 # Run (dev server must be running)
@@ -191,7 +192,7 @@ Production builds put the libraries needed at startup in vendor chunks, which ch
 | `vendor-redux`  | Redux Toolkit (RTK Query, Immer, Reselect)                        |
 | `vendor-sentry` | Sentry SDK (session replay loads later from the Sentry CDN)       |
 
-Routes are **lazy-loaded** via `React.lazy()` for automatic code splitting. UI libraries (Radix, Lucide icons, CVA) have no vendor chunk: each route loads only the components it uses.
+Routes are **lazy-loaded** through the route `lazy` property of the React Router data router, and each route `loader` starts the page's API request while the page code downloads, so code and data load in parallel. UI libraries (Radix, Lucide icons, CVA) have no vendor chunk: each route loads only the components it uses.
 
 ## Release System
 
@@ -199,7 +200,7 @@ Routes are **lazy-loaded** via `React.lazy()` for automatic code splitting. UI l
 
 The release pipeline is fully automated with [semantic-release](https://semantic-release.gitbook.io/semantic-release/):
 
-1. Every pull request runs the checks: Biome, types, unit tests with coverage thresholds, build and E2E.
+1. Every pull request to `main` runs the checks: Biome, types, unit and component tests with coverage thresholds, build and E2E.
 2. Developer merges the PR into `main`, and the same checks run again.
 3. semantic-release analyzes commits, determines the version bump, generates the changelog, creates a GitHub release and git tag.
 
@@ -216,7 +217,7 @@ No manual version bumps. No manual changelog edits.
 ### Why Conventional Commits?
 
 - **Automated changelogs** -- Commit messages drive what goes into `CHANGELOG.md`.
-- **Semantic versioning** -- `feat` = minor; `fix`, `perf`, `refactor`, `style` and `docs(README)` = patch; `BREAKING CHANGE` = major.
+- **Semantic versioning** -- `feat` = minor; `fix`, `perf`, `refactor`, `style` and `docs(README)` = patch; a `!` after the type (`feat!:`) or a `BREAKING CHANGE` footer = major.
 - **Readable history** -- Anyone can scan `git log` and understand the nature of each change at a glance.
 
 ## Format and Style

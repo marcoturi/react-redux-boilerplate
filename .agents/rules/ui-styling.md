@@ -25,7 +25,7 @@ Applies to code that uses components. `src/UI/Base/**` is exempt: it is upstream
 - Use semantic tokens only (`bg-primary`, `text-muted-foreground`, `border-border`): no palette colors (`bg-blue-500`), hex, `oklch()` or arbitrary colors. New tokens go in `src/UI/Layout/global.css`.
 - Do not write `dark:` color overrides: the tokens already switch with the `.dark` class.
 - Lay out with `flex` or `grid` and `gap-*`, not `space-x-*` or `space-y-*`. Use `size-*` when width and height are equal, and `truncate` for a one-line ellipsis.
-- Build conditional classes with `cn()` from `@/shared/helpers/style.utils`, never with template-literal ternaries.
+- Build conditional classes with `cn()` from the `cn` package (`import { cn } from 'cn'`), as the shadcn components do, never with template-literal ternaries.
 - Never build class names by interpolation (`` `bg-${color}-500` ``): Tailwind only generates complete class names, so map values to complete strings or `cva` variants.
 - Write mobile-first: base classes for small screens, then `sm:`, `md:`, `lg:`. Use container queries (`@container`, `@md:`) when a component's layout depends on its slot rather than the viewport.
 - Prefer the scale to arbitrary values. Spacing accepts any multiple of 0.25: `w-62.5` is 250px, `leading-7.5` is 30px, `max-w-284` is 1136px. Use arbitrary values only when no scale value or theme token fits (e.g. `grid-cols-[auto_1fr]`), and reference variables as `bg-(--x)`, not `bg-[var(--x)]`. Promote a value used more than once to a token in `global.css`.

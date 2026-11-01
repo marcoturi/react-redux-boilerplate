@@ -15,12 +15,12 @@ Redux Toolkit ships official agent skills in `node_modules/@reduxjs/toolkit/skil
 - Import the `store` singleton only in `src/main.tsx` and `src/AppProvider.tsx`; components use the typed hooks and tests use `setupStore`.
 - Each feature keeps its state in `src/features/<feature>/store/`:
   - `<feature>.slice.ts`: `createSlice`, reducers hold the domain logic
-  - `<feature>.selector.ts`: selectors
+  - `<feature>.selector.ts`: selectors. Those that read only the feature's own slice are declared in `createSlice({ selectors })`, which types them from the slice state and the slice `name`, and re-exported here (`export const { selectFilters } = settingsSlice.selectors`); selectors that read other slices or the API cache, and memoized ones, are written here
   - `<feature>.api.ts`: RTK Query endpoints injected into `baseApi` (`src/shared/store/api.ts`)
   - `<feature>.thunk.ts`: thunks for logic that is not server data
   - `<feature>.effect.ts`: listeners registered with `startAppListening`
   - `<feature>.type.ts`: feature types and their type guards
-  - `index.ts`: barrel exporting namespaces (`export * as SettingsSelectors from './settings.selector'`)
+  - `index.ts`: barrel exporting namespaces (`export * as SettingsSelectors from './settings.selector'`, `SubscriptionApi`) and, when the feature has thunks, an actions object that joins them to the slice actions (`const SettingsActions = { ...settingsSlice.actions, loadState }`)
 - Register a new slice by adding it to `combineSlices` in `src/shared/store/index.ts`, and import its effect file there.
 - Keep store code independent of components: types used by slices or selectors live in `store/`, never in `components/`.
 
@@ -40,7 +40,7 @@ Redux Toolkit ships official agent skills in `node_modules/@reduxjs/toolkit/skil
 
 ## Side effects
 
-- Register listeners with `startAppListening` from `@/shared/store/listener`, typed with `RootState` and `AppDispatch`. Use `actionCreator` and let it type the action; do not annotate `PayloadAction` by hand.
+- Register listeners with `startAppListening` from `@/shared/store/listener`, typed with `RootState` and `AppDispatch`. Use `actionCreator` and let it type the action; do not annotate `PayloadAction` by hand. Read state in an effect through selectors (`SettingsSelectors.selectFilters(getState())`), not through the state path.
 - Report failures that the UI does not show (a rejected thunk, a failed write to storage) with `captureError` from `@/shared/helpers/error-tracking.service`, as `settings.effect.ts` does for `loadState.rejected`.
 
 ## RTK Query
