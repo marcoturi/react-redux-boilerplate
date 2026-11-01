@@ -5,12 +5,8 @@ import { Header, type MenuItem } from '.';
 describe('Header', () => {
   test('Should load and display a App title and a navigation menu', () => {
     const menuItems = [
-      { label: 'Home', href: '/', testId: 'home-link' },
-      {
-        label: 'Subscriptions',
-        href: '/subscriptions',
-        testId: 'subscription-link',
-      },
+      { label: 'Home', href: '/' },
+      { label: 'Subscriptions', href: '/subscriptions' },
     ] satisfies MenuItem[];
 
     renderWithProviders(<Header menuItems={menuItems} />);

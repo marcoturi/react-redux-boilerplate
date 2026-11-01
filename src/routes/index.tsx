@@ -21,12 +21,8 @@ const routes = [
 ] satisfies RouteObject[];
 
 const menuItems = [
-  { label: 'Home', href: '/', testId: 'home-link' },
-  {
-    label: 'Subscriptions',
-    href: '/subscriptions',
-    testId: 'subscription-link',
-  },
+  { label: 'Home', href: '/' },
+  { label: 'Subscriptions', href: '/subscriptions' },
 ] satisfies MenuItem[];
 
 // Reports page loads and navigations to Sentry under the route pattern

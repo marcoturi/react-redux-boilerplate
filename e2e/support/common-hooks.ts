@@ -16,9 +16,9 @@ import {
   webkit,
 } from '@playwright/test';
 import { createPageObjects } from '../page-objects';
-import { config } from './config';
-import type { ICustomWorld } from './custom-world';
+import type { CustomWorld } from './custom-world';
 
+// BROWSER=firefox or BROWSER=webkit runs the scenarios in another engine
 const browserTypes: Record<string, BrowserType | undefined> = {
   chromium,
   firefox,
@@ -30,29 +30,25 @@ const tracesDir = 'traces';
 setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
 
 BeforeAll(async () => {
-  const browserType = browserTypes[config.browser] ?? chromium;
-  browser = await browserType.launch(config.browserOptions);
+  const browserType = browserTypes[process.env.BROWSER ?? ''] ?? chromium;
+  browser = await browserType.launch();
   await mkdir(tracesDir, { recursive: true });
 });
 
 Before({ tags: '@pending' }, () => 'skipped');
 
-Before<ICustomWorld>({ tags: '@mobile' }, function () {
+Before<CustomWorld>({ tags: '@mobile' }, function () {
   this.mobile = true;
 });
 
-Before<ICustomWorld>(async function ({ pickle }) {
+Before<CustomWorld>(async function () {
   if (!browser) throw new Error('The browser did not start');
-  this.startTime = new Date();
-  this.testName = pickle.name.replaceAll(/\W/g, '-');
-  // customize the [browser context](https://playwright.dev/docs/next/api/class-browser#browsernewcontextoptions)
-
-  const isMobile = this.mobile ? devices['iPhone 14 Pro'] : {};
+  // https://playwright.dev/docs/api/class-browser#browser-new-context
   this.context = await browser.newContext({
     acceptDownloads: true,
     recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
     viewport: { width: 1200, height: 800 },
-    ...isMobile,
+    ...(this.mobile ? devices['iPhone 14 Pro'] : {}),
   });
 
   await this.context.tracing.start({ screenshots: true, snapshots: true });
@@ -65,29 +61,24 @@ Before<ICustomWorld>(async function ({ pickle }) {
   this.pageObjects = createPageObjects(this.page);
 });
 
-After<ICustomWorld>(async function ({ result }) {
-  if (result) {
-    this.attach(
-      `Status: ${result.status}. Duration:${result.duration?.seconds}s`,
-    );
+After<CustomWorld>(async function ({ pickle, result }) {
+  const { context } = this;
+  if (!context) return;
 
-    if (result.status !== Status.PASSED) {
-      const image = await this.page.screenshot();
+  if (result?.status === Status.FAILED) {
+    // The page may be missing if the Before hook failed while creating it
+    const [page] = context.pages();
+    if (page) this.attach(await page.screenshot(), 'image/png');
 
-      // Replace : with _ because colons aren't allowed in Windows paths
-      const timePart = this.startTime
-        ?.toISOString()
-        .split('.')[0]
-        ?.replaceAll(':', '_');
-
-      this.attach(image, 'image/png');
-      await this.context.tracing.stop({
-        path: `${tracesDir}/${this.testName}-${timePart}trace.zip`,
-      });
-    }
+    const name = pickle.name.replaceAll(/\W/g, '-');
+    // No colons: they are not allowed in Windows paths
+    const time = new Date().toISOString().replaceAll(/[:.]/g, '_');
+    await context.tracing.stop({
+      path: `${tracesDir}/${name}-${time}-trace.zip`,
+    });
   }
-  await this.page.close();
-  await this.context.close();
+  // Closes the page as well
+  await context.close();
 });
 
 AfterAll(async () => {

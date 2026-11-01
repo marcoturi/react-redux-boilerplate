@@ -7,7 +7,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/UI/Base/navigation-menu';
 
-export type MenuItem = { label: string; href: string; testId: string };
+export type MenuItem = { label: string; href: string };
 
 type MenuProps = {
   menuItems: MenuItem[];
@@ -28,9 +28,7 @@ export function Menu({ menuItems }: MenuProps) {
               asChild
               className={navigationMenuTriggerStyle()}
             >
-              <Link data-testid={item.testId} to={item.href}>
-                {item.label}
-              </Link>
+              <Link to={item.href}>{item.label}</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         ))}

@@ -4,7 +4,9 @@ export function subscriptionPo(page: Page) {
   const filterTrigger = page.getByTestId('filter-trigger');
 
   return {
-    subscriptionLink: page.getByTestId('subscription-link'),
+    subscriptionLink: page
+      .getByRole('navigation')
+      .getByRole('link', { name: 'Subscriptions' }),
     filterTrigger,
     list: page.getByTestId('subscription-item'),
     async pickOptionFromFilter(option: string) {
