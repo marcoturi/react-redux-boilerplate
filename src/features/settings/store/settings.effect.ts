@@ -3,7 +3,7 @@ import LocalStorageService, {
   StorageKeys,
 } from '@/shared/helpers/local-storage.service';
 import { startAppListening } from '@/shared/store/listener';
-import { SettingsActions } from '.';
+import { SettingsActions, SettingsSelectors } from '.';
 import { SettingsKey } from './settings.type';
 
 /**
@@ -14,11 +14,11 @@ import { SettingsKey } from './settings.type';
  */
 startAppListening({
   actionCreator: SettingsActions.subscriptionFilterChanged,
-  effect: (_action, listenerApi) => {
+  effect: (_action, { getState }) => {
     try {
       LocalStorageService(StorageKeys.settings).set(
         SettingsKey.filters,
-        listenerApi.getState().settings[SettingsKey.filters],
+        SettingsSelectors.selectFilters(getState()),
       );
     } catch (error) {
       captureError(error, 'Error saving the settings to local storage');

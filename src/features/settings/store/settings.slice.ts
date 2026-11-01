@@ -7,7 +7,7 @@ import {
   type SettingsState,
 } from './settings.type';
 
-export const initialStorageState: SettingsState = {
+export const initialState: SettingsState = {
   [SettingsKey.filters]: {
     filterSubscriptionsBy: SubscriptionFilters.All,
   },
@@ -15,7 +15,7 @@ export const initialStorageState: SettingsState = {
 
 export const settingsSlice = createSlice({
   name: 'settings',
-  initialState: initialStorageState,
+  initialState,
   reducers: {
     subscriptionFilterChanged: (
       state,
@@ -33,5 +33,11 @@ export const settingsSlice = createSlice({
           filters.filterSubscriptionsBy;
       }
     });
+  },
+  // Receive the slice state: the root state path comes from `name`
+  selectors: {
+    selectFilters: (state) => state[SettingsKey.filters],
+    selectSubscriptionFilter: (state) =>
+      state[SettingsKey.filters].filterSubscriptionsBy,
   },
 });

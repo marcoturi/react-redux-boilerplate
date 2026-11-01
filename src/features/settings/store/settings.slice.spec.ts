@@ -1,8 +1,9 @@
 import { SubscriptionFilters } from '@/features/subscriptions/store/subscription.type';
 import { SettingsActions } from '.';
-import { initialStorageState, settingsSlice } from './settings.slice';
-import { loadState } from './settings.thunk';
+import { initialState, settingsSlice } from './settings.slice';
 import { SettingsKey } from './settings.type';
+
+const { reducer } = settingsSlice;
 
 describe('Settings Slice:', () => {
   test('Should handle loadState.fulfilled', () => {
@@ -11,33 +12,29 @@ describe('Settings Slice:', () => {
         filterSubscriptionsBy: SubscriptionFilters.OneTimePurchase,
       },
     };
-    const action = loadState.fulfilled(thunkResult, '');
-    expect(settingsSlice.reducer(initialStorageState, action)).toEqual(
-      thunkResult,
-    );
+    const action = SettingsActions.loadState.fulfilled(thunkResult, '');
+    expect(reducer(initialState, action)).toEqual(thunkResult);
   });
 
   test('Should handle subscriptionFilterChanged', () => {
     const action = SettingsActions.subscriptionFilterChanged(
       SubscriptionFilters.OneTimePurchase,
     );
-    expect(
-      settingsSlice.reducer(undefined, action)[SettingsKey.filters],
-    ).toEqual({ filterSubscriptionsBy: SubscriptionFilters.OneTimePurchase });
+    expect(reducer(undefined, action)[SettingsKey.filters]).toEqual({
+      filterSubscriptionsBy: SubscriptionFilters.OneTimePurchase,
+    });
   });
 
   test('Should ignore invalid persisted settings in loadState.fulfilled', () => {
-    const action = loadState.fulfilled(
+    const action = SettingsActions.loadState.fulfilled(
       { [SettingsKey.filters]: { filterSubscriptionsBy: 'Unknown' }, extra: 1 },
       '',
     );
-    expect(settingsSlice.reducer(initialStorageState, action)).toEqual(
-      initialStorageState,
-    );
+    expect(reducer(initialState, action)).toEqual(initialState);
   });
 
   test('Should keep only the known fields of persisted settings', () => {
-    const action = loadState.fulfilled(
+    const action = SettingsActions.loadState.fulfilled(
       {
         [SettingsKey.filters]: {
           filterSubscriptionsBy: SubscriptionFilters.OneTimePurchase,
@@ -46,7 +43,7 @@ describe('Settings Slice:', () => {
       },
       '',
     );
-    expect(settingsSlice.reducer(initialStorageState, action)).toEqual({
+    expect(reducer(initialState, action)).toEqual({
       [SettingsKey.filters]: {
         filterSubscriptionsBy: SubscriptionFilters.OneTimePurchase,
       },
