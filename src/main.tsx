@@ -1,8 +1,8 @@
 import { SettingsActions } from '@/features/settings/store';
+import { initMocks } from '@/mocks';
 import { reloadOnPreloadError } from '@/shared/helpers/preload-error';
 import { store } from '@/shared/store';
 import { AppProvider } from './AppProvider';
-import { initMocks } from './test';
 import '@/UI/Layout/global.css';
 import * as Sentry from '@sentry/react';
 import { StrictMode } from 'react';

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest';
 import { cleanup } from '@testing-library/react';
-import { server } from '../src/test/server';
+import { server } from '@/mocks/node';
 
 // jsdom lacks these layout and pointer capture APIs, which the Radix Select
 // calls: https://github.com/testing-library/user-event/discussions/1087

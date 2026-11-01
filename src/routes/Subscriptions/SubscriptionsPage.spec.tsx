@@ -4,13 +4,13 @@ import { HttpResponse, http } from 'msw';
 import { SettingsKey } from '@/features/settings/store/settings.type';
 import { subscriptionApi } from '@/features/subscriptions/store/subscription.api';
 import { SubscriptionFilters } from '@/features/subscriptions/store/subscription.type';
-import SubscriptionsPage from '@/routes/Subscriptions/SubscriptionsPage';
+import { subscriptionMockList } from '@/mocks/data/subscriptions';
+import { subscriptionsFailOnce } from '@/mocks/handlers/subscriptions';
+import { server } from '@/mocks/node';
 import env from '@/shared/config/env';
-import { renderWithProviders } from '@/shared/store/test';
-import { subscriptionsFailOnce } from '@/test/handlers/subscriptions';
-import { subscriptionMockList } from '@/test/mocks/subscriptions';
-import { server } from '@/test/server';
+import { renderWithProviders } from '@/test/render';
 import { readStoredSetting } from '@/test/storage';
+import SubscriptionsPage from './SubscriptionsPage';
 
 describe('SubscriptionsPage', () => {
   test('Should load page title', () => {

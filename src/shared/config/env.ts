@@ -20,7 +20,7 @@ const env = {
   // Without a trailing slash, like the URLs fetchBaseQuery builds: the MSW
   // handlers append paths to it
   API_URL: VITE_API_URL.replace(/\/+$/, ''),
-  // Serve the API from the MSW handlers in src/test (development only)
+  // Serve the API from the MSW handlers in src/mocks (development only)
   API_MOCKING: VITE_API_MOCKING === 'true',
 };
 

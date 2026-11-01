@@ -1,6 +1,6 @@
 import { HttpResponse, http } from 'msw';
+import { subscriptionMockList } from '@/mocks/data/subscriptions';
 import env from '@/shared/config/env';
-import { subscriptionMockList } from '@/test/mocks/subscriptions';
 
 const subscriptionsUrl = `${env.API_URL}/subscriptions`;
 

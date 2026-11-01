@@ -1,8 +1,8 @@
 import { act, screen } from '@testing-library/react';
 import { HttpResponse, http } from 'msw';
+import { server } from '@/mocks/node';
 import env from '@/shared/config/env';
-import { renderWithProviders } from '@/shared/store/test';
-import { server } from '@/test/server';
+import { renderWithProviders } from '@/test/render';
 import { userApi } from '../store/user.api';
 import { UserWidget } from './UserWidget';
 

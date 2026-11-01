@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
-import NotFoundPage from '@/routes/NotFound/NotFoundPage';
-import { renderWithProviders } from '@/shared/store/test';
+import { renderWithProviders } from '@/test/render';
+import NotFoundPage from './NotFoundPage';
 
 describe('NotFoundPage', () => {
   test('Should link back to the home page', () => {

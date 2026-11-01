@@ -1,7 +1,7 @@
 import { SubscriptionFilters } from '@/features/subscriptions/store/subscription.type';
 import { captureError } from '@/shared/helpers/error-tracking.service';
 import { StorageKeys } from '@/shared/helpers/local-storage.service';
-import { setupStore } from '@/shared/store/test';
+import { setupStore } from '@/shared/store';
 import { readStoredSetting } from '@/test/storage';
 import { SettingsActions, SettingsSelectors } from '.';
 import { SettingsKey } from './settings.type';

@@ -4,10 +4,8 @@ import type React from 'react';
 import type { JSX, PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router';
-import { setupStore } from '.';
-import type { AppStore, RootState } from './types';
-
-export { setupStore };
+import { setupStore } from '@/shared/store';
+import type { AppStore, RootState } from '@/shared/store/types';
 
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.

@@ -58,22 +58,22 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: ['./scripts/vitest.setup.ts'],
+    setupFiles: ['./src/test/unit.setup.ts'],
     clearMocks: true,
     restoreMocks: true,
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
       include: ['src/**/*.{ts,tsx}'],
-      // Leave out only entry points, test helpers and the shadcn components
+      // Leave out only entry points, mocks, test helpers and the shadcn components
       // (managed by the CLI): effects, helpers and type guards hold logic
       exclude: [
         'src/main.tsx',
         'src/AppProvider.tsx',
         'src/vite-env.d.ts',
         'src/UI/Base/**',
-        '**/test/**',
-        '**/test.tsx',
+        'src/mocks/**',
+        'src/test/**',
       ],
       // A few points under the current values: fail when coverage drops
       thresholds: {

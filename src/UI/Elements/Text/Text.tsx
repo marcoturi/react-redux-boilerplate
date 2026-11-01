@@ -1,4 +1,4 @@
-import { cn } from '@/shared/helpers/style.utils';
+import { cn } from 'cn';
 
 // Sizes of the project type scale: the tokens (font size, line height and
 // tracking) are in the @theme block of global.css

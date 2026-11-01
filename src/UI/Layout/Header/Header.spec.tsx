@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react';
-import { renderWithProviders } from '@/shared/store/test';
+import { renderWithProviders } from '@/test/render';
 import { Header, type MenuItem } from '.';
 
 describe('Header', () => {

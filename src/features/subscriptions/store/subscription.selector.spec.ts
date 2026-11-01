@@ -1,7 +1,7 @@
 import { SettingsActions } from '@/features/settings/store';
-import { setupStore } from '@/shared/store/test';
+import { subscriptionMockList } from '@/mocks/data/subscriptions';
+import { setupStore } from '@/shared/store';
 import type { AppStore } from '@/shared/store/types';
-import { subscriptionMockList } from '@/test/mocks/subscriptions';
 import { SubscriptionSelectors } from '.';
 import { subscriptionApi } from './subscription.api';
 import { type Subscription, SubscriptionFilters } from './subscription.type';

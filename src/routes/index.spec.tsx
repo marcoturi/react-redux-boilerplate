@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { AppRoutes } from '@/routes';
-import { renderWithProviders } from '@/shared/store/test';
+import { renderWithProviders } from '@/test/render';
 
 // The home page crashes in these tests, to exercise the page error boundary
 vi.mock('@/routes/Home/HomePage', () => ({

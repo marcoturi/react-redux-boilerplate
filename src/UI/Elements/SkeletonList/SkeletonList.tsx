@@ -1,4 +1,4 @@
-import { cn } from '@/shared/helpers/style.utils';
+import { cn } from 'cn';
 import { Skeleton } from '@/UI/Base/skeleton';
 
 export function SkeletonCard({

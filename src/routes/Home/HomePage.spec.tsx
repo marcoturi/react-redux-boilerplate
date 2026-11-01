@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
-import HomePage from '@/routes/Home/HomePage';
-import { renderWithProviders } from '@/shared/store/test';
+import { renderWithProviders } from '@/test/render';
+import HomePage from './HomePage';
 
 describe('HomePage', () => {
   test('Should load', () => {

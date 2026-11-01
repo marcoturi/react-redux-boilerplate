@@ -1,5 +1,5 @@
 import { SubscriptionFilters } from '@/features/subscriptions/store/subscription.type';
-import { setupStore } from '@/shared/store/test';
+import { setupStore } from '@/shared/store';
 import { SettingsActions, SettingsSelectors } from '.';
 
 describe('Settings Selector:', () => {

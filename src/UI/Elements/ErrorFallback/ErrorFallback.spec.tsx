@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { ErrorFallback } from '@/UI/Elements/ErrorFallback';
+import { ErrorFallback } from '.';
 
 describe('ErrorFallback', () => {
   test('Should show an alert and a reload button', () => {

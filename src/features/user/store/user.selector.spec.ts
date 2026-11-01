@@ -1,4 +1,4 @@
-import { setupStore } from '@/shared/store/test';
+import { setupStore } from '@/shared/store';
 import type { AppStore } from '@/shared/store/types';
 import { UserSelectors } from '.';
 import { userApi } from './user.api';
