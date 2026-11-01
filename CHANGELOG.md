@@ -1,3 +1,16 @@
+## [1.7.56](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.55...v1.7.56) (2026-11-01)
+
+### Bug Fixes
+
+* **config:** strip the trailing slash from VITE_API_URL ([55dfdb3](https://github.com/marcoturi/react-redux-boilerplate/commit/55dfdb3f431726d0068578a2fd133e64669f4c70))
+* **e2e:** keep the After hook safe for skipped scenarios ([2bf42fd](https://github.com/marcoturi/react-redux-boilerplate/commit/2bf42fdade05de758950098567815e4d7f3940f0))
+* **release:** parse commits with the conventionalcommits preset ([59b7352](https://github.com/marcoturi/react-redux-boilerplate/commit/59b735275cc0c6b46cbf05a930e412cd7fe4b136))
+
+### Performance Improvements
+
+* **build:** compile the components with React Compiler ([7ff1b63](https://github.com/marcoturi/react-redux-boilerplate/commit/7ff1b6308d6b2eac50d7e0873ef49229add5d017))
+* **router:** start page requests in route loaders (data mode) ([3739a3b](https://github.com/marcoturi/react-redux-boilerplate/commit/3739a3b0e49031974ebcea30eb812afc867e9da5))
+
 ## [1.7.55](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.54...v1.7.55) (2026-11-01)
 
 
