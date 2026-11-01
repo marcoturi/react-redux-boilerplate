@@ -1,5 +1,6 @@
+import babel from '@rolldown/plugin-babel';
 import tailwindcss from '@tailwindcss/vite';
-import react from '@vitejs/plugin-react';
+import react, { reactCompilerPreset } from '@vitejs/plugin-react';
 import { msw } from 'msw/vite';
 import { defineConfig } from 'vitest/config';
 
@@ -7,6 +8,13 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   plugins: [
     react(),
+    // React Compiler memoizes components and hooks at build time. Through
+    // Babel: the native compiler option of plugin-react is experimental. Not
+    // under Vitest, so coverage measures the source instead of the compiler's
+    // cache checks; the dev server, e2e and the build use it.
+    ...(process.env.VITEST
+      ? []
+      : [babel({ presets: [reactCompilerPreset()] })]),
     tailwindcss(),
     // msw serves the worker script from node_modules (no copy in public/).
     // Mocks run only in development, so keep the worker out of the build.
@@ -31,7 +39,8 @@ export default defineConfig({
         // Groups are matched in order: the first matching group wins.
         codeSplitting: {
           groups: [
-            // React core + DOM + router
+            // React, React DOM, React Router, React Redux and
+            // react-error-boundary, with their dependencies
             {
               name: 'vendor-react',
               test: /[\\/]node_modules[\\/](react|react-dom|react-router[^\\/]*|react-redux|react-error-boundary)[\\/]/,
