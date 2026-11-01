@@ -1,6 +1,7 @@
-export enum StorageKeys {
-  settings = '@@MYAPP_SETTINGS_',
-}
+export const StorageKeys = {
+  settings: '@@MYAPP_SETTINGS_',
+} as const;
+export type StorageKeys = (typeof StorageKeys)[keyof typeof StorageKeys];
 
 const LocalStorageService = (dbKey: StorageKeys) => ({
   // Values that are not valid JSON are skipped: one corrupt entry must not

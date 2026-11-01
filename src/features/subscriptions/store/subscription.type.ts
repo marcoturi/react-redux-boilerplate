@@ -1,13 +1,20 @@
-export enum SubscriptionType {
-  Subscription = 'subscription',
-  OneTimePurchase = 'oneTimePurchase',
-}
+// Constant objects instead of enums: they are plain JavaScript, so type
+// stripping (erasableSyntaxOnly) can run this file. The type of the same name
+// is the union of the values.
+export const SubscriptionType = {
+  Subscription: 'subscription',
+  OneTimePurchase: 'oneTimePurchase',
+} as const;
+export type SubscriptionType =
+  (typeof SubscriptionType)[keyof typeof SubscriptionType];
 
-export enum SubscriptionFilters {
-  All = 'All',
-  Subscription = 'Subscription',
-  OneTimePurchase = 'OneTimePurchase',
-}
+export const SubscriptionFilters = {
+  All: 'All',
+  Subscription: 'Subscription',
+  OneTimePurchase: 'OneTimePurchase',
+} as const;
+export type SubscriptionFilters =
+  (typeof SubscriptionFilters)[keyof typeof SubscriptionFilters];
 
 export interface Subscription {
   id: string;

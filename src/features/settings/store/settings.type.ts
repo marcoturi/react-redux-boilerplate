@@ -3,9 +3,10 @@ import {
   type SubscriptionFilters,
 } from '@/features/subscriptions/store/subscription.type';
 
-export enum SettingsKey {
-  filters = 'filters',
-}
+export const SettingsKey = {
+  filters: 'filters',
+} as const;
+export type SettingsKey = (typeof SettingsKey)[keyof typeof SettingsKey];
 
 export type SettingsState = {
   [SettingsKey.filters]: {
@@ -13,7 +14,7 @@ export type SettingsState = {
   };
 };
 
-export type FiltersSetting = SettingsState[SettingsKey.filters];
+export type FiltersSetting = SettingsState[typeof SettingsKey.filters];
 
 export function isFiltersSetting(value: unknown): value is FiltersSetting {
   return (
