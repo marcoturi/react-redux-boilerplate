@@ -18,8 +18,8 @@ Sentry.init({
   environment: env.MODE,
   tracesSampleRate: 0.1,
   attachStacktrace: true,
-  // Page load and navigation spans named after the route pattern; the routes
-  // use Sentry.wrapUseRoutes (src/routes/index.tsx)
+  // Page load and navigation spans named after the route pattern; the router
+  // is created with Sentry.wrapCreateBrowserRouter (src/routes/index.tsx)
   integrations: [
     Sentry.reactRouterBrowserTracingIntegration({
       useEffect,

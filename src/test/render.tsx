@@ -1,41 +1,54 @@
-import type { RenderOptions } from '@testing-library/react';
-import { act, render } from '@testing-library/react';
-import type React from 'react';
-import type { JSX, PropsWithChildren } from 'react';
+import { act, type RenderOptions, render } from '@testing-library/react';
+import type { ReactElement } from 'react';
 import { Provider } from 'react-redux';
-import { MemoryRouter } from 'react-router';
+import { createMemoryRouter, type RouteObject } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 import { setupStore } from '@/shared/store';
 import type { AppStore, RootState } from '@/shared/store/types';
 
-// This type interface extends the default options for render from RTL, as well
-// as allows the user to specify other things such as initialState, store.
-interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
+// The providers come from these helpers: callers cannot replace the wrapper
+type RenderOptionsWithProviders = Omit<RenderOptions, 'queries' | 'wrapper'> & {
   preloadedState?: Partial<RootState>;
-  store?: AppStore;
   // Initial URL of the in-memory router
   route?: string;
-}
+};
 
-export function renderWithProviders(
-  ui: React.ReactElement,
+/**
+ * Renders a route tree in an in-memory data router, like the app's router,
+ * with a fresh store. `createRoutes` receives the store, as the app's
+ * `createRoutes` does, so loaders dispatch to it.
+ */
+export function renderRoutes(
+  createRoutes: (store: AppStore) => RouteObject[],
   {
-    preloadedState = {},
-    // Automatically create a store instance if no store was passed in
-    store = setupStore(preloadedState),
+    preloadedState,
     route = '/',
     ...renderOptions
-  }: ExtendedRenderOptions = {},
+  }: RenderOptionsWithProviders = {},
 ) {
-  // biome-ignore lint/correctness/noComponentHookFactories: the RTL wrapper must close over the per-render store
-  function Wrapper({ children }: PropsWithChildren): JSX.Element {
-    return (
-      <MemoryRouter initialEntries={[route]}>
-        <Provider store={store}>{children}</Provider>
-      </MemoryRouter>
-    );
-  }
+  const store = setupStore(preloadedState);
+  const router = createMemoryRouter(createRoutes(store), {
+    initialEntries: [route],
+  });
 
-  return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
+  return {
+    store,
+    router,
+    ...render(
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>,
+      renderOptions,
+    ),
+  };
+}
+
+// Renders one component as the only route, so router hooks work
+export function renderWithProviders(
+  ui: ReactElement,
+  options?: RenderOptionsWithProviders,
+) {
+  return renderRoutes(() => [{ path: '*', element: ui }], options);
 }
 
 /**

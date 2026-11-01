@@ -7,7 +7,7 @@ import '@/UI/Layout/global.css';
 import * as Sentry from '@sentry/react';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { AppRoutes } from '@/routes';
+import { createAppRouter } from '@/routes';
 
 // React 19 reports render errors through the root callbacks instead of
 // window.onerror: forward them to Sentry and keep them in the console.
@@ -21,6 +21,9 @@ await initMocks();
 // Restore the persisted settings once, before the first render
 await store.dispatch(SettingsActions.loadState());
 
+// Created after the mocks start: the first navigation runs the loaders
+const router = createAppRouter(store);
+
 const root = document.getElementById('root');
 if (!root) throw new Error('Root element not found');
 
@@ -30,8 +33,6 @@ createRoot(root, {
   onRecoverableError: handleReactError,
 }).render(
   <StrictMode>
-    <AppProvider>
-      <AppRoutes />
-    </AppProvider>
+    <AppProvider router={router} />
   </StrictMode>,
 );

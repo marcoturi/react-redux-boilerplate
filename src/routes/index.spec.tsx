@@ -1,25 +1,26 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { AppRoutes } from '@/routes';
-import { renderWithProviders } from '@/test/render';
+import { subscriptionApi } from '@/features/subscriptions/store/subscription.api';
+import { renderRoutes } from '@/test/render';
+import { createRoutes } from '.';
 
 // The home page crashes in these tests, to exercise the page error boundary
-vi.mock('@/routes/Home/HomePage', () => ({
+vi.mock('./Home/HomePage', () => ({
   default: function CrashingPage(): never {
     throw new Error('Page crashed');
   },
 }));
 
-describe('AppRoutes', () => {
+describe('App routes', () => {
   test('Should render the not found page for unknown URLs', async () => {
-    renderWithProviders(<AppRoutes />, { route: '/missing' });
+    renderRoutes(createRoutes, { route: '/missing' });
     expect(
       await screen.findByRole('heading', { name: /page not found/i }),
     ).toBeInTheDocument();
   });
 
   test('Should render one navigation, the main landmark and the current page', async () => {
-    renderWithProviders(<AppRoutes />, { route: '/subscriptions' });
+    renderRoutes(createRoutes, { route: '/subscriptions' });
 
     expect(
       await screen.findByRole('heading', { name: 'Subscriptions', level: 1 }),
@@ -36,11 +37,26 @@ describe('AppRoutes', () => {
     expect(document.title).toBe('Subscriptions | React Boilerplate');
   });
 
+  test('Should start the subscriptions request before the page loads', async () => {
+    const { store } = renderRoutes(createRoutes, { route: '/subscriptions' });
+
+    // The page module is still loading: only the loader can have started it
+    expect(
+      screen.queryByRole('heading', { name: 'Subscriptions', level: 1 }),
+    ).not.toBeInTheDocument();
+    expect(
+      subscriptionApi.endpoints.getSubscriptions.select()(store.getState())
+        .isLoading,
+    ).toBe(true);
+
+    expect(await screen.findAllByRole('heading', { level: 2 })).toHaveLength(3);
+  });
+
   test('Should replace only the crashed page and recover on navigation', async () => {
     // React logs the error that the boundary caught
     vi.spyOn(console, 'error').mockImplementation(() => {});
     const user = userEvent.setup();
-    renderWithProviders(<AppRoutes />, { route: '/' });
+    renderRoutes(createRoutes, { route: '/' });
 
     expect(await screen.findByRole('alert')).toHaveTextContent(
       /something went wrong/i,

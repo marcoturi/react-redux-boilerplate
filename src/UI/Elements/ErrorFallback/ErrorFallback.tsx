@@ -9,8 +9,8 @@ export function ErrorFallback() {
         <AlertTitle>Something went wrong</AlertTitle>
         <AlertDescription>Reload the page to try again.</AlertDescription>
       </Alert>
-      {/* A full reload, not resetErrorBoundary: a lazy page whose chunk failed
-          stays rejected until the module is fetched again */}
+      {/* A full reload: a page whose chunk failed to load stays failed until
+          the module is fetched again */}
       <Button onClick={() => window.location.reload()}>Reload</Button>
     </Container>
   );
