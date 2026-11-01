@@ -29,12 +29,14 @@ jobs:
       - name: Check (Biome + types)
         # Biome reports problems as annotations on the pull request
         run: pnpm check:ci
-      - name: Unit tests with coverage thresholds
+      - name: Install Playwright Chromium
+        # Component tests (Vitest browser mode) and e2e both run in it. Headless
+        # shell only: neither opens a window
+        run: pnpm exec playwright install --with-deps --only-shell chromium
+      - name: Unit and component tests with coverage thresholds
         run: pnpm test:coverage
       - name: Build
         run: pnpm build
-      - name: Install Playwright Chromium
-        run: pnpm exec playwright install --with-deps chromium
       - name: Run e2e tests
         run: |
           pnpm dev --port 5173 --strictPort &

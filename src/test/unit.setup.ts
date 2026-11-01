@@ -1,55 +1,20 @@
-import '@testing-library/jest-dom/vitest';
-import { cleanup } from '@testing-library/react';
+// Setup of the `unit` project (src/**/*.spec.ts, jsdom): store, selectors and
+// helpers. Requests go through the MSW Node server.
 import { server } from '@/mocks/node';
-
-// jsdom lacks these layout and pointer capture APIs, which the Radix Select
-// calls: https://github.com/testing-library/user-event/discussions/1087
-HTMLElement.prototype.scrollIntoView = vi.fn();
-HTMLElement.prototype.hasPointerCapture = vi.fn();
-HTMLElement.prototype.releasePointerCapture = vi.fn();
-
-// MSW's 'error' strategy only logs and fails the request, which a component
-// may hide: collect unhandled requests and fail the test in afterEach
-const unhandledRequests: string[] = [];
-
-function describeFrame({
-  protocol,
-  data,
-}: {
-  protocol: string;
-  data: unknown;
-}) {
-  if (
-    typeof data === 'object' &&
-    data !== null &&
-    'request' in data &&
-    data.request instanceof Request
-  ) {
-    return `${data.request.method} ${data.request.url}`;
-  }
-  return protocol;
-}
+import { expectNoUnhandledRequests, failUnhandledFrame } from './msw-unhandled';
 
 beforeAll(() => {
-  // MSW 3 name of the v2 onUnhandledRequest option
-  server.listen({
-    onUnhandledFrame: ({ frame, defaults }) => {
-      defaults.error();
-      unhandledRequests.push(describeFrame(frame));
-    },
-  });
+  server.listen({ onUnhandledFrame: failUnhandledFrame });
 });
 
 afterEach(() => {
   server.resetHandlers();
   localStorage.clear();
-  cleanup();
-  expect(
-    unhandledRequests.splice(0),
-    'Requests without an MSW handler',
-  ).toEqual([]);
+  expectNoUnhandledRequests();
 });
 
 afterAll(() => {
   server.close();
+  // A request sent after the last test's afterEach
+  expectNoUnhandledRequests();
 });

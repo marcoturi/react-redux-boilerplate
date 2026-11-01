@@ -1,8 +1,7 @@
-import { act, screen } from '@testing-library/react';
-import { HttpResponse, http } from 'msw';
-import { server } from '@/mocks/node';
-import env from '@/shared/config/env';
-import { renderWithProviders } from '@/test/render';
+import { screen } from '@testing-library/react';
+import { worker } from '@/mocks/browser';
+import { usersFailOnce } from '@/mocks/handlers/users';
+import { actAndFlush, renderWithProviders } from '@/test/render';
 import { userApi } from '../store/user.api';
 import { UserWidget } from './UserWidget';
 
@@ -12,27 +11,31 @@ describe('UserWidget', () => {
     expect(await screen.findByText('Hello Marco T.')).toBeInTheDocument();
   });
 
+  test('Should render nothing when the first request fails', async () => {
+    worker.use(usersFailOnce());
+    const { container, store } = renderWithProviders(<UserWidget />);
+
+    await vi.waitFor(() =>
+      expect(userApi.endpoints.getUser.select()(store.getState()).isError).toBe(
+        true,
+      ),
+    );
+    expect(container).toBeEmptyDOMElement();
+  });
+
   test('Should keep the user name when a refetch fails', async () => {
     const { store } = renderWithProviders(<UserWidget />);
     expect(await screen.findByText('Hello Marco T.')).toBeInTheDocument();
 
-    server.use(
-      http.get(
-        `${env.API_URL}/users`,
-        () => HttpResponse.json({ message: 'Server Error' }, { status: 500 }),
-        { once: true },
-      ),
-    );
-    await act(async () => {
-      await store.dispatch(
+    worker.use(usersFailOnce());
+    await actAndFlush(() =>
+      store.dispatch(
         userApi.endpoints.getUser.initiate(undefined, {
           forceRefetch: true,
           subscribe: false,
         }),
-      );
-      // RTK Query batches the rejection and notifies the UI on the next frame
-      await new Promise((resolve) => requestAnimationFrame(resolve));
-    });
+      ),
+    );
 
     expect(userApi.endpoints.getUser.select()(store.getState()).isError).toBe(
       true,

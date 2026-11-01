@@ -1,6 +1,7 @@
 import babel from '@rolldown/plugin-babel';
 import tailwindcss from '@tailwindcss/vite';
 import react, { reactCompilerPreset } from '@vitejs/plugin-react';
+import { playwright } from '@vitest/browser-playwright';
 import { msw } from 'msw/vite';
 import { defineConfig } from 'vitest/config';
 
@@ -66,10 +67,37 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: 'jsdom',
-    setupFiles: ['./src/test/unit.setup.ts'],
     clearMocks: true,
     restoreMocks: true,
+    projects: [
+      {
+        // Store, selectors and helpers: no rendering, fast in jsdom
+        extends: true,
+        test: {
+          name: 'unit',
+          include: ['src/**/*.spec.ts'],
+          environment: 'jsdom',
+          setupFiles: ['./src/test/unit.setup.ts'],
+        },
+      },
+      {
+        // Components and pages in a real Chromium, with the MSW service worker
+        extends: true,
+        test: {
+          name: 'browser',
+          include: ['src/**/*.spec.tsx'],
+          setupFiles: ['./src/test/browser.setup.ts'],
+          browser: {
+            enabled: true,
+            provider: playwright(),
+            headless: true,
+            instances: [{ browser: 'chromium' }],
+            // Testing Library already prints the DOM of a failed query
+            screenshotFailures: false,
+          },
+        },
+      },
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],

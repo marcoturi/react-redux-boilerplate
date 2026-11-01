@@ -1,31 +1,31 @@
 import { setupStore } from '@/shared/store';
-import type { AppStore } from '@/shared/store/types';
 import { UserSelectors } from '.';
 import { userApi } from './user.api';
+import type { User } from './user.type';
 
 describe('User Selector:', () => {
-  let store: AppStore;
-
-  beforeEach(() => {
-    store = setupStore();
-  });
-
   test('Should return full name', async () => {
-    const newData = {
-      id: 1,
-      name: 'John',
-      surname: 'Doe',
-    };
-
+    const user = { id: 1, name: 'John', surname: 'Doe' } satisfies User;
+    const store = setupStore();
     await store.dispatch(
-      userApi.util.upsertQueryData('getUser', undefined, newData),
+      userApi.util.upsertQueryData('getUser', undefined, user),
     );
-    const finalState = store.getState();
 
-    expect(UserSelectors.selectUserFullName(finalState)).toEqual('John D.');
+    expect(UserSelectors.selectUserFullName(store.getState())).toBe('John D.');
   });
-  test('Should return empty in case of no name', () => {
-    const finalState = store.getState();
-    expect(UserSelectors.selectUserFullName(finalState)).toEqual('');
+
+  test('Should return the name alone without a surname', async () => {
+    const user = { id: 1, name: 'John', surname: '' } satisfies User;
+    const store = setupStore();
+    await store.dispatch(
+      userApi.util.upsertQueryData('getUser', undefined, user),
+    );
+
+    expect(UserSelectors.selectUserFullName(store.getState())).toBe('John');
+  });
+
+  test('Should return empty before the request', () => {
+    const store = setupStore();
+    expect(UserSelectors.selectUserFullName(store.getState())).toBe('');
   });
 });

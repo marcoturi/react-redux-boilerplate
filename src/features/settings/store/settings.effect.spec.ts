@@ -1,8 +1,7 @@
 import { SubscriptionFilters } from '@/features/subscriptions/store/subscription.type';
 import { captureError } from '@/shared/helpers/error-tracking.service';
-import { StorageKeys } from '@/shared/helpers/local-storage.service';
 import { setupStore } from '@/shared/store';
-import { readStoredSetting } from '@/test/storage';
+import { readStoredSetting, writeStoredSetting } from '@/test/storage';
 import { SettingsActions, SettingsSelectors } from '.';
 import { SettingsKey } from './settings.type';
 
@@ -28,10 +27,7 @@ describe('Settings persistence:', () => {
   });
 
   test('Should keep the defaults when the saved value is corrupt', async () => {
-    localStorage.setItem(
-      `${StorageKeys.settings}${SettingsKey.filters}`,
-      '{oops',
-    );
+    writeStoredSetting(SettingsKey.filters, '{oops');
     const store = setupStore();
 
     const action = await store.dispatch(SettingsActions.loadState());

@@ -1,5 +1,5 @@
 import type { RenderOptions } from '@testing-library/react';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import type React from 'react';
 import type { JSX, PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
@@ -36,4 +36,16 @@ export function renderWithProviders(
   }
 
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
+}
+
+/**
+ * Runs `callback` (e.g. a dispatched refetch) inside `act` and waits for the
+ * next animation frame: RTK Query batches its updates and notifies the UI on
+ * that frame, so the rendered output is up to date when this resolves.
+ */
+export async function actAndFlush(callback: () => Promise<unknown>) {
+  await act(async () => {
+    await callback();
+    await new Promise((resolve) => requestAnimationFrame(resolve));
+  });
 }
