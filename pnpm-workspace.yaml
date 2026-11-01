@@ -5,3 +5,15 @@
 # Dependencies allowed to run install scripts
 allowBuilds:
   esbuild: true
+
+# The semantic-release plugins load the preset named in .releaserc from their
+# own folder, where pnpm would otherwise find the copy commitlint brings. The
+# release notes writer (v8) renders only preset v9: remove this block once
+# @semantic-release/release-notes-generator ships with writer v9.
+packageExtensions:
+  "@semantic-release/commit-analyzer":
+    dependencies:
+      conventional-changelog-conventionalcommits: 9.2.0
+  "@semantic-release/release-notes-generator":
+    dependencies:
+      conventional-changelog-conventionalcommits: 9.2.0
