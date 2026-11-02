@@ -33,7 +33,6 @@ export function renderRoutes(
 
   return {
     store,
-    router,
     ...render(
       <Provider store={store}>
         <RouterProvider router={router} />
