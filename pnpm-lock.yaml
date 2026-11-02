@@ -226,21 +226,9 @@ importers:
       '@semantic-release/changelog':
         specifier: 7.0.0
         version: 7.0.0(semantic-release@25.0.9(supports-color@11.0.0)(typescript@7.0.2))
-      '@semantic-release/commit-analyzer':
-        specifier: 13.0.1
-        version: 13.0.1(semantic-release@25.0.9(supports-color@11.0.0)(typescript@7.0.2))(supports-color@11.0.0)
       '@semantic-release/git':
         specifier: 11.0.1
         version: 11.0.1(semantic-release@25.0.9(supports-color@11.0.0)(typescript@7.0.2))(supports-color@11.0.0)
-      '@semantic-release/github':
-        specifier: 12.0.10
-        version: 12.0.10(semantic-release@25.0.9(supports-color@11.0.0)(typescript@7.0.2))(supports-color@11.0.0)
-      '@semantic-release/npm':
-        specifier: 13.2.0
-        version: 13.2.0(semantic-release@25.0.9(supports-color@11.0.0)(typescript@7.0.2))
-      '@semantic-release/release-notes-generator':
-        specifier: 14.1.1
-        version: 14.1.1(semantic-release@25.0.9(supports-color@11.0.0)(typescript@7.0.2))(supports-color@11.0.0)
       '@tailwindcss/vite':
         specifier: 4.3.3
         version: 4.3.3(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))
