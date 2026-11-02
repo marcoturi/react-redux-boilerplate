@@ -1,4 +1,4 @@
-import { Given, Then } from '@cucumber/cucumber';
+import { Given, Then, When } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 import type { CustomWorld } from '../support/custom-world.ts';
 
@@ -13,7 +13,7 @@ Given<CustomWorld>(
   },
 );
 
-Given<CustomWorld>('user reload current page', async function () {
+When<CustomWorld>('user reload current page', async function () {
   await this.page.reload();
 });
 
