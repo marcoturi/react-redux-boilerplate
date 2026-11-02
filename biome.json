@@ -38,6 +38,7 @@
         "useConst": "error",
         "useExplicitLengthCheck": "error",
         "useForOf": "error",
+        "useImportType": "error",
         "useNodejsImportProtocol": "error",
         "useNumberNamespace": "error",
         "useNumericSeparators": "error",
