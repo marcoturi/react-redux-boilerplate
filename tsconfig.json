@@ -12,6 +12,8 @@
     "lib": ["ES2023"],
     "skipLibCheck": true,
     "noEmit": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
 
     /* Linting (strict and noUncheckedSideEffectImports are on by default in TS 7) */
     "noUnusedLocals": true,
