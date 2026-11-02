@@ -1,7 +1,5 @@
 import { cn } from 'cn';
 
-// Sizes of the project type scale: the tokens (font size, line height and
-// tracking) are in the @theme block of global.css
 const sizes = {
   '6': 'text-2xl',
   '7': 'text-3xl',

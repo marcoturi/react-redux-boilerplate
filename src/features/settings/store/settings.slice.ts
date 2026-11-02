@@ -25,7 +25,6 @@ export const settingsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // Persisted values come from localStorage: keep only valid known fields
     builder.addCase(loadState.fulfilled, (state, action) => {
       const filters = action.payload[SettingsKey.filters];
       if (isFiltersSetting(filters)) {
