@@ -155,7 +155,7 @@ Keep the files in `src/UI/Base/` close to upstream so they stay easy to update. 
 [Tailwind CSS 4](https://tailwindcss.com/blog/tailwindcss-v4) is used via the `@tailwindcss/vite` plugin -- no PostCSS config needed. Key benefits:
 
 - **Utility-first** -- Consistent styling with zero CSS files to maintain.
-- **Design tokens** -- Theme defined as CSS variables in `src/UI/Layout/global.css` using `@theme inline`.
+- **Design tokens** -- Theme defined as CSS variables in `src/UI/Layout/global.css`: tokens that read other variables in `@theme inline`, the type scale in `@theme`.
 - **Built-in responsive and a11y** -- First-class responsive utilities and accessibility helpers.
 - **Tree-shaken** -- Only used classes end up in the production bundle.
 
@@ -231,7 +231,7 @@ Biome replaces the traditional ESLint + Prettier combo with a single, Rust-power
 - Automatic import sorting and `import type` enforcement
 - Sub-second execution on the entire codebase
 
-Configuration lives in [`biome.json`](./biome.json). The pre-commit hook runs `biome check --staged` automatically.
+Configuration lives in [`biome.json`](./biome.json). The pre-commit hook runs `biome check --staged` and the tests automatically.
 
 ## Error Handling and Analytics
 
@@ -266,7 +266,7 @@ Contributions are welcome! To get started:
 1. Clone the repo and install dependencies (`pnpm install`)
 2. Create a branch: `git checkout -b feat/your-feature`
 3. Make your changes
-4. Verify: `pnpm check` (lint, format, types) and `pnpm test`
+4. Verify: `pnpm check` (lint, format, types), `pnpm test` and `pnpm build`, plus `pnpm e2e:local` when routes or user flows change
 5. Commit using [Conventional Commits](https://www.conventionalcommits.org/) (enforced by the commit-msg hook)
 6. Open a Pull Request
 
