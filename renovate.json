@@ -28,6 +28,10 @@
       "description": "@vitejs/plugin-react 6 accepts @rolldown/plugin-babel up to 0.2 as a peer: raise this when its peer range does",
       "matchPackageNames": ["@rolldown/plugin-babel"],
       "allowedVersions": "<0.3.0"
+    },
+    {
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "minimumReleaseAge": null
     }
   ],
   "timezone": "Europe/Rome",
