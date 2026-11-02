@@ -9,7 +9,7 @@ export function failUnhandledFrame({
 }) {
   const request =
     frame instanceof HttpNetworkFrame ? frame.data.request : undefined;
-  if (request && new URL(request.url).origin === globalThis.location.origin) {
+  if (request && new URL(request.url).origin === globalThis.location?.origin) {
     return;
   }
   const description = request
