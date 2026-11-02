@@ -1,3 +1,22 @@
+## [1.7.61](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.60...v1.7.61) (2026-11-02)
+
+### Bug Fixes
+
+* **build:** keep Babel 7 so React Compiler compiles components with default props ([c4cf3bd](https://github.com/marcoturi/react-redux-boilerplate/commit/c4cf3bdaa29c732600767a51472b578c10556c5d))
+* **test:** fail unit tests on requests without an MSW handler again ([696e3b8](https://github.com/marcoturi/react-redux-boilerplate/commit/696e3b89a3f5b543d7eeb2f3c4e1f1a8dbc9257d))
+
+### Code Refactoring
+
+* align a handler name and two imports with the conventions ([506f921](https://github.com/marcoturi/react-redux-boilerplate/commit/506f921ee2b4e2166649d30f69bf19c4d1bb50a0))
+* **config:** drop attachStacktrace, the Sentry 11 default ([c80ef39](https://github.com/marcoturi/react-redux-boilerplate/commit/c80ef393a9954f836f99631c7c213a94e79d39f7))
+* drop comments that repeat the agent rules ([59ad2e9](https://github.com/marcoturi/react-redux-boilerplate/commit/59ad2e919aa874404cdfd4f97b68d33a07a5b4b8))
+* drop the last-resort ErrorBoundary and react-error-boundary ([c7228c4](https://github.com/marcoturi/react-redux-boilerplate/commit/c7228c451b94b063ebd29ec032266eccfe39b706))
+* **test:** drop Vitest defaults and the MSW worker stop ([141d478](https://github.com/marcoturi/react-redux-boilerplate/commit/141d47836401beedea534868ba96bbcbe47d7972))
+
+### Documentation
+
+* **README:** install Chromium in the Quick start and correct the setup notes ([362c717](https://github.com/marcoturi/react-redux-boilerplate/commit/362c71777378e4dd16e20fd6506b9cd94bd8cf5e))
+
 ## [1.7.60](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.59...v1.7.60) (2026-11-02)
 
 ### Bug Fixes
