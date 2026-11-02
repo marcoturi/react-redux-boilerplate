@@ -2,11 +2,11 @@
   "$schema": "https://biomejs.dev/schemas/2.6.4/schema.json",
   "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
   "files": {
-    "includes": ["**", "!!**/dist", "!!.agents", "!!.claude"]
+    "includes": ["**", "!!.agents", "!!.claude"]
   },
   "formatter": {
     "indentStyle": "space",
-    "includes": ["**", "!**/package.json", "!**/CHANGELOG.md"]
+    "includes": ["**", "!**/CHANGELOG.md"]
   },
   "linter": {
     "rules": {
