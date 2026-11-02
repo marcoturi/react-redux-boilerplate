@@ -6,8 +6,6 @@ paths:
 
 # Redux state (Redux Toolkit 2 and RTK Query)
 
-Redux Toolkit ships official agent skills in `node_modules/@reduxjs/toolkit/skills/` (state ownership, slices and selectors, RTK Query, side effects, debugging). Read the matching skill for cases this rule does not cover.
-
 ## Store layout
 
 - `src/shared/store/index.ts` holds `rootReducer` (`combineSlices(baseApi, settingsSlice, …)`: the API and each slice mount under their own `reducerPath` or `name`, never under a key written by hand), `RootState` and `setupStore(preloadedState)`. `src/shared/store/types.ts` derives `AppStore` and `AppDispatch` from `setupStore` and creates the typed hooks. Never write these types by hand.

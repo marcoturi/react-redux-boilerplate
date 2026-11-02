@@ -27,12 +27,11 @@ Applies to hand-written components. `src/UI/Base/**` is upstream shadcn code and
 - Type children as `ReactNode`, never `JSX.Element`.
 - Extend native elements with `React.ComponentProps<'tag'>`, spread `...props` and merge `className` with `cn()`.
 - Model variants that change the accepted props as discriminated unions; prefer one union prop to several mutually exclusive booleans.
-- Type DOM handlers with React event types (`ChangeEvent<HTMLInputElement>`); narrow the `string` passed to Radix callbacks (`onValueChange`) with a type guard, not `as`.
+- Type DOM handlers with React event types (`ChangeEvent<HTMLInputElement>`).
 - Return `null` to render nothing.
 - Use `<Context value={...}>`, not `<Context.Provider>`.
 - For DOM setup and teardown (observers, third-party widgets) use a ref callback that returns a cleanup, and keep it stable (module level or `useCallback`): an inline callback is torn down and re-created on every render. To observe several children without a wrapper element, use `<Fragment ref>` (React 19.3).
 - Split a component that grows past about 120 lines: one component per data concern, JSX section or conditional branch, with layout separate from content.
-- Use named exports; only route pages are default exports, for the route `lazy` loader (see `typescript.md` for `.ts` modules).
 
 ## Performance
 
