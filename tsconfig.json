@@ -5,8 +5,21 @@
     { "path": "./tsconfig.node.json" },
     { "path": "./e2e/tsconfig.e2e.json" }
   ],
-  // Read by the shadcn CLI to resolve the aliases in components.json
+  // Shared by the three projects, which extend this file. The shadcn CLI also
+  // reads `paths` here to resolve the aliases in components.json
   "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023"],
+    "skipLibCheck": true,
+    "noEmit": true,
+
+    /* Linting (strict and noUncheckedSideEffectImports are on by default in TS 7) */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "erasableSyntaxOnly": true,
+
     "paths": {
       "@/*": ["./src/*"]
     }

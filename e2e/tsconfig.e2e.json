@@ -1,22 +1,16 @@
 {
   // Cucumber steps and support files, run by Node with its type stripping
   // (type-checked by tsc -b)
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "tsBuildInfoFile": "../node_modules/.tmp/tsconfig.e2e.tsbuildinfo",
-    "target": "ES2022",
-    "lib": ["ES2023"],
     "module": "nodenext",
-    "skipLibCheck": true,
-    // What Node requires: relative imports with their .ts extension, type-only
-    // imports marked as such, and only syntax it can erase
+    // What Node requires: relative imports with their .ts extension and
+    // type-only imports marked as such (erasableSyntaxOnly comes from the root)
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
-    "erasableSyntaxOnly": true,
-    "noEmit": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedIndexedAccess": true,
     "types": ["node"]
-  }
+  },
+  // Otherwise the empty "files" of the root would leave this project empty
+  "include": ["."]
 }
