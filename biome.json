@@ -29,13 +29,9 @@
           "options": {
             "hooks": [{ "name": "useAppDispatch", "stableResult": true }]
           }
-        },
-        "useHookAtTopLevel": "error"
+        }
       },
       "style": {
-        "noNegationElse": "off",
-        "noNestedTernary": "off",
-        "useBlockStatements": "off",
         "noCommonJs": "error",
         "noSubstr": "error",
         "useArrayLiterals": "error",
@@ -64,12 +60,10 @@
       "suspicious": {
         "noDocumentCookie": "error",
         "noExplicitAny": "error",
-        "noThenProperty": "error",
         "useErrorMessage": "error",
         "useNumberToFixedDigitsArgument": "error"
       }
-    },
-    "includes": ["**", "!commitlint.config.cjs", "!cucumber.mjs"]
+    }
   },
   "javascript": {
     "formatter": {
@@ -111,12 +105,6 @@
       "includes": ["**/*.{ts,tsx,mts,cts}"],
       "linter": {
         "rules": {
-          "correctness": {
-            "noUnusedVariables": "warn"
-          },
-          "style": {
-            "useConsistentTypeDefinitions": "off"
-          },
           "suspicious": {
             "noConfusingVoidType": "off"
           }
