@@ -46,21 +46,22 @@ git init           # Husky installs the Git hooks only in a repository
 
 pnpm install       # Install dependencies
 pnpm create:env    # Create .env from .env.example
-pnpm dev           # Start dev server at http://localhost:5173
 
 # Chromium for the component tests, the E2E tests and the pre-commit hook
 pnpm exec playwright install chromium
+
+pnpm dev           # Start dev server at http://localhost:5173
 ```
 
-degit also copies the boilerplate's release history and names: delete `CHANGELOG.md`, set `name`, `description` and `author` in `package.json` and `version` to `0.0.0` (Sentry reports it as the release until semantic-release sets the first one), and change the title in `index.html` and `src/UI/Layout/Header/Logo.tsx`.
+degit also copies the boilerplate's release history and names: delete `CHANGELOG.md`, set `name`, `description` and `author` in `package.json` and `version` to `0.0.0` (Sentry reports it as the release until semantic-release sets the first one), and replace the name `React Boilerplate` in `index.html`, `src/UI/Layout/Header/Logo.tsx` and the page `<title>`s in `src/routes/` (`src/routes/index.spec.tsx` asserts one of them).
 
 ### Environment variables
 
-| Variable           | Required | Description                                                                              |
-| ------------------ | -------- | ---------------------------------------------------------------------------------------- |
-| `VITE_API_URL`     | Yes      | Base URL of the API, inlined by `pnpm build`: without it the built app stops at startup  |
-| `VITE_API_MOCKING` | No       | `true` serves the API from the MSW handlers on the dev server; keep it for the E2E tests |
-| `VITE_SENTRY_DSN`  | No       | Sentry DSN: only builds report, and only when it is set                                  |
+| Variable           | Required | Description                                                                                                                |
+| ------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `VITE_API_URL`     | Yes      | Base URL of the API, inlined by `pnpm build`: without it the app stops at startup, also on the dev server and in the tests |
+| `VITE_API_MOCKING` | No       | `true` serves the API from the MSW handlers on the dev server; keep it for the E2E tests                                   |
+| `VITE_SENTRY_DSN`  | No       | Sentry DSN: only builds report, and only when it is set                                                                    |
 
 ### Commands
 
