@@ -2,8 +2,20 @@ import babel from '@rolldown/plugin-babel';
 import tailwindcss from '@tailwindcss/vite';
 import react, { reactCompilerPreset } from '@vitejs/plugin-react';
 import { playwright } from '@vitest/browser-playwright';
+import type { Logger } from 'babel-plugin-react-compiler';
 import { msw } from 'msw/vite';
 import { defineConfig } from 'vitest/config';
+
+const compilerLogger: Logger = {
+  logEvent(filename, event) {
+    if (event.kind !== 'CompileError' && event.kind !== 'PipelineError') return;
+    const reason =
+      event.kind === 'CompileError' ? event.detail.reason : event.data;
+    console.warn(
+      `React Compiler skipped ${filename}:${event.fnLoc?.start.line}: ${reason}`,
+    );
+  },
+};
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -11,7 +23,9 @@ export default defineConfig({
     react(),
     ...(process.env.VITEST
       ? []
-      : [babel({ presets: [reactCompilerPreset()] })]),
+      : [
+          babel({ presets: [reactCompilerPreset({ logger: compilerLogger })] }),
+        ]),
     tailwindcss(),
     { ...msw({ mode: 'worker-only' }), apply: 'serve' },
   ],

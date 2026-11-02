@@ -36,5 +36,5 @@ Applies to hand-written components. `src/UI/Base/**` is upstream shadcn code and
 ## Performance
 
 - React Compiler (Babel preset in `vite.config.mts`) memoizes components, hooks and the values computed in them at build time: do not add `memo`, `useMemo` or `useCallback`. Keep them only where a library needs a stable value and you want that explicit (`useMemo(() => api.endpoints.getX.select(id), [id])`), or where a profiler measurement shows the compiler is not enough. `dispatch` is already stable.
-- The compiler silently skips a component or hook that breaks the Rules of React, and no lint reports it here (Biome has no compiler rules): keep render pure, never mutate props, state or values after passing them to JSX, and never read or write refs during render.
+- The compiler skips a component or hook that breaks the Rules of React. Biome has no compiler rules, but the `logger` in `vite.config.mts` prints `React Compiler skipped <file>:<line>: <reason>` during `pnpm dev` and `pnpm build`: fix the code it names. Keep render pure, never mutate props, state or values after passing them to JSX, and never read or write refs during render.
 - Never suppress `lint/correctness/useExhaustiveDependencies`, an error among Biome's recommended rules; fix the dependency list. `biome.json` marks the result of `useAppDispatch` as stable.
