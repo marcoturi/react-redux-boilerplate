@@ -18,5 +18,5 @@ When<CustomWorld>('user reload current page', async function () {
 });
 
 Then<CustomWorld>('user should see the home page', async function () {
-  await expect(this.pageObjects.appPo.homePage).toBeVisible();
+  await expect(this.page).toHaveTitle(/^Home/);
 });

@@ -72,7 +72,7 @@ Before considering a task done:
 - [ ] `pnpm check` passes (Biome and `tsc -b`).
 - [ ] `pnpm test` passes.
 - [ ] `pnpm build` passes.
-- [ ] `pnpm e2e:local` passes when routes, user flows or `data-testid` attributes changed.
+- [ ] `pnpm e2e:local` passes when routes or user flows changed.
 - [ ] shadcn components were added with the CLI and formatted with `pnpm check:fix`.
 - [ ] The lockfile changed only if the task changed dependencies.
 

@@ -14,4 +14,3 @@ paths:
 - The first load shows `HydrateFallback` (the page skeleton). On client navigation the router keeps the previous page until the next page module is ready, and `AppLayout` shows a progress bar while `useNavigation().state` is `'loading'`.
 - Pages compose feature components inside `Container` (`@/UI/Elements/Container`) and contain no logic.
 - Set the page title by rendering one `<title>` in the page (React 19 hoists it to `<head>`) with a single string child (`` {`Results ${n}`} ``, not `Results {n}`); do not add react-helmet. Assert `document.title` in e2e when it matters.
-- Give the page root a `data-testid` when e2e tests need to find it (e.g. `home-page`).
