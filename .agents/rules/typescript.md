@@ -5,7 +5,7 @@ paths:
 
 # TypeScript
 
-- Never write `any`: use `unknown` and narrow it, or a constrained generic. Biome `noExplicitAny` (an error in `biome.json`) rejects explicit `any`, and `noImplicitAny` (from `strict`) rejects implicit ones in every project: app, Vite config and e2e.
+- Never write `any`: use `unknown` and narrow it, or a constrained generic. Biome `noExplicitAny` rejects explicit `any`, and `noImplicitAny` (from `strict`) rejects implicit ones in every project.
 - Annotate parameters that have no contextual type (callbacks passed around, selector inputs, helpers).
 - Catch errors as `unknown` and narrow them with `instanceof Error`.
 - Narrow external data (API responses, localStorage, Radix `onValueChange` strings) with a type guard (`value is T`), not with `as`.
@@ -17,7 +17,7 @@ paths:
 - Write assertion functions (`asserts x is T`) as `function` declarations, not arrow functions.
 - Fix wrong or missing library types with module augmentation in a `.d.ts`, not with casts.
 - Use `import type` for type-only imports (Biome `useImportType`).
-- Import files of the same feature, or of the same folder outside `features/` and its subfolders (e.g. `src/shared/store/`, `src/UI/Layout/Header/`, `./Home/HomePage` from `src/routes/`), with relative paths (`./settings.type`, `../store`); import everything else through the `@/` alias (maps to `src/`). Never climb above the current feature or folder with `../`, and never write `/index`: import the folder (`.`, `../store`). The one exception is `../../../package.json` in `src/shared/config/env.ts`: the alias stops at `src/`.
+- In `src/`, import files of the same feature, or of the same folder outside `features/` and its subfolders (e.g. `src/shared/store/`, `src/UI/Layout/Header/`, `./Home/HomePage` from `src/routes/`), with relative paths (`./settings.type`, `../store`); import everything else through the `@/` alias (maps to `src/`). Never climb above the current feature or folder with `../`, and never write `/index`: import the folder (`.`, `../store`). The one exception is `../../../package.json` in `src/shared/config/env.ts`: the alias stops at `src/`.
 - Use named exports. Default exports are only for route pages (the route `lazy` loader reads them) and `vite.config.mts` (Vite requires it).
 - `noUncheckedIndexedAccess` is on in every project: an index access (`list[0]`, `record[key]`) may be `undefined`. Narrow it or use `?.`; do not assert it with `!`.
 - Environment variables: declare each `VITE_*` variable in `ImportMetaEnv` (`src/vite-env.d.ts`, where `strictImportMetaEnv` makes an undeclared one a type error), add it to `.env.example`, and never use `process.env` in browser code.

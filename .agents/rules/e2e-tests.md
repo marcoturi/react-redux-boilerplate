@@ -6,7 +6,7 @@ paths:
 
 # E2E tests (Cucumber 13 and Playwright)
 
-- Scenarios live in `e2e/features/*.feature`, step definitions in `e2e/steps/`, page objects in `e2e/page-objects/`, and hooks and world in `e2e/support/`. `BROWSER=firefox` or `BROWSER=webkit` runs the scenarios in another engine (Chromium by default).
+- Scenarios live in `e2e/features/*.feature`, step definitions in `e2e/steps/`, page objects in `e2e/page-objects/`, and hooks and world in `e2e/support/`. `BROWSER=firefox` or `BROWSER=webkit` runs the scenarios in another engine (Chromium by default), `PWVIDEO=1` records a video of each scenario in `screenshots/`, and `PWDEBUG=1` opens the Playwright inspector and turns off the step timeout.
 - Locate elements through page objects, by role (`page.getByRole('navigation').getByRole('link', { name: 'Subscriptions' })`) or by `data-testid` when no role fits; add the `data-testid` to the component when it is missing. Do not put test ids in app data such as the menu items. A page object is a named function of `page` that returns locators as properties (they are lazy) and actions as methods; register it in `createPageObjects` (`e2e/page-objects/index.ts`), from which the world type derives.
 - Use web-first assertions that retry (`await expect(locator).toHaveCount(n)`, `toBeVisible()`); never assert once on `count()` or `textContent()`.
 - Never use fixed waits (`waitForTimeout`): wait for a locator or a state.

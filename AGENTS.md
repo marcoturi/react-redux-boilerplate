@@ -42,7 +42,7 @@ e2e/                   → Cucumber features, steps, page objects and support co
 - Components only display data from selectors and dispatch actions; they hold no business logic.
 - Business and domain logic lives in reducers and selectors, which stay pure.
 - Side effects go in RTK Query endpoints, thunks or listener middleware.
-- Each feature is self-contained. Other code imports its components through `components/index.ts`, its state through the exports of `store/index.ts` (namespaces such as `SettingsSelectors`, and the `SettingsActions` object), and its types and constants from `store/<feature>.type.ts`.
+- Each feature is self-contained. Other code imports its components through `components/index.ts`, its state through the exports of `store/index.ts` (namespaces such as `SettingsSelectors`, and the `SettingsActions` object), and its types and constants from `store/<entity>.type.ts` (the entity in the singular: `subscription.type.ts`). `src/shared/store/index.ts` also imports each feature's slice and effect file, to register them.
 
 ## Rules
 
@@ -79,7 +79,7 @@ Before considering a task done:
 ## Commits and releases
 
 - Commits follow [Conventional Commits](https://www.conventionalcommits.org/), `type(scope): description`, enforced by commitlint. Types: `feat`, `fix`, `chore`, `docs`, `refactor`, `style`, `test`, `perf`, `ci`, `build`, `revert`.
-- Husky hooks: pre-commit runs `pnpm biome check --staged` and `pnpm test`; commit-msg runs commitlint.
+- Husky hooks: pre-commit runs Biome on the staged files and `pnpm test`; commit-msg runs commitlint.
 - Pull requests to `main` run `.github/workflows/ci.yml`. Every push to `main` runs `.github/workflows/release.yml`. Both run the checks in `verify.yml` (check, unit and component tests with coverage thresholds, build, e2e). Then the release runs semantic-release, which bumps the version, writes `CHANGELOG.md` and publishes a GitHub release. `fix`, `perf`, `revert`, `refactor`, `style` and `docs(README)` commits produce a patch release, `feat` a minor one, and a `!` after the type (`feat!:`) or a `BREAKING CHANGE` footer a major one.
 
 ## Boundaries
