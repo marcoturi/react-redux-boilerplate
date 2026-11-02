@@ -11,6 +11,19 @@ vi.mock('./Home/HomePage', () => ({
   },
 }));
 
+// The user widget crashes on demand, to exercise the layout error boundary
+const crash = vi.hoisted(() => ({ userWidget: false }));
+vi.mock('@/features/user/components', async (importOriginal) => {
+  const { UserWidget } =
+    await importOriginal<typeof import('@/features/user/components')>();
+  return {
+    UserWidget: () => {
+      if (crash.userWidget) throw new Error('Widget crashed');
+      return <UserWidget />;
+    },
+  };
+});
+
 describe('App routes', () => {
   test('Should render the not found page for unknown URLs', async () => {
     renderRoutes(createRoutes, { route: '/missing' });
@@ -68,5 +81,19 @@ describe('App routes', () => {
       await screen.findByRole('heading', { name: 'Subscriptions', level: 1 }),
     ).toBeInTheDocument();
     expect(screen.queryByText(/something went wrong/i)).not.toBeInTheDocument();
+  });
+
+  test('Should show the app fallback when the layout crashes', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    crash.userWidget = true;
+    onTestFinished(() => {
+      crash.userWidget = false;
+    });
+    renderRoutes(createRoutes, { route: '/missing' });
+
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      /something went wrong/i,
+    );
+    expect(screen.queryByRole('navigation')).not.toBeInTheDocument();
   });
 });

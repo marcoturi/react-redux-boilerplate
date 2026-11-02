@@ -21,7 +21,7 @@ const reportRouteError: ClientOnErrorFunction = (error, { errorInfo }) => {
 export function AppProvider({ router }: AppProviderProps) {
   return (
     <Provider store={store}>
-      {/* Last resort for crashes outside the pages */}
+      {/* Last resort for errors outside the route tree */}
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <RouterProvider onError={reportRouteError} router={router} />
       </ErrorBoundary>

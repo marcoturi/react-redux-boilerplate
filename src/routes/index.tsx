@@ -62,6 +62,9 @@ export function createRoutes(store: AppStore) {
   return [
     {
       Component: AppLayout,
+      // A crash in the layout (header, user widget): without it React Router
+      // shows its built-in error screen, stack trace included
+      ErrorBoundary: ErrorFallback,
       children: [
         {
           // A crash, a failed page chunk or a failed loader replaces only the
