@@ -24,7 +24,6 @@
     "check:fix": "biome check --write && tsc -b",
     "check:ci": "biome ci --reporter=github && tsc -b",
     "postinstall": "husky",
-    "semantic-release": "semantic-release",
     "update:interactive": "pnpm update --interactive --latest"
   },
   "engines": {
