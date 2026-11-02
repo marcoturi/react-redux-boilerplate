@@ -1,6 +1,6 @@
 import { HttpResponse, http } from 'msw';
 import { userMock } from '@/mocks/data/users';
-import env from '@/shared/config/env';
+import { env } from '@/shared/config/env';
 import { serverErrorOnce } from './server-error';
 
 const usersUrl = `${env.API_URL}/users`;

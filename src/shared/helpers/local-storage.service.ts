@@ -3,7 +3,7 @@ export const StorageKeys = {
 } as const;
 export type StorageKeys = (typeof StorageKeys)[keyof typeof StorageKeys];
 
-const LocalStorageService = (dbKey: StorageKeys) => ({
+export const LocalStorageService = (dbKey: StorageKeys) => ({
   // Values that are not valid JSON are skipped: one corrupt entry must not
   // lose the others
   getAll: (): Record<string, unknown> => {
@@ -23,5 +23,3 @@ const LocalStorageService = (dbKey: StorageKeys) => ({
     globalThis.localStorage.setItem(dbKey + key, JSON.stringify(value));
   },
 });
-
-export default LocalStorageService;

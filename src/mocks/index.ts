@@ -1,4 +1,4 @@
-import env from '@/shared/config/env';
+import { env } from '@/shared/config/env';
 
 export const initMocks = async () => {
   if (import.meta.env.DEV && env.API_MOCKING) {

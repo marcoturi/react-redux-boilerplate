@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/react';
 import { reactRouterBrowserTracingIntegration } from '@sentry/react/react-router';
-import env from './env';
+import { env } from './env';
 
 // Only builds report, and only with a DSN: not the dev server, not Vitest.
 // Without a DSN the SDK sends nothing and does not parse the value.

@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import LocalStorageService, {
+import {
+  LocalStorageService,
   StorageKeys,
 } from '@/shared/helpers/local-storage.service';
 

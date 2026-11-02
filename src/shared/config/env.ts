@@ -8,7 +8,7 @@ if (!VITE_API_URL) {
   throw new Error('VITE_API_URL is not set: run `pnpm create:env`');
 }
 
-const env = {
+export const env = {
   VERSION: version,
   SENTRY_DSN: VITE_SENTRY_DSN,
   // Vite mode: `development`, `production`, `test` under Vitest, or --mode
@@ -23,5 +23,3 @@ const env = {
   // Serve the API from the MSW handlers in src/mocks (development only)
   API_MOCKING: VITE_API_MOCKING === 'true',
 };
-
-export default env;

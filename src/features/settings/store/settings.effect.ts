@@ -1,5 +1,6 @@
 import { captureError } from '@/shared/helpers/error-tracking.service';
-import LocalStorageService, {
+import {
+  LocalStorageService,
   StorageKeys,
 } from '@/shared/helpers/local-storage.service';
 import { startAppListening } from '@/shared/store/listener';

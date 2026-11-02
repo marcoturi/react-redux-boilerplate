@@ -1,4 +1,4 @@
-import baseApi from '@/shared/store/api';
+import { baseApi } from '@/shared/store/api';
 import type { User } from './user.type';
 
 export const userApi = baseApi.injectEndpoints({

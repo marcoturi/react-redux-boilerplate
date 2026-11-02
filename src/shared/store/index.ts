@@ -1,8 +1,8 @@
 import { combineSlices, configureStore } from '@reduxjs/toolkit';
 import { settingsSlice } from '@/features/settings/store/settings.slice';
-import env from '@/shared/config/env';
+import { env } from '@/shared/config/env';
 import { sentryReduxEnhancer } from '@/shared/config/sentry';
-import baseApi from './api';
+import { baseApi } from './api';
 import { listenerMiddleware } from './listener';
 // Feature effects register their listeners when imported
 import '@/features/settings/store/settings.effect';
