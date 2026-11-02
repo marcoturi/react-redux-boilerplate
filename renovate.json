@@ -27,6 +27,10 @@
       "allowedVersions": "<0.3.0"
     },
     {
+      "matchPackageNames": ["@babel/core"],
+      "allowedVersions": "<8.0.0"
+    },
+    {
       "matchUpdateTypes": ["lockFileMaintenance"],
       "minimumReleaseAge": null
     }
