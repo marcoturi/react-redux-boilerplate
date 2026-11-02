@@ -9,7 +9,7 @@ Production-ready React 19 SPA boilerplate with vertical slice architecture: Reac
 - Node.js 26.x from `.nvmrc`: run `fnm use` or `nvm use` first. Package manager: pnpm 12, pinned in `packageManager` (Node 26 no longer bundles Corepack: `npm i -g corepack && corepack enable`).
 - Install: `pnpm install`. Create `.env` from `.env.example`: `pnpm create:env`.
 - Dev server: `pnpm dev` (http://localhost:5173).
-- Lint, format and types: `pnpm check`; auto-fix: `pnpm check:fix`; in CI `pnpm check:ci` (Biome annotations on the pull request). Only types: `pnpm type:check` (`tsc -b` over the app, the Vite config and e2e).
+- Lint, format and types: `pnpm check`; auto-fix: `pnpm check:fix`; in CI `pnpm check:ci` (Biome annotations on the pull request). Only types: `pnpm type:check` (`tsc -b` over the app, its tests, the Vite config and e2e).
 - Unit and component tests: `pnpm test` (store, selector and helper specs in jsdom, component specs in Chromium through Vitest browser mode: install it once with `pnpm exec playwright install chromium`); with coverage and its thresholds: `pnpm test:coverage`.
 - Build: `pnpm build` (`tsc -b && vite build`, output in `dist/`).
 - E2E: with Chromium installed, start `pnpm dev`, then run `pnpm e2e:local` in another terminal. `pnpm e2e:debug` runs only the `@only` scenarios.

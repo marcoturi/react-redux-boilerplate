@@ -26,7 +26,7 @@ paths:
 - The build uses Vite's default target (`baseline-widely-available`); keep `target` (root `tsconfig.json`) and the `lib` of `tsconfig.app.json` within it (ES2022, ES2023 lib).
 - The `msw/vite` plugin serves the MSW worker on the dev server only (`apply: 'serve'`): never add `mockServiceWorker.js` to `public/`. `initMocks` (`src/mocks/index.ts`) checks `import.meta.env.DEV` first, so the build drops MSW and the mock data: keep that check static, and never import `src/mocks/` or `src/test/` from app code other than that call in `main.tsx`.
 - Vite resolves the `@/` alias from the tsconfig `paths` (`resolve.tsconfigPaths`); `paths` lives only in the root `tsconfig.json`, which the projects extend.
-- A new tsconfig project extends the root `tsconfig.json`, which holds the options the projects share (target, lint flags, `paths`), sets only what differs, and goes in the root `references`, so that `tsc -b` checks it.
+- `tsconfig.app.json` checks the app without specs and `src/test/`; `tsconfig.test.json` checks them with the Vitest globals, so app code that uses `vi` or `expect` fails `tsc -b`. A new tsconfig project extends the root `tsconfig.json`, which holds the options the projects share (target, lint flags, `paths`), sets only what differs, and goes in the root `references`, so that `tsc -b` checks it.
 - Biome is the only linter and formatter: do not add ESLint or Prettier. `pnpm lint` and `pnpm check` only report; `lint:fix` and `check:fix` write. Besides the recommended rules it turns on others (see `biome.json`), notably:
   - `useExhaustiveDependencies` as an error, with `useAppDispatch` marked as stable;
   - `noExplicitAny` as an error (recommended rules only warn, and warnings do not fail `pnpm check`);
