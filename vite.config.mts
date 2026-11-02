@@ -1,10 +1,15 @@
 import babel from '@rolldown/plugin-babel';
+import { sentryVitePlugin } from '@sentry/bundler-plugins/vite';
 import tailwindcss from '@tailwindcss/vite';
 import react, { reactCompilerPreset } from '@vitejs/plugin-react';
 import { playwright } from '@vitest/browser-playwright';
 import type { Logger } from 'babel-plugin-react-compiler';
 import { msw } from 'msw/vite';
 import { defineConfig } from 'vitest/config';
+import packageJson from './package.json' with { type: 'json' };
+
+// The Sentry plugin reads SENTRY_ORG and SENTRY_PROJECT from the environment
+const uploadSourceMaps = Boolean(process.env.SENTRY_AUTH_TOKEN);
 
 const compilerLogger: Logger = {
   logEvent(filename, event) {
@@ -28,6 +33,13 @@ export default defineConfig({
         ]),
     tailwindcss(),
     { ...msw({ mode: 'worker-only' }), apply: 'serve' },
+    ...(uploadSourceMaps
+      ? sentryVitePlugin({
+          release: { name: packageJson.version },
+          sourcemaps: { filesToDeleteAfterUpload: ['./dist/**/*.map'] },
+          telemetry: false,
+        })
+      : []),
   ],
   resolve: {
     tsconfigPaths: true,
@@ -36,6 +48,7 @@ export default defineConfig({
   // Sentry.init prints nothing while this is false
   define: { __SENTRY_DEBUG__: false },
   build: {
+    sourcemap: uploadSourceMaps ? 'hidden' : false,
     rolldownOptions: {
       output: {
         codeSplitting: {
