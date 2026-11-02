@@ -1,3 +1,19 @@
+## [2.0.0](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.61...v2.0.0) (2026-11-02)
+
+### ⚠ BREAKING CHANGES
+
+* **release:** footer, made a patch release. The breaking rule now
+comes first.
+
+### Bug Fixes
+
+* **build:** fail the build when the Sentry source map upload fails ([04d41a4](https://github.com/marcoturi/react-redux-boilerplate/commit/04d41a4f5c47ff6a9ef5f0165bcd3fc55b884de2))
+* **release:** make breaking refactor, style and docs(README) commits major ([77e6bfc](https://github.com/marcoturi/react-redux-boilerplate/commit/77e6bfc9e6787a3cb313129708c29a162bea46b9))
+
+### Documentation
+
+* **README:** install Chromium before starting the dev server and complete the setup notes ([00a3d66](https://github.com/marcoturi/react-redux-boilerplate/commit/00a3d66278a9ea327d0b38d50ebe857190672bfd))
+
 ## [1.7.61](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.60...v1.7.61) (2026-11-02)
 
 ### Bug Fixes
