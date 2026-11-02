@@ -1,6 +1,10 @@
 # pnpm settings (pnpm no longer reads the "pnpm" field of package.json).
-# minimumReleaseAge keeps its default: versions younger than one day are not
-# installed. renovate.json waits the same time before proposing them.
+
+# Versions younger than one day are not installed. Written out on purpose: only
+# an explicit value is strict, while pnpm's built-in default installs a younger
+# version when no version in the range is old enough. renovate.json waits the
+# same time before proposing them.
+minimumReleaseAge: 1440
 
 # Fail when a version is published with less trust evidence (provenance,
 # trusted publisher) than an earlier one: a sign of a hijacked package.
