@@ -1,4 +1,3 @@
-import { mkdir } from 'node:fs/promises';
 import {
   After,
   AfterAll,
@@ -11,7 +10,6 @@ import {
   type Browser,
   type BrowserType,
   chromium,
-  devices,
   firefox,
   webkit,
 } from '@playwright/test';
@@ -25,21 +23,15 @@ const browserTypes: Record<string, BrowserType | undefined> = {
   webkit,
 };
 let browser: Browser | undefined;
-const tracesDir = 'traces';
 
 setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
 
 BeforeAll(async () => {
   const browserType = browserTypes[process.env.BROWSER ?? ''] ?? chromium;
   browser = await browserType.launch();
-  await mkdir(tracesDir, { recursive: true });
 });
 
 Before({ tags: '@pending' }, () => 'skipped');
-
-Before<CustomWorld>({ tags: '@mobile' }, function () {
-  this.mobile = true;
-});
 
 Before<CustomWorld>(async function () {
   if (!browser) throw new Error('The browser did not start');
@@ -48,7 +40,6 @@ Before<CustomWorld>(async function () {
     acceptDownloads: true,
     recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
     viewport: { width: 1200, height: 800 },
-    ...(this.mobile ? devices['iPhone 14 Pro'] : {}),
   });
 
   await this.context.tracing.start({ screenshots: true, snapshots: true });
@@ -74,7 +65,7 @@ After<CustomWorld>(async function ({ pickle, result }) {
     // No colons: they are not allowed in Windows paths
     const time = new Date().toISOString().replaceAll(/[:.]/g, '_');
     await context.tracing.stop({
-      path: `${tracesDir}/${name}-${time}-trace.zip`,
+      path: `traces/${name}-${time}-trace.zip`,
     });
   }
   // Closes the page as well
