@@ -11,6 +11,8 @@ import env from './env';
 // Without a DSN the SDK sends nothing and does not parse the value.
 const dsn = env.IS_PROD ? env.SENTRY_DSN : undefined;
 
+const ipAndUserKeys = ['forwarded', '-ip', 'remote-', 'via', '-user'];
+
 Sentry.init({
   dsn,
   release: env.VERSION,
@@ -35,12 +37,9 @@ Sentry.init({
   dataCollection: {
     userInfo: false,
     cookies: false,
-    httpHeaders: {
-      request: { deny: ['forwarded', '-ip', 'remote-', 'via', '-user'] },
-      response: { deny: ['forwarded', '-ip', 'remote-', 'via', '-user'] },
-    },
+    httpHeaders: { deny: ipAndUserKeys },
     httpBodies: [],
-    urlQueryParams: { deny: ['forwarded', '-ip', 'remote-', 'via', '-user'] },
+    urlQueryParams: { deny: ipAndUserKeys },
   },
 });
 
