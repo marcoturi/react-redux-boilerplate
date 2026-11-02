@@ -1,3 +1,21 @@
+## [1.7.57](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.56...v1.7.57) (2026-11-02)
+
+### Bug Fixes
+
+* **release:** parse breaking changes like commitlint and list every released type ([d17400c](https://github.com/marcoturi/react-redux-boilerplate/commit/d17400ceb43efe32fb061a78626eae1fca5a6750))
+* **routes:** show the app fallback when the layout crashes ([5328111](https://github.com/marcoturi/react-redux-boilerplate/commit/532811174ea0f564e9827c7db5e1fdf3c2fe25ad))
+
+### Performance Improvements
+
+* **build:** drop the Sentry debug logger from the bundle ([ec69f29](https://github.com/marcoturi/react-redux-boilerplate/commit/ec69f29c6326505d314c84c0208f48db6825c8be))
+
+### Code Refactoring
+
+* **config:** drop the tsconfig options TypeScript 7 already sets ([93d78ea](https://github.com/marcoturi/react-redux-boilerplate/commit/93d78eabb287b72a50e547890e07e89f10c6fe61))
+* **e2e:** drop the unused mobile tag and the traces folder creation ([dbf9c29](https://github.com/marcoturi/react-redux-boilerplate/commit/dbf9c29af4d2344feebfc15e408bafb2d86c7aa7))
+* **mocks:** narrow MSW frames with HttpNetworkFrame ([43715c2](https://github.com/marcoturi/react-redux-boilerplate/commit/43715c28c9c79843b52a4e500c8ce949c3a2c363))
+* remove dead code ([0d010ea](https://github.com/marcoturi/react-redux-boilerplate/commit/0d010ea1ce060bb822a364e5421931fdd32e260f))
+
 ## [1.7.56](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.55...v1.7.56) (2026-11-01)
 
 ### Bug Fixes
