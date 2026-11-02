@@ -25,6 +25,9 @@ export default defineConfig({
     // Resolve the `paths` aliases (e.g. `@/`) declared in tsconfig
     tsconfigPaths: true,
   },
+  // Drops the Sentry SDK debug logger from the bundle: `debug: true` in
+  // Sentry.init prints nothing while this is false
+  define: { __SENTRY_DEBUG__: false },
   server: {
     watch: {
       // E2E runs write here while the dev server is up: changes must not
