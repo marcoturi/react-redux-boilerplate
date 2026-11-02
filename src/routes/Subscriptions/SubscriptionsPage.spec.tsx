@@ -58,13 +58,13 @@ describe('SubscriptionsPage', () => {
     const user = userEvent.setup();
     renderWithProviders(<SubscriptionsPage />);
 
-    expect(await screen.findByRole('alert')).toHaveTextContent(
+    expect(await screen.findByRole('alert')).toMatchTextContent(
       'Could not load the subscriptions',
     );
     expect(screen.queryByText('No subscriptions')).not.toBeInTheDocument();
 
     await user.click(screen.getByRole('button', { name: 'Try again' }));
-    expect(await screen.findByRole('status')).toHaveTextContent('Loading');
+    expect(await screen.findByRole('status')).toHaveTextContent('Loading…');
     expect(screen.queryByText('No subscriptions')).not.toBeInTheDocument();
 
     respond();

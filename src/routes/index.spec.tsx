@@ -71,7 +71,7 @@ describe('App routes', () => {
     const user = userEvent.setup();
     renderRoutes(createRoutes, { route: '/' });
 
-    expect(await screen.findByRole('alert')).toHaveTextContent(
+    expect(await screen.findByRole('alert')).toMatchTextContent(
       /something went wrong/i,
     );
     expect(screen.getByRole('navigation')).toBeInTheDocument();
@@ -91,7 +91,7 @@ describe('App routes', () => {
     });
     renderRoutes(createRoutes, { route: '/missing' });
 
-    expect(await screen.findByRole('alert')).toHaveTextContent(
+    expect(await screen.findByRole('alert')).toMatchTextContent(
       /something went wrong/i,
     );
     expect(screen.queryByRole('navigation')).not.toBeInTheDocument();

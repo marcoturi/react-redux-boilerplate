@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom/vitest';
 import { worker } from '@/mocks/browser';
 import { expectNoUnhandledRequests, failUnhandledFrame } from './msw-unhandled';
 
