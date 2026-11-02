@@ -3,7 +3,7 @@ Feature: Subscriptions
 
   Scenario: User open the app and navigate subscription page
     Given user open the app
-    And user open the subscription link
+    When user open the subscription link
     Then user should see the subscription page
 
   Scenario: User on subscription page, should be able to filter the list of subscriptions

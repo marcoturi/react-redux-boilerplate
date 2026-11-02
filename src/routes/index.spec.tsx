@@ -83,7 +83,7 @@ describe('App routes', () => {
     expect(screen.queryByText(/something went wrong/i)).not.toBeInTheDocument();
   });
 
-  test('Should show the app fallback when the layout crashes', async () => {
+  test('Should show the layout fallback when the header crashes', async () => {
     vi.spyOn(console, 'error').mockImplementation(() => {});
     crash.userWidget = true;
     onTestFinished(() => {
