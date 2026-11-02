@@ -28,7 +28,6 @@ paths:
 - Vite resolves the `@/` alias from the tsconfig `paths` (`resolve.tsconfigPaths`); `paths` lives only in the root `tsconfig.json`, which the projects extend.
 - `tsconfig.app.json` checks the app without specs and `src/test/`; `tsconfig.test.json` checks them with the Vitest globals, so app code that uses `vi` or `expect` fails `tsc -b`. A new tsconfig project extends the root `tsconfig.json`, which holds the options the projects share (target, lint flags, `paths`), sets only what differs, and goes in the root `references`, so that `tsc -b` checks it.
 - Biome is the only linter and formatter: do not add ESLint or Prettier. `pnpm lint` and `pnpm check` only report; `lint:fix` and `check:fix` write. Besides the recommended rules it turns on others (see `biome.json`), notably:
-  - `useExhaustiveDependencies` as an error, with `useAppDispatch` marked as stable;
   - `noExplicitAny` as an error (recommended rules only warn, and warnings do not fail `pnpm check`);
   - the Tailwind rules `useTailwindSortedClasses`, `noTailwindRawColors` and `noTailwindLegacyUtilities`, reading the theme from `tailwind.stylesheet`, and switched off for `src/UI/Base/**`.
 - Fix the code rather than adding `biome-ignore`; when an ignore is unavoidable, state the reason in it.
