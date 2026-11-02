@@ -7,8 +7,6 @@ export function UserWidget() {
   UserApi.useGetUserQuery();
   const userFullName = useAppSelector(UserSelectors.selectUserFullName);
 
-  // Empty while loading or when the first request failed. A failed refetch
-  // keeps the cached user, so the name stays
   if (!userFullName) return null;
 
   return <Text>Hello {userFullName}</Text>;

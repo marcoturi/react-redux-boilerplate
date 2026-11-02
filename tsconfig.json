@@ -6,8 +6,6 @@
     { "path": "./tsconfig.node.json" },
     { "path": "./e2e/tsconfig.e2e.json" }
   ],
-  // Shared by the three projects, which extend this file. The shadcn CLI also
-  // reads `paths` here to resolve the aliases in components.json
   "compilerOptions": {
     "target": "ES2022",
     "lib": ["ES2023"],

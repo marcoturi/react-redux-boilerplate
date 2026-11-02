@@ -9,20 +9,13 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   plugins: [
     react(),
-    // React Compiler memoizes components and hooks at build time. Through
-    // Babel: the native compiler option of plugin-react is experimental. Not
-    // under Vitest, so coverage measures the source instead of the compiler's
-    // cache checks; the dev server, e2e and the build use it.
     ...(process.env.VITEST
       ? []
       : [babel({ presets: [reactCompilerPreset()] })]),
     tailwindcss(),
-    // msw serves the worker script from node_modules (no copy in public/).
-    // Mocks run only in development, so keep the worker out of the build.
     { ...msw({ mode: 'worker-only' }), apply: 'serve' },
   ],
   resolve: {
-    // Resolve the `paths` aliases (e.g. `@/`) declared in tsconfig
     tsconfigPaths: true,
   },
   // Drops the Sentry SDK debug logger from the bundle: `debug: true` in
@@ -36,11 +29,8 @@ export default defineConfig({
     },
   },
   build: {
-    // Default target (baseline-widely-available). tsconfig.app.json uses
-    // target ES2022 and lib ES2023, which those browsers support.
     rolldownOptions: {
       output: {
-        // Groups are matched in order: the first matching group wins.
         codeSplitting: {
           groups: [
             // React, React DOM, React Router, React Redux and
@@ -54,15 +44,10 @@ export default defineConfig({
               name: 'vendor-redux',
               test: /[\\/]node_modules[\\/]@reduxjs[\\/]toolkit[\\/]/,
             },
-            // Sentry monitoring (rarely changes; the replay integration is
-            // loaded from the Sentry CDN at runtime)
             {
               name: 'vendor-sentry',
               test: /[\\/]node_modules[\\/]@sentry[\\/]/,
             },
-            // No group for Radix, lucide and the other UI libraries: a group
-            // takes every matching module and loads it on the first page, so
-            // Rolldown keeps them with the routes that use them
           ],
         },
       },
@@ -74,7 +59,6 @@ export default defineConfig({
     restoreMocks: true,
     projects: [
       {
-        // Store, selectors and helpers: no rendering, fast in jsdom
         extends: true,
         test: {
           name: 'unit',
@@ -84,7 +68,6 @@ export default defineConfig({
         },
       },
       {
-        // Components and pages in a real Chromium, with the MSW service worker
         extends: true,
         test: {
           name: 'browser',
@@ -104,8 +87,6 @@ export default defineConfig({
     coverage: {
       reporter: ['text', 'html'],
       include: ['src/**/*.{ts,tsx}'],
-      // Leave out only entry points, mocks, test helpers and the shadcn components
-      // (managed by the CLI): effects, helpers and type guards hold logic
       exclude: [
         'src/main.tsx',
         'src/AppProvider.tsx',

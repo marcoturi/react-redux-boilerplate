@@ -1,8 +1,6 @@
 import { createListenerMiddleware } from '@reduxjs/toolkit';
 import type { AppDispatch, RootState } from './types';
 
-// One app-wide listener middleware: feature effects register on it with the
-// typed helper below, and setupStore prepends it.
 export const listenerMiddleware = createListenerMiddleware();
 
 export const startAppListening = listenerMiddleware.startListening.withTypes<

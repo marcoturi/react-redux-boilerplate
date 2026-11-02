@@ -11,9 +11,6 @@ type AppProviderProps = {
   router: ReturnType<typeof createAppRouter>;
 };
 
-// Render errors reach Sentry through the createRoot callbacks (main.tsx).
-// This reports the route errors React does not see: failed loaders and page
-// modules that do not load.
 const reportRouteError: ClientOnErrorFunction = (error, { errorInfo }) => {
   if (!errorInfo) captureError(error, 'Route error');
 };
@@ -21,7 +18,6 @@ const reportRouteError: ClientOnErrorFunction = (error, { errorInfo }) => {
 export function AppProvider({ router }: AppProviderProps) {
   return (
     <Provider store={store}>
-      {/* Last resort for errors outside the route tree */}
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <RouterProvider onError={reportRouteError} router={router} />
       </ErrorBoundary>

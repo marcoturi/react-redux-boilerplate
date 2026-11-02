@@ -69,7 +69,6 @@ describe('Settings persistence:', () => {
     const store = setupStore();
 
     const action = await store.dispatch(SettingsActions.loadState());
-    // The setup file clears localStorage after each test
     storage.mockRestore();
 
     expect(action.type).toBe(SettingsActions.loadState.rejected.type);

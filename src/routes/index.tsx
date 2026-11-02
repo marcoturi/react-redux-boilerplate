@@ -19,7 +19,6 @@ const menuItems = [
   { label: 'Subscriptions', href: '/subscriptions' },
 ] satisfies MenuItem[];
 
-// Pages are route modules with a default export, loaded on navigation
 const page = (load: () => Promise<{ default: ComponentType }>) => async () =>
   (await load()).default;
 
@@ -29,7 +28,6 @@ function AppLayout() {
 
   return (
     <>
-      {/* The previous page stays until the next one is ready */}
       {isLoading && (
         <div
           aria-label="Loading page"
@@ -53,24 +51,14 @@ function PageSkeleton() {
   );
 }
 
-/**
- * The route tree. Loaders run in the browser when a navigation starts, in
- * parallel with the page download: they start the page's requests and do not
- * wait for them, so pages keep showing their own loading and error states.
- */
 export function createRoutes(store: AppStore) {
   return [
     {
       Component: AppLayout,
-      // A crash in the layout (header, user widget): without it React Router
-      // shows its built-in error screen, stack trace included
       ErrorBoundary: ErrorFallback,
       children: [
         {
-          // A crash, a failed page chunk or a failed loader replaces only the
-          // page: the header stays. The error clears on the next navigation.
           ErrorBoundary: ErrorFallback,
-          // Shown on the first load until the page module is ready
           HydrateFallback: PageSkeleton,
           children: [
             {
@@ -101,7 +89,6 @@ export function createRoutes(store: AppStore) {
   ] satisfies RouteObject[];
 }
 
-// Reports page loads and navigations to Sentry under the route pattern
 const createSentryBrowserRouter =
   Sentry.wrapCreateBrowserRouter(createBrowserRouter);
 

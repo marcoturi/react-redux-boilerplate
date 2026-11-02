@@ -34,7 +34,6 @@ export const settingsSlice = createSlice({
       }
     });
   },
-  // Receive the slice state: the root state path comes from `name`
   selectors: {
     selectFilters: (state) => state[SettingsKey.filters],
     selectSubscriptionFilter: (state) =>

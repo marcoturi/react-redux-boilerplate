@@ -1,6 +1,3 @@
-// Constant objects instead of enums: they are plain JavaScript, so type
-// stripping (erasableSyntaxOnly) can run this file. The type of the same name
-// is the union of the values.
 export const SubscriptionType = {
   Subscription: 'subscription',
   OneTimePurchase: 'oneTimePurchase',

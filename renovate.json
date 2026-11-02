@@ -15,17 +15,14 @@
       "automerge": true
     },
     {
-      "description": "Keep GitHub Actions on major tags (@v7), never digests",
       "matchManagers": ["github-actions"],
       "pinDigests": false
     },
     {
-      "description": "Node.js types follow the Node.js major in .nvmrc",
       "matchPackageNames": ["@types/node"],
       "allowedVersions": "26.x"
     },
     {
-      "description": "@vitejs/plugin-react 6 accepts @rolldown/plugin-babel up to 0.2 as a peer: raise this when its peer range does",
       "matchPackageNames": ["@rolldown/plugin-babel"],
       "allowedVersions": "<0.3.0"
     },

@@ -18,14 +18,10 @@ export function SubscriptionList() {
     SubscriptionSelectors.selectFilteredSubscriptions,
   );
 
-  // Not `isLoading`: it stays false when a retry follows a failed request
   if (!data && isFetching) {
     return <SkeletonList className="py-8" />;
   }
 
-  // Without data the selector returns an empty list: tell a failed request
-  // apart from a filter that matches nothing. A failed refetch keeps the
-  // cached data, so keep showing it
   if (isError && !data) {
     return (
       <div className="flex flex-col items-start gap-4 py-4">

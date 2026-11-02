@@ -1,24 +1,12 @@
-# pnpm settings (pnpm no longer reads the "pnpm" field of package.json).
-
-# Versions younger than one day are not installed. Written out on purpose: only
-# an explicit value is strict, while pnpm's built-in default installs a younger
-# version when no version in the range is old enough. renovate.json waits the
-# same time before proposing them.
 minimumReleaseAge: 1440
 
 engineStrict: true
 
-# Fail when a version is published with less trust evidence (provenance,
-# trusted publisher) than an earlier one: a sign of a hijacked package.
-# semver@6.3.1 predates provenance.
 trustPolicy: no-downgrade
 trustPolicyExclude:
+  # Predates provenance
   - semver@6.3.1
 
-# The semantic-release plugins load the preset named in .releaserc from their
-# own folder, where pnpm would otherwise find the copy commitlint brings. The
-# release notes writer (v8) renders only preset v9: remove this block once
-# @semantic-release/release-notes-generator ships with writer v9.
 packageExtensions:
   "@semantic-release/commit-analyzer":
     dependencies:

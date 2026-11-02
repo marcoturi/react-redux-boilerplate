@@ -13,11 +13,6 @@ type RenderOptionsWithProviders = Omit<RenderOptions, 'queries' | 'wrapper'> & {
   route?: string;
 };
 
-/**
- * Renders a route tree in an in-memory data router, like the app's router,
- * with a fresh store. `createRoutes` receives the store, as the app's
- * `createRoutes` does, so loaders dispatch to it.
- */
 export function renderRoutes(
   createRoutes: (store: AppStore) => RouteObject[],
   {
@@ -42,7 +37,6 @@ export function renderRoutes(
   };
 }
 
-// Renders one component as the only route, so router hooks work
 export function renderWithProviders(
   ui: ReactElement,
   options?: RenderOptionsWithProviders,
@@ -50,11 +44,6 @@ export function renderWithProviders(
   return renderRoutes(() => [{ path: '*', element: ui }], options);
 }
 
-/**
- * Runs `callback` (e.g. a dispatched refetch) inside `act` and waits for the
- * next animation frame: RTK Query batches its updates and notifies the UI on
- * that frame, so the rendered output is up to date when this resolves.
- */
 export async function actAndFlush(callback: () => Promise<unknown>) {
   await act(async () => {
     await callback();

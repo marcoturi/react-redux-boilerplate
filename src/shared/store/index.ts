@@ -7,16 +7,12 @@ import { listenerMiddleware } from './listener';
 // Feature effects register their listeners when imported
 import '@/features/settings/store/settings.effect';
 
-// Each slice and the API mount under their own name (`reducerPath`)
 export const rootReducer = combineSlices(baseApi, settingsSlice);
 
 export type RootState = ReturnType<typeof rootReducer>;
 
 // Options are passed inline so the callbacks get their types from
-// configureStore; tests call it with a preloaded state. Keep `middleware`
-// before `enhancers` (the enhancers type depends on the inferred middleware)
-// and concat the Sentry enhancer: it is typed `any`, and prepending it erases
-// the thunk dispatch type.
+// configureStore
 export function setupStore(preloadedState?: Partial<RootState>) {
   return configureStore({
     reducer: rootReducer,
