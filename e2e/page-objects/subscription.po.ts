@@ -8,7 +8,7 @@ export function subscriptionPo(page: Page) {
       .getByRole('navigation')
       .getByRole('link', { name: 'Subscriptions' }),
     filterTrigger,
-    list: page.getByTestId('subscription-item'),
+    list: page.getByRole('main').getByRole('heading', { level: 2 }),
     async pickOptionFromFilter(option: string) {
       await filterTrigger.click();
       await page.getByRole('option', { name: option }).click();

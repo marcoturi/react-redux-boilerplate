@@ -15,7 +15,7 @@ type SubscriptionCardProps = {
 
 export function SubscriptionCard({ subscription }: SubscriptionCardProps) {
   return (
-    <Card className="w-full" data-testid="subscription-item">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>
           <Text as="h2">{subscription.name}</Text>
