@@ -5,7 +5,7 @@ import { playwright } from '@vitest/browser-playwright';
 import { msw } from 'msw/vite';
 import { defineConfig } from 'vitest/config';
 
-// https://vitejs.dev/config/
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
