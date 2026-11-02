@@ -42,11 +42,22 @@ A production-ready, batteries-included starter template for building long-lived 
 ```bash
 npx degit marcoturi/react-redux-boilerplate my-app
 cd my-app
+git init           # Husky installs the Git hooks only in a repository
 
 pnpm install       # Install dependencies
 pnpm create:env    # Create .env from .env.example
 pnpm dev           # Start dev server at http://localhost:5173
 ```
+
+degit also copies the boilerplate's release history: delete `CHANGELOG.md` and set `name`, `description` and `author` in `package.json`.
+
+### Environment variables
+
+| Variable           | Required | Description                                                                              |
+| ------------------ | -------- | ---------------------------------------------------------------------------------------- |
+| `VITE_API_URL`     | Yes      | Base URL of the API, also needed by `pnpm build`                                         |
+| `VITE_API_MOCKING` | No       | `true` serves the API from the MSW handlers on the dev server; keep it for the E2E tests |
+| `VITE_SENTRY_DSN`  | No       | Sentry DSN: only production builds report, and only when it is set                       |
 
 ### Commands
 
@@ -100,7 +111,7 @@ src/
 Why vertical slices over alternatives like [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/) or [Feature-Sliced Design](https://feature-sliced.design/)?
 
 1. **Less navigation** -- Feature code lives in one folder, not scattered across layers.
-2. **Easy extraction** -- A feature folder can move to a monorepo package with minimal refactoring: files inside a feature import each other with relative paths, and only the imports from other features use the `@/` alias.
+2. **Easy extraction** -- A feature folder can move to a monorepo package with minimal refactoring: files inside a feature import each other with relative paths, and everything outside the feature through the `@/` alias.
 3. **Parallel development** -- Teams can work on different features without conflicts.
 4. **Simpler testing** -- Each feature can be tested in isolation.
 
