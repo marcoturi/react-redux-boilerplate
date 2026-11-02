@@ -3,7 +3,6 @@ import { userApi } from './user.api';
 
 const selectUserResult = userApi.endpoints.getUser.select();
 
-// A string compares by value: no memoization needed
 export const selectUserFullName = (state: RootState): string => {
   const user = selectUserResult(state).data;
   if (!user) return '';

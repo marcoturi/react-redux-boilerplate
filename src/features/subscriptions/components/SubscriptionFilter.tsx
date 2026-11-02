@@ -15,7 +15,6 @@ import {
   SubscriptionFilters,
 } from '../store/subscription.type';
 
-// One label per filter: a new filter without a label is a type error
 const filterLabels: Record<SubscriptionFilters, string> = {
   [SubscriptionFilters.All]: 'All',
   [SubscriptionFilters.Subscription]: 'Subscriptions',

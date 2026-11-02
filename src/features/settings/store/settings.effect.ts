@@ -8,7 +8,8 @@ import { SettingsActions, SettingsSelectors } from '.';
 import { SettingsKey } from './settings.type';
 
 /**
- * Important: these listeners are here only to showcase the listener middleware.
+ * Important: these listeners and the `loadState` thunk are here only to
+ * showcase the listener middleware and thunks.
  * In a real app, if you want to persist your redux state to local storage
  * you should use something like redux-persist instead.
  * https://github.com/markerikson/redux-ecosystem-links/blob/master/store-persistence.md

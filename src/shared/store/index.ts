@@ -4,7 +4,6 @@ import { env } from '@/shared/config/env';
 import { sentryReduxEnhancer } from '@/shared/config/sentry';
 import { baseApi } from './api';
 import { listenerMiddleware } from './listener';
-// Feature effects register their listeners when imported
 import '@/features/settings/store/settings.effect';
 
 export const rootReducer = combineSlices(baseApi, settingsSlice);
