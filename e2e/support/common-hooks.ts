@@ -15,8 +15,8 @@ import {
   firefox,
   webkit,
 } from '@playwright/test';
-import { createPageObjects } from '../page-objects';
-import type { CustomWorld } from './custom-world';
+import { createPageObjects } from '../page-objects/index.ts';
+import type { CustomWorld } from './custom-world.ts';
 
 // BROWSER=firefox or BROWSER=webkit runs the scenarios in another engine
 const browserTypes: Record<string, BrowserType | undefined> = {

@@ -1,7 +1,6 @@
 const config = {
-  // tsx only transpiles: e2e types are checked by `tsc -b` (pnpm check)
-  requireModule: ['tsx/cjs'],
-  require: ['e2e/**/*.ts'],
+  // Node strips the types and runs the steps: `tsc -b` (pnpm check) checks them
+  import: ['e2e/**/*.ts'],
   paths: ['e2e/**/*.feature'],
   // Only one formatter can write to stdout: the others need a file target
   format: [

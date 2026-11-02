@@ -1,24 +1,22 @@
 {
-  // Cucumber steps and support files, run by tsx (type-checked by tsc -b)
+  // Cucumber steps and support files, run by Node with its type stripping
+  // (type-checked by tsc -b)
   "compilerOptions": {
     "tsBuildInfoFile": "../node_modules/.tmp/tsconfig.e2e.tsbuildinfo",
     "target": "ES2022",
     "lib": ["ES2023"],
-    "module": "commonjs",
+    "module": "nodenext",
     "skipLibCheck": true,
-    // tsx transpiles one file at a time, like Vite
-    "isolatedModules": true,
+    // What Node requires: relative imports with their .ts extension, type-only
+    // imports marked as such, and only syntax it can erase
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
     "noEmit": true,
-    "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
-    "erasableSyntaxOnly": true,
     "noUncheckedIndexedAccess": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
     "types": ["node"]
-  },
-  "exclude": ["node_modules"]
+  }
 }

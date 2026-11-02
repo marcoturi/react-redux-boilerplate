@@ -1,6 +1,6 @@
 import { setWorldConstructor, World } from '@cucumber/cucumber';
 import type { BrowserContext, Page } from '@playwright/test';
-import type { PageObjects } from '../page-objects';
+import type { PageObjects } from '../page-objects/index.ts';
 
 // `worldParameters` in cucumber.mjs
 type WorldParams = { SERVER_URL: string };

@@ -2,10 +2,6 @@
 # minimumReleaseAge keeps its default: versions younger than one day are not
 # installed. renovate.json waits the same time before proposing them.
 
-# Dependencies allowed to run install scripts
-allowBuilds:
-  esbuild: true
-
 # The semantic-release plugins load the preset named in .releaserc from their
 # own folder, where pnpm would otherwise find the copy commitlint brings. The
 # release notes writer (v8) renders only preset v9: remove this block once

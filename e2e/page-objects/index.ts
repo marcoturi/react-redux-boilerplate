@@ -1,6 +1,6 @@
 import type { Page } from '@playwright/test';
-import { appPo } from './app.po';
-import { subscriptionPo } from './subscription.po';
+import { appPo } from './app.po.ts';
+import { subscriptionPo } from './subscription.po.ts';
 
 export const createPageObjects = (page: Page) => ({
   appPo: appPo(page),

@@ -1,6 +1,6 @@
 import { Given, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
-import type { CustomWorld } from '../support/custom-world';
+import type { CustomWorld } from '../support/custom-world.ts';
 
 Given<CustomWorld>('user open the app', async function () {
   await this.page.goto(this.parameters.SERVER_URL);
