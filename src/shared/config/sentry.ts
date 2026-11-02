@@ -13,7 +13,6 @@ Sentry.init({
   release: env.VERSION,
   environment: env.MODE,
   tracesSampleRate: 0.1,
-  attachStacktrace: true,
   // Page load and navigation spans named after the route pattern; the router
   // is created with Sentry.wrapCreateBrowserRouter (src/routes/index.tsx)
   integrations: [reactRouterBrowserTracingIntegration()],
