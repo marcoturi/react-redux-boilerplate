@@ -6,6 +6,8 @@
 # same time before proposing them.
 minimumReleaseAge: 1440
 
+engineStrict: true
+
 # Fail when a version is published with less trust evidence (provenance,
 # trusted publisher) than an earlier one: a sign of a hijacked package.
 # semver@6.3.1 predates provenance.
