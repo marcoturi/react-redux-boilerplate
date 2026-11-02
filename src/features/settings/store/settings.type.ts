@@ -21,7 +21,6 @@ export function isFiltersSetting(value: unknown): value is FiltersSetting {
     typeof value === 'object' &&
     value !== null &&
     'filterSubscriptionsBy' in value &&
-    typeof value.filterSubscriptionsBy === 'string' &&
     isSubscriptionFilter(value.filterSubscriptionsBy)
   );
 }

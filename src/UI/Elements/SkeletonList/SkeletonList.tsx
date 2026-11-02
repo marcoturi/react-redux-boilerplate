@@ -1,12 +1,8 @@
-import { cn } from 'cn';
 import { Skeleton } from '@/UI/Base/skeleton';
 
-export function SkeletonCard({
-  className,
-  ...props
-}: React.ComponentProps<'div'>) {
+function SkeletonCard() {
   return (
-    <div className={cn('flex items-center gap-4', className)} {...props}>
+    <div className="flex items-center gap-4 py-5">
       <Skeleton className="size-12 rounded-full" />
       <div className="flex flex-col gap-2">
         <Skeleton className="h-4 w-62.5" />
@@ -20,9 +16,9 @@ export function SkeletonList(props: React.ComponentProps<'div'>) {
   return (
     <div role="status" {...props}>
       <span className="sr-only">Loading…</span>
-      <SkeletonCard className="py-5" />
-      <SkeletonCard className="py-5" />
-      <SkeletonCard className="py-5" />
+      <SkeletonCard />
+      <SkeletonCard />
+      <SkeletonCard />
     </div>
   );
 }

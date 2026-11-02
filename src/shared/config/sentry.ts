@@ -1,5 +1,4 @@
 import * as Sentry from '@sentry/react';
-import { useEffect } from 'react';
 import {
   createRoutesFromChildren,
   matchRoutes,
@@ -22,7 +21,6 @@ Sentry.init({
   // is created with Sentry.wrapCreateBrowserRouter (src/routes/index.tsx)
   integrations: [
     Sentry.reactRouterBrowserTracingIntegration({
-      useEffect,
       useLocation,
       useNavigationType,
       createRoutesFromChildren,

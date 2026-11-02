@@ -12,7 +12,3 @@ interface ImportMetaEnv {
   readonly VITE_API_MOCKING?: string;
   readonly VITE_SENTRY_DSN?: string;
 }
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}

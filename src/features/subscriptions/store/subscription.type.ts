@@ -25,12 +25,12 @@ export interface Subscription {
   description: string;
 }
 
-const subscriptionFilterValues: ReadonlySet<string> = new Set(
+const subscriptionFilterValues: ReadonlySet<unknown> = new Set(
   Object.values(SubscriptionFilters),
 );
 
 export function isSubscriptionFilter(
-  value: string,
+  value: unknown,
 ): value is SubscriptionFilters {
   return subscriptionFilterValues.has(value);
 }

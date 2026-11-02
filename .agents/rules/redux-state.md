@@ -20,7 +20,7 @@ Redux Toolkit ships official agent skills in `node_modules/@reduxjs/toolkit/skil
   - `<feature>.thunk.ts`: thunks for logic that is not server data
   - `<feature>.effect.ts`: listeners registered with `startAppListening`
   - `<feature>.type.ts`: feature types and their type guards
-  - `index.ts`: barrel exporting namespaces (`export * as SettingsSelectors from './settings.selector'`, `SubscriptionApi`) and, when the feature has thunks, an actions object that joins them to the slice actions (`const SettingsActions = { ...settingsSlice.actions, loadState }`)
+  - `index.ts`: barrel exporting namespaces (`export * as SettingsSelectors from './settings.selector'`, `SubscriptionApi`) and, when the feature has thunks, an actions object that joins them to the slice actions (`export const SettingsActions = { ...settingsSlice.actions, loadState }`)
 - Register a new slice by adding it to `combineSlices` in `src/shared/store/index.ts`, and import its effect file there.
 - Keep store code independent of components: types used by slices or selectors live in `store/`, never in `components/`.
 
