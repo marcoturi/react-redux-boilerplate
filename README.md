@@ -9,7 +9,7 @@ A production-ready, batteries-included starter template for building long-lived 
 - **Release automation** -- [Semantic-release](#release-system) for hands-off versioning, changelogs, and tags.
 - **Code quality** -- [Biome](#format-and-style) for blazing-fast linting and formatting in a single tool.
 - **UI system** -- [Radix + shadcn/ui + Tailwind CSS 4](#ui-components-and-style-system) for accessible, headless, minimal-dependency components.
-- **Testing** -- [Vitest + Testing Library](#testing) for unit and component tests (browser mode), [Cucumber + Playwright](#testing) for E2E.
+- **Testing** -- [Vitest + Testing Library](#testing) for unit tests (Node) and component tests (browser mode), [Cucumber + Playwright](#testing) for E2E.
 - **Error tracking** -- [Sentry](#error-handling-and-analytics) with Redux state replay for production debugging.
 
 ## Features
@@ -17,7 +17,7 @@ A production-ready, batteries-included starter template for building long-lived 
 | Category                 | Stack                                                                                                                                                                                                                                                                     |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Build                    | [Vite 8](https://vite.dev/) + [React 19](https://react.dev/) + [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react) + [React Compiler](https://react.dev/learn/react-compiler) + [pnpm](https://pnpm.io/) + [TypeScript 7](https://www.typescriptlang.org) |
-| State                    | [Redux Toolkit 2](https://redux-toolkit.js.org/) (includes RTK Query, Immer, Reselect)                                                                                                                                                                                    |
+| State                    | [Redux Toolkit 2](https://redux.js.org/toolkit/) (includes RTK Query, Immer, Reselect)                                                                                                                                                                                    |
 | UI                       | [Radix](https://www.radix-ui.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Tailwind CSS 4](https://tailwindcss.com/)                                                                                                                                                     |
 | Linting & formatting     | [Biome](https://biomejs.dev/)                                                                                                                                                                                                                                             |
 | Release                  | [Husky](https://github.com/typicode/husky) + [Commitlint](https://commitlint.js.org/) + [Semantic-release](https://github.com/semantic-release/semantic-release)                                                                                                          |
@@ -35,7 +35,7 @@ A production-ready, batteries-included starter template for building long-lived 
 | Requirement | Version | Notes                                                                                                                        |
 | ----------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | Node.js     | 26.x    | Defined in `.nvmrc`. Use [fnm](https://github.com/Schniz/fnm) or [nvm](https://github.com/nvm-sh/nvm): `fnm use` / `nvm use` |
-| pnpm        | 12.x    | Pinned in `packageManager`: Node 26 no longer bundles Corepack, run `npm i -g corepack && corepack enable`                   |
+| pnpm        | 12.x    | Pinned in `packageManager`: install pnpm with `npm i -g pnpm`, and it switches to that version by itself                     |
 
 ### Quick start
 
@@ -47,17 +47,20 @@ git init           # Husky installs the Git hooks only in a repository
 pnpm install       # Install dependencies
 pnpm create:env    # Create .env from .env.example
 pnpm dev           # Start dev server at http://localhost:5173
+
+# Chromium for the component tests, the E2E tests and the pre-commit hook
+pnpm exec playwright install chromium
 ```
 
-degit also copies the boilerplate's release history: delete `CHANGELOG.md` and set `name`, `description` and `author` in `package.json`.
+degit also copies the boilerplate's release history and names: delete `CHANGELOG.md`, set `name`, `description` and `author` in `package.json` and `version` to `0.0.0` (Sentry reports it as the release until semantic-release sets the first one), and change the title in `index.html` and `src/UI/Layout/Header/Logo.tsx`.
 
 ### Environment variables
 
 | Variable           | Required | Description                                                                              |
 | ------------------ | -------- | ---------------------------------------------------------------------------------------- |
-| `VITE_API_URL`     | Yes      | Base URL of the API, also needed by `pnpm build`                                         |
+| `VITE_API_URL`     | Yes      | Base URL of the API, inlined by `pnpm build`: without it the built app stops at startup  |
 | `VITE_API_MOCKING` | No       | `true` serves the API from the MSW handlers on the dev server; keep it for the E2E tests |
-| `VITE_SENTRY_DSN`  | No       | Sentry DSN: only production builds report, and only when it is set                       |
+| `VITE_SENTRY_DSN`  | No       | Sentry DSN: only builds report, and only when it is set                                  |
 
 ### Commands
 
@@ -252,7 +255,7 @@ Configuration lives in [`biome.json`](./biome.json). The pre-commit hook runs `b
 - **In development** -- Redux DevTools shows every state transition in real time.
 - **In production** -- Sentry captures the full sequence of dispatched Redux actions leading up to an error, plus the application state at the moment of the crash.
 
-Sentry reports only from production builds with `VITE_SENTRY_DSN` set; it stays off on the dev server, in tests and when the DSN is empty.
+Sentry reports only from builds (`pnpm build`, in any `--mode`, which becomes the Sentry environment) with `VITE_SENTRY_DSN` set; it stays off on the dev server, in tests and when the DSN is empty.
 
 For readable stack traces, run `pnpm build` with `SENTRY_AUTH_TOKEN`, `SENTRY_ORG` and `SENTRY_PROJECT` set: the [Sentry Vite plugin](https://docs.sentry.io/platforms/javascript/guides/react/sourcemaps/uploading/vite/) uploads the source maps and then deletes them from `dist/`. Without the token the build has no source maps.
 
@@ -275,7 +278,7 @@ These are not included in the boilerplate but are recommended additions dependin
 
 Contributions are welcome! To get started:
 
-1. Clone the repo and install dependencies (`pnpm install`)
+1. Clone the repo and run the Quick start commands from `pnpm install` on
 2. Create a branch: `git checkout -b feat/your-feature`
 3. Make your changes
 4. Verify: `pnpm check` (lint, format, types), `pnpm test` and `pnpm build`, plus `pnpm e2e:local` when routes or user flows change
