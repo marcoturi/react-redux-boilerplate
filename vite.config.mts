@@ -53,11 +53,11 @@ export default defineConfig({
       output: {
         codeSplitting: {
           groups: [
-            // React, React DOM, React Router, React Redux and
-            // react-error-boundary, with their dependencies
+            // React, React DOM, React Router and React Redux, with their
+            // dependencies
             {
               name: 'vendor-react',
-              test: /[\\/]node_modules[\\/](react|react-dom|react-router[^\\/]*|react-redux|react-error-boundary)[\\/]/,
+              test: /[\\/]node_modules[\\/](react|react-dom|react-router[^\\/]*|react-redux)[\\/]/,
             },
             // Redux Toolkit (includes RTK Query, immer, reselect)
             {

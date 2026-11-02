@@ -20,7 +20,7 @@ Production-ready React 19 SPA boilerplate with vertical slice architecture: Reac
 ```
 src/
 ├── main.tsx           → Entry point: MSW in development, settings restore, chunk reload guard, router creation, React root with Sentry error handlers
-├── AppProvider.tsx    → Providers: Redux, last-resort ErrorBoundary, RouterProvider
+├── AppProvider.tsx    → Providers: Redux, RouterProvider and its error reporting
 ├── assets/            → Static files imported by the app or index.html (images/logo.svg)
 ├── routes/            → Data router: layout, layout and page ErrorBoundary, loaders and lazy routes (index.tsx), pages (<Name>/<Name>Page.tsx)
 ├── features/          → Feature slices: <feature>/store/ and <feature>/components/

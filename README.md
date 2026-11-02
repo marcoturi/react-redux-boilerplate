@@ -85,7 +85,7 @@ degit also copies the boilerplate's release history: delete `CHANGELOG.md` and s
 ```
 src/
 ├── main.tsx                  → App entry point
-├── AppProvider.tsx            → Providers (Redux, ErrorBoundary, RouterProvider)
+├── AppProvider.tsx           → Providers (Redux, RouterProvider)
 ├── assets/                   → Static files (images, fonts, etc.)
 ├── routes/                   → Data router (client-side SPA, no SSR) + page components
 │   ├── index.tsx             → Route tree: layout, layout and page ErrorBoundary, loaders, lazy pages
@@ -197,11 +197,11 @@ pnpm e2e:local
 
 Production builds put the libraries needed at startup in vendor chunks, which change rarely and stay cached:
 
-| Chunk           | Contents                                                          |
-| --------------- | ----------------------------------------------------------------- |
-| `vendor-react`  | React, React DOM, React Router, React Redux, react-error-boundary |
-| `vendor-redux`  | Redux Toolkit (RTK Query, Immer, Reselect)                        |
-| `vendor-sentry` | Sentry SDK (session replay loads later from the Sentry CDN)       |
+| Chunk           | Contents                                                    |
+| --------------- | ----------------------------------------------------------- |
+| `vendor-react`  | React, React DOM, React Router, React Redux                 |
+| `vendor-redux`  | Redux Toolkit (RTK Query, Immer, Reselect)                  |
+| `vendor-sentry` | Sentry SDK (session replay loads later from the Sentry CDN) |
 
 Routes are **lazy-loaded** through the route `lazy` property of the React Router data router, and each route `loader` starts the page's API request while the page code downloads, so code and data load in parallel. UI libraries (Radix, Lucide icons, CVA) have no vendor chunk: each route loads only the components it uses.
 
