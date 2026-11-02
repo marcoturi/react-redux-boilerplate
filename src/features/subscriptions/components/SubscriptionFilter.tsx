@@ -36,7 +36,7 @@ export function SubscriptionFilter() {
     <div className="flex items-center gap-2">
       <Label htmlFor={id}>Type</Label>
       <Select value={filter} onValueChange={onValueChange}>
-        <SelectTrigger className="w-45" data-testid="filter-trigger" id={id}>
+        <SelectTrigger className="w-45" id={id}>
           <SelectValue />
         </SelectTrigger>
         <SelectContent>

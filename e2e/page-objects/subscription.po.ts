@@ -1,7 +1,7 @@
 import type { Page } from '@playwright/test';
 
 export function subscriptionPo(page: Page) {
-  const filterTrigger = page.getByTestId('filter-trigger');
+  const filterTrigger = page.getByRole('combobox', { name: 'Type' });
 
   return {
     subscriptionLink: page
