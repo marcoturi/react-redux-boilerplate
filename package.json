@@ -22,9 +22,8 @@
     "type:check": "tsc -b",
     "check": "biome check && tsc -b",
     "check:fix": "biome check --write && tsc -b",
-    "check:ci": "biome ci --reporter=github && tsc -b",
-    "postinstall": "husky",
-    "update:interactive": "pnpm update --interactive --latest"
+    "check:ci": "biome ci && tsc -b",
+    "postinstall": "husky"
   },
   "engines": {
     "node": "^26.0.0",

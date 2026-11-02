@@ -61,22 +61,21 @@ degit also copies the boilerplate's release history: delete `CHANGELOG.md` and s
 
 ### Commands
 
-| Command                   | Description                                                   |
-| ------------------------- | ------------------------------------------------------------- |
-| `pnpm dev`                | Start development server with HMR                             |
-| `pnpm build`              | Type-check + production build (output in `dist/`)             |
-| `pnpm preview`            | Preview the production build locally                          |
-| `pnpm test`               | Run unit and component tests (Vitest, components in Chromium) |
-| `pnpm test:coverage`      | Run tests with V8 coverage and its thresholds                 |
-| `pnpm e2e:local`          | Run E2E tests (start dev server first in another terminal)    |
-| `pnpm e2e:debug`          | Run only `@only`-tagged E2E scenarios with `--fail-fast`      |
-| `pnpm check`              | Biome lint/format check + TypeScript type check               |
-| `pnpm check:fix`          | Auto-fix lint/format issues, then type check                  |
-| `pnpm check:ci`           | `pnpm check` for CI, with Biome annotations on pull requests  |
-| `pnpm format`             | Format all files with Biome                                   |
-| `pnpm lint`               | Lint all files with Biome (`pnpm lint:fix` applies fixes)     |
-| `pnpm type:check`         | TypeScript type check only (`tsc -b`)                         |
-| `pnpm update:interactive` | Update dependencies interactively                             |
+| Command              | Description                                                   |
+| -------------------- | ------------------------------------------------------------- |
+| `pnpm dev`           | Start development server with HMR                             |
+| `pnpm build`         | Type-check + production build (output in `dist/`)             |
+| `pnpm preview`       | Preview the production build locally                          |
+| `pnpm test`          | Run unit and component tests (Vitest, components in Chromium) |
+| `pnpm test:coverage` | Run tests with V8 coverage and its thresholds                 |
+| `pnpm e2e:local`     | Run E2E tests (start dev server first in another terminal)    |
+| `pnpm e2e:debug`     | Run only `@only`-tagged E2E scenarios with `--fail-fast`      |
+| `pnpm check`         | Biome lint/format check + TypeScript type check               |
+| `pnpm check:fix`     | Auto-fix lint/format issues, then type check                  |
+| `pnpm check:ci`      | `pnpm check` for CI, with Biome annotations on pull requests  |
+| `pnpm format`        | Format all files with Biome                                   |
+| `pnpm lint`          | Lint all files with Biome (`pnpm lint:fix` applies fixes)     |
+| `pnpm type:check`    | TypeScript type check only (`tsc -b`)                         |
 
 ## Folder Structure and Code Organization
 
