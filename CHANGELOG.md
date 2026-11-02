@@ -1,3 +1,21 @@
+## [1.7.60](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.59...v1.7.60) (2026-11-02)
+
+### Bug Fixes
+
+* **e2e:** default SERVER_URL in cucumber.mjs so e2e:local runs on Windows ([d2d0718](https://github.com/marcoturi/react-redux-boilerplate/commit/d2d0718da02d80898399e1e6de6b5934178af8d8))
+
+### Code Refactoring
+
+* **biome:** drop includes that .gitignore and the defaults cover ([7d4d5e9](https://github.com/marcoturi/react-redux-boilerplate/commit/7d4d5e9984a3198034497950e3eb1d3efacfbe80))
+* **config:** use the React Router entry of the Sentry SDK ([b534301](https://github.com/marcoturi/react-redux-boilerplate/commit/b5343012ee7940dbb6c6422b3997e50c76161238))
+* drop comments that repeat the agent rules ([126b73b](https://github.com/marcoturi/react-redux-boilerplate/commit/126b73ba3eeb3719b3c49e8c331a668a3d17594c))
+* use named exports for env, baseApi and LocalStorageService ([c7dd05e](https://github.com/marcoturi/react-redux-boilerplate/commit/c7dd05e911becaa67aadd77cade3b85cb2942527))
+* **vite:** drop the dev server watch exclusions ([f908f55](https://github.com/marcoturi/react-redux-boilerplate/commit/f908f55d704c2fd592612302270d7697477b0a94))
+
+### Documentation
+
+* **README:** document git init, the environment variables and the import style ([bf827f2](https://github.com/marcoturi/react-redux-boilerplate/commit/bf827f2798f2e31ed23984dbf0e61ac2fe79a6a5))
+
 ## [1.7.59](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.58...v1.7.59) (2026-11-02)
 
 ### Code Refactoring
