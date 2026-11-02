@@ -1,6 +1,4 @@
 name: Verify
-# Reusable checks, run by ci.yml on pull requests and by release.yml
-# before every release
 on:
   workflow_call:
 
@@ -27,11 +25,8 @@ jobs:
       - name: Copy env
         run: pnpm create:env
       - name: Check (Biome + types)
-        # Biome reports problems as annotations on the pull request
         run: pnpm check:ci
       - name: Install Playwright Chromium
-        # Component tests (Vitest browser mode) and e2e both run in it. Headless
-        # shell only: neither opens a window
         run: pnpm exec playwright install --with-deps --only-shell chromium
       - name: Unit and component tests with coverage thresholds
         run: pnpm test:coverage
@@ -40,10 +35,8 @@ jobs:
       - name: Run e2e tests
         run: |
           pnpm dev --port 5173 --strictPort &
-          # Start the scenarios only once the dev server answers
           timeout 60 bash -c 'until curl -sf http://localhost:5173 > /dev/null; do sleep 1; done'
           pnpm e2e
-      # Cucumber reports, and the Playwright traces of failed scenarios
       - uses: actions/upload-artifact@v7
         if: always()
         with:
