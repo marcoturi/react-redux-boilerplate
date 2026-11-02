@@ -1,3 +1,16 @@
+## [1.7.58](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.57...v1.7.58) (2026-11-02)
+
+### Bug Fixes
+
+* **deps:** enforce the one-day minimum release age ([38a2401](https://github.com/marcoturi/react-redux-boilerplate/commit/38a24016007c7ce3ea8a86e8edc7652065676932))
+
+### Code Refactoring
+
+* **config:** extend the root tsconfig in every project ([7941af2](https://github.com/marcoturi/react-redux-boilerplate/commit/7941af2d08c842e96b093296521206835e0511fe))
+* **lint:** drop the Biome entries that repeat the defaults ([7adb40b](https://github.com/marcoturi/react-redux-boilerplate/commit/7adb40ba3abf9f99500960966df1fc6d764af749))
+* **routes:** let the loader return nothing ([24364db](https://github.com/marcoturi/react-redux-boilerplate/commit/24364dbbfe3b4959ba495123c7b8eaf0f9c0e77c))
+* **test:** stop returning the router from renderRoutes ([ab51ad9](https://github.com/marcoturi/react-redux-boilerplate/commit/ab51ad9947c35c5ab099ea9371097caa70525c72))
+
 ## [1.7.57](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.56...v1.7.57) (2026-11-02)
 
 ### Bug Fixes
