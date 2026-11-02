@@ -81,7 +81,6 @@ export function createRoutes(store: AppStore) {
               path: 'subscriptions',
               loader: () => {
                 store.dispatch(SubscriptionApi.prefetchSubscriptions());
-                return null;
               },
               lazy: {
                 Component: page(
