@@ -1,3 +1,13 @@
+## [1.7.59](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.58...v1.7.59) (2026-11-02)
+
+### Code Refactoring
+
+* **biome:** drop options equal to the Biome defaults ([7b743a1](https://github.com/marcoturi/react-redux-boilerplate/commit/7b743a1e8aa3be7f3533d96be44e017d80e12ee0))
+* **config:** list the denied Sentry keys once ([b1600b9](https://github.com/marcoturi/react-redux-boilerplate/commit/b1600b905b13d36b7f411a546112d11370a47cbb))
+* drop comments that repeat the agent rules ([e92d06f](https://github.com/marcoturi/react-redux-boilerplate/commit/e92d06f7b369adb2fadf668541fc52964c20e558))
+* drop default options and an unused export ([43feba6](https://github.com/marcoturi/react-redux-boilerplate/commit/43feba6c8d64639f56a1d8650cbee3d7fc164c09))
+* **ts:** drop options equal to the TypeScript 7 defaults ([a149047](https://github.com/marcoturi/react-redux-boilerplate/commit/a1490472e99580dd98f23cd9de607cd0362223fb))
+
 ## [1.7.58](https://github.com/marcoturi/react-redux-boilerplate/compare/v1.7.57...v1.7.58) (2026-11-02)
 
 ### Bug Fixes
