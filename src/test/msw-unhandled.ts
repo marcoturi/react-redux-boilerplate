@@ -1,16 +1,9 @@
+import { HttpNetworkFrame } from 'msw/experimental';
+
 // Shared by both setup files. A request without a handler gets an error
 // response from MSW instead of reaching the network. A component may hide that
 // behind its error state, so the test fails as well.
 const unhandledRequests: string[] = [];
-
-function frameRequest(data: unknown) {
-  return typeof data === 'object' &&
-    data !== null &&
-    'request' in data &&
-    data.request instanceof Request
-    ? data.request
-    : undefined;
-}
 
 // The `onUnhandledFrame` callback (MSW 3 name of `onUnhandledRequest`). With a
 // callback, MSW sends the request to the network unless it throws: throwing
@@ -20,7 +13,8 @@ export function failUnhandledFrame({
 }: {
   frame: { protocol: string; data: unknown };
 }) {
-  const request = frameRequest(frame.data);
+  const request =
+    frame instanceof HttpNetworkFrame ? frame.data.request : undefined;
   // In the browser project the page also fetches its own modules (lazy routes)
   // from the Vitest server: let same-origin requests through. The API is on
   // another origin (VITE_API_URL).

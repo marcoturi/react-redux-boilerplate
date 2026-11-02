@@ -6,8 +6,10 @@ import { subscriptionApi } from '@/features/subscriptions/store/subscription.api
 import { SubscriptionFilters } from '@/features/subscriptions/store/subscription.type';
 import { worker } from '@/mocks/browser';
 import { subscriptionMockList } from '@/mocks/data/subscriptions';
-import { subscriptionsFailOnce } from '@/mocks/handlers/subscriptions';
-import env from '@/shared/config/env';
+import {
+  subscriptionsFailOnce,
+  subscriptionsUrl,
+} from '@/mocks/handlers/subscriptions';
 import { actAndFlush, renderWithProviders } from '@/test/render';
 import { readStoredSetting } from '@/test/storage';
 import SubscriptionsPage from './SubscriptionsPage';
@@ -45,7 +47,7 @@ describe('SubscriptionsPage', () => {
     worker.use(
       subscriptionsFailOnce(),
       http.get(
-        `${env.API_URL}/subscriptions`,
+        subscriptionsUrl,
         async () => {
           await responded;
           return HttpResponse.json(subscriptionMockList);

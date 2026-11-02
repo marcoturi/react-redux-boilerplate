@@ -3,7 +3,7 @@ import { subscriptionMockList } from '@/mocks/data/subscriptions';
 import env from '@/shared/config/env';
 import { serverErrorOnce } from './server-error';
 
-const subscriptionsUrl = `${env.API_URL}/subscriptions`;
+export const subscriptionsUrl = `${env.API_URL}/subscriptions`;
 
 export const subscriptionHandlers = [
   http.get(subscriptionsUrl, () => HttpResponse.json(subscriptionMockList)),
