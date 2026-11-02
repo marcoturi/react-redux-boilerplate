@@ -257,7 +257,7 @@ Configuration lives in [`biome.json`](./biome.json). The pre-commit hook runs `b
 
 Sentry reports only from builds (`pnpm build`, in any `--mode`, which becomes the Sentry environment) with `VITE_SENTRY_DSN` set; it stays off on the dev server, in tests and when the DSN is empty.
 
-For readable stack traces, run `pnpm build` with `SENTRY_AUTH_TOKEN`, `SENTRY_ORG` and `SENTRY_PROJECT` set: the [Sentry Vite plugin](https://docs.sentry.io/platforms/javascript/guides/react/sourcemaps/uploading/vite/) uploads the source maps and then deletes them from `dist/`. Without the token the build has no source maps.
+For readable stack traces, run `pnpm build` with `SENTRY_AUTH_TOKEN`, `SENTRY_ORG` and `SENTRY_PROJECT` set in the shell or the CI environment (not in `.env`: the Vite config reads `process.env`): the [Sentry Vite plugin](https://docs.sentry.io/platforms/javascript/guides/react/sourcemaps/uploading/vite/) uploads the source maps and then deletes them from `dist/`, and a failed upload fails the build. Without the token the build has no source maps.
 
 ![Sentry redux actions](https://github.com/marcoturi/react-redux-boilerplate/blob/main/doc/images/redux%20actions.png?raw=true)
 

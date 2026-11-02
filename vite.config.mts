@@ -38,6 +38,9 @@ export default defineConfig({
           release: { name: packageJson.version },
           sourcemaps: { filesToDeleteAfterUpload: ['./dist/**/*.map'] },
           telemetry: false,
+          errorHandler: (err) => {
+            throw err;
+          },
         })
       : []),
   ],
