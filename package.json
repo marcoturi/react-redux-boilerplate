@@ -12,7 +12,7 @@
     "preview": "vite preview",
     "build": "tsc -b && vite build",
     "e2e": "pnpm e2e:local --retry 1 --parallel 5",
-    "e2e:local": "SERVER_URL=http://localhost:5173 cucumber-js",
+    "e2e:local": "cucumber-js",
     "e2e:debug": "pnpm e2e:local --tags '@only' --fail-fast",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",

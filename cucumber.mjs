@@ -8,5 +8,7 @@ export default {
     'pretty',
   ],
   formatOptions: { snippetInterface: 'async-await' },
-  worldParameters: { SERVER_URL: process.env.SERVER_URL },
+  worldParameters: {
+    SERVER_URL: process.env.SERVER_URL ?? 'http://localhost:5173',
+  },
 };
