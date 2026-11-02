@@ -12,7 +12,6 @@ afterEach(() => {
 });
 
 afterAll(() => {
-  worker.stop();
   // A request sent after the last test's afterEach
   expectNoUnhandledRequests();
 });

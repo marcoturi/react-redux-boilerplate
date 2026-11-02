@@ -75,11 +75,9 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    clearMocks: true,
     restoreMocks: true,
     projects: [
       {
-        extends: true,
         test: {
           name: 'unit',
           include: ['src/**/*.spec.ts'],
@@ -89,7 +87,6 @@ export default defineConfig({
         },
       },
       {
-        extends: true,
         test: {
           name: 'browser',
           include: ['src/**/*.spec.tsx'],
