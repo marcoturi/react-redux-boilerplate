@@ -21,13 +21,6 @@ export default defineConfig({
   // Drops the Sentry SDK debug logger from the bundle: `debug: true` in
   // Sentry.init prints nothing while this is false
   define: { __SENTRY_DEBUG__: false },
-  server: {
-    watch: {
-      // E2E runs write here while the dev server is up: changes must not
-      // trigger full page reloads mid-test
-      ignored: ['**/reports/**', '**/traces/**', '**/screenshots/**'],
-    },
-  },
   build: {
     rolldownOptions: {
       output: {
