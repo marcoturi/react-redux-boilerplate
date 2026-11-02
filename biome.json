@@ -5,18 +5,11 @@
     "includes": ["**", "!!**/dist", "!!.agents", "!!.claude"]
   },
   "formatter": {
-    "enabled": true,
     "indentStyle": "space",
-    "indentWidth": 2,
-    "lineEnding": "lf",
-    "lineWidth": 80,
-    "useEditorconfig": true,
     "includes": ["**", "!**/package.json", "!**/CHANGELOG.md"]
   },
   "linter": {
-    "enabled": true,
     "rules": {
-      "preset": "recommended",
       "complexity": {
         "noForEach": "error",
         "useDateNow": "error",
@@ -67,11 +60,6 @@
   },
   "javascript": {
     "formatter": {
-      "jsxQuoteStyle": "double",
-      "quoteProperties": "asNeeded",
-      "trailingCommas": "all",
-      "semicolons": "always",
-      "arrowParentheses": "always",
       "quoteStyle": "single"
     }
   },
@@ -81,11 +69,6 @@
   "css": {
     "parser": {
       "tailwindDirectives": true
-    }
-  },
-  "html": {
-    "formatter": {
-      "selfCloseVoidElements": "always"
     }
   },
   "overrides": [
@@ -111,9 +94,5 @@
         }
       }
     }
-  ],
-  "assist": {
-    "enabled": true,
-    "actions": { "source": { "organizeImports": "on" } }
-  }
+  ]
 }
