@@ -163,7 +163,7 @@ Keep the files in `src/UI/Base/` close to upstream so they stay easy to update. 
 
 ### Unit and component tests
 
-Tests use **Vitest 5** with **Testing Library**. Test files live next to the code they test: `.spec.ts` files (store, selectors, helpers) run in **jsdom**, `.spec.tsx` files (components, pages, routes) run in a real **Chromium** through [Vitest browser mode](https://vitest.dev/guide/browser/). Install Chromium once with `pnpm exec playwright install chromium`.
+Tests use **Vitest 5** with **Testing Library**. Test files live next to the code they test: `.spec.ts` files (store, selectors, helpers) run in **Node**, `.spec.tsx` files (components, pages, routes) run in a real **Chromium** through [Vitest browser mode](https://vitest.dev/guide/browser/). Install Chromium once with `pnpm exec playwright install chromium`.
 
 API mocking uses **MSW**: the same request handlers in `src/mocks/handlers` power both development and tests, and a request without a handler fails the test. In development the `msw/vite` plugin serves the worker script straight from `node_modules`, so there is no `mockServiceWorker.js` to regenerate when MSW is upgraded, and neither the worker nor the mocks reach the production build.
 

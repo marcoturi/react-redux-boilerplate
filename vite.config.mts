@@ -63,7 +63,8 @@ export default defineConfig({
         test: {
           name: 'unit',
           include: ['src/**/*.spec.ts'],
-          environment: 'jsdom',
+          // Node's own localStorage, kept in memory
+          execArgv: ['--localstorage-file=:memory:'],
           setupFiles: ['./src/test/unit.setup.ts'],
         },
       },
