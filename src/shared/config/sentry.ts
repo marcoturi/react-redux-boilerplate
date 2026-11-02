@@ -1,10 +1,5 @@
 import * as Sentry from '@sentry/react';
-import {
-  createRoutesFromChildren,
-  matchRoutes,
-  useLocation,
-  useNavigationType,
-} from 'react-router';
+import { reactRouterBrowserTracingIntegration } from '@sentry/react/react-router';
 import env from './env';
 
 // Only builds report, and only with a DSN: not the dev server, not Vitest.
@@ -21,14 +16,7 @@ Sentry.init({
   attachStacktrace: true,
   // Page load and navigation spans named after the route pattern; the router
   // is created with Sentry.wrapCreateBrowserRouter (src/routes/index.tsx)
-  integrations: [
-    Sentry.reactRouterBrowserTracingIntegration({
-      useLocation,
-      useNavigationType,
-      createRoutesFromChildren,
-      matchRoutes,
-    }),
-  ],
+  integrations: [reactRouterBrowserTracingIntegration()],
   // Used by the replay integration, added below once loaded from the CDN
   replaysSessionSampleRate: 0.1,
   replaysOnErrorSampleRate: 1,
