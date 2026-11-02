@@ -19,13 +19,12 @@ paths:
   - `<entity>.effect.ts`: listeners registered with `startAppListening`
   - `<entity>.type.ts`: feature types and their type guards
   - `index.ts`: barrel exporting namespaces (`export * as SettingsSelectors from './settings.selector'`, `SubscriptionApi`) and, when the feature has thunks, an actions object that joins them to the slice actions (`export const SettingsActions = { ...settingsSlice.actions, loadState }`)
-- Register a new slice by adding it to `combineSlices` in `src/shared/store/index.ts`, and import its effect file there.
 - Keep store code independent of components: types used by slices or selectors live in `store/`, never in `components/`.
 
 ## Actions and reducers
 
 - Model actions as events, not setters (`subscriptionFilterChanged(filter)`): dispatch what happened plus the user input, and let the reducer compute the next state. Never read store state in a component to build a payload.
-- Keep reducers and selectors pure: no I/O, no `Date.now()` or random values, no localStorage.
+- No I/O, `Date.now()`, random values or localStorage in reducers and selectors.
 - Never spread or `Object.assign` external data into state: validate persisted or untrusted data (localStorage, external payloads) with a type guard, then assign the known fields.
 - Type thunks that need state or dispatch with `createAsyncThunk.withTypes<{ state: RootState; dispatch: AppDispatch }>()`.
 
@@ -50,4 +49,4 @@ paths:
 - Update the cache by hand only in a mutation's `onQueryStarted`, never from components: optimistic with `updateQueryData` and `patchResult.undo()` on failure (invalidate the tags instead when mutations can overlap), pessimistic by awaiting `queryFulfilled` and then calling `updateQueryData` or `upsertQueryData`. Handle streaming data in `onCacheEntryAdded`.
 - Skip conditional queries and selectors with `skipToken`, not `skip: true`. In `selectFromResult` return stable fallbacks (a module-level empty array) and never copy arrays.
 - Use `build.infiniteQuery` for paginated lists.
-- Do not change the app store setup to make a test pass (see `unit-tests.md`).
+- Do not change `setupStore` to make a test pass.

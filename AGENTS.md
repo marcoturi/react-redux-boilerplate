@@ -42,7 +42,7 @@ e2e/                   → Cucumber features, steps, page objects and support co
 - Components only display data from selectors and dispatch actions; they hold no business logic.
 - Business and domain logic lives in reducers and selectors, which stay pure.
 - Side effects go in RTK Query endpoints, thunks or listener middleware.
-- Each feature is self-contained. Other code imports its components through `components/index.ts`, its state through the exports of `store/index.ts` (namespaces such as `SettingsSelectors`, and the `SettingsActions` object), and its types and constants from `store/<entity>.type.ts` (the entity in the singular: `subscription.type.ts`). `src/shared/store/index.ts` also imports each feature's slice and effect file, to register them.
+- Each feature is self-contained. Other code imports its components through `components/index.ts`, its state through the exports of `store/index.ts` (namespaces such as `SettingsSelectors`, and the `SettingsActions` object), and its types and constants from `store/<entity>.type.ts`. `src/shared/store/index.ts` also imports each feature's slice and effect file, to register them.
 
 ## Rules
 
@@ -84,6 +84,6 @@ Before considering a task done:
 
 ## Boundaries
 
-- **Always**: run the validation checklist; read `VITE_*` variables through `src/shared/config/env.ts` (only `import.meta.env.DEV` stays inline where it gates development-only code); keep `src/UI/Base` managed by the shadcn CLI.
+- **Always**: run the validation checklist; read `VITE_*` variables through `src/shared/config/env.ts` (only `import.meta.env.DEV` stays inline where it gates development-only code).
 - **Ask first**: changes to `.github/workflows/`, `.releaserc`, `commitlint.config.cjs`, the `style` or `aliases` in `components.json`, Sentry data collection in `src/shared/config/sentry.ts`, new dependencies, new top-level folders.
 - **Never**: commit `.env` or secrets (the Sentry DSN and API URL come from `VITE_SENTRY_DSN` and `VITE_API_URL`); bump `version` or edit `CHANGELOG.md` by hand; commit generated output (`dist/`, `coverage/`, `reports/`, `traces/`, `screenshots/`); add ESLint or Prettier; skip hooks with `--no-verify`.

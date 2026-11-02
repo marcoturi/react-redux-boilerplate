@@ -15,4 +15,3 @@ paths:
 - Pages compose feature components inside `Container` (`@/UI/Elements/Container`) and contain no logic.
 - Set the page title by rendering one `<title>` in the page (React 19 hoists it to `<head>`) with a single string child (`` {`Results ${n}`} ``, not `Results {n}`); do not add react-helmet. Assert `document.title` in e2e when it matters.
 - Give the page root a `data-testid` when e2e tests need to find it (e.g. `home-page`).
-- Put the page spec next to it (`<Name>Page.spec.tsx`), rendered with `renderWithProviders`; use its `route` option for URL-dependent UI. Test the route tree, loaders included, with `renderRoutes(createRoutes, { route })` from `@/test/render`, as `src/routes/index.spec.tsx` does.
