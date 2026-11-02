@@ -8,7 +8,7 @@ paths:
 - Never write `any`: use `unknown` and narrow it, or a constrained generic. Biome `noExplicitAny` rejects explicit `any`, and `noImplicitAny` (from `strict`) rejects implicit ones in every project.
 - Annotate parameters that have no contextual type (callbacks passed around, selector inputs, helpers).
 - Catch errors as `unknown` and narrow them with `instanceof Error`.
-- Narrow external data (API responses, localStorage, Radix `onValueChange` strings) with a type guard (`value is T`), not with `as`.
+- Narrow external data (localStorage, Radix `onValueChange` strings) with a type guard (`value is T`), not with `as`.
 - Check object literals with `satisfies T`, not `as T`.
 - No `enum`, `namespace` or constructor parameter properties: `erasableSyntaxOnly` is on in every project, so each file is plain JavaScript once the types are stripped. Model a fixed set of values as an `as const` object plus a type of the same name that is the union of its values (`export const SubscriptionType = { … } as const; export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];`).
 - Derive types from values instead of repeating them: `typeof`, `keyof typeof`, `ReturnType`, `Awaited`, `Parameters`, `as const`.

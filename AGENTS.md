@@ -6,7 +6,7 @@ Production-ready React 19 SPA boilerplate with vertical slice architecture: Reac
 
 ## Commands
 
-- Node.js 26.x from `.nvmrc`: run `fnm use` or `nvm use` first. Package manager: pnpm 12, pinned in `packageManager` (Node 26 no longer bundles Corepack: `npm i -g corepack && corepack enable`).
+- Node.js 26.x from `.nvmrc`: run `fnm use` or `nvm use` first. Package manager: pnpm 12, pinned in `packageManager` (install it with `npm i -g pnpm`: it switches to the pinned version by itself).
 - Install: `pnpm install`. Create `.env` from `.env.example`: `pnpm create:env`.
 - Dev server: `pnpm dev` (http://localhost:5173).
 - Lint, format and types: `pnpm check`; auto-fix: `pnpm check:fix`; in CI `pnpm check:ci` (Biome annotations on the pull request). Only types: `pnpm type:check` (`tsc -b` over the app, its tests, the Vite config and e2e).

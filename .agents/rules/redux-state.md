@@ -44,7 +44,7 @@ paths:
 ## RTK Query
 
 - Fetch server data with RTK Query, never with thunks that call `fetch`. Keep one `createApi` per base URL, inject endpoints per feature with `baseApi.injectEndpoints`, and use hooks and utils only from the object it returns.
-- Give every endpoint its generics, `build.query<Result, Arg>`, with `void` when there is no argument.
+- Give every endpoint its generics, `build.query<Result, Arg>`, with `void` when there is no argument. The generics type the response without checking it: when the API is not trusted, validate it with the endpoint's `responseSchema` (a Standard Schema library, a new dependency), not with a type guard in `transformResponse`.
 - Do not pass `overrideExisting`: the default warns about duplicate endpoint names in development, while `'throw'` would also throw when Vite HMR re-runs an API module.
 - Declare `tagTypes` in `baseApi` together with the first mutation, and use `providesTags` and `invalidatesTags`; prefer re-fetching through tags to manual cache updates.
 - Update the cache by hand only in a mutation's `onQueryStarted`, never from components: optimistic with `updateQueryData` and `patchResult.undo()` on failure (invalidate the tags instead when mutations can overlap), pessimistic by awaiting `queryFulfilled` and then calling `updateQueryData` or `upsertQueryData`. Handle streaming data in `onCacheEntryAdded`.

@@ -28,8 +28,8 @@ paths:
 - The `msw/vite` plugin serves the MSW worker on the dev server only (`apply: 'serve'`): never add `mockServiceWorker.js` to `public/`. `initMocks` (`src/mocks/index.ts`) checks `import.meta.env.DEV` first, so the build drops MSW and the mock data: keep that check static.
 - Vite resolves the `@/` alias from the tsconfig `paths` (`resolve.tsconfigPaths`).
 - `tsconfig.app.json` checks the app without specs and `src/test/`; `tsconfig.test.json` checks them with the Vitest globals, so app code that uses `vi` or `expect` fails `tsc -b`. A new tsconfig project extends the root `tsconfig.json`, which holds the options the projects share (target, lint flags, `paths`), or `tsconfig.app.json` when its code runs in the app environment, as `tsconfig.test.json` does; it sets only what differs and goes in the root `references`, so that `tsc -b` checks it.
-- Biome: `pnpm lint` and `pnpm check` only report; `lint:fix` and `check:fix` write. Besides the recommended rules it turns on others (see `biome.json`), notably:
-  - `noExplicitAny` as an error (recommended rules only warn, and warnings do not fail `pnpm check`);
+- Biome: `pnpm lint` and `pnpm check` only report; `lint:fix` and `check:fix` write. Besides the recommended rules, `biome.json` turns on others and raises some recommended ones to error, notably:
+  - `noExplicitAny`, recommended only at warn level, and warnings do not fail `pnpm check`;
   - the Tailwind rules (see `ui-styling.md`), reading the theme from `tailwind.stylesheet`, and switched off for `src/UI/Base/**`.
 - Fix the code rather than adding `biome-ignore`; when an ignore is unavoidable, state the reason in it.
 - CI installs only Chromium's headless shell (`playwright install --with-deps --only-shell chromium`) before the tests: Vitest browser mode and the e2e scenarios both run in it, headless.
