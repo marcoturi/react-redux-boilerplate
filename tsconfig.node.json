@@ -8,21 +8,15 @@
 
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "types": ["node"],
-    /* Linting */
-    "strict": true,
+    /* Linting (strict and noUncheckedSideEffectImports are on by default in TS 7) */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
-    "noUncheckedSideEffectImports": true,
     "erasableSyntaxOnly": true
   },
   "include": ["vite.config.mts"]

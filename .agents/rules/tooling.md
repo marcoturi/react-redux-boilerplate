@@ -25,7 +25,7 @@ paths:
 - When adding a vendor dependency, check the chunk groups in `build.rolldownOptions.output.codeSplitting.groups` (`vite.config.mts`); groups match in order and the first match wins. A group gathers every matching module and loads it with the first page: add one only for code needed at startup (React, Redux, Sentry), never for UI libraries that some routes use (Radix, lucide).
 - The build uses Vite's default target (`baseline-widely-available`); keep `target` and `lib` of `tsconfig.app.json` within it (ES2022, ES2023 lib).
 - The `msw/vite` plugin serves the MSW worker on the dev server only (`apply: 'serve'`): never add `mockServiceWorker.js` to `public/`. `initMocks` (`src/mocks/index.ts`) checks `import.meta.env.DEV` first, so the build drops MSW and the mock data: keep that check static, and never import `src/mocks/` or `src/test/` from app code other than that call in `main.tsx`.
-- Vite resolves the `@/` alias from the tsconfig `paths` (`resolve.tsconfigPaths`); keep the `paths` of the root `tsconfig.json`, `tsconfig.app.json` and `tsconfig.node.json` in sync.
+- Vite resolves the `@/` alias from the tsconfig `paths` (`resolve.tsconfigPaths`); keep the `paths` of the root `tsconfig.json` and `tsconfig.app.json` in sync.
 - Add every new tsconfig project to `references` in the root `tsconfig.json`, so that `tsc -b` checks it.
 - Biome is the only linter and formatter: do not add ESLint or Prettier. `pnpm lint` and `pnpm check` only report; `lint:fix` and `check:fix` write. Besides the recommended rules it enforces:
   - `useExhaustiveDependencies` as an error, with `useAppDispatch` marked as stable;
