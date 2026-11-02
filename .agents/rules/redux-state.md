@@ -6,7 +6,7 @@ paths:
 
 # Redux state (Redux Toolkit 2 and RTK Query)
 
-Redux Toolkit ships official agent skills in `node_modules/@reduxjs/toolkit/skills/` (state ownership, slices and selectors, RTK Query, side effects, debugging). Read the matching skill for cases this rule does not cover; where they disagree, this rule wins.
+Redux Toolkit ships official agent skills in `node_modules/@reduxjs/toolkit/skills/` (state ownership, slices and selectors, RTK Query, side effects, debugging). Read the matching skill for cases this rule does not cover.
 
 ## Store layout
 
