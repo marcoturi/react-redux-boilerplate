@@ -6,7 +6,7 @@ paths:
 
 # shadcn/ui components (`src/UI/Base`)
 
-`src/UI/Base/` holds the shadcn/ui components (style `radix-vega`, Radix primitives from `radix-ui`, icons from `lucide-react`). The shadcn CLI 4.23 manages them; it is a devDependency, run as `pnpm exec shadcn`. The CLI fetches component code live from the registry, so pinning the CLI does not pin the components.
+`src/UI/Base/` holds the shadcn/ui components (style `radix-vega`, Radix primitives from `radix-ui`, icons from `lucide-react`). The shadcn CLI 4 manages them; it is a devDependency, run as `pnpm exec shadcn`. The CLI fetches component code live from the registry, so pinning the CLI does not pin the components.
 
 The official shadcn agent skill (`skills/shadcn` in github.com/shadcn-ui/ui, installable with `pnpm dlx skills add shadcn/ui`) covers the CLI and the component APIs in depth. Where it disagrees with this rule, this rule wins; in particular, use `pnpm exec shadcn`, never `shadcn@latest`.
 

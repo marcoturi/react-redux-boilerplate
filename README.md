@@ -77,7 +77,7 @@ src/
 ├── AppProvider.tsx            → Providers (Redux, ErrorBoundary, RouterProvider)
 ├── assets/                   → Static files (images, fonts, etc.)
 ├── routes/                   → Data router (client-side SPA, no SSR) + page components
-│   ├── index.tsx             → Route tree: layout, page ErrorBoundary, loaders, lazy pages
+│   ├── index.tsx             → Route tree: layout, layout and page ErrorBoundary, loaders, lazy pages
 │   ├── Home/
 │   ├── Subscriptions/
 │   └── NotFound/
@@ -217,7 +217,7 @@ No manual version bumps. No manual changelog edits.
 ### Why Conventional Commits?
 
 - **Automated changelogs** -- Commit messages drive what goes into `CHANGELOG.md`.
-- **Semantic versioning** -- `feat` = minor; `fix`, `perf`, `refactor`, `style` and `docs(README)` = patch; a `!` after the type (`feat!:`) or a `BREAKING CHANGE` footer = major.
+- **Semantic versioning** -- `feat` = minor; `fix`, `perf`, `revert`, `refactor`, `style` and `docs(README)` = patch; a `!` after the type (`feat!:`) or a `BREAKING CHANGE` footer = major.
 - **Readable history** -- Anyone can scan `git log` and understand the nature of each change at a glance.
 
 ## Format and Style

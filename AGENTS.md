@@ -22,7 +22,7 @@ src/
 ├── main.tsx           → Entry point: MSW in development, settings restore, chunk reload guard, router creation, React root with Sentry error handlers
 ├── AppProvider.tsx    → Providers: Redux, last-resort ErrorBoundary, RouterProvider
 ├── assets/            → Static files imported by the app or index.html (images/logo.svg)
-├── routes/            → Data router: layout, page ErrorBoundary, loaders and lazy routes (index.tsx), pages (<Name>/<Name>Page.tsx)
+├── routes/            → Data router: layout, layout and page ErrorBoundary, loaders and lazy routes (index.tsx), pages (<Name>/<Name>Page.tsx)
 ├── features/          → Feature slices: <feature>/store/ and <feature>/components/
 ├── shared/
 │   ├── config/        → Environment values (env.ts, typed in src/vite-env.d.ts) and Sentry setup
@@ -80,7 +80,7 @@ Before considering a task done:
 
 - Commits follow [Conventional Commits](https://www.conventionalcommits.org/), `type(scope): description`, enforced by commitlint. Types: `feat`, `fix`, `chore`, `docs`, `refactor`, `style`, `test`, `perf`, `ci`, `build`, `revert`.
 - Husky hooks: pre-commit runs `pnpm biome check --staged` and `pnpm test`; commit-msg runs commitlint.
-- Pull requests to `main` run `.github/workflows/ci.yml`. Every push to `main` runs `.github/workflows/release.yml`. Both run the checks in `verify.yml` (check, unit and component tests with coverage thresholds, build, e2e). Then the release runs semantic-release, which bumps the version, writes `CHANGELOG.md` and publishes a GitHub release. `fix`, `perf`, `refactor`, `style` and `docs(README)` commits produce a patch release, `feat` a minor one, and a `!` after the type (`feat!:`) or a `BREAKING CHANGE` footer a major one.
+- Pull requests to `main` run `.github/workflows/ci.yml`. Every push to `main` runs `.github/workflows/release.yml`. Both run the checks in `verify.yml` (check, unit and component tests with coverage thresholds, build, e2e). Then the release runs semantic-release, which bumps the version, writes `CHANGELOG.md` and publishes a GitHub release. `fix`, `perf`, `revert`, `refactor`, `style` and `docs(README)` commits produce a patch release, `feat` a minor one, and a `!` after the type (`feat!:`) or a `BREAKING CHANGE` footer a major one.
 
 ## Boundaries
 
