@@ -5,7 +5,7 @@ import { serverErrorOnce } from './server-error';
 
 export const subscriptionsUrl = `${env.API_URL}/subscriptions`;
 
-export const subscriptionHandlers = [
+export const subscriptionsHandlers = [
   http.get(subscriptionsUrl, () => HttpResponse.json(subscriptionMockList)),
 ];
 

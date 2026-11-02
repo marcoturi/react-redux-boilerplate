@@ -3,7 +3,7 @@ import { worker } from '@/mocks/browser';
 import { usersFailOnce } from '@/mocks/handlers/users';
 import { actAndFlush, renderWithProviders } from '@/test/render';
 import { userApi } from '../store/user.api';
-import { UserWidget } from './UserWidget';
+import { UserWidget } from '.';
 
 describe('UserWidget', () => {
   test('Should display the user name', async () => {
