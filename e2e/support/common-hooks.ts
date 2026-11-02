@@ -37,7 +37,6 @@ Before<CustomWorld>(async function () {
   if (!browser) throw new Error('The browser did not start');
   // https://playwright.dev/docs/api/class-browser#browser-new-context
   this.context = await browser.newContext({
-    acceptDownloads: true,
     recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
     viewport: { width: 1200, height: 800 },
   });

@@ -1,4 +1,4 @@
-const config = {
+export default {
   // Node strips the types and runs the steps: `tsc -b` (pnpm check) checks them
   import: ['e2e/**/*.ts'],
   paths: ['e2e/**/*.feature'],
@@ -11,5 +11,3 @@ const config = {
   formatOptions: { snippetInterface: 'async-await' },
   worldParameters: { SERVER_URL: process.env.SERVER_URL },
 };
-
-export default config;

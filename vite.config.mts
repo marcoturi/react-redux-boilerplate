@@ -102,7 +102,6 @@ export default defineConfig({
       },
     ],
     coverage: {
-      provider: 'v8',
       reporter: ['text', 'html'],
       include: ['src/**/*.{ts,tsx}'],
       // Leave out only entry points, mocks, test helpers and the shadcn components
