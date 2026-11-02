@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import { worker } from '@/mocks/browser';
 import { usersFailOnce } from '@/mocks/handlers/users';
 import { actAndFlush, renderWithProviders } from '@/test/render';
@@ -15,7 +15,7 @@ describe('UserWidget', () => {
     worker.use(usersFailOnce());
     const { container, store } = renderWithProviders(<UserWidget />);
 
-    await vi.waitFor(() =>
+    await waitFor(() =>
       expect(userApi.endpoints.getUser.select()(store.getState()).isError).toBe(
         true,
       ),
