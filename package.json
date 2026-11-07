@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.29.13",
-    "@biomejs/biome": "2.6.5",
+    "@biomejs/biome": "2.6.6",
     "@commitlint/cli": "21.2.4",
     "@commitlint/config-conventional": "21.2.4",
     "@cucumber/cucumber": "13.3.0",
