@@ -33,7 +33,7 @@
     "@reduxjs/toolkit": "2.14.0",
     "@sentry/react": "11.11.0",
     "class-variance-authority": "0.7.1",
-    "cn": "0.5.1",
+    "cn": "0.5.2",
     "lucide-react": "1.70.0",
     "radix-ui": "1.8.1",
     "react": "19.3.1",
