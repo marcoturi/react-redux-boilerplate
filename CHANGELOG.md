@@ -1,3 +1,9 @@
+## [2.0.16](https://github.com/marcoturi/react-redux-boilerplate/compare/v2.0.15...v2.0.16) (2026-11-28)
+
+### Bug Fixes
+
+* **deps:** update dependency react-router to v8.5.3 ([#1530](https://github.com/marcoturi/react-redux-boilerplate/issues/1530)) ([bb4ab84](https://github.com/marcoturi/react-redux-boilerplate/commit/bb4ab84b3d0e4bd4876142c86cd1b1b760801ccb))
+
 ## [2.0.15](https://github.com/marcoturi/react-redux-boilerplate/compare/v2.0.14...v2.0.15) (2026-11-25)
 
 ### Bug Fixes
