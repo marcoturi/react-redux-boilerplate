@@ -1,3 +1,9 @@
+## [2.0.18](https://github.com/marcoturi/react-redux-boilerplate/compare/v2.0.17...v2.0.18) (2026-11-28)
+
+### Bug Fixes
+
+* **deps:** update sentry-javascript monorepo to v11.19.0 ([#1533](https://github.com/marcoturi/react-redux-boilerplate/issues/1533)) ([b8fde5f](https://github.com/marcoturi/react-redux-boilerplate/commit/b8fde5f6d8b28425b84ef10be4d6e247e6b7b682))
+
 ## [2.0.17](https://github.com/marcoturi/react-redux-boilerplate/compare/v2.0.16...v2.0.17) (2026-11-28)
 
 ### Bug Fixes
